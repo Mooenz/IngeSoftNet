@@ -1,46 +1,38 @@
-# Astro Starter Kit: Basics
+# **Sitio Web de IngeSoftNet**
 
-```sh
-npm create astro@latest -- --template basics
-```
+Este es el sitio Web oficial para la empresa IngeSoftNet, y en este README se proporciona información sobre la estructura del proyecto y las tecnologías utilizadas. Si encuentras un error, por favor repórtalo y lo evaluaremos.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Tabla de contenido
 
-## 🚀 Project Structure
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Tecnologías Utilizadas](#tecnologías-utilizadas)
+- [Vista previa](#vista-previa)
+- [Contacto](#contacto)
 
-Inside of your Astro project, you'll see the following folders and files:
+## **Estructura del Proyecto**
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+El proyecto está organizado en varias carpetas y archivos, cada uno con un propósito específico:
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- **src/**: Contiene el código fuente de la aplicación.
+  - **components/**: Componentes reutilizables de la interfaz de usuario.
+  - **constants/**: Constantes y configuraciones utilizadas en toda la aplicación.
+  - **pages/**: Páginas de la aplicación.
+  - **styles/**: Archivos de estilo CSS.
 
-## 🧞 Commands
+## **Tecnologías Utilizadas**
 
-All commands are run from the root of the project, from a terminal:
+El sitio Web de IngeSoftNet utiliza las siguientes tecnologías:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- **Astro**: Un generador de sitios estáticos que permite crear páginas rápidas y optimizadas.
+- **Tailwind CSS**: Un framework de CSS que facilita la creación de diseños responsivos y personalizables.
+- **JavaScript**: Lenguaje de programación utilizado para la interactividad en el sitio Web.
 
-## 👀 Want to learn more?
+## **Vista previa**
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Puedes ir al sitio Web de IngeSoftNet en [IngeSoftNet.com](https://ingesoftnet.com/).
+
+## **Contacto**
+
+- Website [mooenz.me](https://www.mooenz.me/)
+- GitHub [@mooenz](https://github.com/Mooenz)
+- Twitter [@mooenzdev](https://twitter.com/MooenzDev)

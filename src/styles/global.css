@@ -1,6 +1,31 @@
 @import 'tailwindcss';
+@import './rounded-regular.css';
+@import './rounded-thin.css';
+
+/* Colores personalizados Tailwind*/
+@theme {
+	--color-primary: #0191da;
+	--color-primary-dark: #0074ae;
+	--color-secondary: #cce9f7;
+	--color-secondary-dark: #99d1f5;
+	--color-accent: #f39c12;
+	--color-accent-dark: #c27c0e;
+	--color-bg: #d8d7e3;
+	--color-text: #002b41;
+}
 
 html,
 body {
-	font-family: poppins, 'serif';
+	color: var(--color-text);
+	text-wrap: pretty;
+	font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.fi {
+	display: flex;
+	align-items: center;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+	text-wrap: balance;
 }

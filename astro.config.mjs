@@ -1,11 +1,18 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import path from 'node:path';
 
-// https://astro.build/config
 export default defineConfig({
-	site: 'https://Mooenz.github.io',
-	vite: {
-		plugins: [tailwindcss()],
-	},
+  site: 'https://Mooenz.github.io',
+  vite: {
+    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '@assets': path.resolve('./src/assets'),
+        '@components': path.resolve('./src/components'),
+        '@styles': path.resolve('./src/styles'),
+      },
+    },
+  },
 });

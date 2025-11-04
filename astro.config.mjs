@@ -5,6 +5,7 @@ import path from 'node:path';
 
 export default defineConfig({
 	site: 'https://Mooenz.github.io',
+	base: '/IngeSoftNet/',
 	vite: {
 		optimizeDeps: {
 			include: ['plyr'],

@@ -1,0 +1,24 @@
+---
+import GeneralSection from '@components/GeneralSection.astro';
+import GeneralContainer from '@components/GeneralContainer.astro';
+import Sello_Bosque_Nagal from '@assets/Sello_Bosque_Nagal.png';
+import { Image } from 'astro:assets';
+import imageBackground from '@assets/bg-responsabilidad.png';
+---
+
+<GeneralSection classList="bg-text relative">
+	<GeneralContainer>
+		<div class="flex flex-column md:flex-row max-w-4xl mx-auto gap-6 items-center">
+			<div>
+				<figure class="lg:min-w-[150px]">
+					<Image class="w-full aspect-square" src={Sello_Bosque_Nagal} width="300" height="289" title="Imagen sello Bosque Nagal" loading="lazy" alt="Sello Bosque Nagal" />
+				</figure>
+			</div>
+			<div>
+				<h2 class="text-2xl lg:text-3xl font-semibold mb-4 text-white">¿Qué significa ser una Eco-Empresa?</h2>
+				<p class="text-white">Ser Eco Empresa significa apoyar a las familias campesinas en la siembra de árboles, conservar más de 87.500 árboles adultos y dos nacimientos hídricos en nuestro bosque. Además obtienes grandes beneficios.</p>
+			</div>
+		</div>
+		<Image src={imageBackground} alt="Background Image" class="absolute inset-0 w-full h-full z-10 object-cover opacity-[0.05]" />
+	</GeneralContainer>
+</GeneralSection>

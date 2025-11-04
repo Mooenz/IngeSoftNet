@@ -1,0 +1,125 @@
+---
+import GeneralContainer from '@components/GeneralContainer.astro';
+import GeneralSection from '@components/GeneralSection.astro';
+import services from '@constants/services.js';
+import Button from '@components/Button.astro';
+---
+
+<GeneralSection idElement="servicios" classList="bg-[#eaf1ff]">
+	<GeneralContainer large>
+		<h2 class="sr-only" aria-label="Servicios">Servicios</h2>
+		<div class="lg:grid lg:grid-cols-2 gap-6 items-center hover-image noZoom">
+			<div class="ms-6 lg:ms-8">
+				<div class="swiper" id="serviciosTextoSwiper">
+					<div class="swiper-wrapper">
+						{
+							services.map(({ title, description }) => (
+								<div class="swiper-slide group pl-2">
+									<div class="max-w-3xl">
+										<h3 class="title-main text-[clamp(24px,4vw,55px)] font-bold leading-[1.1em] tracking-[0.01em] relative before:content-[''] before:absolute before:left-0 before:top-0 before:h-1 before:rounded-2 before:bg-primary before:w-full before:max-w-20 pt-2 lg:pt-6">{title}</h3>
+										<p class="text-[clamp(18px,4vw,20px)] leading-[1.6em] mt-4 lg:mt-6 text-[#4C5E6E]">{description}</p>
+									</div>
+									<div class="mt-6 lg:mt-10 pb-2">
+										<Button anchor link="/contacto.html" size="md" variants="primary" title="Enlace a Contáctenos">
+											Iniciar ahora
+										</Button>
+									</div>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</div>
+
+			<div class="flex justify-center items-center">
+				<div class="swiper imageSwiper" id="serviciosImageSwiper">
+					<div class="swiper-wrapper">
+						{
+							services.map(({ title, image }) => (
+								<div class="swiper-slide">
+									<picture class="flex justify-end items-center object-cover rounded-xl lg:rounded-[0] lg:rounded-s-3xl 2xl:rounded-3xl lg:w-full lg:h-full overflow-hidden max-w-[720px] sm:w-30 sm:h-30 w-24 h-24 mx-auto lg:mx-0 lg:ml-auto image">
+										<img src={typeof image === 'string' ? image : image.src} alt={`Imagen de ${title}`} loading="lazy" class="w-full h-full aspect-square" title={title} />
+									</picture>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</GeneralContainer>
+</GeneralSection>
+
+<script>
+	import Swiper from 'swiper';
+	import { Autoplay, EffectFade, Navigation, Thumbs, EffectCreative } from 'swiper/modules';
+	import 'swiper/css';
+	import 'swiper/css/navigation';
+	import 'swiper/css/effect-fade';
+	import 'swiper/css/autoplay';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		const width = window.innerWidth;
+		let effectType = width >= 992 ? 'fade' : 'slide';
+
+		// Swiper de imágenes (controlado, sin interacción)
+		const serviciosImageSwiper = new Swiper('#serviciosImageSwiper', {
+			modules: [EffectFade],
+			loop: true,
+			spaceBetween: 0,
+			slidesPerView: 1,
+			effect: effectType,
+			speed: 1000,
+			allowTouchMove: false,
+			simulateTouch: false,
+			followFinger: false,
+			watchSlidesProgress: true,
+		});
+
+		// Swiper de texto (controlador principal con autoplay y navegación)
+		const serviciosTextoSwiper = new Swiper('#serviciosTextoSwiper', {
+			modules: [Navigation, Thumbs, Autoplay, EffectCreative],
+			loop: true,
+			spaceBetween: 0,
+			slidesPerView: 1,
+			effect: 'creative',
+			simulateTouch: true,
+			allowTouchMove: true,
+			grabCursor: true,
+			speed: 1000,
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false,
+				pauseOnMouseEnter: true, // Pausa al hover
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+			thumbs: {
+				swiper: serviciosImageSwiper,
+			},
+			creativeEffect: {
+				prev: {
+					shadow: false,
+					translate: ['-120%', 0, -400], // eje X, Y, Z
+				},
+				next: {
+					shadow: false,
+					translate: ['120%', 0, -400],
+				},
+			},
+		});
+	});
+</script>
+
+<style>
+	.imageSwiper .swiper-slide {
+		opacity: 0 !important;
+		transition: opacity 1s ease !important;
+	}
+
+	.imageSwiper .swiper-slide-active {
+		opacity: 1 !important;
+	}
+</style>

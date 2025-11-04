@@ -1,0 +1,21 @@
+---
+import GeneralSection from '@components/GeneralSection.astro';
+import GeneralContainer from '@components/GeneralContainer.astro';
+
+export interface Props {
+	classList?: string;
+}
+
+const { classList } = Astro.props;
+---
+
+<GeneralSection classList={classList}>
+	<GeneralContainer>
+		<section class="md:grid md:grid-cols-2 gap-4 md:gap-8 lg:gap-16 items-center">
+			<slot name="left" />
+			<slot name="right" />
+		</section>
+
+		<slot name="footer" class="mt-8 lg:mt-10" />
+	</GeneralContainer>
+</GeneralSection>

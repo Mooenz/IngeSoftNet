@@ -1,0 +1,308 @@
+---
+import GeneralContainer from '@components/GeneralContainer.astro';
+import { Image } from 'astro:assets';
+import imagenTipo from '@assets/persona.png';
+import imagenTipo1 from '@assets/persona1.png';
+import imagenSoporte from '@assets/oficina.jpg';
+import LogoFacebook from '@assets/icons/logo-facebook.astro';
+import LogoInstagram from '@assets/icons/logo-instagram.astro';
+import LogoYouTube from '@assets/icons/logo-youtube.astro';
+---
+
+<!-- -->
+<footer class="pt-6 lg:pt-10 bg-text relative before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-[150px] before:bg-white before:-z-0">
+	<GeneralContainer>
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+			<div class="relative overflow-hidden rounded-[40px] shadow-sm h-[200px] w-full flex flex-col justify-between bg-[url('/src/assets/line-1.png')] bg-no-repeat bg-cover bg-right bg-gray-100 p-4 md:p-5 lg:pl-10 lg:pt-10 group">
+				<div class="max-w-[300px] relative z-10 before:content-[''] before:absolute before:-top-50 before:-left-50 before:w-[550px] before:h-[550px] before:bg-gray-200 before:rounded-[40px] before:rotate-45 before:-z-10">
+					<hgroup>
+						<p class="text-3xl font-bold text-text">Confía en nosotros</p>
+						<!-- <p class="text-lg mt-2 opacity-90 text-text">Distribuidor autorizado del software Syscafé en Antioquia y Chocó.</p> -->
+					</hgroup>
+				</div>
+				<audio controls id="audio-player" controlslist="nodownload noplaybackrate" aria-describedby="trans-audio">
+					<source src="/audio/ingesoftnet.mp3" type="audio/mpeg" />
+					Tu navegador no soporta el audio.
+				</audio>
+
+				<div class="sr-only">
+					<!-- Transcripción oculta -->
+					<div id="trans-audio">
+						<p>Transcripción</p>
+						<p>IngeSoftNet SAS, distribuidor autorizado del software Syscafé en los departamentos de Antioquia y Chocó. Contamos con personal calificado para prestarle el servicio de asesoría, soporte y mantenimiento del software Syscafé para organizar y administrar la información de su empresa. IngeSoftNet SAS teléfono +57 311 575 38 46, WhatsApp +57 322 282 92 8, visite nuestra página web www.ingesoftnet.com. IngeSoftNet SAS empresa socialmente responsable.</p>
+					</div>
+				</div>
+
+				<Image src={imagenTipo1} alt="Imagen de una persona que invita a dar click" title="Confía en nosotros" class="absolute w-50 h-auto object-contain bottom-0 right-10 z-10" />
+			</div>
+
+			<!-- Tarjeta SysCafe -->
+			<a href="https://syscafe.com/oferta-laboral-externa/" target="_blank" rel="noopener noreferrer" class="block w-full relative z-10 group" title="Oferta laboral con SysCafé">
+				<div class="shadow-sm relative rounded-[40px] overflow-hidden z-100 h-[200px] before:content-[''] before:absolute before:-top-50 before:-left-50 before:w-[550px] before:h-[550px] before:bg-accent before:rounded-[40px] before:rotate-45 before:-z-10 p-4 md:p-5 lg:pl-10 lg:pt-10">
+					<div class="max-w-[300px] text-white">
+						<span class="text-2xl font-bold text-balance mb-4 block">Crea su oferta laboral con SysCafé</span>
+						<!-- <p class="text-lg mt-2 opacity-90 text-white">Publica tu oferta laboral y llega a más candidatos.</p> -->
+					</div>
+
+					<div class="h-15 w-15 flex items-center justify-center bg-white rounded-full text-text text-xl transition-all duration-300 group-hover:scale-120">
+						<i class="fi fi-tr-arrow-small-right text-4xl"></i>
+					</div>
+
+					<Image src={imagenTipo} alt="Imagen de una persona que invita a dar click" title="Crea tu oferta laboral con Syscafé" class="absolute w-50 h-auto object-contain bottom-0 right-10 z-10" />
+
+					<Image src={imagenSoporte} alt="Imagen oficina IngeSoftNet" title="Oficina IngeSoftNet" class="absolute w-full h-full object-cover inset-0 -z-100 pointer-events-auto blur-xs" />
+				</div>
+			</a>
+		</div>
+	</GeneralContainer>
+
+	<section class="py-8 lg:py-20">
+		<GeneralContainer>
+			<div class="flex gap-6 justify-between items-center flex-wrap">
+				<a class="text-lg group" href="https://maps.app.goo.gl/XtgkYsfhPsopHUyLA" target="_blank" rel="noopener noreferrer" title="Ver ubicación en Google Maps">
+					<h2 class="m-0 text-sm text-white">Dirección</h2>
+					<div class="flex gap-2 items-center">
+						<i class="fi fi-rr-house-building text-sm text-gray-300 transform transition-all duration-700 ease-in-out group-hover:[transform:rotateY(360deg)] group-hover:text-accent"></i>
+						<h3><strong class="font-semibold text-white group-hover:text-accent transition-colors duration-300 ease-in-out">Carrera 3 # 24A -54, Piso 2 Quibdó - Chocó</strong></h3>
+					</div>
+				</a>
+
+				<a href="tel:3162656886" title="Número de contacto de IngeSoftNet" class="text-lg group">
+					<h2 class="m-0 text-sm text-white">Linea directa</h2>
+					<div class="flex gap-2 items-center">
+						<i class="fi fi-rr-chat-bubble-call text-sm text-gray-300 transform transition-all duration-700 ease-in-out group-hover:[transform:rotateY(360deg)] group-hover:text-accent"></i>
+
+						<h3><strong class="font-semibold text-white group-hover:text-accent transition-colors duration-300 ease-in-out">316 2656 886</strong></h3>
+					</div>
+				</a>
+
+				<a href="mailto:mauricio@ingesoftnet.com" title="Número de contacto de IngeSoftNet" class="text-lg group">
+					<h2 class="m-0 text-sm text-white">Correo de contacto</h2>
+
+					<div class="flex gap-3 items-center">
+						<i class="fi fi-rr-envelope text-sm text-gray-300 transform transition-all duration-700 ease-in-out group-hover:[transform:rotateY(360deg)] group-hover:text-accent"></i>
+						<h3><strong class="font-semibold text-white group-hover:text-accent transition-colors duration-300 ease-in-out">mauricio@ingesoftnet.com</strong></h3>
+					</div>
+				</a>
+
+				<div class="flex items-center gap-3">
+					<a href="https://www.facebook.com/ingesoftnetsas" target="_blank" rel="noopener noreferrer" title="Facebook de IngeSoftNet" aria-label="Facebook de IngeSoftNet" class="w-12 h-12 flex items-center justify-center bg-[#0866FF] rounded-full transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 text-white">
+						<LogoFacebook />
+					</a>
+
+					<a href="https://www.instagram.com/ingesoftnet" target="_blank" rel="noopener noreferrer" title="Instagram de IngeSoftNet" aria-label="Instagram de IngeSoftNet" class="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-purple-600 via-[#FF0069] to-yellow-400 rounded-full transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 text-white">
+						<LogoInstagram />
+					</a>
+
+					<a href="https://www.youtube.com/@ingesoftnet" target="_blank" rel="noopener noreferrer" title="YouTube de IngeSoftNet" aria-label="YouTube de IngeSoftNet" class="w-12 h-12 flex items-center justify-center bg-[#FF0000] rounded-full transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 text-white">
+						<LogoYouTube />
+					</a>
+				</div>
+			</div>
+		</GeneralContainer>
+	</section>
+
+	<GeneralContainer>
+		<section class="pt-8 pb-6 border-t border-gray-200 text-gray-400">
+			<div class="flex justify-between items-center gap-2 flex-wrap">
+				<p class="m-0">IngeSoftNet © 2025. Todos los derechos reservados.</p>
+
+				<a href="https://mooenz.me" title="Enlace a www.mooenz.me" class="group py-1 px-4 transition ease-in-out" target="_blank" rel="noopener noreferrer">
+					Desarrollado por
+					<strong class="transition-colors duration-300 group-hover:text-accent"> Mooenz </strong>
+				</a>
+
+				<div class="flex gap-6 flex-wrap items-center">
+					<a href="/politica-de-privacidad.html" title="Enlace a la política de privacidad" class="animation-link">
+						<p class="m-0">Política de privacidad</p>
+					</a>
+
+					<a href="/terminos-y-condiciones.html" title="Enlace a los términos y condiciones" class="animation-link">
+						<p class="m-0">Términos y condiciones</p>
+					</a>
+				</div>
+			</div>
+		</section>
+	</GeneralContainer>
+
+	<script>
+		import('plyr/dist/plyr.css');
+
+		document.addEventListener('DOMContentLoaded', async () => {
+			try {
+				const { default: Plyr } = await import('plyr');
+
+				const player = new Plyr('#audio-player', {
+					// controls: ['play', 'progress', 'mute', 'volume', 'current-time', 'duration'],
+					controls: `<!-- Audio Controls -->
+    <div class="plyr__controls flex items-center gap-4">
+        <button class="plyr__controls__item plyr__control" type="button" data-plyr="play" aria-pressed="false" aria-label="Play">
+            <svg class="icon--pressed hidden" aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+            </svg>
+            <svg class="icon--not-pressed ml-0.5" aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+            </svg>
+            <span class="label--pressed plyr__sr-only">Pause</span>
+            <span class="label--not-pressed plyr__sr-only">Play</span>
+        </button>
+
+        <div class="plyr__controls__item plyr__time--current plyr__time text-xs text-gray-600 font-medium min-w-[32px]" aria-label="Current time" role="timer">0:59</div>
+
+        <div class="plyr__controls__item plyr__progress__container flex-1">
+            <div class="plyr__progress relative">
+                <input data-plyr="seek" type="range" min="0" max="100" step="0.01" value="0" autocomplete="off" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="34.586125" aria-valuenow="0" id="plyr-seek-5747" aria-valuetext="00:00 of 00:34" style="--value: 0%;" class="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-red-500" />
+                <progress class="plyr__progress__buffer" min="0" max="100" value="0" role="progressbar" aria-hidden="true">% buffered</progress>
+                <span class="plyr__tooltip">00:00</span>
+            </div>
+        </div>
+
+        <div class="plyr__controls__item plyr__time--duration plyr__time text-xs text-gray-600 font-medium min-w-[32px]" aria-label="Duration" role="timer">3:21</div>
+    </div>
+
+		`,
+					volume: 0.5,
+				});
+
+				// Opcional: Configuraciones adicionales
+				player.volume = 0.5;
+			} catch (error) {
+				console.error('Error al cargar Plyr:', error);
+			}
+		});
+	</script>
+
+	<style is:inline>
+		:root {
+			--plyr-audio-control-background-hover: var(--color-gray-200);
+			--plyr-range-fill-background: var(--primary);
+			--plyr-audio-controls-background: rgb(0, 0, 0, 0);
+			--plyr-control-radius: 50px;
+			--plyr-audio-control-color-hover: var(--color-gray-600);
+			--plyr-audio-control-color: var(--color-gray-600);
+			--plyr-control-icon-size: 40px;
+		}
+
+		.plyr {
+			position: relative;
+			z-index: 100;
+			width: 100%;
+		}
+
+		.plyr .plyr__controls {
+			/* height: 66px; */
+		}
+
+		.plyr.plyr--audio .plyr__controls .plyr__volume {
+			margin-left: 16px;
+		}
+
+		.plyr.plyr--audio .plyr__controls {
+			/* border-radius: 56px;
+		padding: 12px 16px; */
+			padding: 0;
+		}
+		.plyr .plyr__controls .plyr__controls__item:first-child {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 60px;
+			height: 60px;
+			color: #fff;
+			background-color: var(--color-primary-dark);
+			transition:
+				background-color 0.3s ease-in-out,
+				transform 0.3s ease-in-out;
+		}
+
+		.plyr .plyr__controls .plyr__controls__item:first-child:hover {
+			background-color: var(--color-primary);
+		}
+
+		.plyr .plyr__controls .plyr__controls__item:first-child:active {
+			transform: scale(0.9);
+		}
+
+		.plyr .plyr__controls__item:first-child svg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			display: block;
+			color: #fff;
+			transition:
+				color 0.3s ease-in-out,
+				transform 0.3s ease-in-out;
+			transform: translate(-50%, -50%);
+		}
+
+		.plyr .plyr__controls__item:first-child[aria-pressed='false'] svg:nth-of-type(1) {
+			transform: translate(-50%, -50%) scale(0);
+		}
+
+		.plyr .plyr__controls__item:first-child[aria-pressed='false'] svg:nth-of-type(2) {
+			transform: translate(-50%, -50%) scale(1);
+		}
+
+		.plyr .plyr__controls__item:first-child[aria-pressed='true'] svg:nth-of-type(1) {
+			transform: translate(-50%, -50%) scale(1);
+		}
+
+		.plyr .plyr__controls__item:first-child[aria-pressed='true'] svg:nth-of-type(2) {
+			transform: translate(-50%, -50%) scale(0);
+		}
+
+		.plyr .plyr__controls__item:first-child:hover svg {
+			color: #fff;
+		}
+
+		.plyr.plyr--audio .plyr__controls .plyr__controls__item {
+			color: var(--color-text);
+		}
+
+		.plyr.plyr--audio .plyr__controls .plyr__controls__item.plyr__time[aria-label='Current time'] {
+			width: 38px;
+		}
+	</style>
+
+	<!-- <div class="plyr__controls">
+	<button class="plyr__controls__item plyr__control" type="button" data-plyr="play" aria-pressed="false" aria-label="Play">
+		<svg class="icon--pressed" aria-hidden="true" focusable="false">
+			<use xlink:href="#plyr-pause"></use>
+		</svg>
+		<svg class="icon--not-pressed" aria-hidden="true" focusable="false">
+			<use xlink:href="#plyr-play"></use>
+		</svg>
+		<span class="label--pressed plyr__sr-only">Pause</span>
+		<span class="label--not-pressed plyr__sr-only">Play</span>
+	</button>
+
+	<div class="plyr__controls__item plyr__progress__container">
+		<div class="plyr__progress">
+			<input data-plyr="seek" type="range" min="0" max="100" step="0.01" value="0" autocomplete="off" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="34.586125" aria-valuenow="0" id="plyr-seek-5747" aria-valuetext="00:00 of 00:34" style="--value: 0%;" />
+			<progress class="plyr__progress__buffer" min="0" max="100" value="0" role="progressbar" aria-hidden="true">% buffered</progress>
+			<span class="plyr__tooltip">00:00</span>
+		</div>
+	</div>
+
+	<div class="plyr__controls__item plyr__volume">
+		<button type="button" class="plyr__control" data-plyr="mute" aria-pressed="false">
+			<svg class="icon--pressed" aria-hidden="true" focusable="false">
+				<use xlink:href="#plyr-muted"></use>
+			</svg>
+
+			<svg class="icon--not-pressed" aria-hidden="true" focusable="false">
+				<use xlink:href="#plyr-volume"></use>
+			</svg>
+
+			<span class="label--pressed plyr__sr-only">Unmute</span>
+			<span class="label--not-pressed plyr__sr-only">Mute</span>
+		</button>
+
+		<input data-plyr="volume" type="range" min="0" max="1" step="0.05" value="0.5" autocomplete="off" role="slider" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" id="plyr-volume-5747" aria-valuetext="50.0%" style="--value: 50%;" />
+	</div>
+
+	<div class="plyr__controls__item plyr__time--current plyr__time" aria-label="Current time" role="timer"></div>
+	<div class="plyr__controls__item plyr__time--duration plyr__time" aria-label="Duration" role="timer"></div>
+</div> -->
+</footer>

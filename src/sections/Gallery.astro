@@ -1,0 +1,177 @@
+---
+import TitleMain from '@components/TitleMain.astro';
+import GeneralSection from '@components/GeneralSection.astro';
+import 'photoswipe/style.css';
+import imagesArray from '@constants/gallery.js';
+---
+
+<GeneralSection autoHeight>
+	<div>
+		<TitleMain title="Anuncios importantes" subtitle="Cada imagen refleja nuestro compromiso en resolver incidencias, mantenerlos actualizados y mejorar la experiencia del servicio." noSEO />
+
+		<!-- Galería -->
+		<div class="swiper" id="gallerySwiper" aria-label="Carrusel de imágenes de soporte técnico">
+			<div class="swiper-wrapper" id="galleryImages">
+				{
+					imagesArray.map((image) => (
+						<div class="swiper-slide hover-image">
+							<figure class="h-30 w-30 lg:h-60 lg:w-60 xl:w-73 xl:h-73 rounded-lg lg:rounded-[40px] image shadow-sm">
+								<a href={image.src} data-pswp-width={image.width} data-pswp-height={image.height} title="Imagen de soporte técnico de IngeSoftNet" data-cropped="true" data-med-src={image.src} data-med-width={image.width} data-med-height={image.height} target="_blank" rel="noopener noreferrer">
+									<img src={image.src} alt={image.alt} class="w-full h-auto" loading="lazy" title={image.title} />
+								</a>
+							</figure>
+						</div>
+					))
+				}
+			</div>
+
+			<!-- Si deseas agregar navegación -->
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</div>
+</GeneralSection>
+
+<script>
+	import Swiper from 'swiper';
+	import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+	import 'swiper/css';
+	import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		new Swiper('#gallerySwiper', {
+			modules: [Autoplay, Pagination, Navigation],
+			slidesPerView: 'auto',
+			spaceBetween: 16,
+			loop: true,
+			autoplay: {
+				delay: 10000,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+				dynamicBullets: true,
+				dynamicMainBullets: 1,
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+			breakpoints: {
+				768: {
+					spaceBetween: 32,
+				},
+			},
+			speed: 1500,
+		});
+
+		if (typeof window !== 'undefined') {
+			const lightbox = new PhotoSwipeLightbox({
+				gallery: '#galleryImages',
+				children: 'a',
+				pswpModule: () => import('photoswipe'),
+			});
+			lightbox.init();
+		}
+	});
+</script>
+
+<style>
+	:root {
+		--swiper-pagination-bullet-size: 16px;
+		--swiper-navigation-size: 14px;
+		--swiper-pagination-bottom: -5px;
+		--swiper-navigation-top-offset: calc(50% - 24px);
+		--swiper-pagination-color: var(--color-primary);
+	}
+
+	.swiper-pagination {
+		position: relative;
+		margin-top: 24px;
+		height: 24px;
+	}
+
+	.swiper:hover .swiper-button-next,
+	.swiper:hover .swiper-button-prev {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	.swiper-button-next,
+	.swiper-button-prev {
+		z-index: 100;
+		color: #fff !important;
+		aspect-ratio: 1 / 1;
+		width: 42px;
+		height: auto;
+		border-radius: 42px;
+		opacity: 0;
+		transform: scale(0);
+		background-color: var(--color-primary);
+		transition:
+			background-color 0.3s ease-in-out,
+			opacity 0.3s ease-in-out,
+			transform 0.3s ease-in-out,
+			color 0.3s ease-in-out;
+	}
+
+	.swiper-button-next:active,
+	.swiper-button-prev:active {
+		transform: scale(0.9) !important;
+	}
+
+	.swiper-button-next::after,
+	.swiper-button-prev::after {
+		font-weight: 900;
+	}
+
+	.swiper-button-next::after {
+		padding-left: 4px;
+	}
+
+	.swiper-button-prev::after {
+		padding-right: 4px;
+	}
+
+	.swiper-slide {
+		width: -webkit-fit-content !important;
+		width: -moz-fit-content !important;
+		width: fit-content !important;
+	}
+
+	@media (min-width: 992px) {
+		:root {
+			--swiper-navigation-top-offset: calc(50% - 44px);
+		}
+
+		.swiper-pagination {
+			margin-top: 44px;
+		}
+	}
+
+	@media (min-width: 1600px) {
+		:root {
+			--swiper-navigation-sides-offset: 10%;
+		}
+	}
+
+	/*  */
+	/* .hover-image figure a {
+		cursor: pointer;
+	}
+
+	.hover-image figure a:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.2);
+		transition: opacity 0.3s ease-in-out;
+		border-radius: inherit;
+	} */
+</style>

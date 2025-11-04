@@ -1,0 +1,122 @@
+---
+import GeneralContainer from '@components/GeneralContainer.astro';
+
+import { Image } from 'astro:assets';
+import logo from '@assets/logo-de-IngeSoftNet.png';
+import menu from '@constants/menu.js';
+import Button from '@components/Button.astro';
+const items = Object.values(menu);
+
+// Obtener la URL actual para identificar la página activa
+const currentPath = Astro.url.pathname;
+
+// Función para verificar si un enlace está activo
+const isActive = (href: string) => {
+	// Normalizar las rutas removiendo el slash final
+	const normalizedCurrent = currentPath.replace(/\/$/, '') || '/';
+	const normalizedHref = href.replace(/\/$/, '') || '/';
+
+	return normalizedCurrent === normalizedHref;
+};
+---
+
+<!-- Header de navegación principal -->
+<header class="fixed top-4 lg:top-6 left-0 right-0 z-50 transition-all duration-300 ease-in-out" id="menu-principal">
+	<GeneralContainer>
+		<div class="px-6 xl:px-16 bg-white rounded-2xl shadow-md">
+			<div class="flex flex-wrap justify-between items-center py-4">
+				<!-- Logo/Marca -->
+				<div class="flex-shrink-0">
+					<a href="/" title="Ir al inicio - IngeSoftNet" aria-label="Página de inicio de IngeSoftNet">
+						<Image src={logo} class="max-w-[150px]" alt="Logo de IngeSoftNet S.A.S." title="Enlace al inicio" height="178" width="600" loading="eager" fetchpriority="high" />
+					</a>
+				</div>
+
+				<!-- Navegación móvil -->
+				<div class="relative lg:hidden" role="navigation" aria-label="Navegación móvil">
+					<!-- Input checkbox oculto que controla el estado del menú móvil -->
+					<input type="checkbox" id="menu-toggle" class="peer hidden" aria-hidden="true" />
+
+					<!-- Botón hamburguesa - ÚNICA LABEL -->
+					<label for="menu-toggle" class="block z-50 cursor-pointer rounded-full bg-gray-100 p-2 text-gray-800 hover:text-gray-400 hover:bg-gray-200 transition ease-in focus:outline-none focus:ring-2 focus:ring-blue-500" role="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu" tabindex="0">
+						<!-- Ícono de menú hamburguesa -->
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+						</svg>
+					</label>
+
+					<!-- Overlay de fondo - CAMBIADO A DIV -->
+					<div class="fixed inset-0 z-40 opacity-0 bg-black/70 peer-checked:opacity-100 peer-checked:pointer-events-auto transition ease-in-out pointer-events-none" aria-hidden="true" onclick="document.getElementById('menu-toggle').checked = false"></div>
+
+					<!-- Menú lateral móvil -->
+					<aside id="mobile-menu" class="fixed top-0 left-0 z-50 h-full w-10/12 max-w-sm bg-white transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 lg:translate-x-0" role="dialog" aria-label="Menú de navegación principal" aria-modal="true">
+						<!-- Encabezado del menú móvil -->
+						<header class="p-4 border-b border-zinc-200 flex justify-between items-center">
+							<div class="flex gap-2 items-center">
+								<i class="fi fi-rr-apps-add text-primary" aria-hidden="true"></i>
+								<p class="font-semibold text-lg m-0">Menú principal</p>
+							</div>
+							<!-- Botón de cierre - CAMBIADO A BUTTON -->
+							<button type="button" class="cursor-pointer text-gray-500 hover:text-black text-2xl transition ease-in focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Cerrar menú" onclick="document.getElementById('menu-toggle').checked = false"> &times; </button>
+						</header>
+
+						<!-- Navegación móvil -->
+						<nav class="p-4" role="navigation" aria-label="Enlaces principales">
+							<ul class="space-y-[24px] list-none m-0 p-0">
+								{
+									items.map(({ esBoton, href, nombre, icono }) => (
+										<li>
+											{esBoton ? (
+												<Button anchor link={href} title={`Enlace a ${nombre}`} variants="primary" size="md">
+													<span class="m-0">{nombre}</span>
+													<i class={`fi ${icono} text-gray-300`} aria-hidden="true" />
+												</Button>
+											) : (
+												<a href={href} class={`flex gap-2 items-center ${isActive(href) ? 'text-primary font-semibold' : ''}`} title={`Enlace a ${nombre}`} aria-current={isActive(href) ? 'page' : undefined}>
+													<i class={`fi ${icono} ${isActive(href) ? 'text-primary' : 'text-gray-300'}`} aria-hidden="true" />
+													<span class="m-0">{nombre}</span>
+												</a>
+											)}
+										</li>
+									))
+								}
+							</ul>
+						</nav>
+					</aside>
+				</div>
+
+				<!-- Navegación desktop -->
+				<nav class="hidden lg:flex" role="navigation" aria-label="Navegación principal">
+					<ul class="flex items-center justify-between list-none m-0 p-0">
+						{
+							items.map(({ esBoton, href, nombre, icono }) => (
+								<li>
+									{esBoton ? (
+										<Button anchor link={href} title={`Enlace a ${nombre}`} variants="primary" size="md" className="ms-4 ">
+											<span class="m-0">{nombre}</span>
+											<i class={`fi ${icono}`} aria-hidden="true" />
+										</Button>
+									) : (
+										<a href={href} class={`flex gap-2 items-center px-4 animation-link ${isActive(href) ? 'active-link' : ''}`} title={`Enlace a ${nombre}`} aria-current={isActive(href) ? 'page' : undefined}>
+											{nombre}
+										</a>
+									)}
+								</li>
+							))
+						}
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</GeneralContainer>
+</header>
+
+<style>
+	.fixed-menu {
+		top: 0 !important;
+	}
+
+	.fixed-menu > div {
+		border-radius: 0 0 16px 16px !important;
+	}
+</style>

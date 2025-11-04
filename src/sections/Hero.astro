@@ -1,0 +1,85 @@
+---
+import CarruselClients from '@components/CarruselClients.astro';
+---
+
+<section class="relative text-center overflow-hidden bg-cover bg-center bg-no-repeat flex flex-col justify-between" id="hero-principal">
+	<section class="max-w-5xl lg:mx-auto px-6 pt-32 pb-10 2xl:pb-28 lg:pt-50 2xl:pt-64">
+		<slot />
+	</section>
+
+	<CarruselClients />
+
+	<!-- background -->
+	<div class="absolute inset-0 -z-10 before:content-[''] before:absolute before:inset-0 before:bg-[url('/src/assets/noise.png')] bg-cover bg-center after:content-[''] after:opacity-55 after:absolute after:inset-0 after:bg-black after:z-0">
+		<picture>
+			<!-- <source media="(min-width: 515px)" srcset="./assets/images/bnaniversario58.jpg" width="1290" height="515" /> -->
+			<img src="/images/oficinas-de-ingesoftnet.jpg" class="w-full h-full object-cover grayscale-40" title="Imagen de fondo ingesoftnet" loading="lazy" width="2000" height="1125" alt="Banner " />
+		</picture>
+	</div>
+</section>
+
+<!-- <script>
+	// Importamos gsap
+	import { gsap } from 'gsap';
+	import { SplitText } from 'gsap/SplitText';
+	document.addEventListener('DOMContentLoaded', () => {
+		// Registramos el plugin
+		gsap.registerPlugin(SplitText);
+
+		// Animación del Hero
+		const title = gsap.timeline();
+		const mySplitTextTitle = SplitText.create('#hero-principal h1', { type: 'words,chars' });
+		const charsTitle = mySplitTextTitle.chars;
+		const mySplitTextSubtitle = document.querySelector('#hero-principal p');
+		const carruselClientes = document.getElementById('hero-carrusel');
+
+		title.from(charsTitle, {
+			duration: 1,
+			opacity: 0,
+			y: 100,
+			rotationY: 90,
+			filter: 'blur(10px)',
+			transformOrigin: '0% 50%',
+			ease: 'power4.out',
+			stagger: 0.02,
+		});
+
+		title.from(
+			mySplitTextSubtitle,
+			{
+				duration: 0.5,
+				opacity: 0,
+				y: 20,
+				ease: 'power4.out',
+			},
+			'-=0.2'
+		);
+
+		// Establecer estado inicial del botón
+		gsap.set('#hero-principal a', { opacity: 0, y: 20, scale: 0.8 });
+
+		// Animación para el botón
+		title.to(
+			'#hero-principal a',
+			{
+				duration: 0.5,
+				opacity: 1,
+				y: 0,
+				scale: 1,
+				ease: 'power4.out',
+			},
+			'-=0.1'
+		);
+
+		title.from(
+			carruselClientes,
+			{
+				duration: 0.5,
+				opacity: 0,
+				y: 20,
+				ease: 'power4.out',
+			},
+			'-=0.2'
+		);
+	});
+</script> -->

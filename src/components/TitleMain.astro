@@ -1,0 +1,79 @@
+---
+export interface Props {
+	title: string;
+	subtitle?: string;
+	noSEO?: boolean;
+}
+
+const { title, subtitle, noSEO } = Astro.props;
+---
+
+<hgroup class="title-header relative before:content-[''] before:absolute before:left-1/2 before:transform before:translate-x-[-50%] before:top-0 before:h-1 before:rounded-2 before:bg-primary before:w-full before:max-w-20 mb-6 lg:mb-15 max-w-4xl mx-auto pt-2 lg:pt-6">
+	{
+		noSEO ? (
+			<>
+				<p class="title-main text-[clamp(24px,4vw,48px)] font-bold text-center leading-[1.1em] tracking-[0.01em]">{title}</p>
+				{subtitle && <p class="subtitle-main text-lg text-center leading-[1.6em] mt-4 lg:mt-6">{subtitle}</p>}
+			</>
+		) : (
+			<>
+				<h2 class="title-main text-[clamp(24px,4vw,48px)] font-bold text-center leading-[1.1em] tracking-[0.01em]">{title}</h2>
+				{subtitle && <p class="subtitle-main text-lg text-center leading-[1.6em] mt-4 lg:mt-6 text-pretty">{subtitle}</p>}
+			</>
+		)
+	}
+</hgroup>
+
+<script>
+	// Importamos gsap
+	import { gsap } from 'gsap';
+	import { SplitText } from 'gsap/SplitText';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		// Registramos el plugin
+		gsap.registerPlugin(SplitText, ScrollTrigger);
+
+		const titles = document.querySelectorAll('.title-main');
+		const subtitles = document.querySelectorAll('.subtitle-main');
+
+		// titles.forEach((title) => {
+		// 	const mySplitTextTitle = SplitText.create(title, { type: 'words,chars' });
+		// 	const charsTitle = mySplitTextTitle.chars;
+
+		// 	gsap.from(charsTitle, {
+		// 		scrollTrigger: {
+		// 			trigger: title,
+		// 			start: 'top 90%',
+		// 			toggleActions: 'play none none reset',
+		// 		},
+		// 		duration: 1,
+		// 		opacity: 0,
+		// 		y: 100,
+		// 		rotationY: 90,
+		// 		filter: 'blur(10px)',
+		// 		transformOrigin: '0% 50%',
+		// 		ease: 'power4.out',
+		// 		stagger: 0.02,
+		// 	});
+		// });
+
+		// subtitles.forEach((subtitle) => {
+		// 	const mySplitTextSubtitle = SplitText.create(subtitle, { type: 'words,chars' });
+		// 	const charsSubtitle = mySplitTextSubtitle.chars;
+
+		// 	gsap.from(charsSubtitle, {
+		// 		scrollTrigger: {
+		// 			trigger: subtitle,
+		// 			start: 'top 90%',
+		// 			toggleActions: 'play none none reset',
+		// 		},
+		// 		duration: 0.5,
+		// 		opacity: 0,
+		// 		y: 20,
+		// 		ease: 'power4.out',
+		// 		stagger: 0.01,
+		// 	});
+		// });
+	});
+</script>

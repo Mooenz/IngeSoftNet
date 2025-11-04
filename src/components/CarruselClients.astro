@@ -1,0 +1,67 @@
+---
+import clientes from '@constants/clients.js';
+// Traemos todas las imagenes de logos de clientes desde la carpeta public
+import Image from 'astro/components/Image.astro';
+---
+
+<section class="py-6 lg:py-10 select-none" aria-label="Carrusel de logos de clientes" id="hero-carrusel">
+	<div class="swiper" id="clientesSwiper">
+		<div class="swiper-wrapper">
+			{
+				clientes.map(({ name, logo, height, width }) => (
+					<div class="swiper-slide">
+						<Image class="max-w-[160px] max-h-[60px] object-contain image" src={logo} alt={`Imagen logo de ${name}`} height={height} width={width} title={`Logo de ${name}`} loading="lazy" />
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<script>
+	import Swiper from 'swiper';
+	import { Autoplay, FreeMode } from 'swiper/modules';
+	import 'swiper/css';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		new Swiper('#clientesSwiper', {
+			modules: [Autoplay, FreeMode],
+			slidesPerView: 'auto',
+			spaceBetween: 50,
+			loop: true,
+			freeMode: {
+				enabled: true,
+				sticky: false,
+			},
+			autoplay: {
+				delay: 0,
+				disableOnInteraction: false,
+			},
+			speed: 12000,
+			simulateTouch: false,
+			allowTouchMove: false,
+		});
+	});
+</script>
+
+<style>
+	.swiper-wrapper {
+		transition-timing-function: linear !important;
+		align-items: center;
+	}
+
+	.swiper-slide {
+		width: -webkit-fit-content !important;
+		width: -moz-fit-content !important;
+		width: fit-content !important;
+		transition: filter 0.3s ease-in-out;
+	}
+
+	.image {
+	}
+
+	.swiper-wrapper:hover > :not(:hover) {
+		filter: grayscale(1);
+		mask-image: linear-gradient(to right, white 0%, white 100%);
+	}
+</style>

@@ -1,0 +1,38 @@
+---
+import Layout from '@layouts/Layout.astro';
+import HeroSmall from '@sections/HeroSmall.astro';
+import FormContact from '@sections/FormContact.astro';
+import GeneralContainer from '@components/GeneralContainer.astro';
+import GeneralSection from '@components/GeneralSection.astro';
+// import imageBackground from '@assets/footer-bg.png';
+import imageBackground from '@assets/counter-bg.png';
+import { Image } from 'astro:assets';
+---
+
+<Layout title="IngeSoftNet | Contacto">
+	<HeroSmall classList="bg-text" title="Contáctenos" subtitle="Queremos escuchar sus necesidades">
+		<!-- Background Image -->
+		<Image src={imageBackground} alt="Background Image" class="absolute inset-0 w-full h-full -z-10 object-cover opacity-10" />
+	</HeroSmall>
+
+	<GeneralSection>
+		<GeneralContainer>
+			<section class="flex flex-col-reverse lg:grid lg:grid-cols-3 gap-4 lg:gap-6 xl:gap-8 items-center">
+				<div class="w-full h-full">
+					<p class="my-3 lg:hidden">Ubícanos en el mapa:</p>
+					<div class="overflow-hidden rounded-4xl w-full h-40 md:h-60 lg:h-full lg:max-w-100 lg:col-span-1">
+						<iframe class="w-full h-full grayscale-100 hover:grayscale-0 transition-all duration-300 ease-in-out" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7940.386372212265!2d-76.661229!3d5.689057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e488f04adff997d%3A0x6832fe23ec5214ce!2sIngeSoftNet%20S.A.S!5e0!3m2!1ses-419!2sco!4v1762035323486!5m2!1ses-419!2sco" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+				</div>
+
+				<div class="lg:col-span-2 px-0 py-4 lg:py-8 lg:px-10">
+					<!-- <p class="mb-8 text-lg">Si deseas más información sobre los productos que distribuimos, puedes diligenciar el siguiente formulario.</p> -->
+					<p class="text-gray-500 mb-8 lg:mb-10 xl:mb-15">Completa los siguientes datos, los campos marcados con <span class="text-primary">*</span> son obligatorios</p>
+					<FormContact />
+				</div>
+			</section>
+		</GeneralContainer>
+	</GeneralSection>
+</Layout>
+
+<style></style>

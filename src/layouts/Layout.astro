@@ -1,22 +1,153 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import Menu from '@sections/Menu.astro';
+import Footer from '@sections/Footer.astro';
+import ButtonLateral from '@components/ButtonLateral.astro';
+import '@styles/global.css';
+export interface Props {
+	title: string;
+	description?: string;
+	keywords?: string;
+}
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+const { title, description, keywords } = Astro.props;
+---
+
+<html lang="es">
+	<head>
+		<!-- Meta básicos optimizados -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+		
+
+		<!-- SEO Meta Tags -->
+		<title>{title}</title>
+		{description && <meta name="description" content={description} />}
+		{keywords && <meta name="keywords" content={keywords} />}
+		<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+		<meta name="author" content="IngeSoftNet" />
+		<link rel="icon" type="image/x-icon" href="/images/favicon.png" />
+		<link rel="canonical" href={Astro.url.href} />
+
+		<!-- Open Graph (Redes Sociales) -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		{description && <meta property="og:description" content={description } />}
+		<meta property="og:url" content={Astro.url.href} />
+		<meta property="og:site_name" content="IngeSoftNet" />
+		<meta property="og:image" content={Astro.url.origin + '/images/og-image.jpg'} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content={`${title} - IngeSoftNet`} />
+		<meta property="og:locale" content="es_CO" />
+
+		<!-- Twitter Cards -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		{description && <meta name="twitter:description" content={description} />}
+		<meta name="twitter:image" content={Astro.url.origin + '/images/og-image.jpg'} />
+		<meta name="twitter:image:alt" content={`${title} - IngeSoftNet`} />
+
+
+		<!-- Datos estructurados básicos (JSON-LD) -->
+		<script type="application/ld+json">
+			{
+				JSON.stringify({
+					"@context": "https://schema.org",
+					"@type": "Organization",
+					"name": "IngeSoftNet",
+					"url": Astro.url.origin,
+					"logo": Astro.url.origin + "/images/logo.png",
+					"description": description || "Soluciones de software e ingeniería",
+					"address": {
+						"@type": "PostalAddress",
+						"addressLocality": "Ibagué",
+						"addressRegion": "Tolima",
+						"addressCountry": "CO"
+					}
+				})
+			}
+		</script>	
+		<body>
+			<Menu />
+			<main>
+				<slot />
+			</main>
+			<Footer />
+			<ButtonLateral />
+		</body>
+	</head>
+ </html>
+
+ <script>
+	// Script para fijar el menú cuando se scrollea más del 80% del header
+	const header = document.getElementById('hero-principal'); // Ajusta el selector según tu HTML
+	const menu = document.getElementById('menu-principal');
+	function handleScroll() {
+		// Si no existe header o menu, salir
+		if (!header || !menu) return;
+
+		// Obtener la altura del header
+		const headerHeight = header.offsetHeight;
+		
+		// Calcular el 80% de la altura del header
+		const threshold = headerHeight * 0.8;
+		
+		// Obtener la posición actual del scroll
+		const scrollPosition = window.scrollY;
+		
+		// Si el scroll supera el 80% del header
+		if (scrollPosition > threshold) {
+			// Agregar clase para fijar el menú
+			menu.classList.add('fixed-menu');
+		} else {
+			// Remover clase cuando vuelve arriba
+			menu.classList.remove('fixed-menu');
+		}
 	}
-</style>
+
+	// Escuchar el evento scroll
+	window.addEventListener('scroll', handleScroll);
+
+	// Ejecutar una vez al cargar para verificar posición inicial
+	handleScroll();
+
+	// Animación de enlaces con data-hover
+	const links = document.querySelectorAll<HTMLElement>('.animation-link');
+
+	links.forEach(link => {
+		const text = link.textContent;
+
+		// Crear el span y mover el contenido dentro
+		const span = document.createElement('span');
+		span.textContent = text;
+
+		// Limpiar contenido y agregar el span
+		link.textContent = '';
+		link.appendChild(span);
+
+		// Asignar el atributo data-hover
+		link.setAttribute('data-hover', text);
+	});
+	
+	// Smooth Scroll para enlaces de ancla
+	document.addEventListener('DOMContentLoaded', () => {
+		// Cuando se de click a un enlace de ancla, hacer scroll suave se ubica 80px abajo del elemento
+		document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const targetId = this.getAttribute('href').substring(1);
+				const targetElement = document.getElementById(targetId);
+				if (targetElement) {
+					const offset = 52;
+					const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+					const offsetPosition = elementPosition - offset;
+					window.scrollTo({
+						top: offsetPosition,
+						behavior: 'smooth',
+					});
+				}
+			});
+		});
+	});
+ </script>
+

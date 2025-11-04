@@ -1,0 +1,46 @@
+---
+import Layout from '@layouts/Layout.astro';
+import HeroSmall from '@sections/HeroSmall.astro';
+import { Image } from 'astro:assets';
+import imageBackground from '@assets/counter-bg.png';
+import SectionDouble from '@sections/SectionDouble.astro';
+import Values from '@components/Values.astro';
+import Gallery from '@sections/Gallery.astro';
+import Allied from '@components/Allied.astro';
+---
+
+<Layout title="IngeSoftNet | Nosotros">
+	<HeroSmall classList="bg-text" title="Sobre nosotros" subtitle="Más que tecnología, somos personas con propósito">
+		<!-- Background Image -->
+		<Image src={imageBackground} alt="Background Image" class="absolute inset-0 w-full h-full -z-10 object-cover opacity-10" />
+	</HeroSmall>
+
+	<SectionDouble>
+		<div slot="left">
+			<i class="fi fi-tr-users-alt mb-4 lg:mb-6 text-3xl text-primary/70"></i>
+			<h2 class="text-2xl lg:text-5xl font-semibold mb-4">Nuestra Misión Corporativa</h2>
+		</div>
+
+		<div slot="right">
+			<p class="text-lg">En <strong class="font-semibold">IngeSoftNet S.A.S.</strong> hacemos de la tecnología una solución eficaz para nuestros usuarios, apoyándonos en el potencial humano y en las herramientas informáticas, contribuyendo al crecimiento de las empresas, con experiencia y eficiencia en nuestro servicio.</p>
+		</div>
+	</SectionDouble>
+
+	<SectionDouble classList="bg-primary/10">
+		<div slot="left">
+			<i class="fi fi-tr-bullseye-arrow mb-4 lg:mb-6 text-3xl text-primary/70"></i>
+			<h2 class="text-2xl lg:text-5xl font-semibold mb-4">Visión, Crecimiento y Excelencia</h2>
+		</div>
+
+		<div slot="right">
+			<p class="text-lg">Seremos una empresa en crecimiento continuo, que se desarrolle de forma confiable, segura y sólida, reconocida por la calidad de servicio que proporciona a sus clientes.</p>
+		</div>
+	</SectionDouble>
+	<Values />
+	<Allied />
+	<Gallery />
+
+	<section>
+		
+	</section>
+</Layout>

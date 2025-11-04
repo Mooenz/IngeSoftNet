@@ -1,0 +1,13 @@
+---
+import Layout from '@layouts/Layout.astro';
+import HeroSmall from '@sections/HeroSmall.astro';
+import imageBackground from '@assets/counter-bg.png';
+import { Image } from 'astro:assets';
+---
+
+<Layout title="IngeSoftNet | Manual de Procesos">
+	<HeroSmall classList="bg-text" title="Manual de Procesos" subtitle="Encontrarás respuestas detalladas a preguntas frecuentes.">
+		<!-- Background Image -->
+		<Image src={imageBackground} alt="Background Image" class="absolute inset-0 w-full h-full -z-10 object-cover opacity-10" />
+	</HeroSmall>
+</Layout>

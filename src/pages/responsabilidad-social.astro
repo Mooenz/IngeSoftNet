@@ -1,0 +1,37 @@
+---
+import Layout from '@layouts/Layout.astro';
+import HeroSmall from '@sections/HeroSmall.astro';
+import imageBackground from '@assets/counter-bg.png';
+import imgLeft from '@assets/responsabilidadSocialEmpresarial.png';
+import { Image } from 'astro:assets';
+import SectionDouble from '@sections/SectionDouble.astro';
+import SectionEco from '@sections/SectionEco.astro';
+import ChildrenFoundation from '@sections/ChildrenFoundation.astro';
+import GalleryNogal from '@sections/GalleryNogal.astro';
+import Certificate from '@sections/Certificate.astro';
+---
+
+<Layout title="IngeSoftNet | Responsabilidad Social">
+	<HeroSmall classList="bg-text" title="Responsabilidad Social empresarial" subtitle="Protegemos hoy lo que pertenece al futuro">
+		<!-- Background Image -->
+		<Image src={imageBackground} alt="Background Image" class="absolute inset-0 w-full h-full -z-10 object-cover opacity-10" />
+	</HeroSmall>
+
+	<SectionDouble classList="bg-primary/10">
+		<div class="" slot="left">
+			<h2 class="text-2xl lg:text-2xl font-semibold mb-4">¿Qué es la responsabilidad social empresarial?</h2>
+			<p class="mb-3">“La Responsabilidad social empresarial (RSE), definida por la Organización Internacional del Trabajo, es un conjunto de acciones que toman en consideración las empresas, para que sus actividades tengan repercusiones positivas sobre la sociedad y que afirman los principios y valores por los que se rigen, tanto en sus propios métodos y procesos internos, como en su relación con los demás actores”.</p>
+			<p class="font-medium mb-3">La RSE es una iniciativa de carácter voluntario.</p>
+			<p>En IngeSoftNet asumimos la responsabilidad con la educación de la ciudadanía (niños, jóvenes, adultos y ancianos) en el cuidado y conservación del medio ambiente en que se desenvuelven, apoyando actividades de divulgación de Astronomía y Ciencias Naturales. Siendo ésta, nuestra contribución activa y voluntaria al mejoramiento social, económico y ambiental de la comunidad.</p>
+		</div>
+		<div class="" slot="right">
+			<picture class="max-w-xl mx-auto">
+				<Image src={imgLeft} width={858} height={597} title="Imagen de Responsabilidad Social Empresarial" loading="lazy" alt="Responsabilidad Social Empresarial" class="object-contain w-full h-auto" />
+			</picture>
+		</div>
+	</SectionDouble>
+	<SectionEco />
+	<ChildrenFoundation />
+	<GalleryNogal />
+	<Certificate />
+</Layout>

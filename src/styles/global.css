@@ -1,6 +1,6 @@
 @import 'tailwindcss';
-@import './rounded-regular.css';
-@import './rounded-thin.css';
+@import '@/styles/rounded-regular.css';
+@import '@/styles/rounded-thin.css';
 @import 'swiper/css';
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';

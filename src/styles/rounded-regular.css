@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'uicons-regular-rounded';
-	src: url('fonts/uicons-regular-rounded.woff2') format('woff2'), url('fonts/uicons-regular-rounded.woff') format('woff'), url('fonts/uicons-regular-rounded.eot#iefix') format('embedded-opentype');
+	src: url('@/assets/fonts/uicons-regular-rounded.woff2') format('woff2'), url('fonts/uicons-regular-rounded.woff') format('woff'), url('fonts/uicons-regular-rounded.eot#iefix') format('embedded-opentype');
 	font-display: swap;
 }
 

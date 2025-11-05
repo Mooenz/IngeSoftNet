@@ -3,6 +3,7 @@ import Menu from '@sections/Menu.astro';
 import Footer from '@sections/Footer.astro';
 import ButtonLateral from '@components/ButtonLateral.astro';
 import favicon from '@public/images/favicon.png';
+import ogImage from '@/assets/og-image.png';
 import '@styles/global.css';
 export interface Props {
 	title: string;
@@ -27,15 +28,15 @@ const { title, description, keywords } = Astro.props;
 		<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 		<meta name="author" content="IngeSoftNet" />
 		<link rel="icon" type="image/x-icon" href={favicon.src} />
-		<link rel="canonical" href={Astro.url.href} />
+		<link rel="canonical" href="https://ingesoftnet.com" />
 
 		<!-- Open Graph (Redes Sociales) -->
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
 		{description && <meta property="og:description" content={description } />}
-		<meta property="og:url" content={Astro.url.href} />
+		<meta property="og:url" content='https://ingesoftnet.com' />
 		<meta property="og:site_name" content="IngeSoftNet" />
-		<meta property="og:image" content={Astro.url.origin + '/images/og-image.jpg'} />
+		<meta property="og:image" content={ogImage.src} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:image:alt" content={`${title} - IngeSoftNet`} />
@@ -45,7 +46,7 @@ const { title, description, keywords } = Astro.props;
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		{description && <meta name="twitter:description" content={description} />}
-		<meta name="twitter:image" content={Astro.url.origin + '/images/og-image.jpg'} />
+		<meta name="twitter:image" content={ogImage.src} />
 		<meta name="twitter:image:alt" content={`${title} - IngeSoftNet`} />
 
 
@@ -56,7 +57,7 @@ const { title, description, keywords } = Astro.props;
 					"@context": "https://schema.org",
 					"@type": "Organization",
 					"name": "IngeSoftNet",
-					"url": Astro.url.origin,
+					"url": "https://ingesoftnet.com",
 					"logo": Astro.url.origin + "/images/logo.png",
 					"description": description || "Soluciones de software e ingeniería",
 					"address": {

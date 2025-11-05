@@ -1,5 +1,7 @@
 ---
 import WhatsApp from '@assets/icons/logo-whatsApp.astro';
+import imgISL from '@assets/logo-isl.png';
+import { Image } from 'astro:assets';
 // export interface Props {
 // 	link: string;
 // 	icon: string;
@@ -8,12 +10,17 @@ import WhatsApp from '@assets/icons/logo-whatsApp.astro';
 // }
 
 // const { link, icon, title, tooltip } = Astro.props;
-const classIcon = 'relative rounded-full w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 p-4 shadow-md group';
+const classIcon = 'relative rounded-full w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 p-3 shadow-md group';
 const tooltipClass =
 	"absolute right-[calc(100%+1rem)] group-hover:right-[calc(100%+0.8rem)] top-1/2 transform -translate-y-1/2 text-text py-2 px-4 bg-white rounded-xl whitespace-nowrap before:content-[''] before:absolute before:top-1/2 before:right-[-9px] before:-translate-y-1/2 before:border-[5px] before:border-solid before:border-transparent before:z-10 before:border-l-white group-hover:opacity-100 opacity-0 transition-all duration-300 semibold tooltip-shadow font-semibold pointer-events-none";
 ---
 
 <div class="fixed bottom-2 right-2 md:bottom-4 md:right-4 lg:bottom-6 lg:right-6 flex flex-col gap-3 lg:gap-4 z-50">
+	<a class={`${classIcon} bg-white text-white `} href="" target="_blank" rel="noopener noreferrer" aria-label="Estamos en línea">
+		<Image src={imgISL} alt="Descargar instalador ISL" width={512} height={512} loading="lazy" title="Image logo ISL" />
+		<span class={tooltipClass}> Descargar instalador ISL</span>
+	</a>
+
 	<button class={`${classIcon} bg-gray-500 text-white cursor-pointer`} aria-label="Inicia un chat">
 		<i class="fi fi-rr-user-headset text-3xl justify-center"></i>
 		<span class={tooltipClass}>Inicia un chat</span>

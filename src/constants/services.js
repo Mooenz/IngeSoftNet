@@ -1,4 +1,3 @@
-import ejemplo from '@assets/ejemplo.png';
 import services1 from '@assets/servicesImages/servicio-de-venta-de-licencias-SysCafé.jpg';
 import services2 from '@assets/servicesImages/soporte-y-mantenimiento-de-alto-nivel.jpg';
 import services3 from '@assets/servicesImages/implementación-del-software-SysCafé.jpg';

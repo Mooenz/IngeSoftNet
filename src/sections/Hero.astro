@@ -1,5 +1,7 @@
 ---
 import CarruselClients from '@components/CarruselClients.astro';
+import ImgHero from '@public/images/oficinas-de-ingesoftnet.jpg';
+import { Image } from 'astro:assets';
 ---
 
 <section class="relative text-center overflow-hidden bg-cover bg-center bg-no-repeat flex flex-col justify-between" id="hero-principal">
@@ -13,7 +15,7 @@ import CarruselClients from '@components/CarruselClients.astro';
 	<div class="absolute inset-0 -z-10 before:content-[''] before:absolute before:inset-0 before:bg-[url('/src/assets/noise.png')] bg-cover bg-center after:content-[''] after:opacity-55 after:absolute after:inset-0 after:bg-black after:z-0">
 		<picture>
 			<!-- <source media="(min-width: 515px)" srcset="./assets/images/bnaniversario58.jpg" width="1290" height="515" /> -->
-			<img src="/images/oficinas-de-ingesoftnet.jpg" class="w-full h-full object-cover grayscale-40" title="Imagen de fondo ingesoftnet" loading="lazy" width="2000" height="1125" alt="Banner " />
+			<Image src={ImgHero} class="w-full h-full object-cover grayscale-40" title="Imagen de fondo ingesoftnet" loading="lazy" width="2000" height="1125" alt="Banner " />
 		</picture>
 	</div>
 </section>

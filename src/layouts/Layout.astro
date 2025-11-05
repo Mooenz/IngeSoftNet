@@ -2,6 +2,7 @@
 import Menu from '@sections/Menu.astro';
 import Footer from '@sections/Footer.astro';
 import ButtonLateral from '@components/ButtonLateral.astro';
+import favicon from '@public/images/favicon.png';
 import '@styles/global.css';
 export interface Props {
 	title: string;
@@ -25,7 +26,7 @@ const { title, description, keywords } = Astro.props;
 		{keywords && <meta name="keywords" content={keywords} />}
 		<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 		<meta name="author" content="IngeSoftNet" />
-		<link rel="icon" type="image/x-icon" href="/images/favicon.png" />
+		<link rel="icon" type="image/x-icon" href={favicon.src} />
 		<link rel="canonical" href={Astro.url.href} />
 
 		<!-- Open Graph (Redes Sociales) -->

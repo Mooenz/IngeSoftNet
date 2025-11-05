@@ -7,14 +7,20 @@ import menu from '@constants/menu.js';
 import Button from '@components/Button.astro';
 const items = Object.values(menu);
 
-// Obtener la URL actual para identificar la página activa
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+// Obtener la URL actual sin el prefijo base
 const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL; // '/IngeSoftNet' o '/'
 
 // Función para verificar si un enlace está activo
 const isActive = (href: string) => {
-	// Normalizar las rutas removiendo el slash final
-	const normalizedCurrent = currentPath.replace(/\/$/, '') || '/';
-	const normalizedHref = href.replace(/\/$/, '') || '/';
+	// Construir la ruta completa con el base
+	const fullHref = href === '/' ? base : `${base}${href}`.replace(/\/+/g, '/');
+
+	// Normalizar removiendo slash final (excepto para la raíz)
+	const normalizedCurrent = currentPath === '/' ? currentPath : currentPath.replace(/\/$/, '');
+	const normalizedHref = fullHref === '/' ? fullHref : fullHref.replace(/\/$/, '');
 
 	return normalizedCurrent === normalizedHref;
 };
@@ -27,7 +33,7 @@ const isActive = (href: string) => {
 			<div class="flex flex-wrap justify-between items-center py-4">
 				<!-- Logo/Marca -->
 				<div class="flex-shrink-0">
-					<a href="/" title="Ir al inicio - IngeSoftNet" aria-label="Página de inicio de IngeSoftNet">
+					<a href="/IngeSoftNet/" title="Ir al inicio - IngeSoftNet" aria-label="Página de inicio de IngeSoftNet">
 						<Image src={logo} class="max-w-[150px]" alt="Logo de IngeSoftNet S.A.S." title="Enlace al inicio" height="178" width="600" loading="eager" fetchpriority="high" />
 					</a>
 				</div>
@@ -67,12 +73,12 @@ const isActive = (href: string) => {
 									items.map(({ esBoton, href, nombre, icono }) => (
 										<li>
 											{esBoton ? (
-												<Button anchor link={href} title={`Enlace a ${nombre}`} variants="primary" size="md">
+												<Button anchor link={'/IngeSoftNet' + href} title={`Enlace a ${nombre}`} variants="primary" size="md">
 													<span class="m-0">{nombre}</span>
 													<i class={`fi ${icono} text-gray-300`} aria-hidden="true" />
 												</Button>
 											) : (
-												<a href={href} class={`flex gap-2 items-center ${isActive(href) ? 'text-primary font-semibold' : ''}`} title={`Enlace a ${nombre}`} aria-current={isActive(href) ? 'page' : undefined}>
+												<a href={'/IngeSoftNet' + href} class={`flex gap-2 items-center ${isActive(href) ? 'text-primary font-semibold' : ''}`} title={`Enlace a ${nombre}`} aria-current={isActive(href) ? 'page' : undefined}>
 													<i class={`fi ${icono} ${isActive(href) ? 'text-primary' : 'text-gray-300'}`} aria-hidden="true" />
 													<span class="m-0">{nombre}</span>
 												</a>
@@ -92,12 +98,12 @@ const isActive = (href: string) => {
 							items.map(({ esBoton, href, nombre, icono }) => (
 								<li>
 									{esBoton ? (
-										<Button anchor link={href} title={`Enlace a ${nombre}`} variants="primary" size="md" className="ms-4 ">
+										<Button anchor link={'/IngeSoftNet' + href} title={`Enlace a ${nombre}`} variants="primary" size="md" className="ms-4 ">
 											<span class="m-0">{nombre}</span>
 											<i class={`fi ${icono}`} aria-hidden="true" />
 										</Button>
 									) : (
-										<a href={href} class={`flex gap-2 items-center px-4 animation-link ${isActive(href) ? 'active-link' : ''}`} title={`Enlace a ${nombre}`} aria-current={isActive(href) ? 'page' : undefined}>
+										<a href={'/IngeSoftNet' + href} class={`flex gap-2 items-center px-4 animation-link ${isActive(href) ? 'active-link' : ''}`} title={`Enlace a ${nombre}`} aria-current={isActive(href) ? 'page' : undefined}>
 											{nombre}
 										</a>
 									)}

@@ -3,6 +3,7 @@ import TitleMain from '@components/TitleMain.astro';
 import GeneralSection from '@components/GeneralSection.astro';
 import 'photoswipe/style.css';
 import imagesArray from '@constants/gallery.js';
+import { Image } from 'astro:assets';
 ---
 
 <GeneralSection autoHeight>
@@ -13,11 +14,11 @@ import imagesArray from '@constants/gallery.js';
 		<div class="swiper" id="gallerySwiper" aria-label="Carrusel de imágenes de soporte técnico">
 			<div class="swiper-wrapper" id="galleryImages">
 				{
-					imagesArray.map((image) => (
+					imagesArray.map(({ src, width, height, alt, title }) => (
 						<div class="swiper-slide hover-image">
 							<figure class="h-30 w-30 lg:h-60 lg:w-60 xl:w-73 xl:h-73 rounded-lg lg:rounded-[40px] image shadow-sm">
-								<a href={image.src} data-pswp-width={image.width} data-pswp-height={image.height} title="Imagen de soporte técnico de IngeSoftNet" data-cropped="true" data-med-src={image.src} data-med-width={image.width} data-med-height={image.height} target="_blank" rel="noopener noreferrer">
-									<img src={image.src} alt={image.alt} class="w-full h-auto" loading="lazy" title={image.title} />
+								<a href={src.src} data-pswp-width={width} data-pswp-height={height} title={title} data-cropped="true" data-med-src={src} data-med-width={width} data-med-height={height} target="_blank" rel="noopener noreferrer">
+									<Image src={src} alt={alt} class="w-full h-auto" width={width} height={height} loading="lazy" title={title} />
 								</a>
 							</figure>
 						</div>

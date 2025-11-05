@@ -7,6 +7,7 @@ import imagenSoporte from '@assets/oficina.jpg';
 import LogoFacebook from '@assets/icons/logo-facebook.astro';
 import LogoInstagram from '@assets/icons/logo-instagram.astro';
 import LogoYouTube from '@assets/icons/logo-youtube.astro';
+import Audio from '@assets/audio/ingesoftnet.mp3';
 ---
 
 <!-- -->
@@ -21,7 +22,7 @@ import LogoYouTube from '@assets/icons/logo-youtube.astro';
 					</hgroup>
 				</div>
 				<audio controls id="audio-player" controlslist="nodownload noplaybackrate" aria-describedby="trans-audio">
-					<source src="/audio/ingesoftnet.mp3" type="audio/mpeg" />
+					<source src={Audio} type="audio/mpeg" />
 					Tu navegador no soporta el audio.
 				</audio>
 
@@ -103,7 +104,7 @@ import LogoYouTube from '@assets/icons/logo-youtube.astro';
 	</section>
 
 	<GeneralContainer>
-		<section class="pt-8 pb-6 border-t border-gray-200 text-gray-400">
+		<section class="pt-8 pb-6 border-t border-white/10 text-gray-400">
 			<div class="flex justify-between items-center gap-2 flex-wrap">
 				<p class="m-0">IngeSoftNet © 2025. Todos los derechos reservados.</p>
 
@@ -124,17 +125,18 @@ import LogoYouTube from '@assets/icons/logo-youtube.astro';
 			</div>
 		</section>
 	</GeneralContainer>
+</footer>
 
-	<script>
-		import('plyr/dist/plyr.css');
+<script>
+	import('plyr/dist/plyr.css');
 
-		document.addEventListener('DOMContentLoaded', async () => {
-			try {
-				const { default: Plyr } = await import('plyr');
+	document.addEventListener('DOMContentLoaded', async () => {
+		try {
+			const { default: Plyr } = await import('plyr');
 
-				const player = new Plyr('#audio-player', {
-					// controls: ['play', 'progress', 'mute', 'volume', 'current-time', 'duration'],
-					controls: `<!-- Audio Controls -->
+			const player = new Plyr('#audio-player', {
+				// controls: ['play', 'progress', 'mute', 'volume', 'current-time', 'duration'],
+				controls: `<!-- Audio Controls -->
     <div class="plyr__controls flex items-center gap-4">
         <button class="plyr__controls__item plyr__control" type="button" data-plyr="play" aria-pressed="false" aria-label="Play">
             <svg class="icon--pressed hidden" aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24">
@@ -161,107 +163,106 @@ import LogoYouTube from '@assets/icons/logo-youtube.astro';
     </div>
 
 		`,
-					volume: 0.5,
-				});
+				volume: 0.5,
+			});
 
-				// Opcional: Configuraciones adicionales
-				player.volume = 0.5;
-			} catch (error) {
-				console.error('Error al cargar Plyr:', error);
-			}
-		});
-	</script>
-
-	<style is:inline>
-		:root {
-			--plyr-audio-control-background-hover: var(--color-gray-200);
-			--plyr-range-fill-background: var(--primary);
-			--plyr-audio-controls-background: rgb(0, 0, 0, 0);
-			--plyr-control-radius: 50px;
-			--plyr-audio-control-color-hover: var(--color-gray-600);
-			--plyr-audio-control-color: var(--color-gray-600);
-			--plyr-control-icon-size: 40px;
+			// Opcional: Configuraciones adicionales
+			player.volume = 0.5;
+		} catch (error) {
+			console.error('Error al cargar Plyr:', error);
 		}
+	});
+</script>
 
-		.plyr {
-			position: relative;
-			z-index: 100;
-			width: 100%;
-		}
+<style is:inline>
+	:root {
+		--plyr-audio-control-background-hover: var(--color-gray-200);
+		--plyr-range-fill-background: var(--primary);
+		--plyr-audio-controls-background: rgb(0, 0, 0, 0);
+		--plyr-control-radius: 50px;
+		--plyr-audio-control-color-hover: var(--color-gray-600);
+		--plyr-audio-control-color: var(--color-gray-600);
+		--plyr-control-icon-size: 40px;
+	}
 
-		.plyr .plyr__controls {
-			/* height: 66px; */
-		}
+	.plyr {
+		position: relative;
+		z-index: 100;
+		width: 100%;
+	}
 
-		.plyr.plyr--audio .plyr__controls .plyr__volume {
-			margin-left: 16px;
-		}
+	.plyr .plyr__controls {
+		/* height: 66px; */
+	}
 
-		.plyr.plyr--audio .plyr__controls {
-			/* border-radius: 56px;
+	.plyr.plyr--audio .plyr__controls .plyr__volume {
+		margin-left: 16px;
+	}
+
+	.plyr.plyr--audio .plyr__controls {
+		/* border-radius: 56px;
 		padding: 12px 16px; */
-			padding: 0;
-		}
-		.plyr .plyr__controls .plyr__controls__item:first-child {
-			position: relative;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			width: 60px;
-			height: 60px;
-			color: #fff;
-			background-color: var(--color-primary-dark);
-			transition:
-				background-color 0.3s ease-in-out,
-				transform 0.3s ease-in-out;
-		}
+		padding: 0;
+	}
+	.plyr .plyr__controls .plyr__controls__item:first-child {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 60px;
+		height: 60px;
+		color: #fff;
+		background-color: var(--color-primary-dark);
+		transition:
+			background-color 0.3s ease-in-out,
+			transform 0.3s ease-in-out;
+	}
 
-		.plyr .plyr__controls .plyr__controls__item:first-child:hover {
-			background-color: var(--color-primary);
-		}
+	.plyr .plyr__controls .plyr__controls__item:first-child:hover {
+		background-color: var(--color-primary);
+	}
 
-		.plyr .plyr__controls .plyr__controls__item:first-child:active {
-			transform: scale(0.9);
-		}
+	.plyr .plyr__controls .plyr__controls__item:first-child:active {
+		transform: scale(0.9);
+	}
 
-		.plyr .plyr__controls__item:first-child svg {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			display: block;
-			color: #fff;
-			transition:
-				color 0.3s ease-in-out,
-				transform 0.3s ease-in-out;
-			transform: translate(-50%, -50%);
-		}
+	.plyr .plyr__controls__item:first-child svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: block;
+		color: #fff;
+		transition:
+			color 0.3s ease-in-out,
+			transform 0.3s ease-in-out;
+		transform: translate(-50%, -50%);
+	}
 
-		.plyr .plyr__controls__item:first-child[aria-pressed='false'] svg:nth-of-type(1) {
-			transform: translate(-50%, -50%) scale(0);
-		}
+	.plyr .plyr__controls__item:first-child[aria-pressed='false'] svg:nth-of-type(1) {
+		transform: translate(-50%, -50%) scale(0);
+	}
 
-		.plyr .plyr__controls__item:first-child[aria-pressed='false'] svg:nth-of-type(2) {
-			transform: translate(-50%, -50%) scale(1);
-		}
+	.plyr .plyr__controls__item:first-child[aria-pressed='false'] svg:nth-of-type(2) {
+		transform: translate(-50%, -50%) scale(1);
+	}
 
-		.plyr .plyr__controls__item:first-child[aria-pressed='true'] svg:nth-of-type(1) {
-			transform: translate(-50%, -50%) scale(1);
-		}
+	.plyr .plyr__controls__item:first-child[aria-pressed='true'] svg:nth-of-type(1) {
+		transform: translate(-50%, -50%) scale(1);
+	}
 
-		.plyr .plyr__controls__item:first-child[aria-pressed='true'] svg:nth-of-type(2) {
-			transform: translate(-50%, -50%) scale(0);
-		}
+	.plyr .plyr__controls__item:first-child[aria-pressed='true'] svg:nth-of-type(2) {
+		transform: translate(-50%, -50%) scale(0);
+	}
 
-		.plyr .plyr__controls__item:first-child:hover svg {
-			color: #fff;
-		}
+	.plyr .plyr__controls__item:first-child:hover svg {
+		color: #fff;
+	}
 
-		.plyr.plyr--audio .plyr__controls .plyr__controls__item {
-			color: var(--color-text);
-		}
+	.plyr.plyr--audio .plyr__controls .plyr__controls__item {
+		color: var(--color-text);
+	}
 
-		.plyr.plyr--audio .plyr__controls .plyr__controls__item.plyr__time[aria-label='Current time'] {
-			width: 38px;
-		}
-	</style>
-</footer>
+	.plyr.plyr--audio .plyr__controls .plyr__controls__item.plyr__time[aria-label='Current time'] {
+		width: 38px;
+	}
+</style>

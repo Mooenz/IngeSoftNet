@@ -3,6 +3,26 @@ import Layout from '@layouts/Layout.astro';
 import HeroSmall from '@sections/HeroSmall.astro';
 import imageBackground from '@assets/counter-bg.png';
 import { Image } from 'astro:assets';
+import Documentacion from '@components/documentacion/Documentacion.astro';
+import DocumentacionTabs from '@components/documentacion/DocumentacionTabs.astro';
+import DocumentacionContent from '@components/documentacion/DocumentacionContent.astro';
+import TabSistema from '@components/documentacion/tabs/TabSistema.astro';
+import TabArchivos from '@components/documentacion/tabs/TabArchivos.astro';
+import TabMovimientos from '@components/documentacion/tabs/TabMovimientos.astro';
+import TabProcesos from '@components/documentacion/tabs/TabProcesos.astro';
+import TabInformes from '@components/documentacion/tabs/TabInformes.astro';
+import TabUtilidades from '@components/documentacion/tabs/TabUtilidades.astro';
+import TabAdvertencias from '@components/documentacion/tabs/TabAdvertencias.astro';
+
+const tabs = [
+	{ id: 'sistema', label: 'Sistema', icon: 'fi fi-rr-settings', active: true },
+	{ id: 'archivos', label: 'Archivos', icon: 'fi fi-rr-folder-open', active: false },
+	{ id: 'movimientos', label: 'Movimientos', icon: 'fi fi-rr-arrows-repeat', active: false },
+	{ id: 'procesos', label: 'Procesos', icon: 'fi fi-rr-apps-add', active: false },
+	{ id: 'informes', label: 'Informes', icon: 'fi fi-rr-file-medical-alt', active: false },
+	{ id: 'utilidades', label: 'Utilidades', icon: 'fi fi-rr-badge-check', active: false },
+	{ id: 'advertencias', label: 'Advertencias', icon: 'fi fi-rr-triangle-warning', active: false },
+];
 ---
 
 <Layout title="IngeSoftNet | Manual de Procesos">
@@ -10,4 +30,17 @@ import { Image } from 'astro:assets';
 		<!-- Background Image -->
 		<Image src={imageBackground} alt="Background Image" class="absolute inset-0 w-full h-full -z-10 object-cover opacity-10" />
 	</HeroSmall>
+
+	<Documentacion>
+		<DocumentacionTabs tabs={tabs} />
+		<DocumentacionContent>
+			<TabSistema />
+			<TabArchivos />
+			<TabMovimientos />
+			<TabProcesos />
+			<TabInformes />
+			<TabUtilidades />
+			<TabAdvertencias />
+		</DocumentacionContent>
+	</Documentacion>
 </Layout>

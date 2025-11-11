@@ -1,0 +1,370 @@
+---
+import DocumentacionTabContent from '../DocumentacionTabContent.astro';
+import DocumentacionSection from '../DocumentacionSection.astro';
+import DocumentacionImage from '../DocumentacionImage.astro';
+import DocumentacionNote from '../DocumentacionNote.astro';
+import DocumentacionLink from '../DocumentacionLink.astro';
+
+const sections = [
+	{ id: 'copiasdeseguridad', title: 'Copias de seguridad' },
+	{ id: 'busquedaerrores', title: 'Búsqueda de errores' },
+	{ id: 'advertencias-mantenimientobd', title: 'Mantenimiento a la base de datos' },
+	{ id: 'bloqueoarchivosexcel', title: 'Bloqueo de archivos de Excel' },
+	{ id: 'notificacioncorreos', title: 'Notificación de factura a múltiples correcos electrónicos' },
+	{ id: 'actualizarsaldos', title: 'Actualizar Saldos' },
+	{ id: 'atajosteclado', title: 'Atajos de teclado en el Software' },
+	{ id: 'restaurarclave', title: 'Restaurar clave' },
+	{ id: 'eliminarerrores', title: 'Eliminar errores especializados' },
+	{ id: 'imputacioncontable', title: 'Imputación contable pérdida' },
+	{ id: 'comunicadosdian', title: 'Comunicados DIAN' },
+	{ id: 'impresorapredeterminada', title: 'Impresoras predeterminada' },
+	{ id: 'auditoria-documentos', title: 'Auditoría de documentos electrónicos' },
+	{ id: 'copia-seguridad-automatica', title: 'Copia de seguridad automática' },
+	{ id: 'facturacion-contingencia', title: 'Facturación por contingencia' },
+	{ id: 'facturacion-pos-electronico', title: 'Facturación POS electrónico' },
+];
+
+// Importamos las imágenes
+import img1 from '@assets/images/copias-seguridad.png';
+import img2 from '@assets/images/copias-seguridad1.png';
+import img3 from '@assets/images/bloqueo-archivos-excel.png';
+import img4 from '@assets/images/bloqueo-archivos-excel1.png';
+import img5 from '@assets/images/bloqueo-archivos-excel2.png';
+import img6 from '@assets/images/bloqueo-archivos-excel3.png';
+import img7 from '@assets/images/notificacion-correos.png';
+import img8 from '@assets/images/notificacion-correos1.png';
+import img9 from '@assets/images/restaurar-clave.png';
+import img10 from '@assets/images/restaurar-clave1.png';
+import img11 from '@assets/images/restaurar-clave2.png';
+import img12 from '@assets/images/restaurar-clave3.png';
+import img13 from '@assets/images/restaurar-clave4.png';
+import img14 from '@assets/images/restaurar-clave5.png';
+import img15 from '@assets/images/restaurar-clave6.png';
+import img16 from '@assets/images/eliminar-errores.png';
+import img17 from '@assets/images/eliminar-errores1.png';
+import img18 from '@assets/images/imputacion-contable.png';
+import img19 from '@assets/images/imputacion-contable1.png';
+import img20 from '@assets/images/impresora-predeterminada.png';
+import img21 from '@assets/images/impresora-predeterminada1.png';
+import img22 from '@assets/images/impresora-predeterminada2.png';
+import img23 from '@assets/images/impresora-predeterminada3.png';
+import img24 from '@assets/images/auditoria-documentos.png';
+import img25 from '@assets/images/copia-seguridad-automatica.png';
+import img26 from '@assets/images/copia-seguridad-automatica1.png';
+import img27 from '@assets/images/copia-seguridad-automatica2.png';
+import img28 from '@assets/images/copia-seguridad-automatica3.png';
+import img29 from '@assets/images/copia-seguridad-automatica4.png';
+import img30 from '@assets/images/contingencia.png';
+import img31 from '@assets/images/contingencia1.png';
+import img32 from '@assets/images/contingencia2.png';
+import img33 from '@assets/images/contingencia3.png';
+import img34 from '@assets/images/facturacion-pos-electronico.png';
+import img35 from '@assets/images/facturacion-pos-electronico1.png';
+import img36 from '@assets/images/facturacion-pos-electronico2.png';
+import img37 from '@assets/images/facturacion-pos-electronico3.png';
+import img38 from '@assets/images/facturacion-pos-electronico4.png';
+---
+
+<DocumentacionTabContent id="advertencias" title="Advertencias" active={false} sections={sections} link="advertencias">
+	<DocumentacionSection id="copiasdeseguridad" title="Copias de seguridad" route="Advertencias - Copias de seguridad">
+		<p>Es crucial realizar una copia de seguridad diaria de la base de datos, ya que su ausencia conlleva un alto riesgo de pérdida irreparable de información en caso de daños.</p>
+		<DocumentacionNote type="nota">
+			<p><strong>Nota importante:</strong> Es recomendable almacenar copias de seguridad en discos externos o unidades USB para garantizar el acceso a la información en caso de fallos o daños en el equipo principal.</p>
+		</DocumentacionNote>
+		<DocumentacionImage src={img1.src} alt="Imagen de como gestionar las copias de seguridad" width={1600} height={841} title="Imagen de como gestionar las copias de seguridad" pswpWidth={1600} pswpHeight={841} />
+		<p>En caso de que la copia de seguridad esté tardando más tiempo del esperado en completarse, tiene la opción de excluir ciertos archivos para agilizar el proceso. A continuación, se detalla cómo proceder y qué tipos de archivos podrían excluirse:</p>
+		<DocumentacionImage src={img2.src} alt="Imagen de como gestionar las copias de seguridad" width={1600} height={848} title="Imagen de como gestionar las copias de seguridad" pswpWidth={1600} pswpHeight={848} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="busquedaerrores" title="Búsqueda de errores" route="Advertencias - Búsqueda de errores">
+		<p>Les recordamos la importancia de <strong>buscar y corregir errores en los movimientos registrados</strong> de manera <strong>semanal</strong>. Este hábito contribuye a mantener la información organizada, precisa y confiable, lo que es esencial para la correcta gestión operativa y contable del sistema.</p>
+		<p>Realizar revisiones periódicas permite identificar discrepancias, solucionar problemas a tiempo y prevenir acumulación de errores que puedan afectar los reportes, análisis y toma de decisiones.</p>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="advertencias-mantenimientobd" title="Mantenimiento a la base de datos" route="Advertencias - Mantenimiento a la base de datos">
+		<p>Le recordamos que al <strong>inicio de cada día</strong> es fundamental realizar el <strong>mantenimiento de la base de datos</strong> en el software <strong>SYSCAFÉ</strong>. Este procedimiento es clave para garantizar el correcto funcionamiento del sistema, prevenir posibles fallos y mantener la integridad y el rendimiento óptimo de los datos.</p>
+		<p>El mantenimiento diario ayuda a depurar información innecesaria, corregir inconsistencias y optimizar los procesos internos del sistema, asegurando una operación fluida y eficiente.</p>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="bloqueoarchivosexcel" title="Bloqueo de archivos de Excel" route="Advertencias - Bloqueo de archivos de Excel">
+		<p>De acuerdo con este caso, le sugerimos verificar que el programa de <strong>Excel</strong> esté configurado correctamente para asegurar su funcionamiento adecuado.</p>
+		<p>Acceda a <strong>Excel</strong>, luego diríjase a la sección de <strong>Archivo</strong> y haga clic en el botón <strong>Opciones</strong> como se observa en la imagen.</p>
+		<DocumentacionImage src={img3.src} alt="Imagen de como gestionar el bloqueo de archivos de Excel" width={1600} height={848} title="Imagen de como gestionar el bloqueo de archivos de Excel" pswpWidth={1600} pswpHeight={848} />
+		<p>Ahora, en la ventana que se abre, haga clic en el campo <strong>Centro de Confianza</strong> y luego seleccione el botón <strong>Configuración del Centro de Confianza</strong>.</p>
+		<DocumentacionImage src={img4.src} alt="Imagen de como gestionar el bloqueo de archivos de Excel" width={1600} height={848} title="Imagen de como gestionar el bloqueo de archivos de Excel" pswpWidth={1600} pswpHeight={848} />
+		<p>
+			Haga clic en el campo <strong>Configuración de bloqueo de archivos</strong> y verifique que ninguno de los tipos de archivo tenga marcado el <strong>chulito</strong>
+			<span class="icono flex justify-center items-center color-white bg-green-500 mx-1 rounded-md"><i class="fi fi-rr-check"></i></span> . Si encuentra algún tipo de archivo seleccionado, por favor, desmarque todas las opciones.
+		</p>
+		<DocumentacionImage src={img5.src} alt="Imagen de como gestionar el bloqueo de archivos de Excel" width={1600} height={848} title="Imagen de como gestionar el bloqueo de archivos de Excel" pswpWidth={1600} pswpHeight={848} />
+		<p>La configuración de bloqueo de archivos debe coincidir exactamente con la que se muestra en la imagen. Asegúrese de que todos los ajustes sean los mismos para garantizar un funcionamiento correcto.</p>
+		<DocumentacionImage src={img6.src} alt="Imagen de como gestionar el bloqueo de archivos de Excel" width={1600} height={848} title="Imagen de como gestionar el bloqueo de archivos de Excel" pswpWidth={1600} pswpHeight={848} />
+		<p>Por último, haga clic en <strong>Aceptar</strong> en todas las ventanas y cierre <strong>Excel</strong> para aplicar los cambios realizados.</p>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="notificacioncorreos" title="Notificación de factura a múltiples correcos electrónicos" route="Botón Terceros - Botón Contacto">
+		<p>Si la empresa necesita asociar varios correos electrónicos para la <strong>notificación de facturas electrónicas</strong>, puede gestionarlos y organizarlos directamente en el siguiente campo dentro de la <strong>información del tercero</strong>.</p>
+		<DocumentacionImage src={img7.src} alt="Imagen de como gestionar la notificación de correos electrónicos" width={1600} height={849} title="Imagen de como gestionar la notificación de correos electrónicos" pswpWidth={1600} pswpHeight={849} />
+		<p><strong>Ejemplo: </strong></p>
+		<DocumentacionImage src={img8.src} alt="Imagen de como gestionar la notificación de correos electrónicos" width={1600} height={845} title="Imagen de como gestionar la notificación de correos electrónicos" pswpWidth={1600} pswpHeight={845} />
+		<ol>
+			<li>Da click en el botón Modificar</li>
+			<li>Da click en el botón Contacto</li>
+			<li>Da click en el botón Adicionar</li>
+			<li>Escribe la información solicitada</li>
+			<li>
+				Marca el chulito <span class="icono flex justify-center items-center color-white bg-green-500 mx-1 rounded-md"><i class="fi fi-rr-check"></i></span> del la columna FEL
+			</li>
+			<li>Los campos <strong>Teléfono y Dirección</strong> pueden dejarse en blanco, o si lo prefiere, puede completarlos con la información correspondiente para obtener más detalles. <strong>No es obligatorio</strong> llenar estos campos.</li>
+			<li>Salir y Grabar</li>
+		</ol>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="actualizarsaldos" title="Actualizar Saldos" route="Advertencias - Actualizar Saldos">
+		<p>Le recordamos que al <strong>inicio de cada mes</strong> es fundamental realizar la <strong>actualización de saldos</strong> en el sistema. Este proceso asegura que la información financiera y operativa esté actualizada, precisa y lista para el registro de nuevas transacciones.</p>
+		<p>Mantener los saldos correctamente actualizados permite un mejor control sobre las cuentas, facilita la generación de reportes confiables y asegura que las decisiones empresariales se basen en datos reales.</p>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="atajosteclado" title="Atajos de teclado en el Software" route="Advertencias - Atajos de teclado">
+		<br />
+		<p><strong>Generales:</strong></p>
+		<ul>
+			<li>Bloquear sistema: <strong>Ctrl + F8</strong>.</li>
+			<li>Selecc. Empresa/usuario: <strong>Ctrl + J</strong></li>
+			<li>Actualizar saldos: <strong>Ctrl + Y</strong></li>
+			<li>Utilidades comprobantes: <strong>Ctrl + U</strong></li>
+			<li>Consultas comprobantes: <strong>Ctrl + G</strong></li>
+			<li>Calculadora: <strong>Ctrl + O</strong></li>
+			<li>Menú de accesos directos: <strong>Ctrl + M</strong></li>
+		</ul>
+		<br />
+		<p><strong>Catálogos:</strong></p>
+		<ul>
+			<li>Catálogo plan de cuentas: <strong>Ctrl + L</strong></li>
+			<li>Catálogo de terceros: <strong>Ctrl + T</strong></li>
+			<li>Catálogo de artículos: <strong>Ctrl + A</strong></li>
+		</ul>
+		<br />
+		<p><strong>Comprobantes:</strong></p>
+		<ul>
+			<li>Nota de contabilidad: <strong>Ctrl + S</strong></li>
+			<li>Comprobante de egreso: <strong>Ctrl + E</strong></li>
+			<li>Recibo de caja: <strong>Ctrl + R</strong></li>
+			<li>Factura de venta: <strong>Ctrl + F</strong></li>
+			<li>Pedido del cliente: <strong>Ctrl + D</strong></li>
+			<li>Remisión/Cotización a cliente:<strong> Alt + H</strong></li>
+			<li>Compras: <strong>Ctrl + Q</strong></li>
+			<li>Nota de inventarios: <strong>Ctrl + I</strong></li>
+			<li>Traslado entre bodegas: <strong>Ctrl + K</strong></li>
+			<li>Nuevo comprobante: <strong>Ctrl + Z</strong></li>
+		</ul>
+		<p><strong>Venta POS:</strong></p>
+		<ul>
+			<li>Facturación POS: <strong>F9</strong></li>
+			<li>Devolución POS: <strong>F11</strong></li>
+			<li>Pedido POS: <strong>F7</strong></li>
+			<li>Abrir cajón monedero: <strong>Ctrl + F5</strong></li>
+			<li>Consulta de artículos y puntos: <strong>Ctrl + F6</strong></li>
+		</ul>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="restaurarclave" title="Restaurar clave" route="Advertencias - Restaurar clave">
+		<p>Si llegas a perder u olvidar la clave de acceso de algún usuario creado en el sistema, podrás restaurarla de forma rápida, sencilla y segura, garantizando el acceso sin inconvenientes.</p>
+		<p>Para utilizar esta alternativa, se recomienda configurar el correo electrónico en los datos mínimos del usuario desde la sección de usuarios y permisos, tal como se muestra en la imagen.</p>
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> No es relevante qué correo se registre en el campo, lo importante es que el usuario tenga acceso a dicho correo. La asignación del correo al usuario puede realizarse ingresando al sistema desde cualquier usuario con clase de <strong>Administrador</strong>.</p>
+		</DocumentacionNote>
+		<DocumentacionImage src={img9.src} alt="Imagen de como gestionar la restauración de clave" width={1600} height={848} title="Imagen de como gestionar la restauración de clave" pswpWidth={1600} pswpHeight={848} />
+		<p>Al intentar ingresar, la visualización será la siguiente:</p>
+		<DocumentacionImage src={img10.src} alt="Imagen de como gestionar la restauración de clave" width={1600} height={848} title="Imagen de como gestionar la restauración de clave" pswpWidth={1600} pswpHeight={848} />
+		<p>Haz clic en el botón <strong>Solicitar</strong> para iniciar el proceso correspondiente. Al hacerlo, el sistema gestionará automáticamente la solicitud y procederá según las configuraciones establecidas.</p>
+		<DocumentacionImage src={img11.src} alt="Imagen de como gestionar la restauración de clave" width={1600} height={849} title="Imagen de como gestionar la restauración de clave" pswpWidth={1600} pswpHeight={849} />
+		<p>El sistema enviará una contraseña temporal al correo electrónico registrado para permitir el acceso. Es fundamental que el correo esté correctamente ingresado, ya que, de no ser así, la información no será recibida.</p>
+		<DocumentacionImage src={img12.src} alt="Imagen de como gestionar la restauración de clave" width={1600} height={848} title="Imagen de como gestionar la restauración de clave" pswpWidth={1600} pswpHeight={848} />
+		<p>Al correo registrado llegará un código similar al que se muestra en la imagen.</p>
+		<DocumentacionImage src={img13.src} alt="Imagen de como gestionar la restauración de clave" width={1600} height={757} title="Imagen de como gestionar la restauración de clave" pswpWidth={1600} pswpHeight={757} />
+		<p>A continuación, ingresa el código recibido en tu correo electrónico en el campo <strong>"INGRESE LA CONTRASEÑA TEMPORAL"</strong> y haz clic en <strong>ACEPTAR</strong> para continuar. Finalmente, presiona el botón <strong>OK</strong> para finalizar el proceso.</p>
+		<DocumentacionImage src={img14.src} alt="Imagen de como gestionar la restauración de clave" width={1600} height={848} title="Imagen de como gestionar la restauración de clave" pswpWidth={1600} pswpHeight={848} />
+		<p>Este proceso nos permite acceder al sistema con el usuario que estábamos intentando recuperar. Inmediatamente, aparecerá una ventana para asignar una <strong>nueva clave</strong>, siguiendo las pautas indicadas en la <strong>nota</strong>, que establece los requisitos mínimos para garantizar la seguridad de la contraseña.</p>
+		<DocumentacionImage src={img15.src} alt="Imagen de como gestionar la restauración de clave" width={1600} height={847} title="Imagen de como gestionar la restauración de clave" pswpWidth={1600} pswpHeight={847} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="eliminarerrores" title="Eliminar errores especializados" route="Utilidades - Revisión y Auditoría - Buscar errores">
+		<p><strong>Ruta:</strong> Utilidades - Revisión y Auditoría - Buscar errores - Reparaciones Errores Especializados - Artículos sin movimiento y sin saldo.</p>
+		<p>Esta funcionalidad avanzada te permitirá eliminar los artículos que <strong>no han tenido movimiento</strong> en el sistema, ayudando a mantener un inventario más organizado y actualizado.</p>
+		<DocumentacionImage src={img16.src} alt="Imagen de como gestionar la eliminación de errores especializados" width={1600} height={847} title="Imagen de como gestionar la eliminación de errores especializados" pswpWidth={1600} pswpHeight={847} />
+		<DocumentacionImage src={img17.src} alt="Imagen de como gestionar la eliminación de errores especializados" width={1600} height={845} title="Imagen de como gestionar la eliminación de errores especializados" pswpWidth={1600} pswpHeight={845} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="imputacioncontable" title="Imputación contable pérdida" route="Utilidades - Revisión y Auditoría - Buscar errores">
+		<p><strong>Ruta:</strong> Utilidades - Revisión y Auditoría - Buscar errores - Reparaciones Errores Especializados - Eliminar registros Perdidos.</p>
+		<p>Al utilizar la opción de <strong>eliminar registros perdidos</strong>, se eliminará el error de <strong>IMPUTACIÓN CONTABLE PÉRDIDA SIN UN REGISTRO DE COMPROBANTE</strong>, corrigiendo automáticamente la situación.</p>
+		<DocumentacionImage src={img18.src} alt="Imagen de como gestionar la imputación contable perdida" width={1600} height={848} title="Imagen de como gestionar la imputación contable perdida" pswpWidth={1600} pswpHeight={848} />
+		<p>Elija el rango de fechas y haga clic en el botón "OK".</p>
+		<DocumentacionImage src={img19.src} alt="Imagen de como gestionar la imputación contable perdida" width={1600} height={852} title="Imagen de como gestionar la imputación contable perdida" pswpWidth={1600} pswpHeight={852} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="comunicadosdian" title="Comunicados DIAN" route="Advertencias - Comunicados DIAN">
+		<p>El manual que hemos puesto a tu disposición en nuestra página web está diseñado como una herramienta práctica para mantenerte informado y actualizado con las disposiciones, normativas y lineamientos más recientes emitidos por la DIAN.</p>
+		<p>Este recurso te permitirá garantizar el cumplimiento de las obligaciones fiscales de manera eficiente y oportuna, además de facilitar la comprensión de los cambios regulatorios que impactan los procesos contables y tributarios.</p>
+		<DocumentacionLink href="https://www.dian.gov.co/Prensa/Paginas/HistoricoComunicadosPrensa.aspx" title="Enlace comunicados DIAN" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="impresorapredeterminada" title="Impresoras predeterminada" route="Advertencias - Impresoras predeterminada">
+		<p>Las impresoras POS no deben configurarse como impresoras predeterminadas, ya que esto podría desconfigurar el formato de impresión personalizado. Se recomienda establecer una impresora de <strong>tamaño carta</strong> como predeterminada para evitar este inconveniente.</p>
+		<p>Puedes verificar y organizar la configuración de la impresora en el <strong>panel de control</strong> del equipo, donde podrás ajustar las opciones necesarias.</p>
+		<DocumentacionImage src={img20.src} alt="Imagen de como gestionar la impresora predeterminada" width={1600} height={847} title="Imagen de como gestionar la impresora predeterminada" pswpWidth={1600} pswpHeight={847} />
+		<DocumentacionImage src={img21.src} alt="Imagen de como gestionar la impresora predeterminada" width={1600} height={855} title="Imagen de como gestionar la impresora predeterminada" pswpWidth={1600} pswpHeight={855} />
+		<p>Haz clic derecho sobre la impresora de tamaño carta que deseas establecer como predeterminada y selecciona la opción <strong>"Establecer como impresora predeterminada"</strong> para completar la configuración.</p>
+		<p>Luego, en la ventana que aparece, haz clic en el botón <strong>Aceptar</strong> para confirmar la configuración.</p>
+		<DocumentacionImage src={img22.src} alt="Imagen de como gestionar la impresora predeterminada" width={1600} height={851} title="Imagen de como gestionar la impresora predeterminada" pswpWidth={1600} pswpHeight={851} />
+		<p>Una vez finalizado el proceso, podrás ver en la configuración de <strong>Dispositivos e impresoras</strong> que la impresora de <strong>tamaño carta</strong> ha quedado establecida como predeterminada.</p>
+		<DocumentacionImage src={img23.src} alt="Imagen de como gestionar la impresora predeterminada" width={1600} height={854} title="Imagen de como gestionar la impresora predeterminada" pswpWidth={1600} pswpHeight={854} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="auditoria-documentos" title="Auditoría de documentos electrónicos" route="Advertencias - Auditoría de documentos electrónicos">
+		<p>Es altamente recomendable realizar una auditoría exhaustiva a los <strong>Documentos Electrónicos</strong> para garantizar que se cumplan adecuadamente los procesos clave, los cuales incluyen:</p>
+		<ul>
+			<li><strong>Enviar:</strong> Verificar que los documentos han sido enviados correctamente a la DIAN o a la entidad correspondiente para su validación.</li>
+			<li><strong>Almacenar:</strong> Confirmar que los documentos electrónicos se encuentren almacenados de forma segura y organizada, cumpliendo con las normativas legales vigentes en cuanto a la conservación de este tipo de información.</li>
+			<li><strong>Notificar:</strong> Asegurarse de que los documentos han sido notificados de manera correcta a los receptores, ya sean clientes, proveedores u otros terceros involucrados.</li>
+		</ul>
+		<p>Estos pasos son esenciales para garantizar la validez fiscal de los documentos y evitar sanciones o inconvenientes legales relacionados con su gestión. Una auditoría regular asegura el cumplimiento normativo y fortalece los procesos internos de la organización.</p>
+		<DocumentacionImage src={img24.src} alt="Imagen de como gestionar la auditoría de documentos electrónicos" width={1600} height={845} title="Imagen de como gestionar la auditoría de documentos electrónicos" pswpWidth={1600} pswpHeight={845} />
+		<p>Al realizar una consulta en esta consola de <strong>documentos electrónicos</strong>, asegúrese de que todos los indicadores se encuentren en <strong>color negro</strong> y que únicamente se muestre la cantidad de <strong>registros</strong> procesados correctamente.</p>
+		<p>Es fundamental que no haya documentos con los siguientes estados:</p>
+		<ul>
+			<li>Fallidos</li>
+			<li>Sin enviar</li>
+			<li>Sin almacenar</li>
+			<li>O cualquier otro estado irregular</li>
+		</ul>
+		<p>Mantener este control asegura que los documentos electrónicos cumplen con todos los requisitos fiscales y normativos, evitando inconsistencias o posibles sanciones.</p>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="copia-seguridad-automatica" title="Copia de seguridad automática" route="Utilidades - Programador de tareas">
+		<p>Para configurar las copias de seguridad automáticas, dirígete a:</p>
+		<p><strong>Ruta:</strong> Utilidades - Programador de tareas</p>
+		<p>Desde allí podrás establecer la frecuencia y el horario en que se realizarán las copias de forma automática.</p>
+		<DocumentacionImage src={img25.src} alt="Imagen de como gestionar la copia de seguridad automática" width={1600} height={849} title="Imagen de como gestionar la copia de seguridad automática" pswpWidth={1600} pswpHeight={849} />
+		<p>El módulo debe estar configurado como BACKUP.ZIP para que el parámetro funcione correctamente.</p>
+		<p>Al hacer clic en el botón Setup Script, se abrirá una ventana para configurar la ruta donde se almacenará la copia de seguridad.</p>
+		<DocumentacionImage src={img26.src} alt="Imagen de como gestionar la copia de seguridad automática" width={1600} height={848} title="Imagen de como gestionar la copia de seguridad automática" pswpWidth={1600} pswpHeight={848} />
+		<p>Ingresamos a la carpeta donde se almacenará la copia de seguridad automática y copiamos la ruta correspondiente.</p>
+		<DocumentacionImage src={img27.src} alt="Imagen de como gestionar la copia de seguridad automática" width={1600} height={847} title="Imagen de como gestionar la copia de seguridad automática" pswpWidth={1600} pswpHeight={847} />
+		<p>Pegamos la ruta en el campo correspondiente que nos proporciona el sistema SYSCAFÉ.</p>
+		<DocumentacionImage src={img28.src} alt="Imagen de como gestionar la copia de seguridad automática" width={1600} height={849} title="Imagen de como gestionar la copia de seguridad automática" pswpWidth={1600} pswpHeight={849} />
+		<p>Cambiamos la letra <strong>F</strong> por la letra <strong>T</strong>, que significa <strong>TRUE</strong>, para excluir las <strong>fotos</strong>, los <strong>PDF</strong> y los <strong>XML</strong>.</p>
+		<DocumentacionImage src={img29.src} alt="Imagen de como gestionar la copia de seguridad automática" width={1600} height={847} title="Imagen de como gestionar la copia de seguridad automática" pswpWidth={1600} pswpHeight={847} />
+		<p>Así queda configurada la copia de seguridad.</p>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="facturacion-contingencia" title="Facturación por contingencia" route="Documentos electrónicos - Herramientas">
+		<p>La factura electrónica de venta generada por inconvenientes tecnológicos corresponde a un documento que se emite cuando el sistema de facturación del facturador electrónico presenta fallas o está inhabilitado para su funcionamiento normal.</p>
+		<p>De igual forma, existe la factura electrónica de venta sin validación previa, la cual se expide cuando los inconvenientes tecnológicos provienen de la DIAN y no permiten la validación en línea del documento.</p>
+		<p>Es importante tener en cuenta que el plan de contingencia debe ejecutarse únicamente cuando sea estrictamente necesario y los fallos tecnológicos impidan la operación habitual del sistema de facturación.</p>
+		<p><strong>Contingencia por inconvenientes tecnológicos del facturador electrónico</strong></p>
+		<p>Según el Artículo 37 de la Resolución DIAN 00165 de 2023, se reconocen como válidos los inconvenientes tecnológicos que impidan la emisión y transmisión de la factura electrónica por parte del facturador electrónico.</p>
+		<p>En caso de presentarse esta situación, se debe seguir el siguiente procedimiento:</p>
+		<p>Elaborar una carta en la que se declare el inconveniente tecnológico o su superación.</p>
+		<p>La carta debe estar firmada por el representante legal de la empresa.</p>
+		<p>Enviar un correo electrónico a la dirección: <strong>contingencia.facturadorvp@dian.gov.co</strong></p>
+		<p>Con la <strong>siguiente</strong> información:</p>
+		<ul>
+			<li>
+				<strong>Asunto del correo:</strong>
+				<br />
+				NIT de la empresa, seguido por un guión y el dígito de verificación.
+			</li>
+			<li><strong>Nombre de la empresa:</strong> <br />Ejemplo: 900123456-7 Nombre de la Empresa S.A.S</li>
+			<li>
+				<strong>Archivos adjuntos:</strong>
+				<br />
+				Documento en formato PDF de la carta firmada por el representante legal, declarando el inicio o superación de la contingencia. <br />
+				<ol>
+					<li>Cuerpo del correo</li>
+					<li>Datos de contacto de la empresa.</li>
+					<li>Nombres completos del contacto.</li>
+					<li>Número telefónico o celular.</li>
+				</ol>
+			</li>
+		</ul>
+		<br />
+		<DocumentacionNote type="importante">
+			<p><strong>Importante:</strong> Este procedimiento debe ejecutarse únicamente cuando se presenten fallas reales que impidan la emisión de facturas, y no como una práctica rutinaria.</p>
+		</DocumentacionNote>
+		<p><strong>Ruta:</strong> Documentos electrónicos - Pestaña (Herramientas) - Botón Oficios DIAN por contingencia - Declaración de Contingencia.</p>
+		<DocumentacionImage src={img30.src} alt="Imagen de como gestionar la facturación por contingencia" width={1600} height={844} title="Imagen de como gestionar la facturación por contingencia" pswpWidth={1600} pswpHeight={844} />
+		<DocumentacionImage src={img31.src} alt="Imagen de como gestionar la facturación por contingencia" width={1600} height={847} title="Imagen de como gestionar la facturación por contingencia" pswpWidth={1600} pswpHeight={847} />
+		<p>Al hacer clic en el botón "Aceptar", el sistema mostrará una ventana con el inicio del oficio.</p>
+		<DocumentacionImage src={img32.src} alt="Imagen de como gestionar la facturación por contingencia" width={1600} height={849} title="Imagen de como gestionar la facturación por contingencia" pswpWidth={1600} pswpHeight={849} />
+		<p><strong>Paso a paso: Factura electrónica por contingencia (facturador)</strong></p>
+		<ol>
+			<li>
+				<strong>Solicitar autorización de facturación en la DIAN</strong>
+				<br />
+				Ingrese a la plataforma de la DIAN y solicite una autorización de facturación seleccionando el tipo <strong>"Talonario o Papel"</strong>.
+			</li>
+			<li>
+				<strong>Crear el comprobante en el sistema</strong>
+				<br />
+				Genere un comprobante de <strong>Factura Electrónica por Contingencia</strong> en el software. <br />
+				En la pestaña <strong>"Parámetros DIAN"</strong>, active el parámetro correspondiente a <strong>Factura electrónica por contingencia del facturador</strong>.
+				<DocumentacionImage src={img33.src} alt="Imagen de como gestionar la facturación por contingencia" width={1600} height={849} title="Imagen de como gestionar la facturación por contingencia" pswpWidth={1600} pswpHeight={849} />
+			</li>
+			<li>
+				<strong>Asociar la resolución de talonario o papel</strong>
+				<br />
+				Vincule la resolución previamente autorizada por la DIAN para talonario o papel. Puede apoyarse en el Manual de Factura Electrónica de Venta para este paso.
+			</li>
+			<li>
+				<strong>Enviar el documento una vez superada la contingencia</strong>
+				Cuando se restablezca el sistema y se supere la contingencia, debe realizar el <strong>envío del documento</strong> desde la pestaña <strong>"Documentos Electrónicos"</strong> del sistema.
+			</li>
+		</ol>
+		<br />
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> Para declarar en contingencia, se debe tener en cuenta que esta opción solo es válida cuando la empresa no cuenta con energía eléctrica, no tiene conexión a Internet o presenta alguna limitación por parte del facturador que impida emitir la información necesaria.</p>
+		</DocumentacionNote>
+		<DocumentacionNote type="alerta">
+			<p><strong>No aplica </strong>en casos de intermitencias o fallas generadas directamente por la plataforma de la DIAN.</p>
+		</DocumentacionNote>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="facturacion-pos-electronico" title="Facturación POS electrónico" route="Archivos - Catálogos - Tipos de comprobantes">
+		<p>Para configurar el comprobante, sigue estos pasos:</p>
+		<p>Ve a <strong>Archivos</strong> - <strong>Catálogos</strong> - <strong>Tipos de comprobantes</strong> y haz clic en <strong>Nuevo</strong>.</p>
+		<DocumentacionImage src={img34.src} alt="Imagen de como gestionar la facturación pos electrónico" width={1600} height={848} title="Imagen de como gestionar la facturación pos electrónico" pswpWidth={1600} pswpHeight={848} />
+		<p>En el botón "Parámetros específicos", selecciona aquellos que consideres necesarios para el uso y funcionamiento del comprobante, de acuerdo con las características y necesidades de tu operación.</p>
+		<DocumentacionImage src={img35.src} alt="Imagen de como gestionar la facturación pos electrónico" width={1600} height={823} title="Imagen de como gestionar la facturación pos electrónico" pswpWidth={1600} pswpHeight={823} />
+		<p>El formato de impresión para POS electrónico es tipo tirilla. Este formato no es personalizable y no debe utilizarse ningún otro diferente al indicado.</p>
+		<DocumentacionImage src={img36.src} alt="Imagen de como gestionar la facturación pos electrónico" width={1600} height={852} title="Imagen de como gestionar la facturación pos electrónico" pswpWidth={1600} pswpHeight={852} />
+		<p>En <strong>Modalidad</strong>, selecciona <strong>Documento Electrónico</strong> (Facturas, Compras, Nómina).</p>
+		<p>En los campos <strong>Prefijo - Desde y Hasta</strong>, ingresa la información exactamente como aparece en la <strong>resolución</strong>.</p>
+		<p>En <strong>Proveedor Tecnológico</strong>, selecciona <strong>SYSCAFÉ S.A.S.</strong></p>
+		<p>Finalmente, en <strong>Tipo de Operación Sector</strong>, selecciona <strong>Documento Equivalente - POS</strong>.</p>
+		<DocumentacionImage src={img37.src} alt="Imagen de como gestionar la facturación pos electrónico" width={1600} height={852} title="Imagen de como gestionar la facturación pos electrónico" pswpWidth={1600} pswpHeight={852} />
+		<p>Grabamos el comprobante, y de esta manera se crea el documento.</p>
+		<DocumentacionImage src={img38.src} alt="Imagen de como gestionar la facturación pos electrónico" width={1600} height={852} title="Imagen de como gestionar la facturación pos electrónico" pswpWidth={1600} pswpHeight={852} />
+		<DocumentacionNote type="importante">
+			<p><strong>Nota importante</strong>: No se ha asociado completamente la información de la resolución DIAN, ya que el proceso para vincular las resoluciones al software SYSCAFÉ se encuentra en otra sección del manual.</p>
+			<p>Se han asociado únicamente el prefijo, el rango "Desde" y "Hasta" porque el sistema no permite grabar el comprobante sin estos datos.</p>
+		</DocumentacionNote>
+	</DocumentacionSection>
+</DocumentacionTabContent>
+
+<script>
+	import 'photoswipe/style.css';
+	import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if (typeof window !== 'undefined') {
+			const lightbox = new PhotoSwipeLightbox({
+				gallery: '#advertencias',
+				children: 'a.galley',
+				pswpModule: () => import('photoswipe'),
+			});
+			lightbox.init();
+		}
+	});
+</script>

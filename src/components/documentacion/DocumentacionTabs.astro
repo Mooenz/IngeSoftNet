@@ -1,0 +1,306 @@
+---
+// Componente de tabs de navegación principal
+interface Props {
+	tabs: Array<{
+		id: string;
+		label: string;
+		icon: string;
+		active?: boolean;
+	}>;
+}
+
+const { tabs } = Astro.props;
+---
+
+<ul class="documentacion__tabs sticky top-3 z-10 flex flex-nowrap gap-1 list-none p-3 rounded-2xl mb-11 mx-auto overflow-x-auto overflow-y-hidden shadow-[0_4px_8px_rgba(0,0,0,0.05)] max-w-fit bg-gray-300">
+	{
+		tabs.map((tab) => (
+			<li>
+				<a href="#documentacion__contenidos" class={`documentacion__item flex items-center gap-2 px-4 py-3 leading-none rounded-[10px] transition-all ease-in-out duration-300 ${tab.active ? 'activo bg-white' : ''}`} data-content={`#${tab.id}`}>
+					<i class={`${tab.icon} text-sm transition-all ease-in-out duration-300`} />
+					<p class="pointer-events-none">{tab.label}</p>
+				</a>
+			</li>
+		))
+	}
+</ul>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const $ = (selector) => document.querySelectorAll(selector);
+
+		// Tamaño de la ventana
+		const windowWidth = window.innerWidth;
+
+		// Navegación tabs
+		const tabs = $('.documentacion__tabs .documentacion__item');
+		const tabContents = $('.documentacion__informacion .documentacion__informacion--item');
+
+		// **NUEVO: Activar tab desde parámetro URL**
+		function activarTabDesdeURL() {
+			const urlParams = new URLSearchParams(window.location.search);
+			const tapParam = urlParams.get('tap');
+
+			if (tapParam) {
+				// Buscar el tab que tenga data-content igual al parámetro
+				const tabToActivate = Array.from(tabs).find((tab) => {
+					const content = tab.dataset.content;
+					return content === tapParam || content === `#${tapParam}`;
+				});
+
+				if (tabToActivate) {
+					// Simular click en el tab
+					const tabContent = tabToActivate.dataset.content;
+					const tabContentElement = document.querySelector(tabContent);
+
+					if (tabContentElement) {
+						// Remover activo de todos
+						tabs.forEach((t) => t.classList.remove('activo', 'bg-white'));
+						tabContents.forEach((content) => content.classList.remove('activo'));
+
+						// Activar el tab correspondiente
+						tabToActivate.classList.add('activo', 'bg-white');
+						tabContentElement.classList.add('activo');
+
+						// Scroll opcional
+						const documentacionInformacion = document.getElementById('documentacion__informacion');
+						if (documentacionInformacion) {
+							setTimeout(() => {
+								documentacionInformacion.scrollIntoView({ behavior: 'smooth' });
+							}, 100);
+						}
+					}
+				}
+			}
+		}
+
+		// Ejecutar al cargar la página
+		activarTabDesdeURL();
+
+		tabs.forEach((tab) => {
+			tab.addEventListener('click', (e) => {
+				// Evitar el comportamiento por defecto del enlace
+				e.preventDefault();
+
+				// Obtener el contenido del tab y el elemento correspondiente
+				const target = e.target;
+				const tabElement = target.closest('.documentacion__item');
+				const tabContent = tabElement.dataset.content;
+				const tabContentElement = document.querySelector(tabContent);
+
+				// Remover la clase 'activo' y 'bg-white' de todos los tabs y agregarla al tab actual
+				tabs.forEach((t) => t.classList.remove('activo', 'bg-white'));
+				tabElement.classList.add('activo', 'bg-white');
+
+				// Remover la clase 'activo' de todos los contenidos y agregarla al contenido actual
+				tabContents.forEach((content) => {
+					content.classList.remove('activo');
+				});
+
+				tabContentElement.classList.add('activo');
+
+				// Desplazar al inicio de la sección de información después de un breve delay
+				// para permitir que el contenido se renderice
+				const documentacionInformacion = document.getElementById('documentacion__informacion');
+				if (documentacionInformacion) {
+					documentacionInformacion.scrollIntoView({ behavior: 'auto' });
+				}
+			});
+		});
+
+		// ... resto del código sin cambios
+
+		// Función para inicializar observer y eventos de un contenido
+		function initContenidoObserver(contenido) {
+			const enlacesInternos = contenido.querySelectorAll('.documentacion__informacion--contenedor a');
+			const select = contenido.querySelector('.documentacion__informacion--select-input');
+			let observer = null;
+
+			// Función compartida para scroll, activar clase y reiniciar observer
+			function scrollYActivar(id) {
+				if (observer) observer.disconnect();
+
+				const elemento = document.querySelector(id);
+				if (!elemento) return;
+
+				// Scroll con offset
+				const offset = windowWidth < 992 ? -140 : -76;
+				const rect = elemento.getBoundingClientRect();
+				const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+				window.scrollTo({
+					top: rect.top + scrollTop + offset,
+					behavior: 'smooth',
+				});
+
+				// Activar clase en el <li>
+				const enlace = contenido.querySelector(`a[href="${id}"]`);
+				if (enlace) {
+					const li = enlace.closest('li');
+					if (li && li.parentElement) {
+						const liPadre = li.parentElement.querySelectorAll('li');
+						liPadre.forEach((l) => l.classList.remove('activo'));
+						li.classList.add('activo');
+					}
+				}
+
+				// Cambiar el valor del select si es necesario
+				if (select && select.value !== id) {
+					select.value = id;
+				}
+
+				// Reactivar observer
+				setTimeout(() => {
+					if (observer) {
+						const contenidos = contenido.querySelectorAll('.documentacion__informacion--contenido > div:first-child > *[id]');
+						contenidos.forEach((item) => observer.observe(item));
+					}
+				}, 800);
+			}
+
+			// Click en enlaces
+			enlacesInternos.forEach((enlace) => {
+				enlace.addEventListener('click', (e) => {
+					e.preventDefault();
+					const id = enlace.getAttribute('href');
+					if (id) scrollYActivar(id);
+				});
+			});
+
+			// Cambio en el select
+			if (select) {
+				select.addEventListener('change', (e) => {
+					const target = e.target;
+					const selectedValue = target.value;
+					if (selectedValue) {
+						scrollYActivar(selectedValue);
+					}
+				});
+			}
+
+			// Intersection Observer
+			observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							const id = `#${entry.target.id}`;
+							const enlace = contenido.querySelector(`a[href="${id}"]`);
+							if (!enlace) return;
+
+							// Activar clase en <li>
+							const li = enlace.closest('li');
+							if (li && li.parentElement) {
+								const liPadre = li.parentElement.querySelectorAll('li');
+								liPadre.forEach((l) => l.classList.remove('activo'));
+								li.classList.add('activo');
+							}
+
+							// Cambiar valor del <select>
+							if (select && select.value !== id) {
+								select.value = id;
+							}
+						}
+					});
+				},
+				{
+					rootMargin: '-50% 0px -50% 0px',
+				}
+			);
+
+			// Iniciar observación solo si el contenido está activo
+			if (contenido.classList.contains('activo')) {
+				const contenidos = contenido.querySelectorAll('.documentacion__informacion--contenido > div:first-child > *[id]');
+				contenidos.forEach((item) => observer.observe(item));
+			}
+
+			// Observar cambios en la clase 'activo' para reiniciar observer
+			const observerClass = new MutationObserver(() => {
+				if (contenido.classList.contains('activo')) {
+					if (observer) {
+						observer.disconnect();
+					}
+					setTimeout(() => {
+						if (observer) {
+							const contenidos = contenido.querySelectorAll('.documentacion__informacion--contenido > div:first-child > *[id]');
+							contenidos.forEach((item) => observer.observe(item));
+						}
+					}, 100);
+				} else {
+					if (observer) {
+						observer.disconnect();
+					}
+				}
+			});
+
+			observerClass.observe(contenido, { attributes: true, attributeFilter: ['class'] });
+		}
+
+		// Inicializar observers para todos los contenidos
+		tabContents.forEach((contenido) => {
+			initContenidoObserver(contenido);
+		});
+
+		// Cuando Documentación esté en la pantalla, agregamos el activo al link flotante
+		const documentacion = document.querySelector('.documentacion');
+		const documentacionLink = document.querySelector('.link-encuesta');
+
+		if (documentacion && documentacionLink) {
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							setTimeout(() => {
+								documentacionLink.classList.add('activo');
+							}, 5000);
+
+							observer.unobserve(documentacion);
+						}
+					});
+				},
+				{
+					threshold: 0.01,
+				}
+			);
+
+			observer.observe(documentacion);
+		}
+	});
+</script>
+
+<style is:global>
+	/* .documentacion__tabs::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		backdrop-filter: blur(10px);
+		background: rgb(0, 25, 48, 0.2);
+	} */
+
+	.documentacion__tabs::-webkit-scrollbar-thumb {
+		border: none;
+		border-radius: 5px;
+		background-color: #9ca3af;
+	}
+
+	.documentacion__tabs::-webkit-scrollbar {
+		height: 5px;
+	}
+
+	.documentacion__item > * {
+		pointer-events: none;
+	}
+
+	.documentacion__item:not(.activo):hover i {
+		color: var(--color-primary);
+	}
+
+	.documentacion__item.activo i {
+		color: var(--color-primary);
+	}
+
+	@media (min-width: 1200px) {
+		.documentacion__tabs {
+			justify-content: center;
+		}
+	}
+</style>

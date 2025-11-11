@@ -1,0 +1,361 @@
+---
+import DocumentacionTabContent from '../DocumentacionTabContent.astro';
+import DocumentacionSection from '../DocumentacionSection.astro';
+import DocumentacionImage from '../DocumentacionImage.astro';
+import DocumentacionNote from '../DocumentacionNote.astro';
+import DocumentacionLink from '../DocumentacionLink.astro';
+
+const sections = [
+	{ id: 'infoempresa', title: 'Información de la empresa' },
+	{ id: 'periodoinicial', title: 'Periodo inicial' },
+	{ id: 'logo', title: 'Logo' },
+	{ id: 'sucursales', title: 'Sucursales' },
+	{ id: 'inventarios', title: 'Inventarios' },
+	{ id: 'terceros', title: 'Terceros' },
+	{ id: 'otrosparametros', title: 'Otros parámetros' },
+	{ id: 'cambiofechas', title: 'Cambio fechas futuras' },
+	{ id: 'facturacióncentas', title: 'Facturación y ventas' },
+	{ id: 'fiscales', title: 'Fiscales' },
+	{ id: 'tarifasiva', title: 'Tarifas de Iva' },
+	{ id: 'parametrosavanzados', title: 'Parámetros avanzados' },
+	{ id: 'compras', title: 'Compras' },
+	{ id: 'numeroexternocompras', title: 'Número externo compras' },
+	{ id: 'pos', title: 'Pos' },
+	{ id: 'usuariospermisos', title: 'Usuarios y permisos' },
+	{ id: 'cambiocontraseña', title: 'Cambio contraseña' },
+	{ id: 'seleccionarempresa', title: 'Seleccionar Empresa/usuario' },
+	{ id: 'bloquearsistema', title: 'Bloquear sistema' },
+];
+
+// Importamos las imágenes necesarias
+import img1 from '@assets/images/informacion-empresa.webp';
+import img2 from '@assets/images/periodo-inicial.webp';
+import img3 from '@assets/images/periodo-inicial-ejemplo.png';
+import img4 from '@assets/images/logo.png';
+import img5 from '@assets/images/logo-ejemplo.png';
+import img6 from '@assets/images/sucursales.png';
+import img7 from '@assets/images/inventarios.png';
+import img8 from '@assets/images/terceros.png';
+import img9 from '@assets/images/otro-parametros.png';
+import img10 from '@assets/images/cambio-fechas-futuras.png';
+import img11 from '@assets/images/facturacion-ventas.png';
+import img12 from '@assets/images/facturacion-ventas-ejemplo1.png';
+import img13 from '@assets/images/facturacion-ventas-ejemplo2.png';
+import img14 from '@assets/images/nota1.png';
+import img15 from '@assets/images/nota2.png';
+import img16 from '@assets/images/nota3.png';
+import img17 from '@assets/images/nota4.png';
+import img18 from '@assets/images/nota5.png';
+import img19 from '@assets/images/nota6.png';
+import img20 from '@assets/images/nota7.png';
+import img21 from '@assets/images/fiscales-tabla.png';
+import img22 from '@assets/images/fiscales.png';
+import img23 from '@assets/images/fiscales-ejemplo1.png';
+import img24 from '@assets/images/fiscales-ejemplo2.png';
+import img25 from '@assets/images/fiscales-ejemplo3.png';
+import img26 from '@assets/images/fiscales-importante.png';
+import img27 from '@assets/images/fiscales-importante-ejemplo1.png';
+import img28 from '@assets/images/fiscales-importante-ejemplo2.png';
+import img29 from '@assets/images/fiscales-importante-ejemplo3.png';
+import img30 from '@assets/images/tarifa-iva.png';
+import img31 from '@assets/images/tarifa-iva2.png';
+import img32 from '@assets/images/parametros-avanzados.png';
+import img33 from '@assets/images/compras.png';
+import img34 from '@assets/images/compras-ejemplo1.png';
+import img35 from '@assets/images/compras-ejemplo2.png';
+import img36 from '@assets/images/numero-externo-compras.png';
+import img37 from '@assets/images/numero-externo-compras-ejemplo1.png';
+import img38 from '@assets/images/pos.png';
+import img39 from '@assets/images/usuarios-permisos.png';
+import img40 from '@assets/images/usuarios-permisos-ejemplo1.png';
+import img41 from '@assets/images/usuarios-permisos-ejemplo2.png';
+import img42 from '@assets/images/cambio-contraseña.png';
+import img43 from '@assets/images/seleccionar-empresa.png';
+import img44 from '@assets/images/bloquear-sistema.png';
+---
+
+<DocumentacionTabContent id="sistema" title="Sistema" active={true} sections={sections} link="sistema">
+	<DocumentacionSection id="infoempresa" title="Información de la empresa" route="Sistema - Parámetros - Información Empresa">
+		<p>Es crucial que, durante la instalación del software Syscafé, ingreses la información de la empresa tal como aparece en el RUT (Registro Único Tributario). Además, ten en cuenta que si realizas alguna actualización en el RUT después de la instalación, deberás actualizar también la información correspondiente en el software Syscafé.</p>
+		<DocumentacionImage src={img1.src} alt="Información de la empresa sotfware Syscafé" width={1366} height={728} title="Imagen Información de la empresa sotfware Syscafé" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="periodoinicial" title="Periodo inicial" route="Sistema - Parámetros Información Empresa- Campo Periodo">
+		<p>Si necesitas registrar información contable en períodos anteriores al inicial y el sistema muestra el siguiente mensaje:</p>
+		<DocumentacionImage src={img2.src} alt="Periodo inicial" width={1366} height={730} />
+		<p>Accede a Sistema - Parámetros - Información de la Empresa y ajusta el período inicial según tus necesidades.</p>
+		<p><strong>Ejemplo: </strong></p>
+		<DocumentacionImage src={img3.src} alt="Ejemplo periodo inicial" width={1366} height={729} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="logo" title="Logo" route="Sistema – Parámetros – Información Empresa – Botón Logotipo">
+		<p>Primero, asegúrate de que la imagen esté guardada en uno de los siguientes formatos: .PNG, .JPG, .GIF o .BMP, y que su tamaño no exceda los 128 KB. La imagen debe guardarse con el nombre "LOGO" en una carpeta llamada FOTOS (que debes crear previamente) dentro de la carpeta raíz del software Syscafé.</p>
+		<p>Para ubicar la carpeta correcta, sigue estos pasos:</p>
+		<ul>
+			<li>Accede al disco donde está instalado Syscafé (por ejemplo, Disco (D)).</li>
+			<li>Navega a la carpeta Café.</li>
+			<li>Luego, entra en la carpeta Gestión.</li>
+			<li>Continúa a Datos y después a Código de la empresa.</li>
+			<li>Dentro de esta última carpeta, crea una nueva carpeta llamada FOTOS.</li>
+			<li>Pega la imagen dentro de la carpeta FOTOS.</li>
+		</ul>
+		<p>Consulta el ejemplo visual para confirmar que la imagen está correctamente colocada.</p>
+		<DocumentacionImage src={img4.src} alt="Imagen de como consultar el logo agregar" width={1366} height={730} />
+		<p>Cierra el software Syscafé y vuelve a abrirlo para verificar que el logo se muestra correctamente y está organizado según lo esperado.</p>
+		<p><strong>Ejemplo: </strong></p>
+		<DocumentacionImage src={img5.src} alt="Imagen de como se muestra logo correctamente" width={1366} height={730} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="sucursales" title="Sucursales" route="Sistema – Parámetros – Información Empresa – Botón Sucursales">
+		<p>Si la empresa tiene sucursales, podrás crearlas y configurarlas en la ruta indicada. Sigue estos pasos para añadir y parametrizar cada sucursal:</p>
+		<p><strong>Accede a la sección de sucursales:</strong> Ve a la ruta especificada en el software para gestionar sucursales.</p>
+		<p><strong>Crea una nueva sucursal:</strong> Selecciona la opción para añadir una nueva sucursal. Completa la información requerida, como nombre, dirección y datos de contacto.</p>
+		<p><strong>Verifica la información:</strong> Asegúrate de que todos los datos estén correctos y de que la sucursal esté correctamente integrada en el sistema.</p>
+		<p>Si sigues estos pasos, cada sucursal estará debidamente configurada y lista para su uso dentro del software Syscafé.</p>
+		<p><strong>Ejemplo:</strong></p>
+		<DocumentacionImage src={img6.src} alt="Imagen de como agregar las sucursales" width={1366} height={730} title="Imagen de como agregar las sucursales" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="inventarios" title="Inventarios" route="Sistema – Parámetros – Inventarios">
+		<p>Para optimizar el control de inventarios, recomendamos activar el parámetro que impide facturar o realizar salidas con saldos negativos. Esto ayudará a mantener un control más riguroso sobre los niveles de inventario y evitará discrepancias en los registros.</p>
+		<DocumentacionImage src={img7.src} alt="Imagen de como crear los inventarios" width={1366} height={730} title="Imagen de como crear los inventarios" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="terceros" title="Terceros" route="Sistema – Parámetros – Terceros">
+		<p>Si necesitas que el número de identificación incluya letras, puedes activar el parámetro correspondiente en la ruta indicada. Consulta la imagen adjunta para ver el proceso detallado.</p>
+		<DocumentacionImage src={img8.src} alt="Imagen de como crear los terceros" width={1366} height={730} title="Imagen de como crear los terceros" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="otrosparametros" title="Otros parámetros" route="Sistema – Parámetros – Otros Parámetros">
+		<p>Por razones de seguridad, te recomendamos asignar una contraseña a la empresa para proteger la información contra accesos no autorizados. Esta medida ayudará a garantizar que solo los usuarios autorizados puedan acceder y modificar los datos sensibles.</p>
+		<p>Para asignar una contraseña:</p>
+		<ul>
+			<li><strong>Asigna una contraseña segura:</strong> Elige una contraseña robusta que combine letras, números y caracteres especiales. Asegúrate de que sea difícil de adivinar para proteger adecuadamente la información.</li>
+			<li><strong>Guarda y confirma la contraseña:</strong> Ingresa la contraseña en los campos correspondientes y confirma su configuración.</li>
+		</ul>
+		<p>Si necesitas asistencia adicional para configurar la contraseña o gestionar los permisos de acceso, no dudes en contactar al soporte técnico.</p>
+		<DocumentacionImage src={img9.src} alt="Imagen de como gestionar los accesos al programa Syscafé" width={1366} height={730} title="Imagen de como gestionar los accesos al programa Syscafé" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="cambiofechas" title="Cambio fecha futuras" route="Sistema – Parámetros – Otros Parámetros">
+		<p>Si necesitas registrar comprobantes con fechas futuras, debes seguir estos pasos:</p>
+		<ul>
+			<li><strong>Activa el parámetro correspondiente:</strong> En la ruta indicada, marca el parámetro que permite el registro de comprobantes en fechas futuras. Consulta la imagen proporcionada para identificar la opción correcta.</li>
+			<li><strong>Reinicia el sistema:</strong> Cierra el software y vuelve a ingresarlo para que los cambios surtan efecto. Esto asegura que el nuevo parámetro se aplique correctamente y permita el registro de comprobantes con fechas futuras.</li>
+		</ul>
+		<DocumentacionImage src={img10.src} alt="Imagen de como gestionar el cambio de fechas futuras" width={1366} height={730} title="Imagen de como gestionar el cambio de fechas futuras" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="facturacióncentas" title="Facturación y ventas" route="Sistema – Parámetros – Facturación Y Ventas – (Pestaña FACTURACIÓN)">
+		<p>El sistema incluirá la funcionalidad la cual permitirá al usuario activar un parámetro específico que habilita la opción de modificar el detalle de los ítems en las facturas de venta electrónica.</p>
+		<p>Con esta herramienta, los usuarios tendrán mayor flexibilidad para personalizar la información asociada a cada ítem de la factura como la descripción del ARTÍCULO. Asegurando que se ajuste completamente a las necesidades de cada transacción.</p>
+		<DocumentacionImage src={img11.src} alt="Imagen de como gestionar la facturación y ventas" width={1366} height={730} title="Imagen de como gestionar la facturación y ventas" />
+		<p><strong>Ejemplo:</strong></p>
+		<p>Inicialmente, el sistema mostrará el <strong>nombre del producto</strong> tal como está registrado en el catálogo de <strong>Artículos</strong>.</p>
+		<DocumentacionImage src={img12.src} alt="Imagen de un ejemplo que muestra el primer paso para la gestión de facturas de venta" width={1366} height={730} title="Imagen de un ejemplo que muestra el primer paso para la gestión de facturas de venta" />
+		<p>Al realizar un cambio en la descripción o el nombre del artículo, la información se actualizará y quedará reflejada de la siguiente manera:</p>
+		<DocumentacionImage src={img13.src} alt="Imagen de un ejemplo que muestra el segundo paso para la gestión de facturas de venta" width={1366} height={730} title="Imagen de un ejemplo que muestra el segundo paso para la gestión de facturas de venta" />
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> Para que los cambios se apliquen correctamente, el comprobante debe estar cerrado.</p>
+		</DocumentacionNote>
+		<p class="ruta"><strong>Ruta:</strong> Sistema – Parámetros – Facturación Y Ventas – (Pestaña FACTURACIÓN)</p>
+		<p>Les permitirá a los usuarios activar un parámetro específico para modificar el precio de los artículos directamente en la factura de venta electrónica. Esta característica brindará mayor flexibilidad en la gestión de precios, permitiendo ajustar manualmente los valores según las condiciones particulares de cada transacción.</p>
+		<DocumentacionImage src={img14.src} alt="Imagen nota 1" width={1600} height={845} title="Imagen nota 1" />
+		<p><strong>Ejemplo:</strong></p>
+		<p>Inicialmente, el sistema mostrará el <strong>precio del producto</strong> tal como está registrado en el catálogo de <strong>Artículos</strong>.</p>
+		<DocumentacionImage src={img15.src} alt="Imagen nota 2" width={1600} height={845} title="Imagen nota 2" />
+		<p>Al realizar un cambio del precio del artículo, la información se actualizará y quedará reflejada de la siguiente manera:</p>
+		<DocumentacionImage src={img16.src} alt="Imagen nota 3" width={1600} height={845} title="Imagen nota 3" />
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> Para que los cambios se apliquen correctamente, el comprobante debe estar cerrado.</p>
+		</DocumentacionNote>
+		<p class="ruta"><strong>Ruta:</strong> Sistema – Parámetros – (Pestaña FACTURACIÓN POS) - Marcar chulito de Varias formas de pago</p>
+		<p>Al activar el parámetro de <strong>"Varias formas de pago"</strong>, el sistema habilitará la opción de seleccionar múltiples métodos de pago al momento de generar una factura POS. Esto permitirá a los usuarios dividir el pago entre diferentes opciones, como efectivo, tarjeta de crédito, débito, transferencias u otros medios disponibles, brindando mayor flexibilidad y comodidad tanto para el cliente como para el establecimiento.</p>
+		<DocumentacionImage src={img17.src} alt="Imagen nota 4" width={1600} height={845} title="Imagen nota 4" />
+		<p class="ruta"><strong>Ruta:</strong> Sistema – Parámetros – Facturación POS - Cliente Obligatorio en Factura POS</p>
+		<p>Al activar el parámetro de <strong>Cliente Obligatorio en Factura POS</strong>, el sistema impedirá que se grabe una factura si no se ha asignado previamente un tercero. Esta funcionalidad garantiza que todas las transacciones realizadas a través del punto de venta estén vinculadas a un cliente registrado, mejorando el control y la trazabilidad de las operaciones.</p>
+		<p>Con esta medida, se evita la emisión de facturas sin la información necesaria, asegurando el cumplimiento de las normativas fiscales y facilitando la gestión administrativa al contar con registros completos y organizados.</p>
+		<p><strong>Ejemplo: </strong></p>
+		<DocumentacionImage src={img18.src} alt="Imagen nota 5" width={1600} height={845} title="Imagen nota 5" />
+		<p class="ruta"><strong>Ruta:</strong> Sistema – Parámetros – Facturación POS – Ver columna % descuento en facturación POS</p>
+		<p>Les permitirá activar un parámetro para habilitar la visualización de la pestaña de Descuentos durante el proceso de facturación POS en el punto de venta (POS).</p>
+		<p>Esta opción proporcionará a los usuarios la capacidad de gestionar descuentos directamente en el momento de realizar una factura, facilitando la aplicación de promociones, ajustes personalizados o condiciones comerciales específicas para cada cliente o transacción.</p>
+		<DocumentacionImage src={img19.src} alt="Imagen nota 6" width={1600} height={845} title="Imagen nota 6" />
+		<p><strong>Ejemplo: </strong></p>
+		<DocumentacionImage src={img20.src} alt="Imagen nota 7" width={1600} height={845} title="Imagen nota 7" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="fiscales" title="Fiscales" route="Sistema – Parámetros – Fiscales - Modificación de Tarifas de IVA en Compras">
+		<p>La información fiscal debe ser diligenciada conforme a las obligaciones tributarias asignadas al contribuyente, de acuerdo con su tipo de responsabilidad fiscal. Este registro debe realizarse siguiendo los lineamientos establecidos por la normatividad vigente, con el fin de garantizar el cumplimiento adecuado de los deberes formales ante la administración tributaria.</p>
+		<DocumentacionImage src={img21.src} alt="Imagen tabla responsabilidades fiscales" width={893} height={467} title="Imagen tabla responsabilidades fiscales" />
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> Esta tabla es referencial y debe actualizarse conforme a los cambios normativos de la DIAN.</p>
+		</DocumentacionNote>
+		<p>Al marcar la opción <strong>"Habilitar cambio de tarifa de IVA en compras"</strong>, el sistema permitirá modificar directamente la tarifa del IVA dentro del comprobante de compra.</p>
+		<p>Esta funcionalidad está diseñada para optimizar tiempos y brindar mayor flexibilidad en la gestión contable, facilitando la actualización inmediata de las tarifas según las necesidades del proceso de compra.</p>
+		<DocumentacionNote type="importante">
+			<p><strong>Importante:</strong> El uso de esta opción debe realizarse con responsabilidad y en cumplimiento de la normatividad tributaria vigente, asegurando la correcta aplicación del impuesto.</p>
+		</DocumentacionNote>
+		<DocumentacionImage src={img22.src} alt="Imagen de como gestionar los fiscales" width={1600} height={848} title="Imagen de como gestionar los fiscales" />
+		<p><strong>Ejemplo</strong></p>
+		<DocumentacionImage src={img23.src} alt="Imagen de como gestionar los fiscales ejemplo" width={1600} height={848} title="Imagen de como gestionar los fiscales ejemplo" />
+		<DocumentacionImage src={img24.src} alt="Imagen de como gestionar los fiscales ejemplo" width={1600} height={848} title="Imagen de como gestionar los fiscales ejemplo" />
+		<DocumentacionImage src={img25.src} alt="Imagen de como gestionar los fiscales ejemplo" width={1600} height={848} title="Imagen de como gestionar los fiscales ejemplo" />
+		<p class="ruta"><strong>Ruta:</strong> Sistema – Parámetros – Fiscales - Modificación de Tarifas de IVA en Ventas</p>
+		<p>Al activar la opción <strong>"Habilitar cambio de tarifa de IVA en ventas"</strong>, el sistema permitirá ajustar manualmente la tarifa del IVA directamente desde el comprobante de venta.</p>
+		<p>Esta herramienta ofrece mayor flexibilidad al momento de facturar, permitiendo adaptar las tarifas según el tipo de producto o servicio, o de acuerdo con condiciones comerciales específicas, sin afectar la eficiencia del proceso.</p>
+		<DocumentacionNote type="importante">
+			<p><strong>Importante:</strong> Se recomienda utilizar esta opción con criterio técnico y conforme a las disposiciones legales vigentes, garantizando la correcta liquidación del impuesto en cada operación de venta.</p>
+		</DocumentacionNote>
+		<DocumentacionImage src={img26.src} alt="Imagen de como gestionar los fiscales en importante" width={1600} height={848} title="Imagen de como gestionar los fiscales en importante" />
+		<p><strong>Ejemplo</strong></p>
+		<DocumentacionImage src={img27.src} alt="Imagen de como gestionar los fiscales ejemplo" width={1600} height={848} title="Imagen de como gestionar los fiscales ejemplo" />
+		<DocumentacionImage src={img28.src} alt="Imagen de como gestionar los fiscales ejemplo" width={1600} height={848} title="Imagen de como gestionar los fiscales ejemplo" />
+		<DocumentacionImage src={img29.src} alt="Imagen de como gestionar los fiscales ejemplo" width={1600} height={852} title="Imagen de como gestionar los fiscales ejemplo" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="tarifasiva" title="Tarifas de Iva" route="Sistema – Parámetros – Fiscales – Botón Tarifas de IVA">
+		<p>En esta sección, es posible asignar los porcentajes (%) correspondientes, junto con sus respectivos códigos contables. Adicionalmente, el sistema permite la creación y configuración de la <strong>tarifa del INC (Impuesto Nacional al Consumo)</strong>, asegurando que tanto las tarifas como los impuestos estén correctamente parametrizados para cumplir con las normativas fiscales vigentes y facilitar la gestión contable.</p>
+		<DocumentacionImage src={img30.src} alt="Imagen de como gestionar las tarifas de IVA" width={1600} height={847} title="Imagen de como gestionar las tarifas de IVA" />
+		<DocumentacionImage src={img31.src} alt="Imagen de como gestionar las tarifas de IVA" width={1600} height={845} title="Imagen de como gestionar las tarifas de IVA" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="parametrosavanzados" title="Parámetros avanzados" route="Sistema – Parámetros – Parámetros Avanzados – Reportes – Generador de PDF">
+		<p>En la ruta indicada previamente, podrás configurar el generador de archivos PDF. Haz clic en el botón con los tres puntos (…) y selecciona el generador que tengas instalado en tu sistema, por último grabar y salir.</p>
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> Si no estás seguro de qué generador de PDF tienes instalado o si el sistema presenta algún problema, por favor contacta al soporte técnico para obtener asistencia.</p>
+		</DocumentacionNote>
+		<DocumentacionImage src={img32.src} alt="Imagen de como gestionar los parámetros avanzados" width={1366} height={728} title="Imagen de como gestionar los parámetros avanzados" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="compras" title="Compras" route="Sistema – Parámetros – Compras">
+		<p>El sistema también ofrece la opción de activar el parámetro que permite <strong>modificar el detalle de las compras</strong>. Esta funcionalidad brinda a los usuarios la flexibilidad de ajustar la información detallada de las compras directamente desde el sistema.</p>
+		<p>Al habilitar esta opción, se asegura un mayor control y precisión en la gestión de las compras, facilitando la adaptación de los registros contables y fiscales a las necesidades operativas de la empresa.</p>
+		<DocumentacionImage src={img33.src} alt="Imagen de como gestionar las compras" width={1600} height={848} title="Imagen de como gestionar las compras" />
+		<p><strong>Ejemplo:</strong></p>
+		<DocumentacionImage src={img34.src} alt="Imagen de como gestionar las compras ejemplo" width={1600} height={848} title="Imagen de como gestionar las compras ejemplo" />
+		<DocumentacionImage src={img35.src} alt="Imagen de como gestionar las compras ejemplo" width={1600} height={848} title="Imagen de como gestionar las compras ejemplo" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="numeroexternocompras" title="Número externo compras" route="Sistema – Parámetros – Compras">
+		<p>En el sistema, es posible configurar el parámetro de <strong>Número Externo en Compras</strong> como obligatorio. Esto asegura que, al momento de grabar una compra, el sistema no permitirá completar el proceso hasta que se haya asignado el número externo correspondiente.</p>
+		<p>Esta funcionalidad es especialmente útil para garantizar un control adecuado y la trazabilidad de las compras, asegurando que todas las transacciones estén correctamente identificadas.</p>
+		<DocumentacionImage src={img36.src} alt="Imagen de como gestionar el número externo en compras" width={1600} height={848} title="Imagen de como gestionar el número externo en compras" />
+		<p><strong>Ejemplo:</strong></p>
+		<DocumentacionImage src={img37.src} alt="Imagen de como gestionar el número externo en compras ejemplo" width={1600} height={848} title="Imagen de como gestionar el número externo en compras ejemplo" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="pos" title="Pos" route="Sistema – Parámetros – POS">
+		<p>El sistema ofrece la posibilidad de configurar la <strong>impresora POS predeterminada</strong>. Esta funcionalidad permite seleccionar y establecer, de manera centralizada, el dispositivo de impresión que se utilizará automáticamente para generar los comprobantes, facturas.</p>
+		<p>Con esta configuración, los usuarios pueden garantizar que el sistema esté correctamente enlazado con la impresora seleccionada, optimizando los procesos operativos y minimizando errores al momento de imprimir.</p>
+		<DocumentacionImage src={img38.src} alt="Imagen de como gestionar el pos" width={1600} height={849} title="Imagen de como gestionar el pos" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="usuariospermisos" title="Usuarios y permisos" route="Sistema – Usuarios y Permisos">
+		<p><strong>El sistema incluye, por defecto, dos usuarios preconfigurados: </strong></p>
+		<ul>
+			<li>
+				<p><strong>SUPERUSUARIO</strong></p>
+				<ul>
+					<li>
+						<p><strong>Clave:</strong> CAFE (en mayúsculas)</p>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<p><strong>CONTADOR</strong></p>
+				<ul>
+					<li><strong>Clave:</strong> EFAC (en mayúsculas)</li>
+				</ul>
+			</li>
+		</ul>
+		<p>Estos usuarios iniciales están configurados para facilitar el acceso y la gestión del sistema desde el primer uso.</p>
+		<DocumentacionImage src={img39.src} alt="Imagen de como gestionar los usuarios y permisos" width={1600} height={849} title="Imagen de como gestionar los usuarios y permisos" />
+		<p>El catálogo permite la creación de usuarios con permisos personalizados y contraseñas independientes, con el objetivo de controlar el acceso al sistema y registrar todas las actividades en el LOG de eventos para fines de auditoría.</p>
+		<p><strong>Campos para la creación de usuarios:</strong></p>
+		<p><strong>Código:</strong> Se sugiere asignar como código el número de cédula o una combinación de nombres y apellidos, ya que este será visible en caso de que el usuario sea eliminado.</p>
+		<p><strong>Nombre:</strong> Este campo corresponde al nombre del usuario, que será mostrado al iniciar sesión en el sistema.</p>
+		<p><strong>Grabar:</strong> Al momento de crear el usuario, podrá asignar una contraseña que cumpla con los siguientes requisitos:</p>
+		<ul>
+			<li>Mínima de 6 caracteres y máxima de 10.</li>
+			<li>Debe incluir una combinación de letras mayúsculas, minúsculas y números.</li>
+		</ul>
+		<p><strong>Email:</strong> Al registrar un correo electrónico válido, el usuario tendrá la posibilidad de restaurar su contraseña de manera autónoma en caso de olvidarla, lo que facilita la gestión de acceso.</p>
+		<p>Tras la creación del usuario, será posible asignarle permisos y restricciones específicas según las necesidades de la organización.</p>
+		<p><strong>Clase de usuarios:</strong></p>
+		<p>El nivel de acceso se define según la clase seleccionada:</p>
+		<ol>
+			<li>
+				<p><strong>Administrador:</strong></p>
+				<ul>
+					<li>Usuario principal (superusuario).</li>
+					<li>Tiene acceso completo a todas las herramientas y configuraciones del sistema.</li>
+				</ul>
+			</li>
+			<li>
+				<p><strong>Usuario Normal:</strong></p>
+				<ul>
+					<li>Puede realizar registros y modificaciones necesarias, pero no tiene acceso a los parámetros o configuraciones avanzadas del programa.</li>
+				</ul>
+			</li>
+			<li>
+				<p><strong>Usuario Auxiliar:</strong></p>
+				<ul>
+					<li>Solo tiene permiso para realizar registros.</li>
+				</ul>
+			</li>
+			<li>
+				<p><strong>Usuario Invitado:</strong></p>
+				<ul>
+					<li>Acceso limitado al software SysCafé, únicamente para consulta de información.</li>
+					<li>No tiene autorización para realizar modificaciones o alteraciones dentro del sistema.</li>
+				</ul>
+			</li>
+		</ol>
+		<p>Este sistema de control de usuarios garantiza un manejo seguro y eficiente, adaptándose a las responsabilidades y funciones de cada colaborador dentro de la organización.</p>
+		<p><strong>Ejemplo: </strong></p>
+		<DocumentacionImage src={img40.src} alt="Imagen de como gestionar los usuarios y permisos ejemplo paso 1" width={1600} height={849} title="Imagen de como gestionar los usuarios y permisos ejemplo paso 1" />
+		<DocumentacionImage src={img41.src} alt="Imagen de como gestionar los usuarios y permisos ejemplo paso 2" width={1600} height={849} title="Imagen de como gestionar los usuarios y permisos ejemplo paso 2" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="cambiocontraseña" title="Cambio contraseña" route="Sistema – Cambio de Contraseña">
+		<p>Función que permite actualizar la contraseña del usuario autenticado en el software. Se recomienda realizar este cambio de forma periódica para garantizar la seguridad y protección de la información.</p>
+		<DocumentacionImage src={img42.src} alt="Imagen de como gestionar el cambio de contraseña" width={1600} height={849} title="Imagen de como gestionar el cambio de contraseña" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="seleccionarempresa" title="Seleccionar Empresa/usuario" route="Sistema – Seleccionar Empresa/Usuario">
+		<p>Este proceso permite acceder rápidamente a otra empresa registrada en el software bajo la misma licencia. Para ello, solo debe seleccionar el usuario, la empresa correspondiente y digitar la contraseña.</p>
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> Esta función es válida únicamente para sistemas con más de una empresa creada bajo la misma licencia.</p>
+		</DocumentacionNote>
+		<p>Para realizar el cambio de empresa, puede utilizar el comando de teclado <strong>CONTROL + J</strong>, el cual cerrará la empresa actual y abrirá la ventana de selección. Es importante asegurarse de que no haya ninguna ventana abierta en el sistema antes de ejecutar el comando.</p>
+		<DocumentacionImage src={img43.src} alt="Imagen de como gestionar la selección de empresa" width={1600} height={849} title="Imagen de como gestionar la selección de empresa" />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="bloquearsistema" title="Bloquear sistema" route="Sistema – Bloquear sistema">
+		<p>Este proceso se activa ingresando a la ruta indicada anteriormente o utilizando el comando <strong>Ctrl + F8</strong>.</p>
+		<ul>
+			<li><strong>Seleccione el usuario:</strong> Elija el usuario con el cual se bloqueará el sistema, por ejemplo, Superusuario.</li>
+			<li><strong>Digite la clave:</strong> Ingrese la contraseña correspondiente a ese usuario para completar el bloqueo.</li>
+			<li><strong>Desbloquear el sistema:</strong> Cuando sea necesario, ingrese nuevamente la contraseña para reanudar el uso del software.</li>
+		</ul>
+		<p>Este procedimiento permite al funcionario bloquear el sistema temporalmente cuando deba ausentarse de su puesto de trabajo, asegurando que la información registrada se mantenga intacta y protegida.</p>
+		<DocumentacionImage src={img44.src} alt="Imagen de como gestionar el bloqueo del sistema" width={1600} height={849} title="Imagen de como gestionar el bloqueo del sistema" />
+	</DocumentacionSection>
+</DocumentacionTabContent>
+
+<script>
+	import 'photoswipe/style.css';
+	import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if (typeof window !== 'undefined') {
+			const lightbox = new PhotoSwipeLightbox({
+				gallery: '#sistema',
+				children: 'a.galley',
+				pswpModule: () => import('photoswipe'),
+			});
+			lightbox.init();
+		}
+	});
+</script>

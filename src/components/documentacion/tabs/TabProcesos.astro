@@ -1,0 +1,419 @@
+---
+import DocumentacionTabContent from '../DocumentacionTabContent.astro';
+import DocumentacionSection from '../DocumentacionSection.astro';
+import DocumentacionImage from '../DocumentacionImage.astro';
+import DocumentacionNote from '../DocumentacionNote.astro';
+import DocumentacionLink from '../DocumentacionLink.astro';
+
+const sections = [
+	{ id: 'generales', title: 'Generales' },
+	{ id: 'facturacion', title: 'Facturación' },
+	{ id: 'comerciales', title: 'Comerciales' },
+	{ id: 'contables', title: 'Contables' },
+	{ id: 'procesos-inventarios', title: 'Inventarios' },
+	{ id: 'periodos', title: 'Periodos' },
+];
+
+// Importamos las imágenes necesarias
+import img1 from '@assets/images/procesos-generales1.png';
+import img2 from '@assets/images/procesos-generales2.png';
+import img3 from '@assets/images/procesos-generales3.png';
+import img4 from '@assets/images/procesos-generales4.png';
+import img5 from '@assets/images/procesos-generales5.png';
+import img6 from '@assets/images/procesos-generales6.png';
+import img7 from '@assets/images/procesos-generales7.png';
+import img8 from '@assets/images/procesos-generales8.png';
+import img9 from '@assets/images/procesos-generales9.png';
+import img10 from '@assets/images/procesos-generales10.png';
+import img11 from '@assets/images/procesos-generales11.png';
+import img12 from '@assets/images/procesos-generales12.png';
+import img13 from '@assets/images/procesos-generales13.png';
+import img14 from '@assets/images/procesos-generales14.png';
+import img15 from '@assets/images/procesos-generales15.png';
+import img16 from '@assets/images/procesos-facturacion.png';
+import img17 from '@assets/images/procesos-facturacion1.png';
+import img18 from '@assets/images/procesos-facturacion2.png';
+import img19 from '@assets/images/procesos-facturacion3.png';
+import img20 from '@assets/images/procesos-facturacion4.png';
+import img21 from '@assets/images/procesos-comerciales.png';
+import img22 from '@assets/images/procesos-comerciales1.png';
+import img23 from '@assets/images/procesos-comerciales2.png';
+import img24 from '@assets/images/procesos-comerciales3.png';
+import img25 from '@assets/images/procesos-comerciales4.png';
+import img26 from '@assets/images/procesos-contables.png';
+import img27 from '@assets/images/procesos-contables1.png';
+import img28 from '@assets/images/procesos-inventarios.png';
+import img29 from '@assets/images/procesos-inventarios1.png';
+import img30 from '@assets/images/procesos-inventarios2.png';
+import img31 from '@assets/images/procesos-inventarios3.png';
+import img32 from '@assets/images/procesos-inventarios-ejemplo1.png';
+import img33 from '@assets/images/procesos-periodos.png';
+---
+
+<DocumentacionTabContent id="procesos" title="Procesos" active={false} sections={sections} link="procesos">
+	<DocumentacionSection id="generales" title="Generales" route="Procesos - Generales">
+		<p><strong>Ruta:</strong> Procesos - Generales - Importar Información - Importar Catálogos</p>
+		<p>Este proceso permite ingresar información al sistema mediante plantillas en Excel, facilitando la carga masiva de datos en los diferentes catálogos disponibles.</p>
+		<p><strong>Pasos a seguir:</strong></p>
+		<ol>
+			<li>
+				<strong>Ingresar a la opción de Importar Catálogos.</strong><br />
+				Desde esta opción podrás cargar archivos en formato Excel para actualizar o crear registros en los catálogos del sistema.
+			</li>
+		</ol>
+		<DocumentacionImage src={img1.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+		<ol start="2">
+			<li>
+				<strong>Habilitar el candado.</strong>
+				<br />
+				Es indispensable activar el candado para permitir la selección y edición de los catálogos correspondientes.
+			</li>
+		</ol>
+		<DocumentacionImage src={img2.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+		<ol start="3">
+			<li>
+				<strong>Seleccionar el catálogo o grupo de archivos a importar.</strong>
+				<br />
+				El sistema permite elegir uno o varios catálogos según lo que necesites cargar (por ejemplo, terceros, artículos, servicios, etc.).
+			</li>
+		</ol>
+		<DocumentacionImage src={img3.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+		<p>Al hacer clic en la opción <strong>"Opciones"</strong>, ubicada en la parte superior derecha de la pantalla, se habilitarán diversos <strong>campos de configuración</strong> que permiten personalizar y ajustar el proceso de importación como se observa en la imagen.</p>
+		<DocumentacionImage src={img4.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> Es fundamental no cambiar los nombres de los archivos Excel una vez son exportados desde el sistema, ya que estos nombres son necesarios para que el sistema los reconozca correctamente durante el proceso de importación.</p>
+		</DocumentacionNote>
+		<p>Modificar el nombre del archivo puede impedir su correcta lectura y generar errores al importar la información.</p>
+		<p><strong>Archivos:</strong> Esta opción permite seleccionar la carpeta o ubicación donde se encuentran guardadas las estructuras (plantillas) en Excel para importar.</p>
+		<p><strong>Indique la ruta:</strong> Selecciona la ruta exacta en tu equipo o red donde esté ubicado el archivo del catálogo que deseas importar.</p>
+		<p><strong>Importar:</strong> Finalmente, haz clic en el botón "Importar", ubicado en la parte inferior de la ventana, para cargar la información al sistema.</p>
+		<DocumentacionImage src={img5.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Así es como el sistema confirma la finalización del proceso:</strong> Una vez realizada la importación, el sistema mostrará un mensaje indicando que la información ha sido cargada correctamente, confirmando que el proceso se ejecutó sin errores.</p>
+		<DocumentacionImage src={img6.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Ruta:</strong> Procesos - Generales - Exportar Información</p>
+		<p>Este proceso permite exportar información desde los distintos catálogos del sistema utilizando plantillas en formato Excel, facilitando la revisión, edición o respaldo de datos.</p>
+		<p><strong>Pasos para la exportación:</strong></p>
+		<ol>
+			<li>
+				<strong>Ingresar a la opción "Exportar Catálogos".</strong>
+				<br />
+				Desde esta sección podrás seleccionar los catálogos de los que deseas extraer información.
+			</li>
+		</ol>
+		<DocumentacionImage src={img7.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+		<ol>
+			<li>
+				<strong>Habilitar el candado.</strong>
+				<br />
+				Es indispensable activar el candado para poder seleccionar los catálogos correspondientes.
+			</li>
+		</ol>
+		<DocumentacionImage src={img8.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+		<ol>
+			<li>
+				<strong>Seleccionar el catálogo o grupo de archivos a exportar.</strong>
+				<br />
+				Marca los catálogos necesarios y continúa con el proceso para generar las plantillas en Excel.
+			</li>
+		</ol>
+		<DocumentacionImage src={img9.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+		<p>Al hacer clic en la opción <strong>"Opciones"</strong>, ubicada en la parte superior derecha de la pantalla, se habilitarán diversos <strong>campos de configuración</strong> que permiten personalizar y ajustar el proceso de importación como se observa en la imagen.</p>
+		<DocumentacionImage src={img10.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> Es fundamental <strong>no cambiar los nombres de los archivos Excel</strong> una vez son exportados desde el sistema, ya que estos nombres son necesarios para que el sistema los reconozca correctamente durante el proceso de importación.</p>
+		</DocumentacionNote>
+		<p>Modificar el nombre del archivo puede impedir su correcta lectura y generar errores al importar la información.</p>
+		<p><strong>Archivos:</strong> Habilita la opción para seleccionar la carpeta o ubicación donde deseas guardar las estructuras (plantillas) exportadas.</p>
+		<p><strong>Indique la ruta:</strong> Selecciona la ruta en tu equipo o red donde deseas que se guarde el archivo exportado. Esta será la ubicación donde podrás encontrar el catálogo generado.</p>
+		<p><strong>Exportar:</strong> Una vez configurada la ruta, haz clic en el botón "Exportar", ubicado en la parte inferior de la ventana.</p>
+		<p><strong>Confirmación del proceso:</strong> Al finalizar la exportación, puedes dirigirte a la carpeta seleccionada y validar el archivo generado.</p>
+		<DocumentacionImage src={img11.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Ruta:</strong> Procesos - Generales - Crear nueva Empresa</p>
+		<p>La creación de la empresa es uno de los procesos fundamentales, ya que representa el <strong>primer paso</strong> a realizar después de instalar el software <strong>SysCafé</strong>.</p>
+		<p>A través de esta opción, el sistema permite <strong>crear hasta 99 empresas</strong> utilizando la misma licencia, facilitando la gestión contable y administrativa de múltiples razones sociales desde una sola plataforma.</p>
+		<DocumentacionImage src={img12.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+		<p>A continuación, se describen los campos que debes diligenciar para completar el proceso de creación de una nueva empresa:</p>
+		<ol>
+			<li>
+				<strong>Código:</strong>
+				<br />
+				Ingrese un código de hasta 8 caracteres, sin espacios ni símbolos. Este identificador será utilizado para nombrar la carpeta donde se almacenará la base de datos de la empresa.
+			</li>
+			<li>
+				<strong>NIT:</strong>
+				<br />
+				Digite el Número de Identificación Tributaria (NIT) correspondiente. Este campo es obligatorio para completar la creación.
+			</li>
+			<li>
+				<strong>Periodo Inicial:</strong>
+				<br />
+				Defina el mes y año en el que se empezarán a registrar los movimientos contables en el sistema. Ejemplo: Mayo de 2025. <br />
+				<strong>Plan de Cuentas:</strong>
+				<br />
+				En este caso, elija el plan Comercial Decreto 2650 (Antiguo) como base contable para la empresa. Más adelante, si lo requiere, podrá crear cuentas auxiliares adicionales de forma manual según las necesidades específicas de su operación contable. <br />
+				<strong>Actividad:</strong>
+				<br />
+				Complete los campos relacionados con la actividad económica de la empresa. Esta información es requerida para la creación.
+			</li>
+			<li>
+				<strong>Capital:</strong>
+				<br />
+				Seleccione el tipo de capital de la empresa:
+				<ul>
+					<li>Privada</li>
+					<li>Oficial</li>
+					<li>Pública y Economía Mixta</li>
+				</ul>
+			</li>
+			<li>
+				<strong>Tamaño de Empresa:</strong>
+				<br />
+				Elija una de las siguientes opciones según corresponda:
+				<ul>
+					<li>Microempresa</li>
+					<li>Pequeña empresa</li>
+					<li>Mediana empresa</li>
+					<li>Gran empresa</li>
+				</ul>
+			</li>
+			<li>
+				<strong>Personería Jurídica:</strong>
+				<br />
+				Indique la naturaleza jurídica de la empresa.
+			</li>
+			<li>
+				<strong>Función Social:</strong>
+				<br />
+				Seleccione una de las siguientes opciones:
+				<ul>
+					<li>Con ánimo de lucro</li>
+					<li>Sin ánimo de lucro</li>
+					<li>Trabajo asociado</li>
+					<li>Economía solidaria</li>
+				</ul>
+			</li>
+			<li>
+				<strong>Sector Oficial:</strong>
+				<br />
+				En caso de ser una entidad del sector público, seleccione una de las dos opciones:
+				<ul>
+					<li>Territorial municipal</li>
+					<li>Otras</li>
+				</ul>
+			</li>
+			<li>
+				<strong>Finalizar creación:</strong>
+				<br />
+				Haga clic en el botón <strong> "Crear Empresa"</strong>. Una vez finalizado el proceso, podrá iniciar sesión y seleccionar la empresa recién creada.
+			</li>
+		</ol>
+		<DocumentacionImage src={img13.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+		<DocumentacionImage src={img14.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+		<DocumentacionImage src={img15.src} alt="Imagen de como gestionar los procesos generales" width={1600} height={848} title="Imagen de como gestionar los procesos generales" pswpWidth={1600} pswpHeight={848} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="facturacion" title="Facturación" route="Procesos - Facturación">
+		<p>La facturación electrónica es el proceso mediante el cual las empresas emiten, envían y reciben documentos fiscales de forma digital, eliminando el uso de formatos en papel. Este sistema permite una mayor eficiencia, control y cumplimiento de las normativas fiscales vigentes.</p>
+		<p>En el proceso de facturación electrónica, se generan comprobantes de venta o documentos equivalentes de manera digital, los cuales son validados por la autoridad tributaria correspondiente. Esta validación asegura la autenticidad y el cumplimiento de las normativas fiscales del país.</p>
+		<p><strong>Proceso de Facturación Electrónica:</strong></p>
+		<ol>
+			<li><strong>Generación de Factura:</strong> A través del sistema, ingrese los datos necesarios (cliente, productos/servicios, valores, impuestos, etc.).</li>
+			<li><strong>Validación del Documento:</strong> El sistema valida la factura electrónicamente ante la autoridad tributaria.</li>
+			<li><strong>Envío al cliente:</strong> Una vez validada, la factura es enviada al cliente en formato digital.</li>
+			<li><strong>Almacenamiento:</strong> La factura se archiva digitalmente, manteniendo su integridad y validez fiscal.</li>
+		</ol>
+		<p><strong>Requisitos:</strong></p>
+		<ul>
+			<li>Estar registrado ante la autoridad tributaria como contribuyente de facturación electrónica.</li>
+			<li>Tener acceso al software de facturación electrónica autorizado por la autoridad fiscal.</li>
+			<li>Cumplir con las especificaciones técnicas y normativas locales para la emisión de facturas electrónicas.</li>
+		</ul>
+		<p>Este proceso simplifica la gestión de ventas y mejora la relación con los clientes, brindando seguridad y transparencia en cada transacción.</p>
+		<p><strong>Ruta:</strong> Procesos - Facturación - Facturación Electrónica</p>
+		<DocumentacionImage src={img16.src} alt="Imagen de como gestionar la facturación electrónica" width={1600} height={848} title="Imagen de como gestionar la facturación electrónica" pswpWidth={1600} pswpHeight={848} />
+		<p>Esta es una de las formas disponibles para ingresar al módulo de <strong>Documentos Electrónicos</strong>, desde donde podrá <strong>consultar facturas electrónicas</strong>, documentos <strong>soporte y nóminas</strong> emitidas a la DIAN.</p>
+		<p>El sistema permite realizar búsquedas filtrando por <strong>tercero</strong> o por <strong>tipo de comprobante</strong>, y seleccionar el <strong>periodo deseado</strong> para su consulta.</p>
+		<DocumentacionImage src={img17.src} alt="Imagen de como gestionar la facturación electrónica" width={1600} height={848} title="Imagen de como gestionar la facturación electrónica" pswpWidth={1600} pswpHeight={848} />
+		<p>Es así cómo puede llevar un control detallado de los documentos emitidos a un <strong>cliente específico</strong>, facilitando el seguimiento y verificación de la información enviada a la entidad.</p>
+		<p><strong>Ruta:</strong> Procesos - Facturación - Reglas comerciales de Facturación</p>
+		<p>Las reglas comerciales son beneficios que la empresa ofrece a los compradores de sus productos. Estas reglas permiten automatizar los descuentos y promociones al momento de generar una factura, evitando la necesidad de aplicarlos manualmente.</p>
+		<p>Es decir, desde el sistema se pueden configurar descuentos y promociones, de forma que el software los aplique automáticamente cuando se emita la factura.</p>
+		<p>Una vez accedas a la ruta, deberás habilitar el candado ubicado en la pestaña "Parámetros", en la parte superior derecha. Haz clic en el candado para abrirlo y luego activa el parámetro "Activar reglas comerciales en facturación".</p>
+		<DocumentacionImage src={img18.src} alt="Imagen de como gestionar la facturación electrónica" width={1600} height={848} title="Imagen de como gestionar la facturación electrónica" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Duplicar:</strong> Permite crear una copia de una regla comercial ya existente.</p>
+		<p><strong>Nueva:</strong> Permite crear una nueva regla comercial.</p>
+		<p><strong>Modificar:</strong> Permite editar las reglas comerciales que ya han sido creadas.</p>
+		<p><strong>Eliminar:</strong> Permite eliminar reglas comerciales previamente configuradas.</p>
+		<p><strong>Excel:</strong> Permite exportar un listado de descuentos especiales a un archivo Excel.</p>
+		<p><strong>Modificar los seleccionados:</strong> Permite seleccionar varias reglas comerciales y modificar su estado o el porcentaje de descuento de manera simultánea.</p>
+		<p>También se pueden aplicar filtros para realizar una búsqueda más detallada de las reglas comerciales, lo que resulta útil si hay varias creadas. Los filtros disponibles incluyen:</p>
+		<ul>
+			<li>Línea, grupo, subgrupo, marca, clase, proveedor, referencia.</li>
+			<li>Días de la semana en los que aplica la regla.</li>
+			<li>Porcentaje de descuento.</li>
+			<li>Estado de la regla (activa o no).</li>
+		</ul>
+		<p>Podrás verificar si una regla comercial está activa mediante la columna "Activada", que muestra de forma clara si la regla está habilitada o deshabilitada.</p>
+		<p>Con estos campos claros, podrás continuar configurando las reglas comerciales.</p>
+		<DocumentacionImage src={img19.src} alt="Imagen de como gestionar la facturación electrónica" width={1600} height={848} title="Imagen de como gestionar la facturación electrónica" pswpWidth={1600} pswpHeight={848} />
+		<p>Para crear una nueva regla comercial, haga clic en "Nuevo". Se abrirá una ventana donde podrá definir lo siguiente:</p>
+		<ul>
+			<li><strong>Tipo de regla:</strong> Elija entre opciones como descuento comercial, descuento financiero, aplicar descuento en relación a otros ítems, máximo descuento permitido, aplicar precio, aplicar precio en relación a otros ítems, restringir la venta o cambiar la tarifa de IVA.</li>
+			<li><strong>Prioridad:</strong> Asigne un número para indicar qué regla tiene mayor prioridad, siendo 0 la más alta.</li>
+			<li><strong>Aplica:</strong> Indique si la regla aplica o no.</li>
+			<li><strong>Acción aplicada:</strong> Defina la acción que el sistema realizará, como aplicar un descuento, establecer un precio o cambiar la tarifa de IVA.</li>
+			<li><strong>Comentarios:</strong> Añada una descripción para la regla.</li>
+			<li><strong>Condiciones:</strong> Configure los filtros y condiciones bajo las cuales se aplicará la regla, como artículos específicos, tiempo de aplicación, etc.</li>
+		</ul>
+		<p>Si desea aplicar un descuento a un artículo, debe relacionar su referencia. Si los artículos están clasificados por marcas, grupos o subgrupos, asegúrese de que esas categorías están configuradas previamente en el Catálogo de Artículos.</p>
+		<DocumentacionImage src={img20.src} alt="Imagen de como gestionar la facturación electrónica" width={1600} height={848} title="Imagen de como gestionar la facturación electrónica" pswpWidth={1600} pswpHeight={848} />
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> Se habilitan campos de selección para indicar "Igual (=)" o "Diferente (!)", lo que permite determinar si se debe excluir o aplicar la condición al calcular las reglas comerciales.</p>
+		</DocumentacionNote>
+		<p>Al finalizar, podrá ver un resumen de las reglas configuradas, que incluye el porcentaje, la prioridad, el estado de la regla (activa o no), los comentarios y los parámetros afectados.</p>
+		<p>Una vez creadas las reglas comerciales, estas pueden aplicarse en la factura de venta.</p>
+		<p>La manera de proceder dependerá de cómo se haya configurado la regla comercial. Por ejemplo, si el descuento se aplica a una marca específica, lo primero que deberá ingresar en el comprobante de factura es la referencia del artículo.</p>
+		<p>Luego, completará los datos del tercero, vendedor, forma de pago, entre otros. De manera similar, si la regla comercial se aplica a una forma de pago, esta debe ingresarse primero, seguida de los demás datos. El proceso variará según la configuración de cada regla comercial.</p>
+		<p>Siguiendo estos pasos, podrá crear y configurar correctamente las Reglas Comerciales de Facturación.</p>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="comerciales" title="Comerciales" route="Procesos - Comerciales - Fidelización de Clientes">
+		<p>El proceso de <strong>fidelización de clientes</strong> busca fortalecer la relación entre la empresa y sus clientes mediante un sistema de acumulación de puntos. Cada vez que un cliente realiza una compra, acumula puntos que posteriormente puede redimir por productos, servicios o beneficios especiales.</p>
+		<p>Esta estrategia tiene como objetivo incentivar la recurrencia y preferencia por parte del cliente, promoviendo la lealtad hacia la marca o empresa.</p>
+		<p>Este mecanismo se gestiona a través de un <strong>módulo opcional del sistema</strong>, el cual no se encuentra activo por defecto. Para ponerlo en funcionamiento, es necesario seguir un procedimiento específico:</p>
+		<ol>
+			<li>Ingresar a la ruta: <strong>Sistema - Parámetros - Facturación y Ventas - Módulos Especiales - Fidelización de Clientes.</strong></li>
+			<li>Activar el parámetro correspondiente para habilitar el módulo de fidelización.</li>
+		</ol>
+		<p>Una vez habilitado, el sistema permitirá registrar los puntos generados por cada cliente, establecer reglas para la redención y controlar el uso de estos beneficios como parte de la estrategia comercial de la empresa.</p>
+		<DocumentacionImage src={img21.src} alt="Imagen de como gestionar la fidelización de clientes" width={1600} height={851} title="Imagen de como gestionar la fidelización de clientes" pswpWidth={1600} pswpHeight={851} />
+		<p>Para activar el parámetro complementario de fidelización de clientes, debe seguir estos pasos:</p>
+		<p>Ingresar a la ruta: <strong>Sistema - Parámetros - Parámetros avanzados - Fidelización de clientes.</strong></p>
+		<p>Una vez allí, asegúrese de que la opción <strong>"usar programas de fidelización"</strong> esté marcada en <strong>SÍ</strong> para habilitar correctamente esta funcionalidad.</p>
+		<DocumentacionImage src={img22.src} alt="Imagen de como gestionar la fidelización de clientes" width={1600} height={848} title="Imagen de como gestionar la fidelización de clientes" pswpWidth={1600} pswpHeight={848} />
+		<p>Para definir las reglas y calcular los puntos de fidelización de clientes, debe seguir esta ruta en el sistema:</p>
+		<p><strong>Procesos - Comerciales - Fidelización de clientes - Definir reglas para calcular puntos.</strong></p>
+		<p>Ahí podrá configurar cómo se asignan los puntos según las condiciones que desee establecer para premiar la fidelidad de sus clientes.</p>
+		<DocumentacionImage src={img23.src} alt="Imagen de como gestionar la fidelización de clientes" width={1600} height={850} title="Imagen de como gestionar la fidelización de clientes" pswpWidth={1600} pswpHeight={850} />
+		<DocumentacionImage src={img24.src} alt="Imagen de como gestionar la fidelización de clientes" width={1600} height={851} title="Imagen de como gestionar la fidelización de clientes" pswpWidth={1600} pswpHeight={851} />
+		<DocumentacionImage src={img25.src} alt="Imagen de como gestionar la fidelización de clientes" width={1600} height={849} title="Imagen de como gestionar la fidelización de clientes" pswpWidth={1600} pswpHeight={849} />
+		<p>Da click sobre el botón (+)</p>
+		<p><strong>Adicionar:</strong> permite agregar nuevas reglas para el cálculo de puntos.</p>
+		<p><strong>Quitar:</strong> posibilita eliminar reglas que ya no sean necesarias.</p>
+		<p><strong>Modificar:</strong> permite editar la información de una regla existente.</p>
+		<p><strong>Aplicar filtros:</strong> se pueden usar filtros y parámetros como:</p>
+		<ul>
+			<li>Línea, grupo, subgrupo, marca, clase, proveedor, referencia, servicio,</li>
+			<li>Forma de pago, tipo de tercero, grupo de tercero, comprobante, sucursal, programa.</li>
+		</ul>
+		<p><strong>Determinar plazo:</strong> establecer un plazo en días para redimir los puntos.</p>
+		<p><strong>Periodo:</strong> seleccionar el rango desde – hasta para aplicar la regla.</p>
+		<p><strong>Valor mínimo en ventas:</strong> elegir entre 3 opciones para establecer un valor mínimo.</p>
+		<p>
+			<strong><strong>Aplicar o no la regla:</strong> seleccionar si la regla estará activa o no.</strong>
+		</p>
+		<p><strong>Grabar:</strong> guardar la regla para conservar todos los cambios realizados.</p>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="contables" title="Contables" route="Procesos - Contables - Conciliación Bancaria">
+		<p>El procedimiento consiste en realizar mensualmente una conciliación entre los saldos registrados en la contabilidad de la empresa y los valores reportados en los estados de cuenta de las entidades financieras. Esto permite identificar y resolver diferencias, asegurando que ambos registros coinciden correctamente.</p>
+		<DocumentacionImage src={img26.src} alt="Imagen de como gestionar la conciliación bancaria" width={1600} height={849} title="Imagen de como gestionar la conciliación bancaria" pswpWidth={1600} pswpHeight={849} />
+		<DocumentacionImage src={img27.src} alt="Imagen de como gestionar la conciliación bancaria" width={1600} height={848} title="Imagen de como gestionar la conciliación bancaria" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Información:</strong> permite consultar el periodo, cuenta contable y nombre del archivo de conciliación.</p>
+		<p><strong>Movimiento:</strong> muestra todos los comprobantes elaborados en el periodo de consulta.</p>
+		<p><strong>Imprimir:</strong> opción para visualizar en pantalla, imprimir, o descargar en formato PDF.</p>
+		<p><strong>Excel:</strong> permite exportar los movimientos de la conciliación en una hoja de cálculo.</p>
+		<p><strong>Opciones:</strong> permite parametrizar el nombre del firmante, cargo del funcionario y observaciones para incluir en la impresión.</p>
+		<p><strong>Saldos extractos ("..."):</strong> campo donde se digita el valor del saldo final del extracto bancario.</p>
+		<p><strong>Saldo conciliación:</strong> resultado del saldo contable más/menos los registros agregados en conciliación.</p>
+		<p><strong>Diferencia:</strong> valor resultante de restar el saldo conciliado al saldo del extracto bancario.</p>
+		<p><strong>Adicionar / Eliminar:</strong> botones para agregar o quitar registros en la conciliación.</p>
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> se recomienda causar cargos descontados por el banco (cuota de manejo, GMF, intereses, comisiones, retenciones, etc.) antes de realizar la conciliación.</p>
+		</DocumentacionNote>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="procesos-inventarios" title="Inventarios" route="Procesos - Inventarios">
+		<p><strong>Ruta:</strong> Procesos - Inventarios - Conteo físico del inventario</p>
+		<p>Es una herramienta que permite ajustar el inventario, tanto en cantidades como en costos, a una fecha específica. Para utilizarla, la empresa debe realizar un inventario físico y luego ingresar los datos en el sistema.</p>
+		<DocumentacionImage src={img28.src} alt="Imagen de como gestionar los procesos de inventarios" width={1600} height={848} title="Imagen de como gestionar los procesos de inventarios" pswpWidth={1600} pswpHeight={848} />
+		<p>El sistema habilitará un recuadro donde podrá gestionar un nuevo conteo o revisar los conteos realizados anteriormente.</p>
+		<ul>
+			<li><strong>Nuevo:</strong> Permite ingresar las existencias del inventario. Al seleccionar esta opción, el sistema abrirá un recuadro donde podrá registrar cada referencia que va a ajustar o hacer uso de los filtros de búsqueda para facilitar la selección.</li>
+		</ul>
+		<p>Una vez seleccione "Nuevo", deberá asignar un nombre al registro del conteo físico de inventario.</p>
+		<ul>
+			<li><strong>Abrir:</strong> Permite visualizar la información de un conteo físico específico.</li>
+			<li><strong>Diferencias:</strong> Permite consultar las diferencias entre el inventario físico (el que realmente está en el almacén) y el inventario registrado en el sistema. Esto se basa en la información previamente ingresada. Cabe destacar que el sistema no permite modificar directamente el inventario, pero sí genera una Nota de Inventario para realizar los ajustes necesarios en los registros del sistema.</li>
+		</ul>
+		<p>El sistema también cuenta con filtros específicos que facilitan la consulta detallada de las diferencias. Estos filtros están disponibles a través del botón "Opciones", permitiendo personalizar la búsqueda según distintos criterios.</p>
+		<p>Una vez cree el archivo de conteo físico del inventario, en la parte inferior del recuadro aparecerán las siguientes opciones:</p>
+		<ul>
+			<li><strong>Adicionar:</strong> Permite agregar una a una las referencias que desea ajustar en el inventario.</li>
+			<li><strong>Quitar:</strong> Permite eliminar un registro ya ingresado en el conteo.</li>
+			<li><strong>Buscar:</strong> Permite realizar una búsqueda avanzada de los artículos registrados en el catálogo y agregarlos al conteo.</li>
+			<li><strong>Todo:</strong> Permite utilizar filtros de búsqueda, como línea, grupo, subgrupo, marca y proveedor, para agregar productos al conteo.</li>
+			<li><strong>Excel:</strong> Permite exportar la estructura del conteo a un archivo Excel, donde podrá relacionar la información de referencia, cantidad, detalle, saldo en el sistema, marca, referencia del proveedor, costo promedio y último costo.</li>
+			<li><strong>Diferencias: </strong>Permite parametrizar y elaborar la Nota de Inventario para realizar los ajustes correspondientes. Además, podrá compararlo con el archivo de historial de saldos (por ejemplo, "20230531093643 - SALDOS A MAY-31-2023 09-36").</li>
+		</ul>
+		<DocumentacionImage src={img29.src} alt="Imagen de como gestionar los procesos de inventarios" width={1600} height={848} title="Imagen de como gestionar los procesos de inventarios" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Comparar Contra:</strong> Permite comparar el conteo físico con una bodega específica o con un archivo de saldos histórico de bodega.</p>
+		<p><strong>Método de Comparación:</strong> Permite elegir si desea comparar todos los artículos creados en el catálogo o sólo aquellos que fueron incluidos en el conteo físico.</p>
+		<p><strong>Costear Diferencia con Base a:</strong> Permite realizar el costeo de las diferencias basándose en el costo promedio o en el último costo neto de compra registrado en el catálogo de artículos.</p>
+		<p><strong>Qué Operación Desea Aplicar:</strong> Permite seleccionar la operación que se llevará a cabo, como elaborar una Nota de Inventario, Factura de Venta, Factura de Venta POS o Traslado entre tallas.</p>
+		<p><strong>Periodo:</strong> Es importante especificar el período en el que se afectará el conteo.</p>
+		<p><strong>Bodega:</strong> Permite seleccionar la bodega que se verá afectada por el conteo.</p>
+		<p><strong>Elaborar Nota:</strong> Al seleccionar este icono, podrá elegir el tipo de comprobante y proceder con la elaboración del documento.</p>
+		<p><strong>Informes:</strong> Permite imprimir el informe, generarlo en pantalla o guardarlo en formato PDF.</p>
+		<p><strong>Excel:</strong> Permite exportar el informe a un archivo Excel.</p>
+		<DocumentacionImage src={img30.src} alt="Imagen de como gestionar los procesos de inventarios" width={1600} height={848} title="Imagen de como gestionar los procesos de inventarios" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Ruta:</strong> Procesos - Inventarios - Cancelar Inventario</p>
+		<p>Es una herramienta que permite eliminar los saldos del inventario.</p>
+		<p>Para realizar este proceso, debe ingresar por la ruta: <strong>Procesos/Inventarios/Cancelar Inventario</strong>. Este método deja en cero tanto la cantidad como el costo del inventario, con el fin de reorganizar la mercancía.</p>
+		<p>Al ingresar en la ruta mencionada, el sistema habilitará un nuevo recuadro, donde deberá seguir el paso a paso para completar el proceso.</p>
+		<DocumentacionImage src={img31.src} alt="Imagen de como gestionar los procesos de inventarios" width={1600} height={848} title="Imagen de como gestionar los procesos de inventarios" pswpWidth={1600} pswpHeight={848} />
+		<ul>
+			<li><strong>Periodo:</strong> Seleccione el mes para cancelar el inventario.</li>
+			<li>
+				<strong>Inventario:</strong> Podrá cancelar el inventario utilizando dos alternativas:
+				<ol>
+					<li><strong>General costos y unidades de bodega principal:</strong> Cancela todo el inventario registrado en el software.</li>
+					<li><strong>Cancelación de solo unidades de bodegas excepto la principal:</strong> Permite seleccionar cada bodega a cancelar.</li>
+				</ol>
+			</li>
+		</ul>
+		<p>
+			Al seleccionar la segunda opción, el sistema ofrece dos alternativas: crear una <strong>Nota de Inventario</strong> o realizar un <strong>Traslado de Bodegas</strong>. Si elige la opción de <strong>Nota de Inventario</strong>, deberá seleccionar la bodega específica donde se realizará la cancelación. Si opta por un <strong>Traslado de Bodegas</strong>, el sistema transferirá todos los saldos de la bodega seleccionada a la bodega principal, y luego podrá proceder con la cancelación usando
+			la primera opción.
+		</p>
+		<p>Si no selecciona ninguna bodega y opta por el comprobante de traslado, el sistema generará una <strong>Nota de Inventario</strong> para cada bodega existente.</p>
+		<ul>
+			<li><strong>Nota:</strong> Es necesario digitar el campo "Cuenta" para ajustar contablemente el inventario.</li>
+			<li><strong>Grabar:</strong> Finalmente, seleccione la opción "Grabar" para que la Nota de Inventario quede registrada en el sistema.</li>
+		</ul>
+		<p>Una vez realice la cancelación de inventario, podrá ingresar al Kardex y consultar las referencias canceladas.</p>
+		<p><strong>Ejemplo:</strong></p>
+		<DocumentacionImage src={img32.src} alt="Imagen de como gestionar los procesos de inventarios" width={1600} height={848} title="Imagen de como gestionar los procesos de inventarios" pswpWidth={1600} pswpHeight={848} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="periodos" title="Periodos" route="Procesos - Periodos">
+		<p>Al ingresar a la ruta indicada anteriormente, los usuarios podrán modificar el período en el que se encuentran actualmente. Esta opción les permitirá seleccionar un nuevo período según sus necesidades o la etapa del proceso en la que se encuentren</p>
+		<DocumentacionImage src={img33.src} alt="Imagen de como gestionar los procesos de periodos" width={1600} height={848} title="Imagen de como gestionar los procesos de periodos" pswpWidth={1600} pswpHeight={848} />
+	</DocumentacionSection>
+</DocumentacionTabContent>
+
+<script>
+	import 'photoswipe/style.css';
+	import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if (typeof window !== 'undefined') {
+			const lightbox = new PhotoSwipeLightbox({
+				gallery: '#procesos',
+				children: 'a.galley',
+				pswpModule: () => import('photoswipe'),
+			});
+			lightbox.init();
+		}
+	});
+</script>

@@ -1,0 +1,165 @@
+---
+import DocumentacionTabContent from '../DocumentacionTabContent.astro';
+import DocumentacionSection from '../DocumentacionSection.astro';
+import DocumentacionImage from '../DocumentacionImage.astro';
+import DocumentacionNote from '../DocumentacionNote.astro';
+import DocumentacionLink from '../DocumentacionLink.astro';
+
+const sections = [
+	{ id: 'comprobantes', title: 'Comprobantes' },
+	{ id: 'camionumeracion', title: 'Cambio de numeración' },
+	{ id: 'revisionauditoria', title: 'Revisión y Auditoría' },
+	{ id: 'mantenimientobd', title: 'Mantenimiento a la base de datos' },
+	{ id: 'copias-seguridad', title: 'Copias de seguridad' },
+	{ id: 'varios', title: 'Varios' },
+];
+
+// Importamos las imágenes necesarias
+import img1 from '@assets/images/comprobantes.png';
+import img2 from '@assets/images/comprobantes1.png';
+import img3 from '@assets/images/comprobantes2.png';
+import img4 from '@assets/images/comprobantes3.png';
+import img5 from '@assets/images/comprobantes4.png';
+import img6 from '@assets/images/comprobantes5.png';
+import img7 from '@assets/images/comprobantes6.png';
+import img8 from '@assets/images/comprobantes7.png';
+import img9 from '@assets/images/comprobantes8.png';
+import img10 from '@assets/images/comprobantes9.png';
+import img11 from '@assets/images/comprobantes10.png';
+import img12 from '@assets/images/comprobantes11.png';
+import img13 from '@assets/images/cambio-numeracion.png';
+import img14 from '@assets/images/revision-auditoria.png';
+import img15 from '@assets/images/revision-auditoria1.png';
+import img16 from '@assets/images/revision-auditoria2.png';
+import img17 from '@assets/images/revision-auditoria3.png';
+import img18 from '@assets/images/revision-auditoria4.png';
+import img19 from '@assets/images/revision-auditoria5.png';
+import img20 from '@assets/images/revision-auditoria6.png';
+import img21 from '@assets/images/revision-auditoria7.png';
+import img22 from '@assets/images/calculadora.png';
+import img23 from '@assets/images/cajon-monedero.png';
+import img24 from '@assets/images/consulta-articulos.png';
+---
+
+<DocumentacionTabContent id="utilidades" title="Utilidades" active={false} sections={sections} link="utilidades">
+	<DocumentacionSection id="comprobantes" title="Comprobantes" route="Utilidades - Comprobantes">
+		<p>En la ruta indicada, podrá seleccionar el tipo y número del comprobante para realizar diversos procesos, tales como:</p>
+		<ul>
+			<li><strong>Cambio de fecha del comprobante:</strong> Modifique la fecha asociada al comprobante según sea necesario.</li>
+			<li><strong>Contabilización del comprobante:</strong> Registre o ajuste la contabilización correspondiente.</li>
+			<li><strong>Información anexa del comprobante:</strong> Consulte o edite datos adicionales vinculados al comprobante.</li>
+			<li><strong>Anulación del comprobante:</strong> Cancele comprobantes que ya no sean válidos.</li>
+			<li><strong>Cambio de numeración:</strong> Ajuste el número del comprobante si es requerido.</li>
+		</ul>
+		<p>A continuación, le explicamos cómo realizar cada uno de estos procedimientos.</p>
+		<p>Primero, localiza el documento seleccionando el tipo de comprobante y el número correspondiente como se observa en la imagen.</p>
+		<DocumentacionImage src={img1.src} alt="Imagen de como gestionar los comprobantes" width={1600} height={851} title="Imagen de como gestionar los comprobantes" pswpWidth={1600} pswpHeight={851} />
+		<p>Una vez que haya localizado el documento, podrá ejecutar el proceso que mejor se ajuste a sus necesidades.</p>
+		<br />
+		<p><strong>Modificación de la Fecha del Comprobante</strong></p>
+		<p>Haga clic en el botón <strong>Fecha</strong>, ingrese la información correspondiente siguiendo el formato <strong>AÑO - MES - DÍA</strong> y, por último, haga clic en <strong>Grabar</strong> para guardar los cambios.</p>
+		<DocumentacionImage src={img2.src} alt="Imagen de como gestionar los comprobantes" width={1600} height={848} title="Imagen de como gestionar los comprobantes" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Contabilización del Comprobante</strong></p>
+		<p>Si el sistema no genera la imputación contable del comprobante, puede utilizar la opción Contabilizar para completar el proceso y asegurarse de que quede correctamente registrado.</p>
+		<DocumentacionImage src={img3.src} alt="Imagen de como gestionar los comprobantes" width={1600} height={847} title="Imagen de como gestionar los comprobantes" pswpWidth={1600} pswpHeight={847} />
+		<p><strong>Datos </strong></p>
+		<p>Acceda a la opción para consultar o editar datos adicionales relacionados con el comprobante. Esta funcionalidad le permite revisar información complementaria, como detalles específicos, notas asociadas, o cualquier otro dato relevante que se haya registrado junto con el comprobante.</p>
+		<p>Además, si necesita realizar ajustes o actualizaciones en la información, puede editarlos directamente desde esta sección.</p>
+		<DocumentacionImage src={img4.src} alt="Imagen de como gestionar los comprobantes" width={1600} height={851} title="Imagen de como gestionar los comprobantes" pswpWidth={1600} pswpHeight={851} />
+		<p><strong>Anulación de Comprobantes</strong></p>
+		<p>Anule comprobantes que ya no sean válidos o necesarios para el registro contable. Esta opción le permite invalidar documentos de manera segura, garantizando que no afecten los reportes financieros ni el balance general.</p>
+		<p>El proceso de anulación asegura que el comprobante quede marcado como no operativo, manteniendo la trazabilidad y el historial de las acciones realizadas, lo cual es fundamental para auditorías y revisiones futuras.</p>
+		<DocumentacionNote type="alerta">
+			<p><strong>Asegúrese de realizar este procedimiento únicamente cuando esté completamente seguro de que el comprobante ya no es requerido.</strong></p>
+		</DocumentacionNote>
+		<DocumentacionImage src={img5.src} alt="Imagen de como gestionar los comprobantes" width={1600} height={848} title="Imagen de como gestionar los comprobantes" pswpWidth={1600} pswpHeight={848} />
+		<DocumentacionImage src={img6.src} alt="Imagen de como gestionar los comprobantes" width={1600} height={849} title="Imagen de como gestionar los comprobantes" pswpWidth={1600} pswpHeight={849} />
+		<DocumentacionImage src={img7.src} alt="Imagen de como gestionar los comprobantes" width={1600} height={849} title="Imagen de como gestionar los comprobantes" pswpWidth={1600} pswpHeight={849} />
+		<p>En la ventana de Motivo, puede detallar la situación que justifica la anulación del comprobante o, si lo prefiere, dejar el campo en blanco. Después, haga clic en Grabar para completar el proceso de anulación.</p>
+		<DocumentacionImage src={img8.src} alt="Imagen de como gestionar los comprobantes" width={1600} height={848} title="Imagen de como gestionar los comprobantes" pswpWidth={1600} pswpHeight={848} />
+		<DocumentacionNote type="nota">
+			<p><strong>Nota Importante:</strong> Una de las ventajas de anular un comprobante es que, en caso necesario, podrá desanularlo para restaurarlo. Sin embargo, no se recomienda utilizar esta opción de manera frecuente, ya que puede generar inconsistencias en los registros y afectar la integridad de los datos contables.</p>
+		</DocumentacionNote>
+		<DocumentacionImage src={img9.src} alt="Imagen de como gestionar los comprobantes" width={1600} height={848} title="Imagen de como gestionar los comprobantes" pswpWidth={1600} pswpHeight={848} />
+		<DocumentacionImage src={img10.src} alt="Imagen de como gestionar los comprobantes" width={1600} height={848} title="Imagen de como gestionar los comprobantes" pswpWidth={1600} pswpHeight={848} />
+		<DocumentacionImage src={img11.src} alt="Imagen de como gestionar los comprobantes" width={1600} height={848} title="Imagen de como gestionar los comprobantes" pswpWidth={1600} pswpHeight={848} />
+		<DocumentacionImage src={img12.src} alt="Imagen de como gestionar los comprobantes" width={1600} height={844} title="Imagen de como gestionar los comprobantes" pswpWidth={1600} pswpHeight={844} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="camionumeracion" title="Cambio de numeración" route="Utilidades - Comprobantes - Cambio de numeración">
+		<p>Haga clic en el botón <strong>Renumera</strong>, ingrese la información correspondiente siguiendo el formato <strong>TIPO - NÚMERO</strong> y, por último, haga clic en <strong>Grabar</strong> para guardar los cambios.</p>
+		<DocumentacionImage src={img13.src} alt="Imagen de como gestionar el cambio de numeración" width={1600} height={848} title="Imagen de como 3gestionar el cambio de numeración" pswpWidth={1600} pswpHeight={848} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="revisionauditoria" title="Utilidades - Revisión y Auditoría" route="Utilidades - Revisión y Auditoría">
+		<p>Al acceder a la ruta indicada anteriormente, siga el paso a paso que se muestra en las imágenes para identificar los <strong>errores</strong> en los comprobantes. Una vez localizados, proceda a corregirlos según corresponda.</p>
+		<DocumentacionImage src={img14.src} alt="Imagen de como gestionar la revisión y auditoría" width={1600} height={848} title="Imagen de como gestionar la revisión y auditoría" pswpWidth={1600} pswpHeight={848} />
+		<DocumentacionImage src={img15.src} alt="Imagen de como gestionar la revisión y auditoría" width={1600} height={848} title="Imagen de como gestionar la revisión y auditoría" pswpWidth={1600} pswpHeight={848} />
+		<p>Seleccione el <strong>período</strong> desde el cual desea buscar los <strong>errores</strong> en los comprobantes. Ingrese el <strong>año</strong> y <strong>mes</strong> en los campos <strong>Desde</strong> y <strong>Hasta</strong>. Luego, haga clic en <strong>Buscar Errores</strong> y espere a que el proceso se complete.</p>
+		<DocumentacionImage src={img16.src} alt="Imagen de como gestionar la revisión y auditoría" width={1600} height={848} title="Imagen de como gestionar la revisión y auditoría" pswpWidth={1600} pswpHeight={848} />
+		<p>Este es el estado en el que el <strong>sistema debe permanecer en todo momento</strong> para asegurar su correcto funcionamiento y evitar la aparición de errores. Mantener esta configuración garantiza la estabilidad y la fiabilidad del sistema.</p>
+		<DocumentacionImage src={img17.src} alt="Imagen de como gestionar la revisión y auditoría" width={1600} height={844} title="Imagen de como gestionar la revisión y auditoría" pswpWidth={1600} pswpHeight={844} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="mantenimientobd" title="Mantenimiento a la Base de Datos" route="Utilidades - Mantenimiento a la Base de Datos">
+		<p><strong>Reparar 1:</strong> Corrige las inconsistencias internas del sistema. Este es el proceso de <strong>reparación</strong> que se utilizaba anteriormente.</p>
+		<p><strong>Reparar 2:</strong> Se utiliza en caso de que persista el error. En esta situación, el sistema llevará a cabo una reparación más exhaustiva para resolver los problemas que no se han solucionado con la reparación estándar.</p>
+		<p><strong>Reparar 3:</strong> Anteriormente conocido como <strong>Reparar DBC</strong>, este proceso ha sido restringido y ahora solo puede ser utilizado por el <strong>usuario de soporte</strong> para intervenciones más técnicas y avanzadas.</p>
+		<p><strong>Sugerencia:</strong> Comience intentando con el <strong>Reparar 1</strong> como primer paso para corregir las inconsistencias.</p>
+		<DocumentacionImage src={img18.src} alt="Imagen de como gestionar la revisión y auditoría" width={1600} height={848} title="Imagen de como gestionar la revisión y auditoría" pswpWidth={1600} pswpHeight={848} />
+		<p>Cuando el proceso haya finalizado, haga clic en <strong>Optimizar</strong> para continuar.</p>
+		<DocumentacionImage src={img19.src} alt="Imagen de como gestionar la revisión y auditoría" width={1600} height={848} title="Imagen de como gestionar la revisión y auditoría" pswpWidth={1600} pswpHeight={848} />
+		<p>Una vez que el proceso haya finalizado de manera exitosa, podrá confirmar que su base de datos está libre de problemas y funcionando correctamente.</p>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="copias-seguridad" title="Copias de seguridad" route="Utilidades - Copias de Seguridad - Backups">
+		<p>Al ingresar a la ruta indicada previamente, deberán ubicar el botón identificado como "Realizar copia" y hacer clic en él. Este paso es fundamental para crear una copia del archivo o documento en cuestión, lo que les permitirá trabajar en una versión independiente sin afectar al original.</p>
+		<DocumentacionImage src={img20.src} alt="Imagen de como gestionar la revisión y auditoría" width={1600} height={848} title="Imagen de como gestionar la revisión y auditoría" pswpWidth={1600} pswpHeight={848} />
+		<p>Una vez se haya ejecutado el proceso, podrá verificar en el sistema que la copia de seguridad se ha realizado correctamente. Esto se refleja de la siguiente manera:</p>
+		<p><strong>Registro en el historial:</strong> En la sección correspondiente del sistema, encontrará un registro que documenta el evento de la copia de seguridad, permitiendo así su consulta futura para mayor control y trazabilidad.</p>
+		<DocumentacionImage src={img21.src} alt="Imagen de como gestionar la revisión y auditoría" width={1600} height={848} title="Imagen de como gestionar la revisión y auditoría" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Acceso al archivo copiado:</strong> El archivo duplicado estará disponible en la ubicación designada, con el nombre especificado o siguiendo el formato estándar establecido por el sistema, lo que facilitará su identificación y uso posterior.</p>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="varios" title="Varios" route="Utilidades - Varios">
+		<br />
+		<p><strong>Calculadora</strong></p>
+		<p>Si en algún momento necesita utilizar la calculadora, puede acceder a ella siguiendo la ruta previamente indicada. Una vez allí, simplemente presione las teclas <strong>Control + O</strong> de manera simultánea para abrir la herramienta. Este atajo de teclado le permitirá activar la calculadora de forma rápida y eficiente</p>
+		<p>Pasos detallados para el acceso:</p>
+		<ol>
+			<li><strong>Ubique la ruta mencionada anteriormente:</strong> Asegúrese de estar en la ubicación correcta dentro del sistema o plataforma, tal como se especificó previamente.</li>
+			<li><strong>Ejecute el atajo de teclado:</strong> Presione las teclas Control + O. Este comando es reconocido por el sistema y activará la calculadora inmediatamente.</li>
+			<li><strong>Uso de la calculadora:</strong> Una vez abierta, podrá realizar las operaciones necesarias, como cálculos simples o avanzados, según las funcionalidades disponibles.</li>
+		</ol>
+		<DocumentacionImage src={img22.src} alt="Imagen de como abrir la calculadora" width={1600} height={848} title="Imagen de como abrir la calculadora" pswpWidth={1600} pswpHeight={848} />
+		<br />
+		<p><strong>Abrir Cajón Monedero</strong></p>
+		<p>Si en algún momento necesita abrir el cajón monedero, puede hacerlo siguiendo la ruta indicada en este manual o utilizando el atajo de teclado Control + F5. Para completar el proceso, deberá ingresar la clave de acceso correspondiente al usuario actual</p>
+		<DocumentacionNote type="importante">
+			<p>Es <strong>importante</strong> tener en cuenta que esta funcionalidad solo estará disponible para aquellos usuarios que tengan los permisos necesarios asignados previamente.</p>
+		</DocumentacionNote>
+		<DocumentacionImage src={img23.src} alt="Imagen de como abrir el cajón monedero" width={1600} height={848} title="Imagen de como abrir el cajón monedero" pswpWidth={1600} pswpHeight={848} />
+		<br />
+		<p><strong>Consulta De Artículos Y Puntos </strong></p>
+		<p>Puede realizar diferentes acciones dependiendo de la información que ingrese. A continuación, se explican las opciones disponibles:</p>
+		<p>En la sección <strong>CONSULTAS</strong>, tiene la opción de ingresar el código completo del <strong>ARTÍCULO</strong> para obtener información detallada sobre los precios asociados. Este proceso le permitirá acceder rápidamente a los datos necesarios para realizar consultas específicas.</p>
+		<p>En la sección <strong>CONSULTAS</strong>, tiene la posibilidad de ingresar el número completo del <strong>DOCUMENTO DE IDENTIDAD</strong> de un <strong>TERCERO</strong> previamente creado en el sistema para acceder a información sobre los precios de los artículos relacionados con ese tercero. Esta funcionalidad es ideal para realizar consultas personalizadas y adaptadas a las condiciones comerciales específicas de cada cliente o tercero registrado.</p>
+		<DocumentacionImage src={img24.src} alt="Imagen de como gestionar la consulta de artículos y puntos" width={1600} height={900} title="Imagen de como gestionar la consulta de artículos y puntos" pswpWidth={1600} pswpHeight={900} />
+	</DocumentacionSection>
+</DocumentacionTabContent>
+
+<script>
+	import 'photoswipe/style.css';
+	import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if (typeof window !== 'undefined') {
+			const lightbox = new PhotoSwipeLightbox({
+				gallery: '#utilidades',
+				children: 'a.galley',
+				pswpModule: () => import('photoswipe'),
+			});
+			lightbox.init();
+		}
+	});
+</script>

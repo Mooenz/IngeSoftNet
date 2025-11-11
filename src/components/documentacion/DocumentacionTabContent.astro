@@ -1,0 +1,228 @@
+---
+// Componente contenedor de contenido de cada tab
+interface Props {
+	id: string;
+	title: string;
+	active?: boolean;
+	link?: string;
+	sections: Array<{
+		id: string;
+		title: string;
+	}>;
+}
+
+const { id, title, active = false, link, sections } = Astro.props;
+---
+
+<div class={`documentacion__informacion--item ${active ? 'activo' : ''}`} id={id}>
+	<div class="flex flex-col lg:flex-row lg:items-center gap-2 mb-8">
+		<button data-copy-link={link || '#'} class="copy-link-btn bg-transparent text-gray-400 hover:text-primary active:text-accent active:scale-90 lg:text-xl flex items-center lg:justify-center gap-2 transition-all ease-in-out duration-300 cursor-pointer relative group lg:h-10 lg:w-10 w-fit">
+			<i class="fi fi-rr-link"></i>
+			<span class="lg:hidden">compartir enlace</span>
+			<!-- Tooltip -->
+			<span class="tooltip-text absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-text rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap pointer-events-none hidden lg:block">
+				Compartir
+				<!-- Flecha del tooltip -->
+				<span class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-text"></span>
+			</span>
+		</button>
+		<h3 class="titulo text-2xl lg:text-4xl font-bold">{title}</h3>
+	</div>
+
+	<div class="documentacion__informacion--contenido flex flex-col md:flex-row md:gap-10">
+		<div class="w-full">
+			<!-- Select para responsive -->
+			<div class="documentacion__informacion--select lg:hidden mb-4">
+				<select id={`documentacion-select-${id}`} class="documentacion__informacion--select-input w-full py-3 px-4 border-transparent rounded-md font-sans text-base bg-white focus:outline-none">
+					{sections.map((section) => <option value={`#${section.id}`}>{section.title}</option>)}
+				</select>
+			</div>
+			<slot />
+		</div>
+
+		<!-- Sidebar de navegación -->
+		<div class="documentacion__informacion--contenedor hidden lg:block sticky top-[112px] w-full max-w-[320px] h-fit max-h-[calc(100vh-100px)] overflow-y-auto overflow-x-hidden">
+			<p class="font-medium text-base mb-4">En este artículo</p>
+			<ul class="p-0 m-0 list-none">
+				{
+					sections.map((section, index) => (
+						<li class={index === 0 && active ? 'activo' : ''}>
+							<a href={`#${section.id}`} class="block rounded-l-none rounded-r-lg py-3 pl-6 border-l border-gray-300 transition-colors hover:text-primary hover:border-primary/80">
+								{section.title}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script>
+	function initCopyLinks() {
+		const copyButtons = document.querySelectorAll('.copy-link-btn');
+
+		copyButtons.forEach((button) => {
+			// Clonar para limpiar listeners anteriores
+			const newButton = button.cloneNode(true) as HTMLElement;
+			button.parentNode?.replaceChild(newButton, button);
+
+			newButton.addEventListener('click', async (e) => {
+				e.preventDefault();
+
+				const link = newButton.getAttribute('data-copy-link');
+				const tooltip = newButton.querySelector('.tooltip-text');
+
+				if (!link || !tooltip) return;
+
+				try {
+					// Construir URL completa
+					const linkUrl = new URL(window.location.href);
+					const linkHasParam = linkUrl.searchParams.get('tap');
+
+					if (!linkHasParam) {
+						linkUrl.searchParams.set('tap', link);
+					} else {
+						linkUrl.searchParams.set('tap', link); 
+					}
+
+					const fullUrl = linkUrl.href; // Siempre obtienes el string de la URL
+
+					// Copiar al portapapeles
+					await navigator.clipboard.writeText(fullUrl);
+
+					// Cambiar texto del tooltip
+					const originalText = tooltip.textContent?.trim() || 'Compartir';
+					tooltip.textContent = '¡Copiado!';
+
+					// Cambiar color del icono
+					newButton.classList.add('text-accent');
+					newButton.classList.remove('text-gray-400');
+
+					// Restaurar después de 2 segundos
+					setTimeout(() => {
+						tooltip.textContent = originalText;
+						newButton.classList.remove('text-accent');
+						newButton.classList.add('text-gray-400');
+					}, 2000);
+				} catch (err) {
+					console.error('Error al copiar:', err);
+
+					// Fallback para navegadores antiguos
+					const textArea = document.createElement('textarea');
+					textArea.value = link.startsWith('http') ? link : `${window.location.origin}${link}`;
+					textArea.style.position = 'fixed';
+					textArea.style.left = '-999999px';
+					document.body.appendChild(textArea);
+					textArea.select();
+
+					try {
+						document.execCommand('copy');
+						tooltip.textContent = '¡Copiado!';
+						setTimeout(() => {
+							tooltip.textContent = 'Compartir';
+						}, 2000);
+					} catch (e) {
+						console.error('Fallback también falló:', e);
+						tooltip.textContent = 'Error';
+					}
+
+					document.body.removeChild(textArea);
+				}
+			});
+		});
+	}
+
+	// Inicializar
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initCopyLinks);
+	} else {
+		initCopyLinks();
+	}
+
+	// Para View Transitions
+	document.addEventListener('astro:page-load', initCopyLinks);
+</script>
+
+<style is:global>
+	.documentacion__informacion--item {
+		display: none;
+	}
+
+	.documentacion__informacion--item.activo {
+		display: block;
+		animation: fadeIn 0.5s forwards;
+	}
+
+	.documentacion__informacion--contenido > div ul:not(.list-none),
+	.documentacion__informacion--contenido > div ol:not(.list-none) {
+		list-style: initial !important;
+	}
+
+	.documentacion__informacion--contenido > div:first-child p {
+		margin-bottom: 16px;
+	}
+
+	.documentacion__informacion--contenido > div:first-child > *[id] {
+		position: relative;
+		padding-top: 16px;
+		padding-bottom: 16px;
+	}
+
+	.documentacion__informacion--contenido > div:first-child > *[id]:not(:last-child)::before {
+		content: '';
+		position: absolute;
+		height: 1px;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		background-color: #e5e7eb;
+		mask-image: linear-gradient(to right, #000 0%, transparent 100%);
+		-webkit-mask-image: linear-gradient(to right, #000 0%, transparent 100%);
+	}
+
+	.documentacion__informacion--contenedor::-webkit-scrollbar-thumb {
+		border-color: #f3f4f6;
+	}
+
+	.documentacion__informacion--contenedor li.activo a {
+		color: var(--color-primary);
+		background-color: rgba(59, 130, 246, 0.1);
+		border-color: var(--color-primary);
+	}
+
+	.documentacion__informacion--contenido ol,
+	.documentacion__informacion--contenido p,
+	.documentacion__informacion--contenido ul {
+		font-weight: 400;
+		margin-bottom: 8px;
+	}
+
+	.documentacion__informacion--contenido ol,
+	.documentacion__informacion--contenido ul {
+		padding-left: 18px;
+	}
+
+	.documentacion__informacion--contenido ol li::marker,
+	.documentacion__informacion--contenido ul li::marker {
+		font-weight: 600 !important;
+		color: var(--color-primary) !important;
+	}
+
+	@media (min-width: 992px) {
+		.documentacion__informacion {
+			min-height: 350px;
+		}
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>

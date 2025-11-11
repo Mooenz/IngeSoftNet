@@ -1,0 +1,536 @@
+---
+import DocumentacionTabContent from '../DocumentacionTabContent.astro';
+import DocumentacionSection from '../DocumentacionSection.astro';
+import DocumentacionImage from '../DocumentacionImage.astro';
+import DocumentacionNote from '../DocumentacionNote.astro';
+import DocumentacionLink from '../DocumentacionLink.astro';
+
+const sections = [
+	{ id: 'consulta-comprobantes', title: 'Consulta de comprobantes' },
+	{ id: 'listado-comprobantes', title: 'Listado comprobantes' },
+	{ id: 'contabilidad', title: 'Contabilidad' },
+	{ id: 'cuentas-por-cobrar', title: 'Cuentas por cobrar' },
+	{ id: 'cuentas-por-pagar', title: 'Cuentas por pagar' },
+	{ id: 'informes-inventarios', title: 'Inventarios' },
+	{ id: 'tesoreria', title: 'Tesorería' },
+	{ id: 'ventas', title: 'Ventas' },
+	{ id: 'informes-pos', title: 'POS' },
+	{ id: 'informes-fiscales', title: 'Fiscales' },
+];
+
+import img1 from '@assets/images/procesos-informes.png';
+import img2 from '@assets/images/procesos-informes1.png';
+import img3 from '@assets/images/listado-comprobantes.png';
+import img4 from '@assets/images/listado-comprobantes-ejemplo.png';
+import img5 from '@assets/images/contabilidad.png';
+import img6 from '@assets/images/contabilidad1.png';
+import img7 from '@assets/images/contabilidad-ejemplo.png';
+import img8 from '@assets/images/contabilidad2.png';
+import img9 from '@assets/images/contabilidad3.png';
+import img10 from '@assets/images/contabilidad4.png';
+import img11 from '@assets/images/contabilidad5.png';
+import img12 from '@assets/images/contabilidad6.png';
+import img13 from '@assets/images/contabilidad7.png';
+import img14 from '@assets/images/cuentas-por-cobrar.png';
+import img15 from '@assets/images/cuentas-por-cobrar1.png';
+import img16 from '@assets/images/cuentas-por-cobrar2.png';
+import img17 from '@assets/images/cuentas-por-cobrar3.png';
+import img18 from '@assets/images/cuentas-por-cobrar4.png';
+import img19 from '@assets/images/cuentas-por-cobrar5.png';
+import img20 from '@assets/images/cuentas-por-cobrar6.png';
+import img21 from '@assets/images/cuentas-por-cobrar7.png';
+import img22 from '@assets/images/cuentas-por-cobrar8.png';
+import img23 from '@assets/images/cuentas-por-cobrar9.png';
+import img24 from '@assets/images/cuentas-por-pagar.png';
+import img25 from '@assets/images/cuentas-por-pagar1.png';
+import img26 from '@assets/images/cuentas-por-pagar2.png';
+import img27 from '@assets/images/cuentas-por-pagar3.png';
+import img28 from '@assets/images/cuentas-por-pagar4.png';
+import img29 from '@assets/images/informes-inventarios.png';
+import img30 from '@assets/images/informes-inventarios1.png';
+import img31 from '@assets/images/informes-inventarios2.png';
+import img32 from '@assets/images/informes-inventarios3.png';
+import img33 from '@assets/images/informes-inventarios4.png';
+import img34 from '@assets/images/informes-inventarios5.png';
+import img35 from '@assets/images/tesoreria.png';
+import img36 from '@assets/images/ventas.png';
+import img37 from '@assets/images/ventas1.png';
+import img38 from '@assets/images/ventas2.png';
+import img39 from '@assets/images/ventas3.png';
+import img40 from '@assets/images/informes-pos.png';
+import img41 from '@assets/images/informes-fiscales.png';
+import img42 from '@assets/images/informes-fiscales1.png';
+import img43 from '@assets/images/informes-fiscales2.png';
+import img44 from '@assets/images/informes-fiscales3.png';
+---
+
+<DocumentacionTabContent id="informes" title="Informes" active={false} sections={sections} link="informes">
+	<DocumentacionSection id="consulta-comprobantes" title="Consulta De Comprobantes" route="Informes - Consulta de Comprobantes">
+		<p>En la ruta de <strong>consulta de comprobantes</strong>, podrá asociar al <strong>TERCERO</strong> para validar todos los comprobantes que han sido aplicados a ese cliente en específico.</p>
+		<p>El paso mínimo es asociar al <strong>TERCERO</strong>, lo cual le permitirá obtener los comprobantes relacionados con ese cliente en particular.</p>
+		<p>Si desea realizar una búsqueda más detallada y precisa, puede incluir filtros adicionales, como:</p>
+		<ul>
+			<li><strong>Tipo de comprobante:</strong> Seleccione el tipo de comprobante que desea consultar, ya sea factura, nota de crédito, pago, entre otros.</li>
+			<li><strong>Fecha:</strong> Defina un rango de fechas para limitar la búsqueda a un período específico.</li>
+			<li><strong>Clase:</strong> Especifique la clase del comprobante, si es relevante para su consulta.</li>
+		</ul>
+		<DocumentacionImage src={img1.src} alt="Imagen de como gestionar los informes" width={1600} height={848} title="Imagen de como gestionar los informes" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Recomendaciones:</strong></p>
+		<ul>
+			<li><strong>Verifique los datos ingresados:</strong> Asegúrese de ingresar correctamente el documento de identidad del tercero y los filtros seleccionados para evitar resultados incorrectos.</li>
+		</ul>
+		<p>Finalmente, haga clic en el botón <strong>CONSULTAR</strong> para ejecutar la búsqueda y obtener los resultados de los comprobantes asociados al tercero seleccionado.</p>
+		<DocumentacionImage src={img2.src} alt="Imagen de como gestionar los informes" width={1600} height={848} title="Imagen de como gestionar los informes" pswpWidth={1600} pswpHeight={848} />
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> Si el sistema no genera información después de realizar la consulta, esto indica que no hay comprobantes asociados al TERCERO seleccionado en el período o bajo los filtros establecidos. En otras palabras, no existen registros vinculados a ese cliente en el sistema.</p>
+		</DocumentacionNote>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="listado-comprobantes" title="Listado Comprobantes" route="Informes - Generales - Listado Comprobantes">
+		<p>En esta opción, puede generar un <strong>INFORME</strong> que le proporcionará un listado detallado de los <strong>COMPROBANTES</strong> generados, permitiéndole aplicar filtros según los siguientes criterios:</p>
+		<ul>
+			<li><strong>Clase:</strong> Filtrar por la clase de comprobante, como factura, nota de crédito, pago, etc.</li>
+			<li><strong>Tipo de comprobante:</strong> Seleccionar el tipo específico de comprobante que desea consultar.</li>
+			<li><strong>Fecha:</strong> Definir un rango de fechas para limitar la búsqueda a un período determinado.</li>
+			<li><strong>Tercero:</strong> Filtrar por el tercero (cliente o proveedor) asociado a los comprobantes.</li>
+		</ul>
+		<p>Además, el sistema le ofrece la flexibilidad de filtrar los comprobantes según su estado:</p>
+		<ul>
+			<li><strong>Comprobantes anulados:</strong> Mostrar solo aquellos comprobantes que han sido anulados.</li>
+			<li><strong>Comprobantes no anulados:</strong> Ver los comprobantes que aún están activos y no han sido anulados.</li>
+			<li><strong>Todos los comprobantes:</strong> Visualizar todos los comprobantes generados, independientemente de su estado.</li>
+		</ul>
+		<DocumentacionImage src={img3.src} alt="Imagen de como gestionar listado de comprobandes" width={1600} height={848} title="Imagen de como gestionar listado de comprobandes" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Ejemplo: </strong></p>
+		<DocumentacionImage src={img4.src} alt="Imagen de como gestionar listado de comprobandes" width={1600} height={849} title="Imagen de como gestionar listado de comprobandes" pswpWidth={1600} pswpHeight={849} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="contabilidad" title="Contabilidad" route="Informes - Contabilidad">
+		<p><strong>Ruta:</strong> Informes - Contabilidad - Libro Auxiliar</p>
+		<p>Es un libro complementario a los principales libros contables, que permite visualizar todas las operaciones registradas durante un período determinado.</p>
+		<p>Puede ser consultado en pantalla, impreso o exportado a Excel, facilitando el análisis y seguimiento de la información contable.</p>
+		<DocumentacionImage src={img5.src} alt="Imagen de como gestionar la contabilidad" width={1600} height={848} title="Imagen de como gestionar la contabilidad" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Periodos:</strong> Permite filtrar el informe por un período específico, facilitando la consulta de las operaciones dentro de un rango de fechas determinadas.</p>
+		<p><strong>Seleccionar Cuentas:</strong> Ofrece la opción de filtrar los códigos contables que se desean consultar. Si no se selecciona ningún código, el sistema mostrará todos los movimientos contables registrados.</p>
+		<p><strong>Formato:</strong> Proporciona tres alternativas de consulta:</p>
+		<ol>
+			<li><strong>Estándar:</strong> Muestra los datos contables de manera general.</li>
+			<li><strong>Centros de Costo:</strong> Muestra los movimientos distribuidos por los diferentes centros de costo.</li>
+			<li><strong>Filtrando un Tercero:</strong> Permite filtrar las operaciones de un tercero específico, como clientes o proveedores.</li>
+		</ol>
+		<p><strong>Opciones:</strong> Habilita diversos parámetros que el usuario puede ajustar según sus necesidades al generar el informe.</p>
+		<p><strong>Ordenar Por:</strong> Permite personalizar el orden del informe según criterios como fecha, tipo de transacción, número de documento, N° de cheque externo, o detalle de la operación.</p>
+		<p><strong>Imprimir:</strong> Ofrece la opción de generar el informe en pantalla para su revisión o imprimirlo directamente.</p>
+		<p><strong>Excel:</strong> Permite exportar el informe a formato Excel, facilitando su análisis y manipulación fuera del sistema.</p>
+		<DocumentacionImage src={img6.src} alt="Imagen de como gestionar la contabilidad" width={1600} height={848} title="Imagen de como gestionar la contabilidad" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Ejemplo: </strong></p>
+		<DocumentacionImage src={img7.src} alt="Imagen de como gestionar la contabilidad" width={1600} height={844} title="Imagen de como gestionar la contabilidad" pswpWidth={1600} pswpHeight={844} />
+		<p><strong>Ruta:</strong> Informes - Contabilidad - Informes Financieros - Balance detallado</p>
+		<p>El balance general es uno de los estados financieros fundamentales que toda empresa o negocio debe preparar para dar a conocer su estructura financiera.</p>
+		<DocumentacionImage src={img8.src} alt="Imagen de como gestionar la contabilidad" width={1600} height={845} title="Imagen de como gestionar la contabilidad" pswpWidth={1600} pswpHeight={845} />
+		<p><strong>Periodo:</strong> Permite consultar el período, definiendo un rango desde hasta.</p>
+		<p><strong>Nivel de detalle:</strong> Permite seleccionar el nivel de visualización del informe, desde clases, grupos, cuentas, subcuentas, auxiliares, terceros hasta centros de costos.</p>
+		<p><strong>Modo:</strong> Elija entre el modo <strong>General</strong> o <strong>Centros de Costo</strong>.</p>
+		<p><strong>Seleccionar cuentas:</strong> Permite filtrar por cuentas específicas.</p>
+		<p><strong>Tercero:</strong> Permite filtrar por tercero.</p>
+		<p><strong>Imprimir:</strong> Permite generar el informe en pantalla, en formato PDF o imprimirlo directamente.</p>
+		<p><strong>Excel:</strong> Permite exportar la estructura del balance a un archivo Excel.</p>
+		<p><strong>Ejemplo: </strong></p>
+		<DocumentacionImage src={img9.src} alt="Imagen de como gestionar la contabilidad" width={1600} height={847} title="Imagen de como gestionar la contabilidad" pswpWidth={1600} pswpHeight={847} />
+		<p><strong>Ruta:</strong> Informes - Contabilidad - Informes Financieros - Estado de Situación Financiera</p>
+		<p>Es un informe que presenta de manera clasificada, resumida y consistente la situación financiera de la entidad en un período determinado. Revela la totalidad de sus bienes, derechos, obligaciones y la situación del patrimonio.</p>
+		<DocumentacionImage src={img10.src} alt="Imagen de como gestionar la contabilidad" width={1600} height={844} title="Imagen de como gestionar la contabilidad" pswpWidth={1600} pswpHeight={844} />
+		<p><strong>Periodo:</strong> Permite consultar por mes o activar el parámetro "Comparar con otro período", lo que habilita un segundo campo para la comparación.</p>
+		<p><strong>Nivel:</strong> Genera el ESFA a nivel de cuentas o subcuentas.</p>
+		<p><strong>Cuentas Contables:</strong> El código de utilidad y pérdida del ejercicio debe estar configurado a través de la ruta: <strong>Catálogo Plan de Cuentas/Herramientas/Definición de Cuentas/Varios</strong>.</p>
+		<p><strong>Parámetros:</strong> Active los parámetros adecuados para generar el informe.</p>
+		<p><strong>Título del informe:</strong> Permite personalizar el título del estado de situación financiera.</p>
+		<p><strong>Imprimir:</strong> Permite generar el informe en pantalla, en formato PDF o imprimirlo directamente.</p>
+		<p><strong>Excel:</strong> Permite exportar la estructura del estado de situación financiera a un archivo Excel.</p>
+		<p><strong>Ejemplo: </strong></p>
+		<DocumentacionImage src={img11.src} alt="Imagen de como gestionar la contabilidad" width={1600} height={849} title="Imagen de como gestionar la contabilidad" pswpWidth={1600} pswpHeight={849} />
+		<p><strong>Ruta:</strong> Informes - Contabilidad - Informes Financieros - Estado de Resultados</p>
+		<p>El estado de resultados muestra los movimientos de ingresos, gastos y costos de la entidad, basándose en el flujo de ingresos generados y consumidos durante el período.</p>
+		<DocumentacionImage src={img12.src} alt="Imagen de como gestionar la contabilidad" width={1600} height={849} title="Imagen de como gestionar la contabilidad" pswpWidth={1600} pswpHeight={849} />
+		<p><strong>Periodo:</strong> Permite consultar hasta 2 períodos y activar el parámetro "Ver porcentaje de aumento/disminución". Además, se puede consultar el informe "Acumulado".</p>
+		<p><strong>Nivel:</strong> Permite visualizar el estado de resultados a nivel de cuentas, subcuentas y auxiliar 1.</p>
+		<p><strong>Formato:</strong> Existen 5 formatos de impresión disponibles: estándar, comercial, servicios públicos, entidades públicas y colegios.</p>
+		<p><strong>Tipo:</strong> Tres opciones disponibles: General, Centros de Costos y Subcentros de Costos.</p>
+		<p><strong>Parámetros:</strong> Active los parámetros adecuados para generar el informe.</p>
+		<p><strong>Nombre del informe:</strong> Permite personalizar el título del estado de resultados.</p>
+		<p><strong>Imprimir:</strong> Permite generar el informe en pantalla, en formato PDF o imprimirlo directamente.</p>
+		<p><strong>Excel:</strong> Permite exportar la estructura del estado de resultados a un archivo Excel.</p>
+		<p><strong>Ejemplo:</strong></p>
+		<DocumentacionImage src={img13.src} alt="Imagen de como gestionar la contabilidad" width={1600} height={848} title="Imagen de como gestionar la contabilidad" pswpWidth={1600} pswpHeight={848} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="cuentas-por-cobrar" title="Cuentas por cobrar" route="Informes - Cuentas Por Cobrar">
+		<p><strong>Ruta:</strong> Informes - Cuentas Por Cobrar - Consultas</p>
+		<p>La herramienta para consultar la cartera y anticipos de clientes es un módulo diseñado para facilitar la visualización y gestión de las deudas pendientes o pagos adelantados que los clientes tengan con la entidad.</p>
+		<p>Esta herramienta cuenta con filtros avanzados que permiten obtener información detallada, clasificando y destacando visualmente la cartera mediante el uso de colores que diferencian entre cartera vigente y cartera vencida, haciendo más práctico su análisis.</p>
+		<p>Adicionalmente, la herramienta ofrece múltiples formatos de reporte que permiten generar estados de cuentas por cobrar según distintas necesidades, brindando a los usuarios la flexibilidad de elegir el informe que mejor se adapte a sus requerimientos de gestión financiera y toma de decisiones.</p>
+		<DocumentacionImage src={img14.src} alt="Imagen de como gestionar las cuentas por cobrar" width={1600} height={849} title="Imagen de como gestionar las cuentas por cobrar" pswpWidth={1600} pswpHeight={849} />
+		<DocumentacionImage src={img15.src} alt="Imagen de como gestionar las cuentas por cobrar" width={1600} height={854} title="Imagen de como gestionar las cuentas por cobrar" pswpWidth={1600} pswpHeight={854} />
+		<p><strong>Periodo:</strong> permite seleccionar el rango de fechas en el que deseas consultar los movimientos de cartera. Puedes determinar desde qué fecha hasta qué fecha visualizas la información correspondiente.</p>
+		<p><strong>Cliente:</strong> posibilita filtrar la consulta por un cliente específico. Puedes digitar el nombre, número de identificación o seleccionar desde una lista desplegable para obtener el detalle de su cartera o anticipos.</p>
+		<p><strong>Cuentas contables:</strong> ofrece la opción de filtrar los resultados con base en una o varias cuentas contables asociadas a la cartera o anticipos. Esto permite enfocar la consulta en cuentas específicas del plan contable, facilitando un análisis más preciso.</p>
+		<p><strong>Ejemplo:</strong></p>
+		<DocumentacionImage src={img16.src} alt="Imagen de como gestionar las cuentas por cobrar" width={1600} height={845} title="Imagen de como gestionar las cuentas por cobrar" pswpWidth={1600} pswpHeight={845} />
+		<p><strong>Ruta:</strong> Informes - Cuentas Por Cobrar - Circular de Cobro vía E - Mail</p>
+		<p>La<strong> Circular de Cobro vía E-mail</strong> es una funcionalidad del sistema que permite enviar a los clientes, de manera automatizada o manual, un aviso o recordatorio sobre el estado de su cartera pendiente por medio del correo electrónico registrado en su perfil. Esta herramienta facilita la gestión de cobranza y mejora la comunicación con los clientes respecto a sus obligaciones financieras.</p>
+		<p><strong>Características principales:</strong></p>
+		<ul>
+			<li><strong>Personalización del mensaje:</strong> puedes editar el contenido del correo, incluir saludos personalizados, detalles de la deuda, fechas de vencimiento y medios de pago.</li>
+			<li><strong>Registro de envío:</strong> queda evidencia del envío en el historial de contacto con el cliente, lo cual puede usarse para seguimiento o auditoría.</li>
+		</ul>
+		<DocumentacionImage src={img17.src} alt="Imagen de como gestionar las cuentas por cobrar" width={1600} height={852} title="Imagen de como gestionar las cuentas por cobrar" pswpWidth={1600} pswpHeight={852} />
+		<p><strong>Ejemplo:</strong></p>
+		<DocumentacionImage src={img18.src} alt="Imagen de como gestionar las cuentas por cobrar" width={1600} height={845} title="Imagen de como gestionar las cuentas por cobrar" pswpWidth={1600} pswpHeight={845} />
+		<DocumentacionImage src={img19.src} alt="Imagen de como gestionar las cuentas por cobrar" width={1600} height={848} title="Imagen de como gestionar las cuentas por cobrar" pswpWidth={1600} pswpHeight={848} />
+		<DocumentacionImage src={img20.src} alt="Imagen de como gestionar las cuentas por cobrar" width={1600} height={848} title="Imagen de como gestionar las cuentas por cobrar" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Ruta:</strong> Informes - Cuentas Por Cobrar - Informe de Cartera</p>
+		<DocumentacionImage src={img21.src} alt="Imagen de como gestionar las cuentas por cobrar" width={1600} height={852} title="Imagen de como gestionar las cuentas por cobrar" pswpWidth={1600} pswpHeight={852} />
+		<p><strong>Período:</strong> selecciona el periodo de corte a consultar.</p>
+		<p><strong>Formato:</strong> podrá generar diferentes formatos de informe.</p>
+		<p><strong>Agrupar por:</strong> podrá agrupar el informe con el fin de personalizar su presentación en pantalla o Excel.</p>
+		<p><strong>Cuentas:</strong> códigos contables parametrizados en formas de pago, que permite la consulta de los movimientos de cartera.</p>
+		<p><strong>Opciones:</strong> podrá seleccionar diversas opciones, teniendo en cuenta la necesidad del informe.</p>
+		<p><strong>Rango de Edades:</strong> teniendo en cuenta el rango de edades, el sistema consultará los movimientos teniendo en cuenta esos datos.</p>
+		<p><strong>Filtros:</strong> en este espacio podrá aplicar filtros de consulta como: tipo de comprobante, cliente, vendedor, forma de pago, listas de precios, entre otros.</p>
+		<p><strong>Intereses:</strong> aplica para el formato de circular de cobro, donde podrá realizar el cálculo de los intereses teniendo en cuenta los días de mora.</p>
+		<p><strong>Imprimir:</strong> permite generar el informe en pantalla o directamente imprimirlo.</p>
+		<p><strong>Excel:</strong> permite exportar la estructura del informe en Excel.</p>
+		<p><strong>Contabilidad:</strong> brinda la posibilidad de seleccionar el tipo de contabilidad a generar.</p>
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> se incluye mejora en el campo de cobrador en este informe. Se exportará el nombre del cobrador asignado al comprobante; si no tiene, tomará el cobrador asignado al tercero. Además, el tercero debe estar clasificado como "cobrador" en el catálogo para que se visualice en el informe.</p>
+		</DocumentacionNote>
+		<p><strong>Ejemplo:</strong></p>
+		<DocumentacionImage src={img22.src} alt="Imagen de como gestionar las cuentas por cobrar" width={1600} height={851} title="Imagen de como gestionar las cuentas por cobrar" pswpWidth={1600} pswpHeight={851} />
+		<p><strong>Ruta:</strong> Informes - Cuentas Por Cobrar - Exportar Cartera</p>
+		<p>Esta herramienta permite <strong>exportar el listado completo de la cartera</strong> correspondiente a un periodo determinado, facilitando la gestión y análisis de la información financiera de los clientes.</p>
+		<p>Durante el proceso, el usuario puede <strong>seleccionar los campos específicos</strong> que desea visualizar, como por ejemplo: cliente, documento, saldo, fecha de vencimiento, entre otros, según la necesidad de la consulta.</p>
+		<p>El sistema ofrece varias opciones de <strong>formato de exportación</strong>, entre ellas:</p>
+		<ul>
+			<li><strong>Excel (XLS):</strong> ideal para revisar, filtrar y ordenar los datos de forma tabular.</li>
+			<li><strong>Texto CSV (compatible con Excel):</strong> útil para importar en otras plataformas o sistemas externos.</li>
+			<li><strong>Texto plano (TXT):</strong> adecuado para usos técnicos o integraciones.</li>
+			<li><strong>Tabla DBF:</strong> pensado para conexiones con sistemas contables que aún operan con bases de datos estructuradas tipo base.</li>
+		</ul>
+		<p>Esta funcionalidad mejora el control sobre la cartera y permite generar informes personalizados para toma de decisiones o presentación ante entes de control o auditoría.</p>
+		<DocumentacionImage src={img23.src} alt="Imagen de como gestionar las cuentas por cobrar" width={1600} height={848} title="Imagen de como gestionar las cuentas por cobrar" pswpWidth={1600} pswpHeight={848} />
+		<ul>
+			<li><strong>Período:</strong> opción que permite filtrar un periodo determinado para la consulta del informe.</li>
+			<li><strong>Exporta:</strong> permite generar y descargar un archivo en formato Excel con la información previamente filtrada, ideal para compartir o procesar externamente.</li>
+		</ul>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="cuentas-por-pagar" title="Cuentas por pagar" route="Informes - Cuentas Por Pagar">
+		<p><strong>Ruta:</strong> Informes - Cuentas Por Pagar - Consultas</p>
+		<p>Herramienta diseñada para consultar las obligaciones por pagar y los anticipos registrados con proveedores, ya sea como deudas contraídas o pagos adelantados.</p>
+		<p>Incorpora filtros que permiten obtener información detallada y utiliza un sistema de colores para diferenciar visualmente los valores vigentes de los vencidos, facilitando su análisis.</p>
+		<p>Además, ofrece múltiples reportes de cuentas por pagar, brindando la flexibilidad de elegir el formato que mejor se adapte a las necesidades del usuario.</p>
+		<DocumentacionImage src={img24.src} alt="Imagen de como gestionar las cuentas por pagar" width={1600} height={849} title="Imagen de como gestionar las cuentas por pagar" pswpWidth={1600} pswpHeight={849} />
+		<ol>
+			<li>
+				<strong>Fechas:</strong> Permite seleccionar el año y mes del período de consulta. <br />
+				<strong>Ejemplo:</strong> enero 2023 - mayo 2023.
+			</li>
+			<li>
+				<strong>Proveedor:</strong> Selecciona el proveedor a consultar. <br />
+				<DocumentacionNote type="nota">
+					<p><strong>Nota:</strong> Es necesario que el tercero esté clasificado como "Proveedor" en el catálogo de terceros.</p>
+				</DocumentacionNote>
+			</li>
+			<li><strong>Cuentas:</strong> Consulta los movimientos asociados a los códigos contables parametrizados en el catálogo de formas de pago.</li>
+			<li>
+				<strong>Paz y Salvo:</strong> Genera un documento que certifica que la empresa está al día en sus pagos con el proveedor. <br />
+				<DocumentacionNote type="nota">
+					<p><strong>Nota:</strong> Para obtener este informe, debe solicitarse formalmente al área de soporte técnico.</p>
+				</DocumentacionNote>
+			</li>
+			<li><strong>Imprimir:</strong> Permite visualizar el informe en pantalla o enviarlo directamente a impresión.</li>
+			<li><strong>Excel:</strong> Exporta la estructura del informe a un archivo en formato Excel.</li>
+			<li><strong>Anexo:</strong> Campo para incluir una observación adicional que será visible en el informe impreso.</li>
+			<li><strong>Consultar:</strong> Ejecuta la búsqueda y muestra la información según los filtros aplicados.</li>
+			<li><strong>Consulta Total:</strong> Muestra todos los documentos elaborados a nombre del proveedor dentro del período de consulta.</li>
+			<li><strong>Consulta de Movimientos:</strong> Presenta los movimientos contables (débito y crédito) que afectan la cartera del proveedor.</li>
+			<li><strong>Anticipo / Cupo:</strong> Informa si existen anticipos causados y pendientes por aplicar, así como el cupo autorizado desde el catálogo de terceros.</li>
+			<li><strong>Saldo / Vencido:</strong> Refleja el saldo total en cartera y los valores vencidos a la fecha de la consulta.</li>
+			<li><strong>Consulta Parcial: </strong>Muestra únicamente los movimientos que aún tienen saldos pendientes de pago.</li>
+		</ol>
+		<p>Ejemplo:</p>
+		<DocumentacionImage src={img25.src} alt="Imagen de como gestionar las cuentas por pagar" width={1600} height={849} title="Imagen de como gestionar las cuentas por pagar" pswpWidth={1600} pswpHeight={849} />
+		<p><strong>Ruta:</strong> Informes - Cuentas Por Pagar - Informe de Cuentas por Pagar</p>
+		<p>El Informe de Cuentas por Pagar es una herramienta clave en la gestión financiera de la empresa, ya que permite obtener una visión clara y estructurada de las obligaciones económicas pendientes con los proveedores.</p>
+		<p>Este informe consolida información relevante como saldos totales, valores vencidos, anticipos, fechas de vencimiento y clasificación por edades de cartera.</p>
+		<p>Su propósito principal es facilitar el análisis y la toma de decisiones en relación con los pagos, permitiendo:</p>
+		<ul>
+			<li>Priorizar compromisos financieros según su vencimiento.</li>
+			<li>Verificar la correcta aplicación de anticipos o pagos parciales.</li>
+			<li>Identificar posibles riesgos por acumulación de deuda.</li>
+			<li>Mantener relaciones sanas y confiables con los proveedores.</li>
+			<li>Respaldar procesos de auditoría, tesorería y control interno.</li>
+		</ul>
+		<p>El informe puede generarse con diferentes filtros (por proveedor, cuenta contable, período, etc.) y es exportable en distintos formatos, lo que lo convierte en una herramienta flexible, adaptable y fundamental para el seguimiento y control de la cartera por pagar.</p>
+		<DocumentacionImage src={img26.src} alt="Imagen de como gestionar las cuentas por pagar" width={1600} height={849} title="Imagen de como gestionar las cuentas por pagar" pswpWidth={1600} pswpHeight={849} />
+		<ol>
+			<li><strong>Período:</strong> Permite seleccionar el período de corte o la fecha de consulta.</li>
+			<li><strong>Cuentas:</strong> Consulta los movimientos asociados a los códigos contables parametrizados en el catálogo de formas de pago.</li>
+			<li><strong>Tipo de Informe:</strong> Opción para generar diferentes tipos de reportes según las necesidades del usuario (detallado, consolidado, etc.).</li>
+			<li><strong>Agrupar por:</strong> Permite agrupar la información en pantalla o en Excel por diferentes criterios, facilitando la personalización del reporte.</li>
+			<li>
+				<strong>Filtrar:</strong> Posibilita aplicar filtros avanzados como: <br />
+				<ul>
+					<li>Tipo de comprobante</li>
+					<li>Proveedor</li>
+					<li>Centro de Costos (Ccostos)</li>
+					<li>Subcentro de Costos (SCCosto)</li>
+					<li>Nuevo filtro disponible: Número externo</li>
+				</ul>
+			</li>
+			<li><strong>Ver Anticipos:</strong> Al activar esta opción, el informe incluirá los anticipos causados en las cuentas por pagar.</li>
+			<li><strong>Fecha de Causación / Fecha de Vencimiento:</strong> Permite consultar los comprobantes aplicando rangos de fechas según la fecha de causación o la fecha de vencimiento.</li>
+			<li><strong>Imprimir:</strong> Genera el informe para su visualización en pantalla o para impresión directa.</li>
+		</ol>
+		<DocumentacionImage src={img27.src} alt="Imagen de como gestionar las cuentas por pagar" width={1600} height={845} title="Imagen de como gestionar las cuentas por pagar" pswpWidth={1600} pswpHeight={845} />
+		<p><strong>Ruta:</strong> Informes - Cuentas Por Pagar - Exportar Cuentas por pagar</p>
+		<p>La opción <strong>"Exportar Cuentas por Pagar"</strong> permite al usuario generar y descargar la información correspondiente a las obligaciones pendientes con proveedores en formatos digitales, principalmente Excel.</p>
+		<p>Esta funcionalidad es clave para el análisis externo, la elaboración de reportes personalizados, la conciliación contable y la planificación financiera.</p>
+		<DocumentacionImage src={img28.src} alt="Imagen de como gestionar las cuentas por pagar" width={1600} height={848} title="Imagen de como gestionar las cuentas por pagar" pswpWidth={1600} pswpHeight={848} />
+		<ul>
+			<li><strong>Período:</strong> opción que permite filtrar un periodo determinado para la consulta del informe.</li>
+			<li><strong>Exporta:</strong> permite generar y descargar un archivo en formato Excel con la información previamente filtrada, ideal para compartir o procesar externamente.</li>
+		</ul>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="informes-inventarios" title="Inventarios" route="Informes - Inventarios">
+		<p><strong>Ruta:</strong> Informes - Inventarios - Kardex</p>
+		<p>El <strong>Kardex</strong> es un documento de control fundamental cuando se utiliza un <strong>sistema de inventario permanente</strong>. Su principal función es registrar y reflejar, de forma cronológica y detallada, todos los movimientos de un producto específico en términos de <strong>cantidades y costos</strong>.</p>
+		<p>Este documento permite:</p>
+		<ul>
+			<li><strong>Visualizar entradas, salidas y saldos</strong> de inventario en cualquier momento.</li>
+			<li><strong>Controlar los costos unitarios y totales</strong> asociados a cada movimiento.</li>
+			<li><strong>Auditar y verificar</strong> la trazabilidad de los productos almacenados.</li>
+			<li><strong>Apoyar la toma de decisiones</strong> en procesos de compras, ventas, producción y contabilidad.</li>
+		</ul>
+		<p>El Kardex es una herramienta clave para mantener la coherencia entre la gestión física y contable del inventario, garantizando exactitud en los reportes y facilitando procesos de cierre contable y fiscal.</p>
+		<DocumentacionImage src={img29.src} alt="Imagen de como gestionar los inventarios" width={1600} height={844} title="Imagen de como gestionar los inventarios" pswpWidth={1600} pswpHeight={844} />
+		<p>Seleccionamos el período y la referencia deseada, luego hacemos clic en <strong>Consultar</strong>. El sistema mostrará la información requerida de manera rápida y precisa.</p>
+		<p><strong>Ejemplo:</strong></p>
+		<DocumentacionImage src={img30.src} alt="Imagen de como gestionar los inventarios" width={1600} height={844} title="Imagen de como gestionar los inventarios" pswpWidth={1600} pswpHeight={844} />
+		<p><strong>Ruta:</strong> Informes - Inventarios - Saldos de Inventario - Saldos de Inventario</p>
+		<p><strong>Tipo de informe:</strong> Seleccione entre informe general, por bodegas o por bodegas en columnas.</p>
+		<p><strong>Filtrar por:</strong> Aplicar filtros para simplificar la información presentada.</p>
+		<p><strong>Formato:</strong> Elija entre tres formatos de impresión: Normal, Para conteo físico o Formato para impresora POS.</p>
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> Al consultar por bodegas o de forma general en formatos Normal o conteo físico, no se mostrarán validaciones.</p>
+		</DocumentacionNote>
+		<p><strong>Imprimir:</strong> Visualice el informe en pantalla o imprímalo directamente.</p>
+		<p><strong>Excel:</strong> Exporte el informe con la columna adicional <strong>MODELO/COLECCIÓN</strong> incluida.</p>
+		<p><strong>Periodo:</strong> Filtre el informe por un período específico.</p>
+		<p><strong>Tipo de contabilidad:</strong> Seleccione entre contabilidad fiscal o financiera.</p>
+		<p><strong>Valorar inventario:</strong> Elija entre 7 métodos de valoración:</p>
+		<ol>
+			<li>Actual promedio</li>
+			<li>Última compra</li>
+			<li>Última compra neta</li>
+			<li>Precio venta</li>
+			<li>Precio venta POS</li>
+			<li>Última compra + impoconsumo</li>
+			<li>Última compra + IVA + impoconsumo</li>
+		</ol>
+		<p><strong>Agrupar por:</strong> Seleccione entre tres opciones para agrupar la información.</p>
+		<p><strong>Ordenar por:</strong> Organice el informe por referencia, detalle, unidad de presentación o código de ubicación.</p>
+		<p><strong>Opciones:</strong> Configure métodos adicionales para personalizar el informe.</p>
+		<DocumentacionImage src={img31.src} alt="Imagen de como gestionar los inventarios" width={1600} height={848} title="Imagen de como gestionar los inventarios" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Ruta:</strong> Informes - Inventarios - Movimiento/Extractos/Rotación</p>
+		<p>Los informes de inventarios permiten un control detallado y análisis de los productos almacenados a través de diferentes perspectivas:</p>
+		<ul>
+			<li><strong>Movimiento:</strong> Muestra un registro cronológico de todas las entradas y salidas de productos, detallando cantidades y costos. Es fundamental para conocer la dinámica de inventario en tiempo real.</li>
+			<li><strong>Extractos:</strong> Proporciona un resumen consolidado de los movimientos del inventario por producto o referencia, facilitando la revisión rápida del saldo actual y los cambios ocurridos en un período determinado.</li>
+			<li><strong>Rotación:</strong> Analiza la frecuencia con la que los productos se venden o utilizan, ayudando a identificar la velocidad de movimiento y optimizar la gestión de stock para evitar excesos o faltantes.</li>
+		</ul>
+		<p>Estos informes son esenciales para una gestión eficiente del inventario, contribuyendo a la toma de decisiones estratégicas en compras, producción y ventas.</p>
+		<DocumentacionImage src={img32.src} alt="Imagen de como gestionar los inventarios" width={1600} height={848} title="Imagen de como gestionar los inventarios" pswpWidth={1600} pswpHeight={848} />
+		<p>La información puede filtrarse según las necesidades específicas de la empresa, facilitando un análisis personalizado y eficaz.</p>
+		<DocumentacionImage src={img33.src} alt="Imagen de como gestionar los inventarios" width={1600} height={848} title="Imagen de como gestionar los inventarios" pswpWidth={1600} pswpHeight={848} />
+		<p><strong>Ejemplo: </strong></p>
+		<DocumentacionImage src={img34.src} alt="Imagen de como gestionar los inventarios" width={1600} height={848} title="Imagen de como gestionar los inventarios" pswpWidth={1600} pswpHeight={848} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="tesoreria" title="Tesorería" route="Informes - Tesorería - Estado de Caja">
+		<p>Este informe proporciona un resumen detallado de los movimientos de efectivo y saldos disponibles, facilitando el control y seguimiento de la liquidez de la empresa.</p>
+		<DocumentacionImage src={img35.src} alt="Imagen de como gestionar la tesorería" width={1600} height={849} title="Imagen de como gestionar la tesorería" pswpWidth={1600} pswpHeight={849} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="ventas" title="Ventas" route="Informes - Ventas">
+		<p><strong>Ruta:</strong> Informes - Ventas - Récord de Ventas</p>
+		<p>Permite consultar las facturas de venta generadas en el sistema, detallando cantidades y valores. Puede filtrar por tipo de movimiento, tipo de ítems y un período determinado, además de elegir la forma de agrupamiento y orden que prefiera. También ofrece la opción de exportar la información a Excel para un análisis más detallado.</p>
+		<DocumentacionImage src={img36.src} alt="Imagen de como gestionar las ventas" width={1600} height={846} title="Imagen de como gestionar las ventas" pswpWidth={1600} pswpHeight={846} />
+		<ol>
+			<li><strong>Tipo de informes:</strong> Seleccione el tipo de movimiento (ventas, pedidos, remisiones, cotizaciones) y el tipo de ítems (Inventario o Servicios).</li>
+			<li><strong>Periodo:</strong> Filtre el informe por un rango de fechas específico.</li>
+			<li><strong>Agrupar por:</strong> Elija entre tres opciones para agrupar la información.</li>
+			<li><strong>Ordenar por:</strong> Defina el orden del informe (valores, cantidades, utilidad, %Rentabilidad, %Utilidad).</li>
+			<li>
+				Parámetros: Configure opciones adicionales. <br />
+				<DocumentacionNote type="nota">
+					<p><strong>Nota:</strong> Al activar "Incluir valor de impuestos", se considerarán IVA, ICO e Impuestos Saludables.</p>
+				</DocumentacionNote>
+			</li>
+			<li><strong>Filtros:</strong> Aplique filtros para simplificar la consulta, incluyendo la opción por "Clase" de artículos.</li>
+			<li><strong>Imprimir:</strong> Visualice o imprima el informe.</li>
+			<li><strong>Excel:</strong> Exporte el informe a Excel.</li>
+		</ol>
+		<DocumentacionNote type="nota">
+			<p><strong>Nota:</strong> Se añadieron las columnas UNIDADES y CAJAS que muestran cantidades en unidades y cajas, según embalaje.</p>
+		</DocumentacionNote>
+		<p><strong>Ruta:</strong> Informes - Ventas - Examinar Ventas por Comprobante</p>
+		<p>Facilita la generación de un informe detallado que desglosa las ventas por cada comprobante de facturación emitido en un período específico. Además, ofrece múltiples opciones de personalización para adaptar la visualización de los datos según sus necesidades.</p>
+		<DocumentacionImage src={img37.src} alt="Imagen de como gestionar las ventas" width={1600} height={848} title="Imagen de como gestionar las ventas" pswpWidth={1600} pswpHeight={848} />
+		<ul>
+			<li><strong>Desde/Hasta:</strong> Ingrese el período para la consulta.</li>
+			<li>
+				<strong>Datos:</strong> Muestra información de los comprobantes consultados. <br />
+				<DocumentacionNote type="nota">
+					<p><strong>Nota:</strong> Se incluyen columnas para impuestos saludables IBUA e ICUI.</p>
+				</DocumentacionNote>
+			</li>
+			<li><strong>Ventas, Devoluciones, Neto:</strong> Detalla número de comprobantes, anulados, valores subtotales, totales, utilidad y peso en kg.</li>
+			<li><strong>Información:</strong> Muestra detalles del comprobante seleccionado.</li>
+			<li>
+				<strong>Herramientas:</strong> Opciones para asignar planillas, enviar por correo y recalcular puntos de fidelización. <br />
+				<strong>Contable:</strong> Visualiza valores totalizados por cuentas contables. <br />
+				<strong>Excel:</strong> Exporta el informe a Excel.
+			</li>
+			<li>
+				<strong>Exportar:</strong> Define la ruta para guardar el archivo Excel. <br />
+				<strong>Resumen de Formas de Pago:</strong> Totaliza valores por cada forma de pago.
+			</li>
+			<li>
+				<strong>Filtros:</strong> Permite seleccionar criterios de consulta. <br />
+				<DocumentacionNote type="nota">
+					<p><strong>Nota:</strong> Se agregó filtro "Ver solo sin fecha de entrega" y opción para filtrar por usuario creador.</p>
+				</DocumentacionNote>
+			</li>
+			<li>
+				<strong>Reportes:</strong> Visualiza planillas asignadas a comprobantes. <br />
+				<DocumentacionNote type="nota">
+					<p>Nota: Se añadieron nuevas columnas en el reporte de planillas.</p>
+				</DocumentacionNote>
+			</li>
+			<li><strong>Consultar:</strong> Trae la información registrada en el sistema.</li>
+			<li><strong>Contabilidad:</strong> Seleccione tipo de contabilidad (fiscal o financiera).</li>
+		</ul>
+		<DocumentacionImage src={img38.src} alt="Imagen de como gestionar las ventas" width={1600} height={836} title="Imagen de como gestionar las ventas" pswpWidth={1600} pswpHeight={836} />
+		<p><strong>Ruta:</strong> Informes - Ventas - Examinar Ventas por Referencia</p>
+		<p>Este informe permite analizar las ventas desglosadas por referencia de producto, facilitando la revisión detallada de cantidades y valores asociados a cada ítem vendido. Ofrece filtros personalizados para ajustar el período, tipo de movimiento, y agrupamiento, además de opciones para ordenar y exportar la información a Excel.</p>
+		<p>Es una herramienta útil para el control y seguimiento de inventarios, evaluación de desempeño por producto y toma de decisiones comerciales.</p>
+		<DocumentacionImage src={img39.src} alt="Imagen de como gestionar las ventas" width={1600} height={846} title="Imagen de como gestionar las ventas" pswpWidth={1600} pswpHeight={846} />
+	</DocumentacionSection>
+
+	<DocumentacionSection id="informes-pos" title="POS" route="Informes - POS - Informe diario de Facturación">
+		<p>Informe que genera un desglose detallado de la facturación diaria, incluyendo la razón social de la empresa, rango de fechas de los comprobantes, números de identificación de las máquinas registradoras, ventas acumuladas, facturas y devoluciones emitidas, resumen de impuestos, totales por medios de pago y control de inventario de máquinas registradoras o computadores.</p>
+		<DocumentacionImage src={img40.src} alt="Imagen de como gestionar el POS" width={1600} height={849} title="Imagen de como gestionar el POS" pswpWidth={1600} pswpHeight={849} />
+		<ol>
+			<li><strong>Tipo de informe:</strong> Puede generar informes parciales, acumulativos o de cierre de jornada fiscal.</li>
+			<li>
+				<strong>Modalidad:</strong> Seleccione el tipo de autorización DIAN:
+				<ul>
+					<li>No Electrónica (talonario, computador, POS)</li>
+					<li>Electrónica (documento electrónico)</li>
+					<li>Ambos (todas las modalidades)</li>
+				</ul>
+			</li>
+			<li><strong>Periodo:</strong> Filtre el rango de fechas para la consulta.</li>
+			<li><strong>Formato:</strong> Imprima en hoja carta, tiquete POS o pantalla. Puede filtrar por ventas y devoluciones, solo ventas o solo devoluciones.</li>
+			<li>
+				<strong>Opciones:</strong> Configurar parámetros adicionales. <br />
+				<DocumentacionNote type="nota">
+					<p><strong>Nota:</strong> Incluye nuevos campos como "SUBTOTAL BRUTO", "TOTAL DESCUENTOS", "SUBTOTAL", ajuste en "TOTAL PROPINAS", y columnas para impuestos "TOTAL IBUA" y "TOTAL ICUI". Requiere activar el parámetro "Ver descuentos" para mostrar descuentos y propinas.</p>
+				</DocumentacionNote>
+			</li>
+			<li><strong>Filtros:</strong> Aplicar filtros por bodega, PC y tipo de comprobante.</li>
+			<li>
+				<strong>Imprimir:</strong> Visualice o imprima el informe. <br />
+				<DocumentacionNote type="nota">
+					<p><strong>Nota:</strong> Se incluye una sección "Numeración anulada" que muestra facturas anuladas en el período.</p>
+				</DocumentacionNote>
+			</li>
+			<li><strong>Excel:</strong> Exporte el informe a Excel.</li>
+		</ol>
+	</DocumentacionSection>
+
+	<DocumentacionSection id="informes-fiscales" title="Fiscales" route="Informes - Fiscales">
+		<p><strong>Ruta:</strong> Informes - Fiscales - Informe de IVA</p>
+		<p>Este informe proporciona un resumen detallado del Impuesto al Valor Agregado (IVA) correspondiente a un período específico. Incluye el desglose de IVA generado en ventas y compras, facilitando el control fiscal y el cumplimiento de las obligaciones tributarias.</p>
+		<p>Además, permite filtrar por diferentes parámetros para obtener resultados precisos y exportar la información en formatos como Excel.</p>
+		<DocumentacionImage src={img41.src} alt="Imagen de como gestionar los informes fiscales" width={1600} height={849} title="Imagen de como gestionar los informes fiscales" pswpWidth={1600} pswpHeight={849} />
+		<p>Primero, seleccione el período específico que desea consultar para obtener la información correspondiente. Luego, genere el informe en pantalla para visualizar los datos detallados. A partir de esta visualización, podrá realizar la auditoría pertinente, verificando y analizando la información conforme a los requerimientos establecidos.</p>
+		<p><strong>Ruta:</strong> Informes - Fiscales - Informe de Retención</p>
+		<DocumentacionImage src={img42.src} alt="Imagen de como gestionar los informes fiscales" width={1600} height={849} title="Imagen de como gestionar los informes fiscales" pswpWidth={1600} pswpHeight={849} />
+		<p>Mediante el Decreto 2229 del 22 de diciembre de 2023, el Gobierno Nacional estableció como plazo máximo para expedir los certificados de retención correspondientes al año gravable 2024 hasta el 31 de marzo de 2025.</p>
+		<p>Este decreto también especifica los términos que deben cumplir los agentes de retención para entregar la información sobre las retenciones en la fuente practicadas.</p>
+		<ol>
+			<li><strong>Período:</strong> Indique el rango de fechas del año para generar el certificado de retención (Ejemplo: 01/01/2024 - 12/31/2024). El formato debe ser MM/DD/AAAA.</li>
+			<li><strong>Tipo de retención:</strong> Seleccione entre los 6 tipos disponibles, por ejemplo, Retención en la Fuente.</li>
+			<li>
+				<strong>Tipo de informe:</strong> Existen tres opciones: <br />
+				<ul>
+					<li><strong>Informe Consolidado:</strong> Agrupa la base y el valor a pagar según el porcentaje de retención aplicado a cada tercero, mostrando además el código contable y datos adicionales como nombre, identificación, dirección y ciudad.</li>
+					<li><strong>Informe Detallado:</strong> Muestra cada documento causado con sus bases y porcentaje de retención, junto con el código contable e información del tercero.</li>
+					<li><strong>Certificados de Retención:</strong> Documento individual que reporta las retenciones efectuadas durante un periodo específico.</li>
+				</ul>
+			</li>
+		</ol>
+		<p><strong>Ruta:</strong> Informes - Fiscales - Información exógena - DIAN</p>
+		<p>Conforme a la Resolución DIAN 000162 del 30 de octubre de 2023 y la Resolución DIAN 188 de 2024, el Gobierno Nacional define los sujetos obligados a presentar información exógena para el año gravable 2024.</p>
+		<p>La información exógena es una obligación formal que contribuye al cumplimiento de los tributos, como el Impuesto sobre la Renta y Complementarios, IVA, Impuesto al Consumo, entre otros. Consiste en un conjunto de datos sobre las operaciones realizadas con clientes, proveedores o terceros, que las personas naturales y jurídicas deben presentar periódicamente a la administración tributaria.</p>
+		<p>Estos datos se suministran en formato XML para que la DIAN pueda analizar y cruzar la información fiscal de los contribuyentes. La información se carga mediante archivos que se suben a la plataforma web de la DIAN (Muisca) a través de dispositivos informáticos. Además, la DIAN pone a disposición un Prevalidador con formatos en Excel para facilitar el cumplimiento de las especificaciones técnicas establecidas en la normativa.</p>
+		<DocumentacionImage src={img43.src} alt="Imagen de como gestionar los informes fiscales" width={1600} height={842} title="Imagen de como gestionar los informes fiscales" pswpWidth={1600} pswpHeight={842} />
+		<p><strong>Cambios a partir del Año Gravable 2024</strong></p>
+		<p>La <strong>Resolución DIAN 00162</strong> será la norma vigente para la presentación de la información exógena correspondiente al año gravable 2024 y siguientes. Sin embargo, podrían emitirse resoluciones posteriores, como la <strong>Resolución DIAN 000188</strong>, que modifiquen algunos aspectos.</p>
+		<ul>
+			<li>Se elimina el uso de literales y se adoptan numerales para la identificación de conceptos.</li>
+			<li>Las cantidades que obligan a reportar información exógena, antes en pesos colombianos, ahora se expresan en <strong>UVT (Unidad de Valor Tributario)</strong>. En el <strong>formato 1001</strong>, la cuantía mínima para reportar pagos cambia de $100.000 a <strong>3 UVT</strong>. Sin embargo, todos los pagos sujetos a retención en la fuente deben reportarse, independientemente del monto.</li>
+			<li>En el <strong>formato 1008 (Cuentas por Cobrar)</strong>, la cuantía mínima cambia de $500.000 a <strong>12 UVT</strong>.</li>
+			<li>En el <strong>formato 1009 (Cuentas por Pagar)</strong>, la cuantía mínima cambia de $500.000 a <strong>12 UVT</strong>.</li>
+			<li>En el <strong>formato 1647</strong>, la cuantía mínima pasa de $1.000.000 a <strong>24 UVT</strong>.</li>
+			<li>
+				En el <strong>formato 1010</strong>, se deben reportar todos los socios, comuneros, cooperados y asociados, sin importar el monto de su aporte a 31 de diciembre. <br />
+				Se adicionan nuevos conceptos en los formatos: 12 en el 1001, 3 en el 1007 y 2 en el 1009.
+			</li>
+		</ul>
+		<p><strong>Tips importantes para la presentación</strong></p>
+		<ul>
+			<li>El valor de la <strong>UVT para 2024 es 47.065</strong>, y ya está integrado en el proceso de generación de información exógena, por lo que no es necesario parametrizar manualmente.</li>
+			<li>Al homologar las cuentas para cada formato, siempre seleccione el <strong>último nivel</strong> de la cuenta.</li>
+			<li>Las cuentas de retención deben estar configuradas en el plan de cuentas con el parámetro de <strong>"Cuenta de Impuestos"</strong> y asociadas al concepto correcto para retenciones.</li>
+			<li>Asegúrese que la información de los terceros esté completa en el <strong>Catálogo de terceros</strong>.</li>
+			<li>Toda la información contable del año gravable debe estar correctamente digitada antes de generar el reporte.</li>
+			<li>Realice una correcta homologación de las cuentas contables para cada formato.</li>
+		</ul>
+		<p><strong>Ruta:</strong> Informes - Fiscales - Certificado de Ingresos y Retenciones</p>
+		<DocumentacionNote type="importante">
+			<p><strong>Importante:</strong> Actualmente <strong>no debe consultarse el informe en la ruta: Informes - Fiscales - Certificado de Ingresos y Retenciones</strong>, ya que esta opción no está habilitada para generar los certificados correspondientes. En su lugar, <strong>la ruta correcta para generar estos certificados es: Informes - Fiscales - Informe de Retención</strong>.</p>
+		</DocumentacionNote>
+		<p>Desde allí, podrás obtener la información consolidada, detallada o individual según el tipo de retención aplicada durante el período requerido.</p>
+		<DocumentacionImage src={img44.src} alt="Imagen de como gestionar los informes fiscales" width={1600} height={852} title="Imagen de como gestionar los informes fiscales" pswpWidth={1600} pswpHeight={852} />
+	</DocumentacionSection>
+</DocumentacionTabContent>
+
+<script>
+	import 'photoswipe/style.css';
+	import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if (typeof window !== 'undefined') {
+			const lightbox = new PhotoSwipeLightbox({
+				gallery: '#informes',
+				children: 'a.galley',
+				pswpModule: () => import('photoswipe'),
+			});
+			lightbox.init();
+		}
+	});
+</script>

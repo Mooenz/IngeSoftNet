@@ -9,7 +9,7 @@ import 'photoswipe/style.css';
 
 <GeneralSection classList="bg-primary/10">
 	<GeneralContainer>
-		<TitleMain title="Galería de nuestro bosque en Bosque Nagal" />
+		<TitleMain category="Galería" title="Nuestro bosque" subtitle="En Bosque Nogal hacemos nuestro aporte a la conservación" />
 		<section id="galleryImages">
 			<div class="flex flex-col sm:flex-row gap-4 mb-4">
 				<div class="flex-1">
@@ -19,7 +19,6 @@ import 'photoswipe/style.css';
 				</div>
 
 				<div class="flex-1 grid grid-cols-2 gap-4">
-					
 					<a href={imgEjemplo.src} data-pswp-width={721} data-pswp-height={721} data-cropped="true" data-med-src={imgEjemplo.src} data-med-width={721} data-med-height={721} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={imgEjemplo} alt="" title="" loading="lazy" />
 					</a>
@@ -49,15 +48,15 @@ import 'photoswipe/style.css';
 					<a href={imgEjemplo.src} data-pswp-width={721} data-pswp-height={721} data-cropped="true" data-med-src={imgEjemplo.src} data-med-width={721} data-med-height={721} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={imgEjemplo} alt="" title="" loading="lazy" />
 					</a>
-					</a>
 				</div>
-
+				
 				<div class="flex-1">
 					<a href={imgEjemplo.src} data-pswp-width={721} data-pswp-height={721} data-cropped="true" data-med-src={imgEjemplo.src} data-med-width={721} data-med-height={721} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={imgEjemplo} alt="" title="" loading="lazy" />
 					</a>
 				</div>
 			</div>
+
 		</section>
 	</GeneralContainer>
 </GeneralSection>

@@ -41,8 +41,8 @@ const { id, title, active = false, link, sections } = Astro.props;
 		</div>
 
 		<!-- Sidebar de navegación -->
-		<div class="documentacion__informacion--contenedor hidden lg:block sticky top-[112px] w-full max-w-[320px] h-fit max-h-[calc(100vh-100px)] overflow-y-auto overflow-x-hidden">
-			<p class="font-medium text-base mb-4">En este artículo</p>
+		<div class="documentacion__informacion--contenedor hidden lg:block sticky top-[90px] w-full max-w-[320px] h-fit max-h-[calc(100vh-90px)] overflow-y-auto overflow-x-hidden">
+			<p class="font-bold text-base mb-4" style="font-weight: 500;" >En este artículo</p>
 			<ul class="p-0 m-0 list-none">
 				{
 					sections.map((section, index) => (
@@ -83,7 +83,7 @@ const { id, title, active = false, link, sections } = Astro.props;
 					if (!linkHasParam) {
 						linkUrl.searchParams.set('tap', link);
 					} else {
-						linkUrl.searchParams.set('tap', link); 
+						linkUrl.searchParams.set('tap', link);
 					}
 
 					const fullUrl = linkUrl.href; // Siempre obtienes el string de la URL

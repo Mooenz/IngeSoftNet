@@ -1,0 +1,180 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Accordion from '@components/Accordion.astro';
+import HeroSmall from '@sections/HeroSmall.astro';
+import { Image } from 'astro:assets';
+import imageBackground from '@assets/counter-bg.png';
+import GeneralContainer from '@components/GeneralContainer.astro';
+import GeneralSection from '@components/GeneralSection.astro';
+---
+
+<Layout title="">
+	<HeroSmall classList="bg-text" title="Política de privacidad" subtitle="">
+		<!-- Background Image -->
+		<Image src={imageBackground} alt="Background Image" class="absolute inset-0 w-full h-full -z-10 object-cover opacity-10" />
+	</HeroSmall>
+
+	<GeneralSection>
+		<GeneralContainer>
+			<section>
+				<p class="mb-4">
+					La presente página describe la política de privacidad del sitio web ingesoftnet.com (en adelante “SITIO WEB”), del cual es titular la empresa <strong>INGESOFTNET</strong> (en adelante “TITULAR”). Al visitar y usar este <strong>SITIO WEB</strong>, el visitantes o usuario (en adelante “USUARIO”) acepta esta política de privacidad en su totalidad. La información y términos de esta política están sujetos a cambios en cualquier momento y se le recomienda al <strong>USUARIO</strong> visitar esta
+					página constantemente.
+				</p>
+
+				<p class="mb-4">En ésta página se describe a detalle la manera en que el <strong>TITULAR</strong> recopila, usa y protege los datos personales de los visitantes y usuarios del <strong>SITIO WEB</strong>.</p>
+
+				<p class="mb-4">El <strong>TITULAR</strong> está comprometido con la seguridad de los datos personales del <strong>USUARIO</strong> adhiriéndose a todos los términos de esta política de privacidad, los cuales se detallan a continuación:</p>
+
+				<Accordion idElement="accordionPol">
+					<div id="accordionPol">
+						<div class="accordion-item border border-gray-300 rounded-2xl mb-4 overflow-hidden active">
+							<div class="accordion-header px-6 py-4 hover:bg-gray-100 rounded-t-2xl transition-all duration-300 ease-in-out">
+								<div class="flex justify-between items-center text-lg font-medium">
+									1. ¿Qué tipo de datos personales recopilamos de nuestros usuarios?
+									<i class="fi fi-rr-plus-small text-2xl text-gray-400 hover:text-gray-700"></i>
+								</div>
+							</div>
+							<div class="accordion-content" style="max-height: 1000px;">
+								<div class="accordion-body bg-gray-100 rounded-b-2xl px-6 py-4">
+									<p>Nombres completos, correo electrónico y teléfono.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item border border-gray-300 rounded-2xl mb-4 overflow-hidden">
+							<div class="accordion-header px-6 py-4 hover:bg-gray-100 rounded-t-2xl transition-all duration-300 ease-in-out">
+								<div class="flex justify-between items-center">
+									<p class="text-lg font-medium">2. ¿Cuándo y cómo se recopilan los datos personales?</p>
+									<i class="fi fi-rr-plus-small text-2xl text-gray-400 hover:text-gray-700"></i>
+								</div>
+							</div>
+							<div class="accordion-content">
+								<div class="accordion-body bg-gray-100 rounded-b-2xl px-6 py-4">
+									<p>Cuando el <strong>USUARIO</strong> se registra en el <strong>SITIO WEB</strong> o llena algún formulario de contacto o boletín de suscripción, nos autoriza a recopilar su nombre y correo electrónico.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item border border-gray-300 rounded-2xl mb-4 overflow-hidden">
+							<div class="accordion-header px-6 py-4 hover:bg-gray-100 rounded-t-2xl transition-all duration-300 ease-in-out">
+								<div class="flex justify-between items-center">
+									<p class="text-lg font-medium">3. ¿Qué uso le da el titular a los datos personales del usuario?</p>
+									<i class="fi fi-rr-plus-small text-2xl text-gray-400 hover:text-gray-700"></i>
+								</div>
+							</div>
+
+							<div class="accordion-content">
+								<div class="accordion-body bg-gray-100 rounded-b-2xl px-6 py-4">
+									<p class="mb-4">
+										El <strong>TITULAR</strong> recopila los datos personales con el objetivo de poder brindarle al <strong>USUARIO</strong> información relacionada a sus intereses personales y/o información relacionada con los productos o servicios de interés para el <strong>USUARIO</strong>.
+									</p>
+
+									<p class="mb-4">El <strong>TITULAR</strong> envía comunicaciones vía correo electrónico con mensajes importantes sobre la cuenta del usuarios y mensajes promocionales de los productos y servicios del <strong>SITIO WEB</strong>.</p>
+
+									<p>El <strong>TITULAR</strong> usa los datos como el nombre y correo electrónico para brindar una experiencia personalizada al <strong>USUARIO</strong> en el <strong>SITIO WEB</strong>.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item border border-gray-300 rounded-2xl mb-4 overflow-hidden">
+							<div class="accordion-header px-6 py-4 hover:bg-gray-100 rounded-t-2xl transition-all duration-300 ease-in-out">
+								<div class="flex justify-between items-center">
+									<p class="text-lg font-medium">4. ¿Cómo protegemos la información del usuario?</p>
+									<i class="fi fi-rr-plus-small text-2xl text-gray-400 hover:text-gray-700"></i>
+								</div>
+							</div>
+
+							<div class="accordion-content">
+								<div class="accordion-body bg-gray-100 rounded-b-2xl px-6 py-4">
+									<p class="mb-4">En ningún momento, el <strong>TITULAR</strong> compartirá o cederá los datos personales del <strong>USUARIO</strong> con terceros, salvo en aquellos casos que la ley lo exija. Los datos personales del usuario se guardan en los servidores del <strong>SITIO WEB</strong>, los cuales están libres de virus, protegidos con cortafuegos y monitoreados por profesionales.</p>
+
+									<p>En el caso fortuito de que se presente un hackeo o robo de la información personal del <strong>USUARIO</strong>, el <strong>TITULAR</strong> notificará al <strong>USUARIO</strong> de inmediato via correo electrónico y notificará a las autoridades pertinentes para lograr minimizar el impacto negativo que de lugar.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item border border-gray-300 rounded-2xl mb-4 overflow-hidden">
+							<div class="accordion-header px-6 py-4 hover:bg-gray-100 rounded-t-2xl transition-all duration-300 ease-in-out">
+								<div class="flex justify-between items-center">
+									<p class="text-lg font-medium">5. ¿Cómo actualizar o eliminar su información personal?</p>
+									<i class="fi fi-rr-plus-small text-2xl text-gray-400 hover:text-gray-700"></i>
+								</div>
+							</div>
+
+							<div class="accordion-content">
+								<div class="accordion-body bg-gray-100 rounded-b-2xl px-6 py-4">
+									<p>En cualquier momento el <strong>USUARIO</strong> puede solicitar una actualización o eliminación de los datos personales almacenados en el sitio web, enviando un correo electrónico o llenando el formulario de contacto en el <strong>SITIO WEB</strong>. El <strong>USUARIO</strong> también podrá desuscribirse en cualquier momento de las comunicaciones por email si así lo desea.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item border border-gray-300 rounded-2xl mb-4 overflow-hidden">
+							<div class="accordion-header px-6 py-4 hover:bg-gray-100 rounded-t-2xl transition-all duration-300 ease-in-out">
+								<div class="flex justify-between items-center">
+									<p class="text-lg font-medium">6. Enlaces a terceros</p>
+									<i class="fi fi-rr-plus-small text-2xl text-gray-400 hover:text-gray-700"></i>
+								</div>
+							</div>
+
+							<div class="accordion-content">
+								<div class="accordion-body bg-gray-100 rounded-b-2xl px-6 py-4">
+									<p>El <strong>SITIO WEB</strong> incluye enlaces a páginas web de terceros y el <strong>TITULAR</strong> no se hace responsable de ningún resultado directo o indirecto derivado de la visita a esas páginas web externas. Se le recomienda al <strong>USUARIO</strong> leer la políticas de privacidad y los términos y condiciones de las páginas web externas.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item border border-gray-300 rounded-2xl mb-4 overflow-hidden">
+							<div class="accordion-header px-6 py-4 hover:bg-gray-100 rounded-t-2xl transition-all duration-300 ease-in-out">
+								<div class="flex justify-between items-center">
+									<p class="text-lg font-medium">7. Cookies</p>
+									<i class="fi fi-rr-plus-small text-2xl text-gray-400 hover:text-gray-700"></i>
+								</div>
+							</div>
+
+							<div class="accordion-content">
+								<div class="accordion-body bg-gray-100 rounded-b-2xl px-6 py-4">
+									<p class="mb-4">
+										En términos simples, las cookies son archivos pertenecientes al <strong>SITIO WEB</strong> o a programas y páginas de terceros que quedan grabados en el navegador del usuario y le permiten al TITULAR saber cosas como cuánto tiempo pasa el <strong>USUARIO</strong> en el <strong>SITIO WEB</strong>, qué páginas visita, de qué país es, que dispositivo tiene, etc.. etc.. las cookies también le permiten al TITULAR personalizar la experiencia del <strong>USUARIO</strong> como por ejemplo,
+										recordar su contraseña para iniciar sesión, mostrar su nombre y datos en la cuenta del <strong>USUARIO</strong>, etc.
+									</p>
+									<p>En cualquier momento puedes borrar todas las cookies de tu navegador o puedes visitar nuestro sitio web en sesión incógnita para que las cookies no queden grabadas en tu navegador. El hecho de que borres las cookies o navegues en sesión incógnita puede afectar negativamente tu experiencia en el <strong>SITIO WEB</strong> ya que no podremos personalizar tu experiencia.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item border border-gray-300 rounded-2xl overflow-hidden">
+							<div class="accordion-header px-6 py-4 hover:bg-gray-100 rounded-t-2xl transition-all duration-300 ease-in-out">
+								<div class="flex justify-between items-center">
+									<p class="text-lg font-medium">8. Cookies de terceros</p>
+									<i class="fi fi-rr-plus-small text-2xl text-gray-400 hover:text-gray-700"></i>
+								</div>
+							</div>
+
+							<div class="accordion-content">
+								<div class="accordion-body bg-gray-100 rounded-b-2xl px-6 py-4">
+									<p class="mb-2">
+										<strong>Google Analytics:</strong> El <strong>TITULAR</strong> utiliza Google Analytics para llevar un seguimiento del comportamiento de los <strong>USUARIOS</strong> en el <strong>SITIO WEB</strong> y crear un perfil demográfico con miras a la optimización y buen rendimiento del <strong>SITIO WEB</strong> en general.
+									</p>
+									<p class="mb-4">Ver la política de protección de datos de Google Analytics e información general en el siguiente <a class="text-primary hover:text-accent transition-all ease-in-out duration-300" href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener noreferrer">Enlace</a>.</p>
+
+									<p class="mb-2">
+										<strong>Facebook Ads:</strong> El <strong>TITULAR</strong> realiza campañas de publicidad en la plataforma de Facebook Ads, la cual inserta determinadas cookies en el navegador del <strong>USUARIO</strong> con el objetivo de mostrarle anuncios de publicidad relevantes e interesantes.
+									</p>
+
+									<p class="mb-4">Política de Cookies de Facebook Ads las encontrará en el siguiente <a class="text-primary hover:text-accent transition-all ease-in-out duration-300" href="https://web.facebook.com/policy/cookies/?_rdc=1&_rdr" target="_blank" rel="noopener noreferrer">Enlace</a>.</p>
+
+									<p class="mb-2">
+										<strong>Google Ads:</strong> El <strong>TITULAR</strong> realiza campañas de publicidad en la plataforma de Google Ads, la cual inserta determinadas cookies en el navegador del <strong>USUARIO</strong> con el objetivo de mostrarle anuncios de publicidad relevantes e interesantes.
+									</p>
+
+									<p>Privacidad y condiciones de la publicidad de Google en el siguiente <a class="text-primary hover:text-accent transition-all ease-in-out duration-300" href="https://policies.google.com/technologies/ads?hl=es" target="_blank" rel="noopener noreferrer" title="Enlace a políticas de privacidad de google">Enlace</a>.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</Accordion>
+			</section>
+		</GeneralContainer>
+	</GeneralSection>
+</Layout>

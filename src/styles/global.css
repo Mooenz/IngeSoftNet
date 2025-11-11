@@ -17,7 +17,7 @@
 	--color-accent-dark: #e85e00;
 	--color-accent-light: #ffedea;
 	--color-bg: #d8d7e3;
-	--color-text: #001930;
+	--color-text: #001f3b;
 	--breakpoint-2xl: 101.25rem;
 }
 
@@ -148,5 +148,5 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-		background: var(--color-gray-600);
+	background: var(--color-gray-600);
 }

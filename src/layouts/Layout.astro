@@ -76,7 +76,13 @@ const { title, description, keywords } = Astro.props;
 			</main>
 			<Footer />
 			<ButtonLateral />
+
+			<!-- Botón volver arriba -->
+		<button class="btn-volver-arriba" id="volver-arriba">
+			<i class="fi fi-rr-arrow-small-up"></i>
+		</button>
 		</body>
+
 	</head>
  </html>
 
@@ -151,5 +157,65 @@ const { title, description, keywords } = Astro.props;
 			});
 		});
 	});
+
+		// Botón de volver al inicio de la documentación
+	const backToTopButton = document.querySelector('#volver-arriba');
+	const documentacion = document.querySelector('#menu-principal');
+
+	if (backToTopButton && documentacion) {
+		backToTopButton.addEventListener('click', () => {
+			documentacion.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start',
+			});
+		});
+	}
+
+		// Si el usuario esta en el inicio de la documentación, ocultamos el botón de volver al inicio
+	const inicio = document.querySelector('#menu-principal');
+	if (inicio && backToTopButton) {
+		const observer2 = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						backToTopButton.classList.remove('activo');
+					} else {
+						backToTopButton.classList.add('activo');
+					}
+				});
+			},
+			{
+				threshold: 0.2,
+			}
+		);
+
+		observer2.observe(inicio);
+	}
  </script>
 
+<style>
+.btn-volver-arriba {
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+	z-index: 9999;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background-color: var(--color-primary-dark);
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+	font-size: 1.5rem;
+	transform: scale(0);
+	transition: transform ease-in-out 0.3s;
+}
+
+.btn-volver-arriba.activo {
+	transform: scale(1);
+}
+</style>

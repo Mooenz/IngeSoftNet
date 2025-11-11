@@ -7,6 +7,7 @@ export default defineConfig({
 	site: 'https://Mooenz.github.io',
 	base: '/IngeSoftNet/',
 	vite: {
+		assetsInclude: ['**/*.zip', '**/*.rar', '**/*.7z', '**/*.tar.gz'],
 		optimizeDeps: {
 			include: ['plyr'],
 		},
@@ -18,6 +19,7 @@ export default defineConfig({
 				'@assets': path.resolve('./src/assets'),
 				'@components': path.resolve('./src/components'),
 				'@styles': path.resolve('./src/styles'),
+				'@scripts': path.resolve('./src/scripts'),
 			},
 		},
 	},

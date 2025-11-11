@@ -1,0 +1,30 @@
+---
+// Componente para notas, alertas e información importante
+interface Props {
+	type?: 'nota' | 'importante' | 'alerta';
+}
+
+const { type = 'nota' } = Astro.props;
+
+const styles = {
+	nota: 'border-blue-500 bg-blue-50',
+	importante: 'border-purple-500 bg-purple-50',
+	alerta: 'border-red-500 bg-red-50',
+};
+
+const colors = {
+	nota: 'text-blue-500',
+	importante: 'text-purple-500',
+	alerta: 'text-red-500',
+};
+---
+
+<div class={`nota ${styles[type]} p-4 pt-3 rounded-2xl mb-4 border-2 border-dashed`}>
+	<slot />
+</div>
+
+<style is:global>
+	.nota > p {
+		margin-bottom: 0 !important;
+	}
+</style>

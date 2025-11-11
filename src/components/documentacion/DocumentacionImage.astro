@@ -1,0 +1,20 @@
+---
+// Componente para imágenes con soporte PhotoSwipe
+interface Props {
+	src: string;
+	alt: string;
+	width: number;
+	height: number;
+	title?: string;
+	pswpWidth?: number;
+	pswpHeight?: number;
+}
+
+const { src, alt, width, height, title = '', pswpWidth = width, pswpHeight = height } = Astro.props;
+---
+
+<div class="image my-4 max-w-[600px]">
+	<a class="galley" href={src} data-pswp-width={pswpWidth} data-pswp-height={pswpHeight} target="_blank">
+		<img src={src} width={width} height={height} title={title} alt={alt} loading="lazy" class="w-full h-auto rounded-2xl" />
+	</a>
+</div>

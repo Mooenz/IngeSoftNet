@@ -1,0 +1,30 @@
+---
+// Componente para secciones individuales dentro de un tab
+interface Props {
+	id: string;
+	title: string;
+	route?: string;
+}
+
+const { id, title, route } = Astro.props;
+---
+
+<div id={id} class="relative pt-4 pb-4 md:pt-6 md:pb-6">
+	<h4 class="subtitulo text-base font-medium uppercase mb-2 text-primary">{title}</h4>
+	{route && (
+		<p class="ruta mb-3">
+			<strong>Ruta:</strong> {route}
+		</p>
+	)}
+	<slot />
+</div>
+
+<style>
+	:global(.documentacion__informacion--contenido .subtitulo) {
+		font-size: 1rem;
+		font-weight: 500;
+		text-transform: uppercase;
+		margin-bottom: 8px;
+		color: var(--color-primary);
+	}
+</style>

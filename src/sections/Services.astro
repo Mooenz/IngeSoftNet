@@ -13,14 +13,15 @@ import Button from '@components/Button.astro';
 				<div class="swiper" id="serviciosTextoSwiper">
 					<div class="swiper-wrapper">
 						{
-							services.map(({ title, description }) => (
+							services.map(({ title, description, category }) => (
 								<div class="swiper-slide group pl-2">
 									<div class="max-w-3xl">
-										<h3 class="title-main text-[clamp(24px,4vw,55px)] font-bold leading-[1.1em] tracking-[0.01em] relative before:content-[''] before:absolute before:left-0 before:top-0 before:h-1 before:rounded-2 before:bg-primary before:w-full before:max-w-20 pt-2 lg:pt-6">{title}</h3>
+										<span class="block text-primary uppercase font-bold mb-2 mx-auto rounded-full">{category}</span>
+										<h3 class="title-main text-[clamp(24px,4vw,55px)] font-bold leading-[1.1em] tracking-[0.01em] relative pt-2 lg:pt-6">{title}</h3>
 										<p class="text-[clamp(18px,4vw,20px)] leading-[1.6em] mt-4 lg:mt-6 text-[#4C5E6E]">{description}</p>
 									</div>
 									<div class="mt-6 lg:mt-10 pb-2">
-										<Button anchor link="/contacto.html" size="md" variants="primary" title="Enlace a Contáctenos">
+										<Button anchor link="/IngeSoftNet/contacto" size="md" variants="primary" title="Enlace a Contáctenos">
 											Iniciar ahora
 										</Button>
 									</div>
@@ -62,10 +63,15 @@ import Button from '@components/Button.astro';
 		const width = window.innerWidth;
 		let effectType = width >= 992 ? 'fade' : 'slide';
 
-		// Swiper de imágenes (controlado, sin interacción)
+		// Contar slides reales
+		const totalSlides = document.querySelectorAll('#serviciosImageSwiper .swiper-slide').length;
+		const enableLoop = totalSlides > 3; // Loop solo si hay más de 3 slides
+
+		// Swiper de imágenes
 		const serviciosImageSwiper = new Swiper('#serviciosImageSwiper', {
 			modules: [EffectFade],
-			loop: true,
+			loop: enableLoop,
+			loopAdditionalSlides: 1, // Ayuda con el loop
 			spaceBetween: 0,
 			slidesPerView: 1,
 			effect: effectType,
@@ -76,10 +82,11 @@ import Button from '@components/Button.astro';
 			watchSlidesProgress: true,
 		});
 
-		// Swiper de texto (controlador principal con autoplay y navegación)
+		// Swiper de texto
 		const serviciosTextoSwiper = new Swiper('#serviciosTextoSwiper', {
 			modules: [Navigation, Thumbs, Autoplay, EffectCreative],
-			loop: true,
+			loop: enableLoop,
+			loopAdditionalSlides: 1,
 			spaceBetween: 0,
 			slidesPerView: 1,
 			effect: 'creative',
@@ -90,7 +97,7 @@ import Button from '@components/Button.astro';
 			autoplay: {
 				delay: 5000,
 				disableOnInteraction: false,
-				pauseOnMouseEnter: true, // Pausa al hover
+				pauseOnMouseEnter: true,
 			},
 			navigation: {
 				nextEl: '.swiper-button-next',
@@ -102,7 +109,7 @@ import Button from '@components/Button.astro';
 			creativeEffect: {
 				prev: {
 					shadow: false,
-					translate: ['-120%', 0, -400], // eje X, Y, Z
+					translate: ['-120%', 0, -400],
 				},
 				next: {
 					shadow: false,

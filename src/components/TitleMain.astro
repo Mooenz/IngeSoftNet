@@ -9,22 +9,27 @@ export interface Props {
 const { title, subtitle, noSEO, category } = Astro.props;
 ---
 
-<hgroup class="title-header relative mb-6 lg:mb-15 max-w-4xl mx-auto pt-2 lg:pt-6">
-	{category ? <div class="text-primary text-center uppercase text-sm font-semibold my-4 mx-auto rounded-full">{category}</div> : ''}
-	{
-		noSEO ? (
-			<>
-				<p class="title-main text-[clamp(24px,4vw,48px)] font-bold text-center leading-[1.1em] tracking-[0.01em]">{title}</p>
-				{subtitle && <p class="subtitle-main text-lg text-center leading-[1.6em] mt-4 lg:mt-6">{subtitle}</p>}
-			</>
-		) : (
-			<>
-				<h2 class="title-main text-[clamp(24px,4vw,48px)] font-bold text-center leading-[1.1em] tracking-[0.01em]">{title}</h2>
-				{subtitle && <p class="subtitle-main text-lg text-center leading-[1.6em] mt-4 lg:mt-6 text-pretty">{subtitle}</p>}
-			</>
-		)
-	}
-</hgroup>
+<section class="title-header mb-6 lg:mb-15 max-w-4xl mx-auto">
+	<hgroup>
+		{category ? <span class="block text-primary text-center uppercase text-lg font-bold mb-2 mx-auto rounded-full">{category}</span> : ''}
+		{
+			noSEO ? (
+				<>
+					<p class="title-main text-[clamp(24px,4vw,48px)] font-bold text-center leading-[1.1em] tracking-[0.01em]">{title}</p>
+					{subtitle && <p class="subtitle-main text-lg text-center leading-[1.6em] mt-4 lg:mt-6 text-pretty  max-w-2xl mx-auto">{subtitle}</p>}
+				</>
+			) : (
+				<>
+					<h2 class="title-main text-[clamp(24px,4vw,48px)] font-bold text-center leading-[1.1em] tracking-[0.01em]">{title}</h2>
+					{subtitle && <p class="subtitle-main text-lg text-center leading-[1.6em] mt-4 lg:mt-6 text-pretty max-w-2xl mx-auto">{subtitle}</p>}
+				</>
+			)
+		}
+	</hgroup>
+	<div class="mt-8 lg:mt-12">
+		<slot />
+	</div>
+</section>
 
 <script>
 	// Importamos gsap

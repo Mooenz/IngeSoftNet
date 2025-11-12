@@ -6,35 +6,35 @@ export interface Props {
 	variants: string;
 	size: string;
 	className?: string;
+	attr?: Record<string, string>;
 	callBack?: () => void;
 }
 
-const { anchor, link, title, variants, size, className, callBack } = Astro.props;
+const { anchor, link, title, variants, size, className, callBack, attr } = Astro.props;
+
+// Clases base compartidas por todas las variantes
+const baseClasses = 'relative block font-semibold rounded-[100px] cursor-pointer overflow-hidden transition-[all,border-radius] duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group active:scale-95 hover:rounded-xl hover:shadow-[0_0_0_12px_transparent]';
 
 const variantsObject = {
 	primary: {
-		class: 'relative block border-4 border-transparent text-base font-semibold text-white rounded-[100px] shadow-[0_0_0_2px_#4DB2E5] cursor-pointer overflow-hidden transition-[all,border-radius] duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group active:scale-95 active:shadow-[0_0_0_4px_#002B41] hover:rounded-xl hover:text-white hover:shadow-[0_0_0_12px_transparent] bg-primary hover:bg-primary-dark',
+		class: `${baseClasses} text-base text-white shadow-[0_0_0_2px_#4DB2E5] active:shadow-[0_0_0_4px_#002B41] hover:text-white bg-primary hover:bg-primary-dark`,
 		classBg: 'bg-primary',
 	},
 	secondary: {
-		class: 'text-base font-semibold text-[#001930] rounded-[100px] shadow-[0_0_0_2px_#ffffff] cursor-pointer overflow-hidden transition-[all,border-radius] duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group active:scale-95 active:shadow-[0_0_0_4px_#002B41] hover:rounded-xl hover:text-[#001930] active:text-[#fff] hover:shadow-[0_0_0_12px_transparent] bg-secondary hover:bg-secondary-dark',
+		class: `${baseClasses} text-base text-[#001930] shadow-[0_0_0_2px_#ffffff] active:shadow-[0_0_0_4px_#002B41] hover:text-[#001930] active:text-[#fff] bg-secondary hover:bg-secondary-dark`,
 		classBg: 'bg-secondary',
 	},
 	tertiary: {
-		class: 'text-white font-semibold text-text rounded-[100px] shadow-[0_0_0_2px_#ffffff] cursor-pointer overflow-hidden transition-[all,border-radius] duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group active:scale-95 active:shadow-[0_0_0_4px_#002B41] hover:rounded-xl hover:text-text hover:shadow-[0_0_0_12px_transparent] bg-transparent hover:bg-gray-100',
+		class: `${baseClasses} text-white text-text shadow-[0_0_0_2px_#ffffff] active:shadow-[0_0_0_4px_#002B41] hover:text-text bg-transparent hover:bg-gray-100`,
 		classBg: 'bg-transparent',
 	},
 	accent: {
-		class: 'text-base font-semibold text-white rounded-[100px] shadow-[0_0_0_2px_#F6B959] cursor-pointer overflow-hidden transition-[all,border-radius] duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group active:scale-95 active:shadow-[0_0_0_4px_#613E07] hover:rounded-xl hover:text-white hover:shadow-[0_0_0_12px_transparent] bg-accent hover:bg-accent',
+		class: `${baseClasses} text-base text-white shadow-[0_0_0_2px_#F6B959] active:shadow-[0_0_0_4px_#613E07] hover:text-white bg-accent hover:bg-accent`,
 		classBg: 'bg-accent',
 	},
-	'dark-cta': {
-		class: 'text-base font-semibold text-[#2e1e00] rounded-[100px] shadow-[0_0_0_2px_#2e1e00] cursor-pointer overflow-hidden transition-[all,border-radius] duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group active:scale-95 active:shadow-[0_0_0_4px_#fff] hover:rounded-xl hover:text-white active:text-[#fff] hover:shadow-[0_0_0_12px_transparent] bg-transparent hover:bg-[#2e1e00]',
-		classBg: 'bg-white',
-	},
-	'accent-1': {
-		class: 'text-base font-semibold text-white rounded-[100px] shadow-[0_0_0_2px_#e85e00] cursor-pointer overflow-hidden transition-[all,border-radius] duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] group active:scale-95 active:shadow-[0_0_0_4px_#e85e00] hover:rounded-xl hover:text-white hover:shadow-[0_0_0_12px_transparent] bg-accent-dark hover:bg-dark',
-		classBg: 'bg-accent',
+	transparent: {
+		class: `${baseClasses} text-base text-primary shadow-[0_0_0_2px_#4DB2E5] active:shadow-[0_0_0_4px_#002B41] hover:bg-primary-light bg-transparent hover:bg-gray-100`,
+		classBg: 'bg-transparent',
 	},
 };
 
@@ -43,18 +43,31 @@ const sizesObject = {
 	md: 'px-8 py-3 text-base gap-3',
 	lg: 'px-10 py-4 text-lg gap-4',
 };
+
+// Clases del efecto de hover (span interior)
+const hoverEffectClasses = 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-[var(--btn-bg)] rounded-full opacity-0 transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:w-[300px] group-hover:h-[220px] group-hover:opacity-100';
+
+// Clases del contenido
+const contentClasses = 'relative z-10 flex items-center';
+
+// Clases combinadas finales
+const buttonClasses = `${className || ''} ${sizesObject[size]} ${variantsObject[variants].class} w-fit btn`;
 ---
 
 {
 	anchor ? (
-		<a class={`${className} ${sizesObject[size]} ${variantsObject[variants].class} w-fit btn relative block border-4 border-transparent`} href={link} title={title} style="--btn-bg: rgba(255, 255, 255, 0.3)" style={`--btn-bg:${variantsObject[variants].classBg}`}>
-			<span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-[var(--btn-bg)] rounded-full opacity-0 transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:w-[300px] group-hover:h-[220px] group-hover:opacity-100" />
-			<span class="relative z-10 flex items-center gap-4">{<slot />}</span>
+		<a class={buttonClasses} href={link} title={title} style={`--btn-bg:${variantsObject[variants].classBg}`} {...attr}>
+			<span class={hoverEffectClasses} />
+			<span class={`${contentClasses} gap-4`}>
+				<slot />
+			</span>
 		</a>
 	) : (
-		<button class={`${className} ${sizesObject[size]} ${variantsObject[variants].class} w-fit btn`} title={title}>
-			<span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-[var(--btn-bg)] rounded-full opacity-0 transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:w-[300px] group-hover:h-[220px] group-hover:opacity-100" />
-			<span class="relative z-10 flex items-center gap-1">{<slot />}</span>
+		<button class={buttonClasses} title={title} style={`--btn-bg:${variantsObject[variants].classBg}`} {...attr}>
+			<span class={hoverEffectClasses} />
+			<span class={`${contentClasses} gap-1`}>
+				<slot />
+			</span>
 		</button>
 	)
 }

@@ -1,4 +1,7 @@
 ---
+import imageBackground from '@assets/counter-bg.png';
+import { Image } from 'astro:assets';
+
 export interface Props {
 	title: string;
 	subtitle?: string;
@@ -13,6 +16,7 @@ const { title, subtitle, classList } = Astro.props;
 		<h1 class="text-4xl lg:text-6xl font-bold mb-4 text-white">{title}</h1>
 		{subtitle && <p class="text-lg text-gray-300">{subtitle}</p>}
 	</div>
-
+	<!-- Background Image -->
+	<Image src={imageBackground} alt="Background Image" class="absolute inset-0 w-full h-full -z-10 object-cover opacity-10" />
 	<slot />
 </section>

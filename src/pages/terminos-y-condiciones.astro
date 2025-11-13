@@ -1,18 +1,13 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import HeroSmall from '@sections/HeroSmall.astro';
-import { Image } from 'astro:assets';
-import imageBackground from '@assets/counter-bg.png';
 import GeneralContainer from '@components/GeneralContainer.astro';
 import GeneralSection from '@components/GeneralSection.astro';
 import Accordion from '@components/Accordion.astro';
 ---
 
 <Layout title="">
-	<HeroSmall classList="bg-text" title="Términos y condiciones" subtitle="">
-		<!-- Background Image -->
-		<Image src={imageBackground} alt="Background Image" class="absolute inset-0 w-full h-full -z-10 object-cover opacity-10" />
-	</HeroSmall>
+	<HeroSmall classList="bg-text" title="Términos y condiciones" />
 
 	<GeneralSection>
 		<GeneralContainer>

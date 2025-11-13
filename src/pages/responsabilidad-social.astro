@@ -1,7 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import HeroSmall from '@sections/HeroSmall.astro';
-import imageBackground from '@assets/counter-bg.png';
 import imgLeft from '@assets/responsabilidadSocialEmpresarial.png';
 import { Image } from 'astro:assets';
 import SectionDouble from '@sections/SectionDouble.astro';
@@ -12,10 +11,7 @@ import Certificate from '@sections/Certificate.astro';
 ---
 
 <Layout title="IngeSoftNet | Responsabilidad Social">
-	<HeroSmall classList="bg-text" title="Responsabilidad Social empresarial" subtitle="Protegemos hoy lo que pertenece al futuro">
-		<!-- Background Image -->
-		<Image src={imageBackground} alt="Background Image" class="absolute inset-0 w-full h-full -z-10 object-cover opacity-10" />
-	</HeroSmall>
+	<HeroSmall classList="bg-text" title="Responsabilidad Social empresarial" subtitle="Protegemos hoy lo que pertenece al futuro" />
 
 	<SectionDouble>
 		<div class="" slot="left">

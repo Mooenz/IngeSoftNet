@@ -4,16 +4,10 @@ import HeroSmall from '@sections/HeroSmall.astro';
 import FormContact from '@sections/FormContact.astro';
 import GeneralContainer from '@components/GeneralContainer.astro';
 import GeneralSection from '@components/GeneralSection.astro';
-// import imageBackground from '@assets/footer-bg.png';
-import imageBackground from '@assets/counter-bg.png';
-import { Image } from 'astro:assets';
 ---
 
 <Layout title="IngeSoftNet | Contacto">
-	<HeroSmall classList="bg-text" title="Contáctenos" subtitle="Queremos escuchar sus necesidades">
-		<!-- Background Image -->
-		<Image src={imageBackground} alt="Background Image" class="absolute inset-0 w-full h-full -z-10 object-cover opacity-10" />
-	</HeroSmall>
+	<HeroSmall classList="bg-text" title="Contáctenos" subtitle="Queremos escuchar sus necesidades" />
 
 	<GeneralSection>
 		<GeneralContainer>
@@ -34,4 +28,3 @@ import { Image } from 'astro:assets';
 		</GeneralContainer>
 	</GeneralSection>
 </Layout>
-

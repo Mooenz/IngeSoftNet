@@ -6,7 +6,7 @@ import { Image } from 'astro:assets';
 import imageBackground from '@assets/bg-responsabilidad.png';
 ---
 
-<GeneralSection classList="bg-text relative">
+<GeneralSection classList="bg-text relative overflow-hidden parallax-section">
 	<GeneralContainer>
 		<div class="flex flex-column md:flex-row max-w-4xl mx-auto gap-6 items-center">
 			<div>
@@ -19,6 +19,28 @@ import imageBackground from '@assets/bg-responsabilidad.png';
 				<p class="text-white">Ser Eco Empresa significa apoyar a las familias campesinas en la siembra de árboles, conservar más de 87.500 árboles adultos y dos nacimientos hídricos en nuestro bosque. Además obtienes grandes beneficios.</p>
 			</div>
 		</div>
-		<Image src={imageBackground} alt="Background Image" class="absolute inset-0 w-full h-full z-10 object-cover opacity-[0.05]" />
+		<Image src={imageBackground} alt="Background Image" class="parallax-img absolute top-1/2 left-0 transform -translate-y-1/2 w-full h-[160%] z-10 object-cover opacity-[0.05]" />
 	</GeneralContainer>
 </GeneralSection>
+
+<script>
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		gsap.registerPlugin(ScrollTrigger);
+
+		// Parallax de la imagen
+		gsap.to('.parallax-img', {
+			yPercent: 50,
+			opacity: 0,
+			ease: 'none',
+			scrollTrigger: {
+				trigger: 'body', // o el contenedor padre
+				start: 'top top',
+				end: 'bottom top',
+				scrub: 1,
+			},
+		});
+	});
+</script>

@@ -22,13 +22,80 @@ import Document from '@assets/documents/Certificado-ambiental-INGESOFTNET-SAS-20
 				</div>
 			</div>
 
-			<svg class="absolute right-0 top-0" xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 240 240" fill="none">
+			<!-- <svg class="absolute right-0 top-0" xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 240 240" fill="none">
 				<circle opacity="0.1" cx="120" cy="120" r="120" fill="white"></circle>
 				<circle opacity="0.1" cx="120" cy="135" r="105" fill="white"></circle>
 				<circle opacity="0.1" cx="120" cy="150" r="90" fill="white"></circle>
 				<circle opacity="0.1" cx="120" cy="165" r="75" fill="white"></circle>
 				<circle opacity="0.1" cx="120" cy="180" r="60" fill="white"></circle>
-			</svg>
+			</svg> -->
 		</div>
 	</GeneralContainer>
 </GeneralSection>
+
+<style>
+	.card {
+		position: relative;
+		z-index: 1;
+	}
+
+	.card::before {
+		content: '';
+		position: absolute;
+		bottom: -50px;
+		right: 20%;
+		z-index: -1;
+		width: 100px;
+		height: 100px;
+		border-radius: 100px;
+		-webkit-animation-name: ripple;
+		animation-name: ripple;
+		-webkit-animation-duration: 2s;
+		animation-duration: 2s;
+		-webkit-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+		-webkit-animation-timing-function: linear;
+		animation-timing-function: linear;
+		-webkit-animation-delay: 0.3s;
+		animation-delay: 0.3s;
+		background-color: rgba(255, 255, 255, 0.4);
+	}
+
+	@-webkit-keyframes ripple {
+		0% {
+			box-shadow:
+				0 0 0 0 rgba(255, 255, 255, 0.1),
+				0 0 0 20px rgba(255, 255, 255, 0.1),
+				0 0 0 40px rgba(255, 255, 255, 0.1),
+				0 0 0 60px rgba(255, 255, 255, 0.1);
+		}
+
+		100% {
+			box-shadow:
+				0 0 0 20px rgba(255, 255, 255, 0.1),
+				0 0 0 40px rgba(255, 255, 255, 0.1),
+				0 0 0 60px rgba(255, 255, 255, 0.1),
+				0 0 0 80px rgba(255, 255, 255, 0);
+		}
+	}
+
+	@keyframes ripple {
+		0% {
+			box-shadow:
+				0 0 0 0 rgba(255, 255, 255, 0.1),
+				0 0 0 20px rgba(255, 255, 255, 0.1),
+				0 0 0 60px rgba(255, 255, 255, 0.1),
+				0 0 0 100px rgba(255, 255, 255, 0.1),
+				0 0 0 140px rgba(255, 255, 255, 0.1);
+		}
+
+		100% {
+			box-shadow:
+				0 0 0 20px rgba(255, 255, 255, 0.1),
+				0 0 0 60px rgba(255, 255, 255, 0.1),
+				0 0 0 100px rgba(255, 255, 255, 0.1),
+				0 0 0 140px rgba(255, 255, 255, 0.1),
+				0 0 0 180px rgba(255, 255, 255, 0);
+		}
+	}
+</style>

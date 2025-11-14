@@ -28,6 +28,7 @@ const clients = [
     logo: logoApDiesel,
     width: 521,
     height: 61,
+    
   },
   {
     name: 'Baco Liquors Store',

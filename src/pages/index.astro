@@ -7,24 +7,22 @@ import Services from '@sections/Services.astro';
 import Cta from '@sections/Cta.astro';
 ---
 
-<Layout title="IngeSoftNet | Más que un servicio, somos una solución" description="Transformamos la gestión contable de tu empresa con soluciones de software innovadoras y personalizadas. Descubre cómo podemos ayudarte a optimizar tus procesos y alcanzar el éxito." keywords="IngeSoftNet, software contable, soluciones de software, gestión contable, optimización de procesos, software empresarial, tecnología para empresas">
+<Layout
+	title="IngeSoftNet | Más que un servicio, somos una solución"
+	description="En IngeSoftNet somos especialistas en la venta de licencias, implementación y soporte de SysCafé. Potenciamos la gestión administrativa y contable de tu empresa en Antioquia, Tolima y Chocó con soluciones confiables y personalizadas."
+	keywords="SysCafé, IngeSoftNet, soporte SysCafé, implementación SysCafé, venta de licencias SysCafé, software contable para PYMES, software administrativo, asesoría contable, mantenimiento SysCafé, Antioquia, Tolima, Chocó"
+>
 	<Hero>
 		<h1 class="text-white font-bold text-[clamp(32px,4vw,56px)] leading-[1.2em] tracking-[1%] lg:mx-auto mb-4 lg:mb-6">Transforma la contabilidad de tu empresa con <span class="text-primary">IngeSoftNet</span></h1>
 		<p class="text-white text-lg leading-[1.6] tracking-normal max-w-2xl lg:mx-auto mb-6 lg:mb-16">Ofrecemos soluciones del software Syscafé que optimizan tus procesos contables. Nuestro equipo está listo para guiarte en cada paso hacia una gestión más eficiente.</p>
 		<div class="flex items-center gap-4 justify-center flex-wrap">
-			<Button anchor link="#servicios" size="md" variants="primary" title="Enlace a conoce más sobre nuestros servicios">
+			<Button anchor link="#servicios" size="md" variants="primary" title="Enlace a nuestros servicios" className="opacity-0">
 				<span>Conoce más</span>
 				<i class="fi fi-rr-arrow-small-right" aria-hidden="true"></i>
 			</Button>
-
-			<!-- <Button anchor link="/contacto.html" size="md" variants="primary" title="Enlace a Contáctenos">
-				<span>Contáctenos</span>
-				<i class="fi fi-rr-mobile-notch" aria-hidden="true"></i>
-			</Button> -->
 		</div>
 	</Hero>
 	<Services />
 	<Characteristics />
-	<!-- <Gallery /> -->
 	<Cta />
 </Layout>

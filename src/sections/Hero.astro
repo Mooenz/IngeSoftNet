@@ -30,13 +30,14 @@ import { Image } from 'astro:assets';
 
 		// Animación del Hero
 		const title = gsap.timeline();
+		const subtitle = gsap.timeline();
 		const mySplitTextTitle = SplitText.create('#hero-principal h1', { type: 'words,chars' });
-		const charsTitle = mySplitTextTitle.chars;
 		const mySplitTextSubtitle = document.querySelector('#hero-principal p');
 		const carruselClientes = document.getElementById('hero-carrusel');
-
+		const charsTitle = mySplitTextTitle.chars;
+		
 		title.from(charsTitle, {
-			duration: 1,
+			duration: 0.5,
 			opacity: 0,
 			y: 100,
 			rotationY: 90,
@@ -46,15 +47,15 @@ import { Image } from 'astro:assets';
 			stagger: 0.02,
 		});
 
-		title.from(
+		subtitle.from(
 			mySplitTextSubtitle,
 			{
+				delay: 1,
 				duration: 0.5,
 				opacity: 0,
 				y: 20,
 				ease: 'power4.out',
 			},
-			'-=0.2'
 		);
 
 		// Establecer estado inicial del botón
@@ -70,7 +71,6 @@ import { Image } from 'astro:assets';
 				scale: 1,
 				ease: 'power4.out',
 			},
-			'-=0.1'
 		);
 
 		title.from(
@@ -81,7 +81,6 @@ import { Image } from 'astro:assets';
 				y: 20,
 				ease: 'power4.out',
 			},
-			'-=0.2'
 		);
 	});
 </script>

@@ -1,8 +1,9 @@
 ---
 import GeneralContainer from '@components/GeneralContainer.astro';
 import GeneralSection from '@components/GeneralSection.astro';
-import services from '@constants/services.js';
+import servicesGet from '@constants/services.js';
 import Button from '@components/Button.astro';
+const services = [...servicesGet, ...servicesGet];
 ---
 
 <GeneralSection idElement="servicios">
@@ -36,10 +37,10 @@ import Button from '@components/Button.astro';
 				<div class="swiper imageSwiper" id="serviciosImageSwiper">
 					<div class="swiper-wrapper">
 						{
-							services.map(({ title, image }) => (
+							services.map(({ title, image, width, height }) => (
 								<div class="swiper-slide">
 									<picture class="flex justify-end items-center object-cover rounded-xl lg:rounded-[0] lg:rounded-s-3xl 2xl:rounded-3xl lg:w-full lg:h-full overflow-hidden max-w-[720px] sm:w-30 sm:h-30 w-24 h-24 mx-auto lg:mx-0 lg:ml-auto image">
-										<img src={typeof image === 'string' ? image : image.src} alt={`Imagen de ${title}`} loading="lazy" class="w-full h-full aspect-square" title={title} />
+										<img src={typeof image === 'string' ? image : image.src} alt={`Imagen de ${title}`} loading="lazy" width={width} height={height} class="w-full h-full aspect-square" title={title} />
 									</picture>
 								</div>
 							))
@@ -75,7 +76,7 @@ import Button from '@components/Button.astro';
 			spaceBetween: 0,
 			slidesPerView: 1,
 			effect: effectType,
-			speed: 1000,
+			speed: 2000,
 			allowTouchMove: false,
 			simulateTouch: false,
 			followFinger: false,
@@ -93,7 +94,7 @@ import Button from '@components/Button.astro';
 			simulateTouch: true,
 			allowTouchMove: true,
 			grabCursor: true,
-			speed: 1000,
+			speed: 2000,
 			autoplay: {
 				delay: 5000,
 				disableOnInteraction: false,

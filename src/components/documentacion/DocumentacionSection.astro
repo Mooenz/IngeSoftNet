@@ -10,7 +10,7 @@ const { id, title, route } = Astro.props;
 ---
 
 <div id={id} class="relative pt-4 pb-4 md:pt-6 md:pb-6">
-	<h4 class="subtitulo text-base font-medium uppercase mb-2 text-primary">{title}</h4>
+	<h3 class="subtitulo text-base font-medium uppercase mb-2 text-primary">{title}</h3>
 	{route && (
 		<p class="ruta mb-3">
 			<strong>Ruta:</strong> {route}

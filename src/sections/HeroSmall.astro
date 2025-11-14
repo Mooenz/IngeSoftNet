@@ -17,6 +17,6 @@ const { title, subtitle, classList } = Astro.props;
 		{subtitle && <p class="text-lg text-gray-300">{subtitle}</p>}
 	</div>
 	<!-- Background Image -->
-	<Image src={imageBackground} alt="Background Image" class="absolute inset-0 w-full h-full -z-10 object-cover opacity-10" />
+	<Image src={imageBackground} alt="Fondo del header" class="absolute inset-0 w-full h-full -z-10 object-cover opacity-10" title="Imagen de fondo del header" />
 	<slot />
 </section>

@@ -26,7 +26,7 @@ const { id, title, active = false, link, sections } = Astro.props;
 				<span class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-text"></span>
 			</span>
 		</button>
-		<h3 class="titulo text-2xl lg:text-4xl font-bold">{title}</h3>
+		<h2 class="titulo text-2xl lg:text-4xl font-bold">{title}</h2>
 	</div>
 
 	<div class="documentacion__informacion--contenido flex flex-col md:flex-row md:gap-10">
@@ -42,12 +42,12 @@ const { id, title, active = false, link, sections } = Astro.props;
 
 		<!-- Sidebar de navegación -->
 		<div class="documentacion__informacion--contenedor hidden lg:block sticky top-[90px] w-full max-w-[320px] h-fit max-h-[calc(100vh-90px)] overflow-y-auto overflow-x-hidden">
-			<p class="font-bold text-base mb-4" style="font-weight: 500;" >En este artículo</p>
+			<p class="font-bold text-base mb-4" style="font-weight: 500;">En este artículo</p>
 			<ul class="p-0 m-0 list-none">
 				{
 					sections.map((section, index) => (
 						<li class={index === 0 && active ? 'activo' : ''}>
-							<a href={`#${section.id}`} class="block rounded-l-none rounded-r-lg py-3 pl-6 border-l border-gray-300 transition-colors hover:text-primary hover:border-primary/80">
+							<a href={`#${section.id}`} class="block rounded-l-none rounded-r-lg py-3 pl-6 border-l border-gray-300 transition-colors hover:text-primary hover:border-primary/80" title={`${index} - ${section.title}`}>
 								{section.title}
 							</a>
 						</li>

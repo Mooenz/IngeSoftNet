@@ -14,7 +14,7 @@ const { src, alt, width, height, title = '', pswpWidth = width, pswpHeight = hei
 ---
 
 <div class="image my-4 max-w-[600px]">
-	<a class="galley" href={src} data-pswp-width={pswpWidth} data-pswp-height={pswpHeight} target="_blank">
+	<a class="galley" href={src} data-pswp-width={pswpWidth} data-pswp-height={pswpHeight} target="_blank" title={title}>
 		<img src={src} width={width} height={height} title={title} alt={alt} loading="lazy" class="w-full h-auto rounded-2xl" />
 	</a>
 </div>

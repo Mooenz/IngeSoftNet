@@ -2,8 +2,9 @@
 import Menu from '@sections/Menu.astro';
 import Footer from '@sections/Footer.astro';
 import ButtonLateral from '@components/ButtonLateral.astro';
-import favicon from '@public/images/favicon.png';
-import ogImage from '@/assets/og-image.png';
+import favicon from '@public/images/favicon.ico';
+import ogImage from '@/assets/og-image.jpg';
+import manifest from '@public/site.webmanifest';
 import '@styles/global.css';
 export interface Props {
 	title: string;
@@ -12,14 +13,25 @@ export interface Props {
 }
 
 const { title, description, keywords } = Astro.props;
+const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
+const siteOrigin = new URL('/', canonicalUrl).origin;
 ---
 
+<!DOCTYPE html>
 <html lang="es">
 	<head>
 		<!-- Meta básicos optimizados -->
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-		
+		<meta name="theme-color" content="#018be8" />
+		<meta name="color-scheme" content="light" />
+		<meta name="application-name" content="IngeSoftNet" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-title" content="IngeSoftNet" />
+		<meta name="msapplication-TileColor" content="#018be8" />
+		<meta name="msapplication-name" content="IngeSoftNet" />
+		<meta name="msapplication-tooltip" content="IngeSoftNet - Más que un servicio, somos una solución" />
+		<meta name="msapplication-config" content="/icons/browserconfig.xml" />
 
 		<!-- SEO Meta Tags -->
 		<title>{title}</title>
@@ -27,18 +39,29 @@ const { title, description, keywords } = Astro.props;
 		{keywords && <meta name="keywords" content={keywords} />}
 		<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 		<meta name="author" content="IngeSoftNet" />
-		<link rel="icon" type="image/x-icon" href={favicon.src} />
-		<link rel="canonical" href="https://ingesoftnet.com" />
+		<link rel="icon" type="image/x-icon" href={favicon} />
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+
+		<link rel="manifest" href={manifest} />
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="alternate" href="https://ingesoftnet.com" hreflang="es-CO" />
+		<link rel="alternate" href="https://ingesoftnet.com" hreflang="x-default" />
 
 		<!-- Open Graph (Redes Sociales) -->
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
 		{description && <meta property="og:description" content={description } />}
-		<meta property="og:url" content='https://ingesoftnet.com' />
+		<meta property="og:url" content={canonicalUrl} />
+
+		<!-- Locale alternativo para Open Graph -->
+		<meta property="og:locale:alternate" content="en_ES" />
 		<meta property="og:site_name" content="IngeSoftNet" />
 		<meta property="og:image" content={ogImage.src} />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
+		<meta property="og:image:width" content="589" />
+		<meta property="og:image:height" content="424" />
 		<meta property="og:image:alt" content={`${title} - IngeSoftNet`} />
 		<meta property="og:locale" content="es_CO" />
 
@@ -48,45 +71,62 @@ const { title, description, keywords } = Astro.props;
 		{description && <meta name="twitter:description" content={description} />}
 		<meta name="twitter:image" content={ogImage.src} />
 		<meta name="twitter:image:alt" content={`${title} - IngeSoftNet`} />
-
+		<!-- Cuenta principal en Twitter -->
+		<meta name="twitter:site" content="@IngeSoftNet" />
+		<!-- Autor en Twitter -->
+		<meta name="twitter:creator" content="@IngeSoftNet" />
 
 		<!-- Datos estructurados básicos (JSON-LD) -->
+		<script type="application/ld+json">
+				{JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "Organization",
+						"name": "IngeSoftNet",
+						"url": "https://ingesoftnet.com",
+						"logo": `${siteOrigin}/images/logo.png`,
+						"description": description || "Más que un servicio, somos una solución",
+						"address": {
+								"@type": "PostalAddress",
+								"addressLocality": "Ibagué",
+								"addressRegion": "Tolima",
+								"addressCountry": "CO"
+						}
+				})}
+		</script>
+		<!-- Datos estructurados del sitio con buscador -->
 		<script type="application/ld+json">
 			{
 				JSON.stringify({
 					"@context": "https://schema.org",
-					"@type": "Organization",
+					"@type": "WebSite",
 					"name": "IngeSoftNet",
-					"url": "https://ingesoftnet.com",
-					"logo": Astro.url.origin + "/images/logo.png",
-					"description": description || "Soluciones de software e ingeniería",
-					"address": {
-						"@type": "PostalAddress",
-						"addressLocality": "Ibagué",
-						"addressRegion": "Tolima",
-						"addressCountry": "CO"
+					"url": canonicalUrl,
+					"potentialAction": {
+							"@type": "SearchAction",
+							"target": "https://ingesoftnet.com/buscar?q={search_term_string}",
+							"query-input": "required name=search_term_string"
 					}
 				})
 			}
 		</script>	
-		<body>
-			<Menu />
-			<main>
-				<slot />
-			</main>
-			<Footer />
-			<ButtonLateral />
+	</head>
 
-			<!-- Botón volver arriba -->
-		<button class="btn-volver-arriba" id="volver-arriba">
+	<body>
+		<Menu />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+		<ButtonLateral />
+
+		<!-- Botón volver arriba -->
+		<button class="btn-volver-arriba" id="volver-arriba" aria-label="Volver al inicio de la documentación">
 			<i class="fi fi-rr-arrow-small-up"></i>
 		</button>
-		</body>
+	</body>
+</html>
 
-	</head>
- </html>
-
- <script>
+<script>
 	// Script para fijar el menú cuando se scrollea más del 80% del header
 	const header = document.getElementById('hero-principal'); // Ajusta el selector según tu HTML
 	const menu = document.getElementById('menu-principal');
@@ -191,7 +231,10 @@ const { title, description, keywords } = Astro.props;
 
 		observer2.observe(inicio);
 	}
- </script>
+
+	// Títulos principales
+	const title = document.querySelectorAll(".title-main");
+</script>
 
 <style>
 .btn-volver-arriba {

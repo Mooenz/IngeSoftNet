@@ -20,20 +20,39 @@ const { classIcon, tooltipClass } = Astro.props;
 		</button>
 	</div>
 
-	<iframe src="https://server402.islonline.net/live/islpronto/start.html?_s=1&template=dn%3aingesoftnet" class="w-full h-[calc(100%-72px)]"></iframe>
+	<iframe data-src="https://server402.islonline.net/live/islpronto/start.html?_s=1&template=dn%3aingesoftnet" class="w-full h-[calc(100%-72px)]"></iframe>
 </section>
 
 <script>
-	const chatWidget = document.getElementById('chat-widget');
-	const closeChatWidget = document.getElementById('close-chat-widget');
-	const chatButton = document.querySelector('button[aria-label="Inicia un chat"]');
+	document.addEventListener('DOMContentLoaded', () => {
+		// Script para abrir y cerrar el widget de chat
+		const chatWidget = document.getElementById('chat-widget');
+		const closeChatWidget = document.getElementById('close-chat-widget');
+		const chatButton = document.querySelector('button[aria-label="Inicia un chat"]');
 
-	chatButton.addEventListener('click', () => {
-		chatWidget.classList.add('activo');
-	});
+		chatButton.addEventListener('click', () => {
+			chatWidget.classList.add('activo');
+		});
 
-	closeChatWidget.addEventListener('click', () => {
-		chatWidget.classList.remove('activo');
+		closeChatWidget.addEventListener('click', () => {
+			chatWidget.classList.remove('activo');
+		});
+
+		// Script que determina que el iframe está en pantalla y hace la consulta del elemento
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						const iframe = chatWidget.querySelector('iframe');
+						if (iframe && !iframe.src) {
+							iframe.src = iframe.getAttribute('data-src');
+						}
+					}
+				});
+			},
+			{ threshold: 0.1 }
+		);
+		observer.observe(chatWidget);
 	});
 </script>
 

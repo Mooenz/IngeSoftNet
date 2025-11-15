@@ -2,14 +2,28 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'node:path';
+import critters from 'astro-critters';
 
 export default defineConfig({
 	site: 'https://Mooenz.github.io',
 	base: '/IngeSoftNet/',
+	// site: 'https://ingesoftnet.com',
+	// base: '/',
+	integrations: [critters()],
 	vite: {
 		assetsInclude: ['**/*.zip', '**/*.rar', '**/*.7z', '**/*.tar.gz'],
 		optimizeDeps: {
 			include: ['plyr'],
+		},
+		build: {
+			cssCodeSplit: true,
+
+			rollupOptions: {
+				css: {
+					// Transformaciones CSS con Lightning CSS (más rápido)
+					transformer: 'lightningcss',
+				},
+			},
 		},
 		plugins: [tailwindcss()],
 		resolve: {

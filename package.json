@@ -11,6 +11,7 @@
 	"dependencies": {
 		"@tailwindcss/vite": "^4.1.12",
 		"astro": "^5.13.0",
+		"astro-critters": "^2.2.1",
 		"gsap": "^3.13.0",
 		"photoswipe": "^5.4.4",
 		"plyr": "^3.8.3",

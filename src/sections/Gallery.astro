@@ -96,8 +96,12 @@ import { Image } from 'astro:assets';
 
 	.swiper:hover .swiper-button-next,
 	.swiper:hover .swiper-button-prev {
-		opacity: 1;
+		opacity: 0.8;
 		transform: scale(1);
+	}
+
+	.swiper-button-prev,
+	.swiper-button-next {
 	}
 
 	.swiper-button-next,
@@ -116,16 +120,20 @@ import { Image } from 'astro:assets';
 			opacity 0.3s ease-in-out,
 			transform 0.3s ease-in-out,
 			color 0.3s ease-in-out;
-	}
 
-	.swiper-button-next:active,
-	.swiper-button-prev:active {
-		transform: scale(0.9) !important;
-	}
+		svg {
+			width: 16px;
+			height: 16px;
+		}
 
-	.swiper-button-next::after,
-	.swiper-button-prev::after {
-		font-weight: 900;
+		&:hover {
+			background-color: var(--color-primary-dark);
+			opacity: 1 !important;
+		}
+
+		&:active {
+			transform: scale(0.9) !important;
+		}
 	}
 
 	.swiper-button-next::after {

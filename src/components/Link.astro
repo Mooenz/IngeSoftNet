@@ -1,0 +1,7 @@
+---
+const { href, ...props } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const fullHref = href.startsWith('http') ? href : `${base}${href.replace(/^\//, '')}`;
+---
+
+<a href={fullHref} {...props}><slot /></a>

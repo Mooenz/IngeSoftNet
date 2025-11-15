@@ -2,15 +2,15 @@
 import Menu from '@sections/Menu.astro';
 import Footer from '@sections/Footer.astro';
 import ButtonLateral from '@components/ButtonLateral.astro';
-import favicon from '@public/images/favicon.ico';
-import ogImage from '@/assets/og-image.jpg';
-import manifest from '@public/site.webmanifest';
+// import ogImage from '/images/og-image.jpg';
 import '@styles/global.css';
 export interface Props {
 	title: string;
 	description?: string;
 	keywords?: string;
 }
+
+const base = import.meta.env.BASE_URL;
 
 const { title, description, keywords } = Astro.props;
 const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
@@ -39,13 +39,13 @@ const siteOrigin = new URL('/', canonicalUrl).origin;
 		{keywords && <meta name="keywords" content={keywords} />}
 		<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 		<meta name="author" content="IngeSoftNet" />
-		<link rel="icon" type="image/x-icon" href={favicon} />
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 
-		<link rel="apple-touch-icon" sizes="180x180" href="/IngeSoftNet/images/apple-touch-icon.png" />
-		<link rel="icon" type="image/png" href="/IngeSoftNet/images/favicon-96x96.png" sizes="96x96" />
-		<link rel="icon" type="image/svg+xml" href="/IngeSoftNet/images/favicon.svg" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
 
-		<link rel="manifest" href={manifest} />
+		<link rel="manifest" href="/site.webmanifest" />
 		<link rel="canonical" href={canonicalUrl} />
 		<link rel="alternate" href="https://ingesoftnet.com" hreflang="es-CO" />
 		<link rel="alternate" href="https://ingesoftnet.com" hreflang="x-default" />
@@ -54,14 +54,14 @@ const siteOrigin = new URL('/', canonicalUrl).origin;
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
 		{description && <meta property="og:description" content={description } />}
-		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:url" content="https://ingesoftnet.com" />
 
 		<!-- Locale alternativo para Open Graph -->
 		<meta property="og:locale:alternate" content="en_ES" />
 		<meta property="og:site_name" content="IngeSoftNet" />
-		<meta property="og:image" content={ogImage.src} />
-		<meta property="og:image:width" content="589" />
-		<meta property="og:image:height" content="424" />
+		<meta property="og:image" content='/images/og-image.jpg' />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 		<meta property="og:image:alt" content={`${title} - IngeSoftNet`} />
 		<meta property="og:locale" content="es_CO" />
 
@@ -69,7 +69,7 @@ const siteOrigin = new URL('/', canonicalUrl).origin;
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		{description && <meta name="twitter:description" content={description} />}
-		<meta name="twitter:image" content={ogImage.src} />
+		<meta name="twitter:image" content='/images/og-image.jpg' />
 		<meta name="twitter:image:alt" content={`${title} - IngeSoftNet`} />
 		<!-- Cuenta principal en Twitter -->
 		<meta name="twitter:site" content="@IngeSoftNet" />
@@ -110,7 +110,7 @@ const siteOrigin = new URL('/', canonicalUrl).origin;
 			}
 		</script>	
 	</head>
-
+	
 	<body>
 		<Menu />
 		<main>

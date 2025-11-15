@@ -1,4 +1,6 @@
-<div id="formMessages"></div>
+---
+import Modal from '@components/Modal.astro';
+---
 
 <form id="contactForm" class="flex flex-col gap-6" novalidate>
 	<div class="flex flex-col lg:flex-row lg:items-center gap-6">
@@ -6,7 +8,7 @@
 		<div class="w-full">
 			<label for="nombreContacto" class="block mb-2">Nombres <span class="text-primary">*</span></label>
 			<div class="relative border-1 border-gray-400 rounded-full">
-				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="text" name="nombreContacto" id="nombreContacto" placeholder="" />
+				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="text" name="nombreContacto" id="nombreContacto" placeholder="" maxlength="100" autocomplete="given-name" />
 				<i class="fi fi-rr-user absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
 				<span id="error-nombreContacto" class="absolute top-full right-0 text-white bg-red-500 text-sm hidden px-2 rounded-md"></span>
 			</div>
@@ -16,7 +18,7 @@
 		<div class="w-full">
 			<label for="apellidoContacto" class="block mb-2">Apellidos <span class="text-primary">*</span></label>
 			<div class="relative border-1 border-gray-400 rounded-full">
-				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="text" name="apellidoContacto" id="apellidoContacto" placeholder="" />
+				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="text" name="apellidoContacto" id="apellidoContacto" placeholder="" maxlength="100" autocomplete="family-name" />
 				<i class="fi fi-rr-user absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
 				<span id="error-apellidoContacto" class="absolute top-full right-0 text-white bg-red-500 text-sm hidden px-2 rounded-md"></span>
 			</div>
@@ -24,21 +26,21 @@
 	</div>
 
 	<div class="flex flex-col lg:flex-row lg:items-center gap-6">
-		<!-- teléfono -->
+		<!-- Teléfono -->
 		<div class="w-full">
 			<label for="telefonoContacto" class="block mb-2">Teléfono <span class="text-primary">*</span></label>
 			<div class="relative border-1 border-gray-400 rounded-full">
-				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="number" name="telefonoContacto" id="telefonoContacto" placeholder="" />
+				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="number" name="telefonoContacto" id="telefonoContacto" placeholder="" maxlength="10" autocomplete="tel" />
 				<i class="fi fi-rr-phone-call absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
 				<span id="error-telefonoContacto" class="absolute top-full right-0 text-white bg-red-500 text-sm hidden px-2 rounded-md"></span>
 			</div>
 		</div>
 
-		<!-- Asunto-->
+		<!-- Asunto -->
 		<div class="w-full">
 			<label for="asuntoContacto" class="block mb-2">Asunto <span class="text-primary">*</span></label>
 			<div class="relative border-1 border-gray-400 rounded-full ps-10">
-				<select class="pr-4 py-4 w-full" name="asuntoContacto" id="asuntoContacto">
+				<select class="pr-4 py-4 w-full" name="asuntoContacto" id="asuntoContacto" autocomplete="off">
 					<option value="" disabled selected></option>
 					<option value="informacion-productos">Información sobre productos</option>
 					<option value="soporte-tecnico">Soporte técnico</option>
@@ -54,7 +56,7 @@
 	<div class="w-full">
 		<label for="emailContacto" class="block mb-2">Correo electrónico <span class="text-primary">*</span></label>
 		<div class="relative border-1 border-gray-400 rounded-full">
-			<input class="ps-10 pr-4 py-4 w-full rounded-full" type="email" name="emailContacto" id="emailContacto" placeholder="" />
+			<input class="ps-10 pr-4 py-4 w-full rounded-full" type="email" name="emailContacto" id="emailContacto" placeholder="" maxlength="100" autocomplete="email" />
 			<i class="fi fi-rr-envelope absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
 			<span id="error-emailContacto" class="absolute top-full right-0 text-white bg-red-500 text-sm hidden px-2 rounded-md"></span>
 		</div>
@@ -64,10 +66,13 @@
 	<div class="w-full">
 		<label for="mensajeContacto" class="block mb-2">Mensaje</label>
 		<div class="relative border-1 border-gray-400 rounded-2xl">
-			<textarea class="ps-10 pr-4 py-4 w-full resize-none overflow-hidden" name="mensajeContacto" id="mensajeContacto" placeholder="" rows="1"></textarea>
+			<textarea class="ps-10 pr-4 py-4 w-full resize-none overflow-hidden" name="mensajeContacto" id="mensajeContacto" placeholder="" rows="1" maxlength="1000"></textarea>
 			<i class="fi fi-rr-comment absolute top-5 left-4 transform text-gray-400"></i>
 		</div>
 	</div>
+
+	<!-- Honeypot (campo oculto anti-spam) -->
+	<input type="text" name="website" id="website" style="display:none" tabindex="-1" autocomplete="off" />
 
 	<div class="pt-6">
 		<p class="m-0">
@@ -101,217 +106,275 @@
 	</div>
 </form>
 
+<!-- Modal success -->
+<Modal id="modal" size="max-w-md">
+	<div slot="modal-header">
+		<hgroup class="py-4 text-center">
+			<i class="fi fi-rr-comment-alt-check h-15 w-15 bg-primary-light text-primary text-xl flex items-center justify-center rounded-full mx-auto mb-6"></i>
+			<p class="font-bold mb-2 text-2xl">¡Hemos recibido tu mensaje!</p>
+			<p class="text-lg">Nos pondremos en contacto contigo pronto.</p>
+		</hgroup>
+	</div>
+	<div slot="modal-body">
+		<button class="flex items-center justify-center px-8 py-3 gap-3 cursor-pointer text-white bg-primary hover:bg-primary-dark rounded-full transition-all duration-300 ease-in-out mx-auto mt-6 lg:mt-10" data-modal-close>
+			<span>Cerrar</span>
+			<i class="fi fi-rr-cross-small"></i>
+		</button>
+	</div>
+</Modal>
+
+<!-- Modal error -->
+<Modal id="modalError" size="max-w-sm">
+	<div slot="modal-header">
+		<hgroup class="py-4 text-center">
+			<i class="fi fi-rr-comment-exclamation h-15 w-15 bg-red-100 text-red-600 text-xl flex items-center justify-center rounded-full mx-auto mb-6"></i>
+			<p class="font-bold mb-2 text-2xl">¡Error al enviar el mensaje!</p>
+			<p class="text-lg">Por favor, intenta nuevamente más tarde.</p>
+		</hgroup>
+	</div>
+	<div slot="modal-body">
+		<button class="flex items-center justify-center px-8 py-3 gap-3 cursor-pointer text-white bg-red-600 hover:bg-red-800 rounded-full transition-all duration-300 ease-in-out mx-auto mt-6 lg:mt-10" data-modal-close>
+			<span>Cerrar</span>
+			<i class="fi fi-rr-cross-small"></i>
+		</button>
+	</div>
+</Modal>
+
 <script>
 	import { contactSchema } from '../utils/validations/contactSchema.js';
 
-	// Strongly-typed element references to satisfy TypeScript
-	const form = document.getElementById('contactForm') as HTMLFormElement;
-	const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
-	const formMessages = document.getElementById('formMessages') as HTMLElement;
+	document.addEventListener('DOMContentLoaded', () => {
+		const form = document.getElementById('contactForm') as HTMLFormElement;
+		const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
+		const textarea = document.getElementById('mensajeContacto') as HTMLTextAreaElement;
 
-	// Función para limpiar errores
-	function clearErrors() {
-		const errorSpans = document.querySelectorAll('[id^="error-"]');
-		errorSpans.forEach((span) => {
-			span.textContent = '';
-			span.classList.add('hidden');
+		// Prevenir envíos duplicados
+		let isSubmitting = false;
+
+		// Timestamp del último intento de envío (protección contra spam)
+		let lastSubmitTime = 0;
+		const MIN_SUBMIT_INTERVAL = 3000; // 3 segundos entre envíos
+
+		// Función para limpiar errores
+		function clearErrors() {
+			const errorSpans = document.querySelectorAll('[id^="error-"]');
+			errorSpans.forEach((span) => {
+				span.textContent = '';
+				span.classList.add('hidden');
+			});
+
+			const inputs = form.querySelectorAll('input, select, textarea');
+			inputs.forEach((input) => input.classList.remove('error'));
+		}
+
+		// Función para mostrar errores
+		function showError(fieldName: string, message: string) {
+			const errorSpan = document.getElementById(`error-${fieldName}`);
+			const input = document.getElementById(fieldName);
+
+			if (errorSpan) {
+				errorSpan.textContent = message;
+				errorSpan.classList.remove('hidden');
+			}
+
+			if (input) {
+				input.classList.add('error');
+			}
+		}
+
+		// Función para sanitizar entrada básica (prevenir XSS básico)
+		function sanitizeInput(str: string): string {
+			return str.trim().replace(/[<>]/g, '');
+		}
+
+		// Manejar envío del formulario
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+
+			// Prevenir doble envío
+			if (isSubmitting) return;
+
+			// Protección contra spam
+			const now = Date.now();
+			if (now - lastSubmitTime < MIN_SUBMIT_INTERVAL) {
+				showError('nombreContacto', 'Por favor espera unos segundos antes de enviar nuevamente');
+				return;
+			}
+
+			clearErrors();
+
+			// Obtener datos del formulario
+			const formData = new FormData(form);
+
+			// Verificar honeypot (campo anti-spam)
+			if (formData.get('website')) {
+				console.warn('Posible spam detectado');
+				return;
+			}
+
+			const data = {
+				nombreContacto: sanitizeInput((formData.get('nombreContacto') as string) || ''),
+				apellidoContacto: sanitizeInput((formData.get('apellidoContacto') as string) || ''),
+				telefonoContacto: sanitizeInput((formData.get('telefonoContacto') as string) || ''),
+				asuntoContacto: (formData.get('asuntoContacto') as string) || '',
+				emailContacto: sanitizeInput((formData.get('emailContacto') as string) || ''),
+				mensajeContacto: sanitizeInput((formData.get('mensajeContacto') as string) || ''),
+				terminosContacto: formData.get('terminosContacto') === 'on',
+			};
+
+			// Validar con Zod
+			const result = contactSchema.safeParse(data);
+
+			if (!result.success) {
+				const errors = result.error.flatten().fieldErrors;
+
+				Object.keys(errors).forEach((fieldName) => {
+					const errorMessages = errors[fieldName];
+					if (errorMessages && errorMessages.length > 0) {
+						showError(fieldName, errorMessages[0]);
+					}
+				});
+				return;
+			}
+
+			// Marcar como enviando
+			isSubmitting = true;
+			lastSubmitTime = now;
+
+			submitBtn.disabled = true;
+			const buttonText = submitBtn.querySelector('p');
+			if (buttonText) buttonText.textContent = 'Enviando...';
+
+			// Crear FormData limpio para enviar
+			const cleanFormData = new FormData();
+			cleanFormData.append('nombreContacto', data.nombreContacto);
+			cleanFormData.append('apellidoContacto', data.apellidoContacto);
+			cleanFormData.append('telefonoContacto', data.telefonoContacto);
+			cleanFormData.append('asuntoContacto', data.asuntoContacto);
+			cleanFormData.append('emailContacto', data.emailContacto);
+			cleanFormData.append('mensajeContacto', data.mensajeContacto);
+			cleanFormData.append('terminosContacto', data.terminosContacto ? 'on' : '');
+
+			try {
+				const response = await fetch('/api/send-mail.php', {
+					method: 'POST',
+					body: cleanFormData,
+					// Timeout de 10 segundos
+					signal: AbortSignal.timeout(10000),
+				});
+
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+
+				const result = await response.json();
+
+				if (result.success) {
+					(window as any)?.modalManager?.open();
+					form.reset();
+
+					// Resetear estado del checkbox
+					const checkbox = document.getElementById('terminosContacto') as HTMLInputElement;
+					if (checkbox) checkbox.checked = false;
+
+					setTimeout(() => {
+						(window as any)?.modalManager?.close();
+					}, 5000);
+				} else {
+					throw new Error(result.error || 'Error desconocido');
+				}
+			} catch (error) {
+				console.error('Error al enviar:', error);
+				(window as any)?.modalErrorManager?.open();
+
+				setTimeout(() => {
+					(window as any)?.modalErrorManager?.close();
+				}, 5000);
+			} finally {
+				isSubmitting = false;
+				submitBtn.disabled = true; // Mantener deshabilitado hasta que acepte términos nuevamente
+				if (buttonText) buttonText.textContent = 'Enviar mensaje';
+			}
 		});
 
-		const inputs = form.querySelectorAll('input, select, textarea');
-		inputs.forEach((input) => input.classList.remove('error'));
-	}
+		// Autoajuste de altura del textarea
+		const minHeight = 120;
+		const maxHeight = 350;
 
-	// Función para mostrar errores
-	function showError(fieldName, message) {
-		const errorSpan = document.getElementById(`error-${fieldName}`);
-		const input = document.getElementById(fieldName);
+		function autoResize(this: HTMLTextAreaElement) {
+			this.style.height = 'auto';
+			const newHeight = Math.min(Math.max(this.scrollHeight, minHeight), maxHeight);
+			this.style.height = newHeight + 'px';
 
-		if (errorSpan) {
-			errorSpan.textContent = message;
-			errorSpan.classList.remove('hidden');
+			if (this.scrollHeight > maxHeight) {
+				this.style.overflowY = 'auto';
+			} else {
+				this.style.overflowY = 'hidden';
+			}
 		}
 
-		if (input) {
-			input.classList.add('error');
+		textarea.addEventListener('input', autoResize);
+		autoResize.call(textarea);
+
+		// Script collapse
+		const COLLAPSE_DURATION = 300;
+		const toggleCheckboxes = document.querySelectorAll<HTMLInputElement>('input[type="checkbox"][data-collapse-toggle]');
+
+		function toggleCollapse(checkbox: HTMLInputElement, target: HTMLElement) {
+			if (target.classList.contains('collapsing')) return;
+
+			const shouldShow = !checkbox.checked;
+
+			if (shouldShow) {
+				target.classList.remove('collapse');
+				target.classList.add('collapsing');
+				target.style.height = '0';
+				target.style.transition = `height ${COLLAPSE_DURATION}ms ease-in-out`;
+
+				requestAnimationFrame(() => {
+					target.style.height = target.scrollHeight + 'px';
+				});
+
+				setTimeout(() => {
+					target.classList.remove('collapsing');
+					target.classList.add('collapse', 'show');
+					target.style.height = '';
+					target.style.transition = '';
+				}, COLLAPSE_DURATION);
+			} else {
+				target.style.height = target.scrollHeight + 'px';
+				target.classList.remove('collapse', 'show');
+				target.classList.add('collapsing');
+				target.style.transition = `height ${COLLAPSE_DURATION}ms ease-in-out`;
+
+				requestAnimationFrame(() => {
+					target.style.height = '0';
+				});
+
+				setTimeout(() => {
+					target.classList.remove('collapsing');
+					target.classList.add('collapse');
+					target.style.height = '';
+					target.style.transition = '';
+				}, COLLAPSE_DURATION);
+			}
 		}
-	}
 
-	// Función para mostrar mensaje general
-	function showMessage(message, type = 'success') {
-		const bgColor = type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700';
-		formMessages.innerHTML = `
-			<div class="p-4 ${bgColor} rounded-lg mb-6">
-				${type === 'success' ? '✅' : '❌'} ${message}
-			</div>
-		`;
+		toggleCheckboxes.forEach((checkbox) => {
+			const targetId = checkbox.getAttribute('data-collapse-toggle');
+			if (!targetId) return;
 
-		// Auto-ocultar después de 5 segundos
-		setTimeout(() => {
-			formMessages.innerHTML = '';
-		}, 5000);
-	}
+			const target = document.getElementById(targetId);
+			if (!target) return;
 
-	// Manejar envío del formulario
-	form.addEventListener('submit', async (e) => {
-		e.preventDefault();
+			checkbox.addEventListener('change', function () {
+				toggleCollapse(checkbox, target);
 
-		// Limpiar errores anteriores
-		clearErrors();
-
-		// Obtener datos del formulario
-		const formData = new FormData(form);
-		const data = {
-			nombreContacto: formData.get('nombreContacto'),
-			apellidoContacto: formData.get('apellidoContacto'),
-			telefonoContacto: formData.get('telefonoContacto'),
-			asuntoContacto: formData.get('asuntoContacto'),
-			emailContacto: formData.get('emailContacto'),
-			terminosContacto: formData.get('terminosContacto') === 'on',
-		};
-
-		// Validar con Zod
-		const result = contactSchema.safeParse(data);
-
-		if (!result.success) {
-			const errors = result.error.flatten().fieldErrors;
-
-			Object.keys(errors).forEach((fieldName) => {
-				const errorMessages = errors[fieldName];
-				if (errorMessages && errorMessages.length > 0) {
-					// Tomar siempre el primer mensaje
-					showError(fieldName, errorMessages[0]);
-					console.log(`Campo: ${fieldName}, Error: ${errorMessages[0]}`); // 👈 Debug
+				const submitButton = document.querySelector('button[type="submit"]') as HTMLButtonElement;
+				if (submitButton) {
+					submitButton.disabled = !checkbox.checked;
 				}
 			});
-
-			// showMessage('Por favor corrige los errores en el formulario', 'error');
-			return;
-		}
-
-		// Datos válidos, deshabilitar botón
-		submitBtn.disabled = true;
-		submitBtn.querySelector('p').textContent = 'Enviando...';
-
-		try {
-			// TODO: Aquí enviarías a tu backend o servicio externo
-			// Ejemplo con un servicio externo como Formspree:
-			/*
-			const response = await fetch('https://formspree.io/f/TU_ID', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(result.data)
-			});
-			
-			if (!response.ok) throw new Error('Error al enviar');
-			*/
-
-			// Simulación de envío (remover esto en producción)
-			await new Promise((resolve) => setTimeout(resolve, 1500));
-
-			console.log('✅ Datos validados:', result.data);
-
-			// showMessage('¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.', 'success');
-			form.reset();
-		} catch (error) {
-			console.error('Error al enviar:', error);
-			showMessage('Ocurrió un error al enviar el mensaje. Por favor, intenta nuevamente.', 'error');
-		} finally {
-			submitBtn.disabled = false;
-			submitBtn.querySelector('p').textContent = 'Enviar mensaje';
-		}
-	});
-	/** */
-	/** Autoajuste de altura del textarea */
-	const textarea = document.getElementById('mensajeContacto');
-	const minHeight = 120; // Altura mínima en px
-	const maxHeight = 350; // Altura máxima en px
-
-	function autoResize() {
-		this.style.height = 'auto';
-		const newHeight = Math.min(Math.max(this.scrollHeight, minHeight), maxHeight);
-		this.style.height = newHeight + 'px';
-
-		// Mostrar scroll si llega al máximo
-		if (this.scrollHeight > maxHeight) {
-			this.style.overflowY = 'auto';
-		} else {
-			this.style.overflowY = 'hidden';
-		}
-	}
-
-	textarea.addEventListener('input', autoResize);
-
-	// Ajustar al cargar si ya tiene contenido
-	autoResize.call(textarea);
-
-	/** */
-	/** script collapse */
-	const COLLAPSE_DURATION = 300;
-
-	// Obtener todos los checkboxes con data-collapse-toggle
-	const toggleCheckboxes = document.querySelectorAll<HTMLInputElement>('input[type="checkbox"][data-collapse-toggle]');
-
-	function toggleCollapse(checkbox: HTMLInputElement, target: HTMLElement) {
-		// Prevenir múltiples clics mientras está animando
-		if (target.classList.contains('collapsing')) return;
-
-		// Si está CHECKED = ocultar, si está UNCHECKED = mostrar
-		const shouldShow = !checkbox.checked;
-
-		if (shouldShow) {
-			// Expandir (cuando se quita el check)
-			target.classList.remove('collapse');
-			target.classList.add('collapsing');
-			target.style.height = '0';
-			target.style.transition = `height ${COLLAPSE_DURATION}ms ease-in-out`;
-
-			requestAnimationFrame(() => {
-				target.style.height = target.scrollHeight + 'px';
-			});
-
-			setTimeout(() => {
-				target.classList.remove('collapsing');
-				target.classList.add('collapse', 'show');
-				target.style.height = '';
-				target.style.transition = '';
-			}, COLLAPSE_DURATION);
-		} else {
-			// Colapsar (cuando se marca el check)
-			target.style.height = target.scrollHeight + 'px';
-			target.classList.remove('collapse', 'show');
-			target.classList.add('collapsing');
-			target.style.transition = `height ${COLLAPSE_DURATION}ms ease-in-out`;
-
-			requestAnimationFrame(() => {
-				target.style.height = '0';
-			});
-
-			setTimeout(() => {
-				target.classList.remove('collapsing');
-				target.classList.add('collapse');
-				target.style.height = '';
-				target.style.transition = '';
-			}, COLLAPSE_DURATION);
-		}
-	}
-
-	toggleCheckboxes.forEach((checkbox) => {
-		const targetId = checkbox.getAttribute('data-collapse-toggle');
-		const target = document.getElementById(targetId);
-
-		if (!target) return;
-
-		// Escuchar cambios en el checkbox
-		checkbox.addEventListener('change', function () {
-			toggleCollapse(checkbox, target);
-
-			// Activamos el botón de enviar mensaje
-			const submitButton = document.querySelector('button[type="submit"]') as HTMLButtonElement;
-			if (checkbox.checked) {
-				submitButton.disabled = false;
-			} else {
-				submitButton.disabled = true;
-			}
 		});
 	});
 </script>
@@ -327,13 +390,12 @@
 		border-right: 20px solid transparent;
 	}
 
-	/* Color del select */
 	select:has(option:disabled:checked) {
-		color: var(--color-gray-400); /* placeholder gris claro */
+		color: var(--color-gray-400);
 	}
 
 	select:has(option:not(:disabled):checked) {
-		color: var(--color-text); /* texto seleccionado oscuro */
+		color: var(--color-text);
 	}
 
 	option {
@@ -344,7 +406,6 @@
 		color: var(--color-gray-400);
 	}
 
-	/* Estilos para el colapso */
 	.collapse {
 		visibility: hidden;
 		overflow: hidden;
@@ -361,7 +422,6 @@
 		overflow: hidden;
 	}
 
-	/* Checkbox */
 	.check {
 		position: relative;
 		z-index: 1;
@@ -407,8 +467,8 @@
 		transform: scale(1);
 	}
 
-	/* Input tipo number */
-	input[type='number'] {
+	input[type='number'],
+	input[type='tel'] {
 		-moz-appearance: textfield;
 	}
 

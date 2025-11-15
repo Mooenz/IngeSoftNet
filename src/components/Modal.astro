@@ -1,0 +1,130 @@
+---
+interface Props {
+	id?: string;
+	size: string;
+}
+
+const { id = 'modal', size } = Astro.props;
+---
+
+<dialog id={id} class={`modal ${size} m-auto`} role="dialog" aria-modal="true" aria-labelledby={`${id}-title`} aria-describedby={`${id}-body`}>
+	<button class="absolute top-4 right-4 cursor-pointer flex items-center justify-center h-10 w-10 bg-transparent hover:bg-gray-400 text-gray-400 hover:text-white rounded-full transition-all duration-300 ease-in-out" aria-label="Cerrar modal" id="close-modal-widget" data-modal-close>
+		<i class="fi fi-rr-cross-small"></i>
+	</button>
+	<div class="modal-content">
+		<div id={`${id}-title`} class="modal-header">
+			<slot name="modal-header" />
+		</div>
+		<div id={`${id}-body`} class="modal-body">
+			<slot name="modal-body" />
+		</div>
+		<div class="modal-footer">
+			<slot name="modal-footer" />
+		</div>
+	</div>
+</dialog>
+
+<style>
+	.modal {
+		position: relative;
+		border: none;
+		border-radius: 32px;
+		padding: 0;
+		width: 100%;
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+		opacity: 0;
+		transform: translateY(-50px);
+		transition:
+			opacity 0.3s,
+			transform 0.3s;
+	}
+
+	.modal.show {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.modal::backdrop {
+		background: rgba(0, 0, 0, 0);
+		backdrop-filter: blur(0);
+		transition:
+			background 0.3s,
+			backdrop-filter 0.3s;
+	}
+
+	.modal[open]::backdrop {
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	.modal-content {
+		padding: 24px;
+	}
+</style>
+
+<script>
+	const bodyElement = document.body;
+
+	class ModalManager {
+		private element: HTMLDialogElement;
+		private scrollY: number;
+
+		constructor(modalId: string) {
+			this.element = document.getElementById(modalId) as HTMLDialogElement;
+			this.scrollY = 0;
+			this.init();
+		}
+
+		private init() {
+			this.element.addEventListener('click', (e) => {
+				if (e.target === this.element) {
+					this.close();
+				}
+			});
+
+			this.element.querySelectorAll('[data-modal-close]').forEach((btn) => {
+				btn.addEventListener('click', () => this.close());
+			});
+		}
+
+		open() {
+			// Guardar la posición actual del scroll
+			this.scrollY = window.scrollY;
+
+			// Aplicar estilos para prevenir el salto
+			bodyElement.style.position = 'fixed';
+			bodyElement.style.top = `-${this.scrollY}px`;
+			bodyElement.style.width = '100%';
+			bodyElement.style.overflowY = 'scroll';
+
+			this.element.showModal();
+			setTimeout(() => this.element.classList.add('show'), 10);
+		}
+
+		close() {
+			this.element.classList.remove('show');
+
+			setTimeout(() => {
+				// Restaurar el scroll y los estilos
+				bodyElement.style.position = '';
+				bodyElement.style.top = '';
+				bodyElement.style.width = '';
+				bodyElement.style.overflowY = '';
+
+				window.scrollTo(0, this.scrollY);
+
+				this.element.close();
+			}, 300);
+		}
+	}
+
+	// Inicializar todos los modales en la página
+	document.addEventListener('DOMContentLoaded', () => {
+		const modals = document.querySelectorAll('.modal');
+		modals.forEach((modal) => {
+			const modalId = modal.id;
+			if (modalId) {
+				(window as any)[`${modalId}Manager`] = new ModalManager(modalId);
+			}
+		});
+	});
+</script>

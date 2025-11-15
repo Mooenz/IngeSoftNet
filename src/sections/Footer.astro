@@ -8,7 +8,8 @@ import imagenSoporte1 from '@assets/oficina1.jpg';
 import LogoFacebook from '@assets/icons/logo-facebook.astro';
 import LogoInstagram from '@assets/icons/logo-instagram.astro';
 import LogoYouTube from '@assets/icons/logo-youtube.astro';
-import Audio from '@assets/audio/ingesoftnet.mp3';
+import Audio from '/audio/ingesoftnet.mp3';
+import Link from '@components/Link.astro';
 ---
 
 <!-- -->
@@ -117,13 +118,13 @@ import Audio from '@assets/audio/ingesoftnet.mp3';
 				</a>
 
 				<div class="flex gap-6 flex-wrap items-center">
-					<a href="/IngeSoftNet/politica-de-privacidad" title="Enlace a la política de privacidad" class="animation-link">
+					<Link href="/politica-de-privacidad" title="Enlace a la política de privacidad" class="animation-link">
 						<p class="m-0">Política de privacidad</p>
-					</a>
+					</Link>
 
-					<a href="/IngeSoftNet/terminos-y-condiciones" title="Enlace a los términos y condiciones" class="animation-link">
+					<Link href="/terminos-y-condiciones" title="Enlace a los términos y condiciones" class="animation-link">
 						<p class="m-0">Términos y condiciones</p>
-					</a>
+					</Link>
 				</div>
 			</div>
 		</section>
@@ -242,7 +243,7 @@ import Audio from '@assets/audio/ingesoftnet.mp3';
 		transform: translate(-50%, -50%);
 	}
 
-	.plyr--full-ui input[type=range] 	{
+	.plyr--full-ui input[type='range'] {
 		color: #004030;
 	}
 

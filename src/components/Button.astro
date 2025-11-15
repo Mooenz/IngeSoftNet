@@ -1,4 +1,5 @@
 ---
+import Link from './Link.astro';
 export interface Props {
 	anchor: boolean;
 	link: string;
@@ -56,12 +57,12 @@ const buttonClasses = `${className || ''} ${sizesObject[size]} ${variantsObject[
 
 {
 	anchor ? (
-		<a class={buttonClasses} href={link} title={title} style={`--btn-bg:${variantsObject[variants].classBg}`} {...attr}>
+		<Link class={buttonClasses} href={link} title={title} style={`--btn-bg:${variantsObject[variants].classBg}`} {...attr}>
 			<span class={hoverEffectClasses} />
 			<span class={`${contentClasses} gap-4`}>
 				<slot />
 			</span>
-		</a>
+		</Link>
 	) : (
 		<button class={buttonClasses} title={title} style={`--btn-bg:${variantsObject[variants].classBg}`} {...attr}>
 			<span class={hoverEffectClasses} />

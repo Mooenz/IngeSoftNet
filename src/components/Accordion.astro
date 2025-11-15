@@ -11,94 +11,96 @@ const { idElement = 'accordion' } = Astro.props;
 </div>
 
 <script>
-	function initAccordion(accordionId: string) {
-		const IDELEMENT = document.getElementById(accordionId);
+	document.addEventListener('DOMContentLoaded', () => {
+		function initAccordion(accordionId: string) {
+			const IDELEMENT = document.getElementById(accordionId);
 
-		if (!IDELEMENT) {
-			return;
-		}
-
-		// NUEVO: Ajustar los estados iniciales
-		const allItems = IDELEMENT.querySelectorAll('.accordion-item');
-		allItems.forEach((item) => {
-			const content = item.querySelector('.accordion-content');
-			if (content instanceof HTMLElement) {
-				if (item.classList.contains('active')) {
-					// Si tiene active, expandir
-					content.style.maxHeight = content.scrollHeight + 'px';
-				} else {
-					// Si no tiene active, colapsar
-					content.style.maxHeight = '0';
-				}
+			if (!IDELEMENT) {
+				return;
 			}
-		});
 
-		const headers = IDELEMENT.querySelectorAll('.accordion-header');
-
-		if (headers.length === 0) {
-			console.warn('⚠️ No hay headers en:', accordionId);
-			return;
-		}
-
-		headers.forEach((header) => {
-			const handleClick = function (this: HTMLElement) {
-				const item = this.parentElement;
-				if (!item) return;
+			// NUEVO: Ajustar los estados iniciales
+			const allItems = IDELEMENT.querySelectorAll('.accordion-item');
+			allItems.forEach((item) => {
 				const content = item.querySelector('.accordion-content');
-
-				// Cerrar todos los items del acordeón
-				IDELEMENT.querySelectorAll('.accordion-item').forEach((otherItem) => {
-					if (otherItem !== item) {
-						otherItem.classList.remove('active');
-						const otherContent = otherItem.querySelector('.accordion-content');
-						if (otherContent instanceof HTMLElement) {
-							otherContent.style.maxHeight = '0';
-						}
-					}
-				});
-
-				// Toggle del item actual
-				if (item.classList.contains('active')) {
-					item.classList.remove('active');
-					if (content instanceof HTMLElement) {
+				if (content instanceof HTMLElement) {
+					if (item.classList.contains('active')) {
+						// Si tiene active, expandir
+						content.style.maxHeight = content.scrollHeight + 'px';
+					} else {
+						// Si no tiene active, colapsar
 						content.style.maxHeight = '0';
 					}
-				} else {
-					item.classList.add('active');
-					if (content instanceof HTMLElement) {
-						content.style.maxHeight = content.scrollHeight + 'px';
-					}
 				}
-			};
+			});
 
-			header.removeEventListener('click', handleClick);
-			header.addEventListener('click', handleClick);
-		});
-	}
+			const headers = IDELEMENT.querySelectorAll('.accordion-header');
 
-	function initAllAccordions() {
-		const allAccordions = document.querySelectorAll('.accordion[id]');
-
-		allAccordions.forEach((accordion) => {
-			const id = accordion.getAttribute('id');
-			if (id) {
-				initAccordion(id);
+			if (headers.length === 0) {
+				console.warn('⚠️ No hay headers en:', accordionId);
+				return;
 			}
+
+			headers.forEach((header) => {
+				const handleClick = function (this: HTMLElement) {
+					const item = this.parentElement;
+					if (!item) return;
+					const content = item.querySelector('.accordion-content');
+
+					// Cerrar todos los items del acordeón
+					IDELEMENT.querySelectorAll('.accordion-item').forEach((otherItem) => {
+						if (otherItem !== item) {
+							otherItem.classList.remove('active');
+							const otherContent = otherItem.querySelector('.accordion-content');
+							if (otherContent instanceof HTMLElement) {
+								otherContent.style.maxHeight = '0';
+							}
+						}
+					});
+
+					// Toggle del item actual
+					if (item.classList.contains('active')) {
+						item.classList.remove('active');
+						if (content instanceof HTMLElement) {
+							content.style.maxHeight = '0';
+						}
+					} else {
+						item.classList.add('active');
+						if (content instanceof HTMLElement) {
+							content.style.maxHeight = content.scrollHeight + 'px';
+						}
+					}
+				};
+
+				header.removeEventListener('click', handleClick);
+				header.addEventListener('click', handleClick);
+			});
+		}
+
+		function initAllAccordions() {
+			const allAccordions = document.querySelectorAll('.accordion[id]');
+
+			allAccordions.forEach((accordion) => {
+				const id = accordion.getAttribute('id');
+				if (id) {
+					initAccordion(id);
+				}
+			});
+		}
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initAllAccordions);
+		} else {
+			initAllAccordions();
+		}
+
+		document.addEventListener('astro:page-load', () => {
+			setTimeout(initAllAccordions, 50);
 		});
-	}
 
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initAllAccordions);
-	} else {
-		initAllAccordions();
-	}
-
-	document.addEventListener('astro:page-load', () => {
-		setTimeout(initAllAccordions, 50);
-	});
-
-	document.addEventListener('astro:after-swap', () => {
-		setTimeout(initAllAccordions, 50);
+		document.addEventListener('astro:after-swap', () => {
+			setTimeout(initAllAccordions, 50);
+		});
 	});
 </script>
 

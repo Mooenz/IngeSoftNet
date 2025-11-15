@@ -1,6 +1,7 @@
 ---
 import CarruselClients from '@components/CarruselClients.astro';
-import ImgHero from '@public/images/oficinas-de-ingesoftnet.jpg';
+import ImgHero from '@assets/oficinas-de-ingesoftnet.jpg';
+import ImgHeroSm from '@assets/oficinas-de-ingesoftnet-sm.jpg';
 import { Image } from 'astro:assets';
 ---
 
@@ -14,8 +15,8 @@ import { Image } from 'astro:assets';
 	<!-- background -->
 	<div class="absolute inset-0 -z-10 before:content-[''] before:absolute before:inset-0 before:bg-[url('/src/assets/noise.png')] bg-cover bg-center after:content-[''] after:opacity-55 after:absolute after:inset-0 after:bg-black after:z-0">
 		<picture>
-			<!-- <source media="(min-width: 515px)" srcset="" width="1290" height="515" /> -->
-			<Image src={ImgHero} class="w-full h-full object-cover grayscale-40" title="Imagen de fondo ingesoftnet" width="2000" height="1125" alt="Banner principal" loading="eager" />
+			<source media="(min-width: 515px)" srcset={ImgHeroSm.src} width="960" height="641" />
+			<Image src={ImgHero} class="w-full h-full object-cover grayscale-40" title="Imagen de fondo ingesoftnet" width="1280" height="854" alt="Banner principal" loading="eager" fetchpriority="high" decoding="async" />
 		</picture>
 	</div>
 </section>

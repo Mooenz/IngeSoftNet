@@ -2,7 +2,6 @@
 import Menu from '@sections/Menu.astro';
 import Footer from '@sections/Footer.astro';
 import ButtonLateral from '@components/ButtonLateral.astro';
-// import ogImage from '/images/og-image.jpg';
 import '@styles/global.css';
 export interface Props {
 	title: string;
@@ -10,11 +9,8 @@ export interface Props {
 	keywords?: string;
 }
 
-const base = import.meta.env.BASE_URL;
-
 const { title, description, keywords } = Astro.props;
 const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
-const siteOrigin = new URL('/', canonicalUrl).origin;
 ---
 
 <!DOCTYPE html>

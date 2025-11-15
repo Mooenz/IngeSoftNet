@@ -21,7 +21,7 @@ import videoSrc from '/video/cta-background.mp4';
 
 			<!-- Video de fondo -->
 			<div class="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden rounded-3xl">
-				<video autoplay muted loop class="w-full h-full object-cover opacity-75 pointer-events-none scale-120">
+				<video autoplay muted loop class="w-full h-full object-cover opacity-75 pointer-events-none scale-120" preload="metadata" playsinline>
 					<source src={videoSrc} type="video/mp4" />
 					Tu navegador no soporta la etiqueta de video.
 				</video>

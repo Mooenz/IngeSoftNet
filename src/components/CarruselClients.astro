@@ -10,7 +10,7 @@ import { Image } from 'astro:assets';
 			{
 				clientes.map(({ name, logo, height, width }) => (
 					<div class="swiper-slide">
-						<Image class="max-w-[160px] max-h-[60px] object-contain image" src={logo} alt={`Imagen logo de ${name}`} height={height} width={width} title={`Logo de ${name}`} loading="lazy" />
+						<Image class="max-w-[100px] max-h-[50px] object-contain image" src={logo} alt={`Imagen logo de ${name}`} height={height} width={width} title={`Logo de ${name}`} loading="lazy" />
 					</div>
 				))
 			}
@@ -24,30 +24,67 @@ import { Image } from 'astro:assets';
 	import 'swiper/css';
 
 	document.addEventListener('DOMContentLoaded', () => {
-		new Swiper('#clientesSwiper', {
+		const swiperContainer = document.querySelector('#hero-carrusel');
+		const swiperElement = document.querySelector('#clientesSwiper');
+
+		// Ensure the element is an HTMLElement before passing to Swiper
+		if (!(swiperElement instanceof HTMLElement)) return;
+
+		const clientesSwiper = new Swiper(swiperElement, {
 			modules: [Autoplay, FreeMode],
 			slidesPerView: 'auto',
-			spaceBetween: 50,
+			spaceBetween: 60,
 			loop: true,
 			freeMode: {
 				enabled: true,
 				sticky: false,
 			},
 			autoplay: {
-				delay: 0,
+				pauseOnMouseEnter: false,
 				disableOnInteraction: false,
 			},
-			speed: 12000,
+			speed: 10000,
 			simulateTouch: false,
 			allowTouchMove: false,
 		});
+
+		// const swiperWrapper = clientesSwiper.wrapperEl;
+		// let transformValue;
+
+		// // Mouse enter
+		// swiperWrapper.addEventListener('mouseenter', function () {
+		// 	clientesSwiper.autoplay.stop();
+
+		// 	// Recordar la traducción original que Swiper quería alcanzar
+		// 	transformValue = this.style.transform;
+
+		// 	// Establecer la duración de transición a cero
+		// 	this.style.transitionDuration = '0ms';
+
+		// 	// Fijar la posición actual del wrapper
+		// 	this.style.transform = 'translate3d(' + clientesSwiper.getTranslate() + 'px, 0px, 0px)';
+		// });
+
+		// // Mouse leave
+		// swiperWrapper.addEventListener('mouseleave', function () {
+		// 	// Restaurar la duración de transición original
+		// 	this.style.transitionDuration = clientesSwiper.params.speed + 'ms';
+
+		// 	// Devolver el destino original
+		// 	this.style.transform = transformValue;
+
+		// 	// Reiniciar autoplay
+		// 	clientesSwiper.autoplay.start();
+		// });
 	});
 </script>
 
 <style>
 	.swiper-wrapper {
-		transition-timing-function: linear !important;
+		--swiper-wrapper-transition-timing-function: linear !important;
 		align-items: center;
+		transition-duration: 7000ms !important;
+		transition-delay: initial !important;
 	}
 
 	.swiper-slide {
@@ -55,9 +92,6 @@ import { Image } from 'astro:assets';
 		width: -moz-fit-content !important;
 		width: fit-content !important;
 		transition: filter 0.3s ease-in-out;
-	}
-
-	.image {
 	}
 
 	.swiper-wrapper:hover > :not(:hover) {

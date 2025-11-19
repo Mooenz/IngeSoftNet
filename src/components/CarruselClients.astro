@@ -1,6 +1,5 @@
 ---
 import clientes from '@constants/clients.js';
-// Traemos todas las imagenes de logos de clientes desde la carpeta public
 import { Image } from 'astro:assets';
 ---
 
@@ -10,7 +9,7 @@ import { Image } from 'astro:assets';
 			{
 				clientes.map(({ name, logo, height, width }) => (
 					<div class="swiper-slide">
-						<Image class="max-w-[100px] max-h-[50px] object-contain image" src={logo} alt={`Imagen logo de ${name}`} height={height} width={width} title={`Logo de ${name}`} loading="lazy" />
+						<Image class="max-w-[150px] max-h-[60px] object-contain image" src={logo} alt={`Imagen logo de ${name}`} height={height} width={width} title={`Logo de ${name}`} loading="lazy" />
 					</div>
 				))
 			}
@@ -24,7 +23,7 @@ import { Image } from 'astro:assets';
 	import 'swiper/css';
 
 	document.addEventListener('DOMContentLoaded', () => {
-		const swiperContainer = document.querySelector('#hero-carrusel');
+		// const swiperContainer = document.querySelector('#hero-carrusel');
 		const swiperElement = document.querySelector('#clientesSwiper');
 
 		// Ensure the element is an HTMLElement before passing to Swiper
@@ -34,8 +33,9 @@ import { Image } from 'astro:assets';
 			modules: [Autoplay, FreeMode],
 			slidesPerView: 'auto',
 			spaceBetween: 60,
+			centeredSlides: true,
+			centerInsufficientSlides: true,
 			loop: true,
-			autoHeight: true,
 			freeMode: {
 				enabled: true,
 				sticky: false,
@@ -44,7 +44,7 @@ import { Image } from 'astro:assets';
 				pauseOnMouseEnter: false,
 				disableOnInteraction: false,
 			},
-			speed: 10000,
+			speed: 12000,
 			simulateTouch: false,
 			allowTouchMove: false,
 		});
@@ -82,10 +82,8 @@ import { Image } from 'astro:assets';
 
 <style>
 	.swiper-wrapper {
-		--swiper-wrapper-transition-timing-function: linear !important;
+		transition-timing-function: linear !important;
 		align-items: center;
-		transition-duration: 7000ms !important;
-		transition-delay: initial !important;
 	}
 
 	.swiper-slide {

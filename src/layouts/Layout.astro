@@ -2,7 +2,12 @@
 import Menu from '@sections/Menu.astro';
 import Footer from '@sections/Footer.astro';
 import ButtonLateral from '@components/ButtonLateral.astro';
+
+import '@styles/rounded-regular.css';
+import '@styles/rounded-thin.css';
+// import '@styles/fonts.css';
 import '@styles/global.css';
+
 export interface Props {
 	title: string;
 	description?: string;
@@ -28,6 +33,14 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 		<meta name="msapplication-name" content="IngeSoftNet" />
 		<meta name="msapplication-tooltip" content="IngeSoftNet - Más que un servicio, somos una solución" />
 		<meta name="msapplication-config" content="/icons/browserconfig.xml" />
+
+		<!-- Fuente -->
+		<!-- <link rel="preload" href={Fonts} as="style" /> -->
+		<!-- <link rel="stylesheet" href={Fonts} /> -->
+
+		<!-- Iconos -->
+		<!-- <link rel="stylesheet" href={IconsRegular} /> -->
+		<!-- <link rel="stylesheet" href={IconsThin} /> -->
 
 		<!-- SEO Meta Tags -->
 		<title>{title}</title>

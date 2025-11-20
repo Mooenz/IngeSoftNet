@@ -1,10 +1,4 @@
 @import 'tailwindcss';
-@import '@/styles/rounded-regular.css';
-@import '@/styles/rounded-thin.css';
-@import '@/styles/fonts.css';
-@import 'swiper/css';
-@import 'swiper/css/navigation';
-@import 'swiper/css/pagination';
 
 /* Colores personalizados Tailwind*/
 @theme {

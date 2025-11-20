@@ -1,9 +1,12 @@
 ---
 import TitleMain from '@components/TitleMain.astro';
 import GeneralSection from '@components/GeneralSection.astro';
-import 'photoswipe/style.css';
 import imagesArray from '@constants/gallery.js';
 import { Image } from 'astro:assets';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'photoswipe/style.css';
 ---
 
 <GeneralSection autoHeight>
@@ -16,7 +19,7 @@ import { Image } from 'astro:assets';
 				{
 					imagesArray.map(({ src, width, height, alt, title }) => (
 						<div class="swiper-slide hover-image">
-							<figure class="h-30 w-30 lg:h-60 lg:w-60 xl:w-73 xl:h-73 rounded-lg lg:rounded-[40px] image shadow-sm">
+							<figure class="h-30 w-30 lg:h-60 lg:w-60 xl:w-73 xl:h-73 rounded-lg lg:rounded-4xl image shadow-sm">
 								<a href={src.src} data-pswp-width={width} data-pswp-height={height} title={title} data-cropped="true" data-med-src={src} data-med-width={width} data-med-height={height} target="_blank" rel="noopener noreferrer">
 									<Image src={src} alt={alt} class="w-full h-auto" width={width} height={height} loading="lazy" title={title} />
 								</a>
@@ -27,8 +30,13 @@ import { Image } from 'astro:assets';
 			</div>
 
 			<!-- Si deseas agregar navegación -->
-			<div class="swiper-button-next"></div>
-			<div class="swiper-button-prev"></div>
+			<button class="swiper-button-prev">
+				<i class="fi fi-rr-angle-small-left"></i>
+			</button>
+			<button class="swiper-button-next">
+				<i class="fi fi-rr-angle-small-right"></i>
+			</button>
+
 			<div class="swiper-pagination"></div>
 		</div>
 	</div>
@@ -37,7 +45,6 @@ import { Image } from 'astro:assets';
 <script>
 	import Swiper from 'swiper';
 	import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-	import 'swiper/css';
 	import PhotoSwipeLightbox from 'photoswipe/lightbox';
 
 	document.addEventListener('DOMContentLoaded', () => {
@@ -100,10 +107,6 @@ import { Image } from 'astro:assets';
 		transform: scale(1);
 	}
 
-	.swiper-button-prev,
-	.swiper-button-next {
-	}
-
 	.swiper-button-next,
 	.swiper-button-prev {
 		z-index: 100;
@@ -122,6 +125,7 @@ import { Image } from 'astro:assets';
 			color 0.3s ease-in-out;
 
 		svg {
+			display: none;
 			width: 16px;
 			height: 16px;
 		}

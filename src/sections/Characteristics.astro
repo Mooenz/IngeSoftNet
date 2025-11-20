@@ -2,10 +2,7 @@
 import TitleMain from '@components/TitleMain.astro';
 import GeneralContainer from '@components/GeneralContainer.astro';
 import GeneralSection from '@components/GeneralSection.astro';
-import benefits1 from '@assets/benefits/solución-integral-y-certificada.jpg';
-import benefits2 from '@assets/benefits/implementación-sin-fricciones.jpg';
-import benefits3 from '@assets/benefits/soporte-técnico-cercano-y-resolutivo.jpg';
-import benefits4 from '@assets/benefits/crecimiento-empresarial-seguro.jpg';
+import benefitsGroup from '@assets/benefitsGroup.webp';
 import { Image } from 'astro:assets';
 ---
 
@@ -16,45 +13,45 @@ import { Image } from 'astro:assets';
 		<!-- Características -->
 		<div class="flex flex-col lg:flex-row justify-center items-center gap-10 lg:h-[480px]">
 			<!-- Left features -->
-			<div class="flex flex-col gap-10 max-w-[360px] h-full">
-				<div class="h-full group rounded-[40px] text-center">
+			<div class="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-col gap-6 md:gap-10 max-w-[360px] md:max-w-full lg:max-w-[360px] h-full">
+				<div class="h-full group rounded-4xl text-center">
 					<i class="fi fi-tr-table-tree before:z-10 relative flex justify-center items-center mx-auto w-12 h-12 mb-4 lg:mb-6 text-3xl text-primary group-hover:[transform:rotateY(360deg)] transform transition-all duration-1000 ease-in-out after:content-[''] after:transition-all after:ease-in-out after:duration-300 after:absolute after:w-full after:h-full after:top-[50%] after:left-[50%] after:translate-x-[-50%] after:translate-y-[-50%] after:rounded-full after:z-0"></i>
 					<div>
-						<h3 class="font-bold mb-4 text-2xl">Solución Integral y certificada</h3>
-						<p>Somos distribuidores autorizados de SySCafé.</p>
+						<h3 class="font-bold mb-4 text-xl md:text-2xl">Solución Integral y certificada</h3>
+						<p>Somos distribuidores autorizados de SySCafé en la zonas de chocó y antioquia.</p>
 					</div>
 				</div>
 
-				<div class="h-full group rounded-[40px] text-center">
+				<div class="h-full group rounded-4xl text-center">
 					<i class="fi fi-tr-it-alt before:z-10 relative flex justify-center items-center mx-auto w-12 h-12 mb-4 lg:mb-6 text-3xl text-primary group-hover:[transform:rotateY(360deg)] transform transition-all duration-1000 ease-in-out after:content-[''] after:transition-all after:ease-in-out after:duration-300 after:absolute after:w-full after:h-full after:top-[50%] after:left-[50%] after:translate-x-[-50%] after:translate-y-[-50%] after:rounded-full after:z-0"></i>
 					<div>
-						<h3 class="font-bold mb-4 text-2xl">Implementación sin fricciones</h3>
+						<h3 class="font-bold mb-4 text-xl md:text-2xl">Implementación sin fricciones</h3>
 						<p>Garantiza una puesta en marcha segura y efectiva del software SySCafé.</p>
 					</div>
 				</div>
 			</div>
 
 			<!-- Center image -->
-			<div class="flex justify-center h-full">
-				<figure class="w-64 sm:w-72 lg:w-96 xl:w-[480px] rounded-[40px] overflow-hidden aspect-square">
-					<Image id="feature-image" src={benefits1} alt="Vista característica de IngeSoftNet" class="w-full h-full object-cover transition-opacity duration-500 ease-in-out" title="Imagen característica de IngeSoftNet" style="object-position: 92% center;" />
+			<div class="flex justify-center h-full order-1 lg:order-none">
+				<figure class="w-full max-w-[500px] md:max-w-full sm:w-96 lg:w-96 xl:w-[480px] rounded-3xl lg:rounded-4xl overflow-hidden aspect-square">
+					<Image id="feature-image" src={benefitsGroup} alt="Vista característica de IngeSoftNet" class="w-full h-full object-contain transition-opacity duration-500 ease-in-out" title="Imagen característica de IngeSoftNet" width={960} height={730} loading="lazy" />
 				</figure>
 			</div>
 
 			<!-- Right features -->
-			<div class="flex flex-col gap-10 max-w-[360px] h-full">
-				<div class="h-full group rounded-[40px] text-center">
+			<div class="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-col gap-6 md:gap-10 max-w-[360px] md:max-w-full lg:max-w-[360px] h-full">
+				<div class="h-full group rounded-4xl text-center">
 					<i class="fi fi-tr-customer-service before:z-10 relative flex justify-center items-center mx-auto w-12 h-12 mb-4 lg:mb-6 text-3xl text-primary group-hover:[transform:rotateY(360deg)] transform transition-all duration-1000 ease-in-out after:content-[''] after:transition-all after:ease-in-out after:duration-300 after:absolute after:w-full after:h-full after:top-[50%] after:left-[50%] after:translate-x-[-50%] after:translate-y-[-50%] after:rounded-full after:z-0"></i>
 					<div>
-						<h3 class="font-bold mb-4 text-2xl">Soporte de calidad y resolutivo</h3>
+						<h3 class="font-bold mb-4 text-xl md:text-2xl">Soporte de calidad y resolutivo</h3>
 						<p>Resuelve sus dudas de forma inmediata y cuando más lo necesita.</p>
 					</div>
 				</div>
 
-				<div class="h-full group rounded-[40px] text-center">
+				<div class="h-full group rounded-4xl text-center">
 					<i class="fi fi-tr-restock before:z-10 relative flex justify-center items-center mx-auto w-12 h-12 mb-4 lg:mb-6 text-3xl text-primary group-hover:[transform:rotateY(360deg)] transform transition-all duration-1000 ease-in-out after:content-[''] after:transition-all after:ease-in-out after:duration-300 after:absolute after:w-full after:h-full after:top-[50%] after:left-[50%] after:translate-x-[-50%] after:translate-y-[-50%] after:rounded-full after:z-0"></i>
 					<div>
-						<h3 class="font-bold mb-4 text-2xl">Crecimiento empresarial seguro</h3>
+						<h3 class="font-bold mb-4 text-xl md:text-2xl">Crecimiento empresarial seguro</h3>
 						<p>Impulsa su gestión administrativa y contable con un software robusto.</p>
 					</div>
 				</div>

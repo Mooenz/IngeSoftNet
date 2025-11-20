@@ -8,16 +8,9 @@ interface Props {
 const { href, title } = Astro.props;
 ---
 
-<a
-	href={href}
-	title={title}
-	target="_blank"
-	rel="noopener noreferrer"
-	class="enlace inline-flex items-center justify-center gap-2 rounded-[40px] px-3.5 py-2 pl-2 text-xs bg-text text-white transition-colors hover:bg-primary"
->
+<a href={href} title={title} target="_blank" rel="noopener noreferrer" class="enlace inline-flex items-center justify-center gap-2 rounded-4xl px-3.5 py-2 pl-2 text-xs bg-text text-white transition-colors hover:bg-primary">
 	<div class="icono w-6 h-6 inline-flex items-center justify-center rounded-[20px] bg-white text-text text-xs">
 		<i class="fi fi-rr-link"></i>
 	</div>
 	<p class="m-0"><slot /></p>
 </a>
-

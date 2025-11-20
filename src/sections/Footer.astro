@@ -1,28 +1,28 @@
 ---
 import GeneralContainer from '@components/GeneralContainer.astro';
 import { Image } from 'astro:assets';
-import imagenTipo from '@assets/persona.png';
-import imagenTipo1 from '@assets/persona1.png';
-import imagenSoporte from '@assets/oficina.jpg';
-import imagenSoporte1 from '@assets/oficina1.jpg';
+import imagenTipo from '@assets/persona.webp';
+import imagenTipo1 from '@assets/persona1.webp';
+import imagenSoporte from '@assets/oficina.webp';
+import imagenSoporte1 from '@assets/oficina1.webp';
 import LogoFacebook from '@assets/icons/logo-facebook.astro';
 import LogoInstagram from '@assets/icons/logo-instagram.astro';
 import LogoYouTube from '@assets/icons/logo-youtube.astro';
 import Audio from '/audio/ingesoftnet.mp3';
 import Link from '@components/Link.astro';
+import('plyr/dist/plyr.css');
 ---
 
 <!-- -->
 <footer class="pt-6 lg:pt-10 bg-text relative before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-[150px] before:bg-white before:-z-0">
 	<GeneralContainer>
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
-			<div class="relative overflow-hidden rounded-[40px] shadow-sm h-[200px] w-full flex flex-col justify-between bg-no-repeat bg-cover bg-right p-4 md:p-5 lg:pl-10 lg:pt-10 group">
-				<div class="max-w-[300px] relative z-10 before:content-[''] before:absolute before:-top-50 before:-left-50 before:w-[550px] before:h-[550px] before:bg-[#00d6a9] before:rounded-[40px] before:rotate-45 before:-z-10">
-					<hgroup>
-						<p class="text-2xl font-bold text-white">Su confianza es nuestro mayor activo</p>
-						<!-- <p class="text-lg mt-2 opacity-90 text-text">Distribuidor autorizado del software Syscafé en Antioquia y Chocó.</p> -->
-					</hgroup>
-				</div>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+			<div class="relative overflow-hidden rounded-3xl lg:rounded-4xl shadow-sm md:h-[200px] w-full flex flex-col justify-between bg-no-repeat bg-cover bg-right p-4 md:p-5 lg:pl-10 lg:pt-10 group z-10">
+				<div class="relative z-10 before:content-[''] before:absolute before:-top-50 before:-left-50 before:w-[550px] before:h-[550px] before:bg-[#00d6a9] before:rounded-3xl lg:before:rounded-4xl before:rotate-45 before:-z-10"></div>
+				<hgroup class="relative max-w-[300px] z-100 mb-4">
+					<span class="text-xl lg:text-2xl font-bold text-white">Su confianza es nuestro mayor activo</span>
+					<!-- <p class="text-lg mt-2 opacity-90 text-text">Distribuidor autorizado del software Syscafé en Antioquia y Chocó.</p> -->
+				</hgroup>
 				<audio controls id="audio-player" controlslist="nodownload noplaybackrate" aria-describedby="trans-audio">
 					<source src={Audio} type="audio/mpeg" />
 					Tu navegador no soporta el audio.
@@ -36,16 +36,17 @@ import Link from '@components/Link.astro';
 					</div>
 				</div>
 
-				<Image src={imagenTipo1} alt="Imagen de una mujer que invita a dar click" title="Confía en nosotros" class="absolute w-50 h-auto object-contain bottom-0 right-10 z-10" />
+				<Image src={imagenTipo1} alt="Imagen de una mujer que invita a dar click" title="Confía en nosotros" class="absolute w-40 md:w-50 h-auto object-contain bottom-0 right-0 lg:right-10 z-10" width={400} height={400} loading='lazy' />
 
-				<Image src={imagenSoporte1} alt="Imagen fondo de oficina IngeSoftNet" title="Imagen ejemplo de oficina IngeSoftNet" class="absolute w-full h-full object-cover inset-0 -z-0 pointer-events-auto blur-xs" />
+				<Image src={imagenSoporte1} alt="Imagen fondo de oficina IngeSoftNet" title="Imagen ejemplo de oficina IngeSoftNet" class="absolute w-full h-full object-cover inset-0 -z-100 pointer-events-auto blur-xs" width={495} height={330} loading='lazy' />
 			</div>
 
 			<!-- Tarjeta SysCafe -->
 			<a href="https://syscafe.com/oferta-laboral-externa/" target="_blank" rel="noopener noreferrer" class="block w-full relative z-10 group" title="Oferta laboral con SysCafé">
-				<div class="shadow-sm relative rounded-[40px] overflow-hidden z-100 h-[200px] before:content-[''] before:absolute before:-top-50 before:-left-50 before:w-[550px] before:h-[550px] before:bg-accent before:rounded-[40px] before:rotate-45 before:-z-10 p-4 md:p-5 lg:pl-10 lg:pt-10">
-					<div class="max-w-[300px] text-white">
-						<span class="text-2xl font-bold text-balance mb-4 block">Crea su oferta laboral con SysCafé</span>
+				<div class="shadow-sm relative rounded-3xl lg:rounded-4xl overflow-hidden z-100 md
+				md:h-[200px] before:content-[''] before:absolute before:-top-50 before:-left-50 before:w-[550px] before:h-[550px] before:bg-accent before:rounded-3xl lg:before:rounded-4xl before:rotate-45 before:-z-10 p-4 md:p-5 lg:pl-10 lg:pt-10">
+					<div class="relative max-w-[300px] text-white z-100">
+						<span class="text-xl lg:text-2xl font-bold text-balance mb-4 block">Crea su oferta laboral con SysCafé</span>
 						<!-- <p class="text-lg mt-2 opacity-90 text-white">Publica tu oferta laboral y llega a más candidatos.</p> -->
 					</div>
 
@@ -53,9 +54,9 @@ import Link from '@components/Link.astro';
 						<i class="fi fi-tr-arrow-small-right text-4xl text-gray-400 group-hover:text-text transition-all duration-300 ease-in-out"></i>
 					</div>
 
-					<Image src={imagenTipo} alt="Imagen de un hombre que invita a dar click" title="Crea tu oferta laboral con Syscafé" class="absolute w-50 h-auto object-contain bottom-0 right-10 z-10" />
+					<Image src={imagenTipo} alt="Imagen de un hombre que invita a dar click" title="Crea tu oferta laboral con Syscafé" class="absolute w-40 md:w-50 h-auto object-contain bottom-0 right-0 lg:right-10 z-10" width={400} height={400} loading='lazy' />
 
-					<Image src={imagenSoporte} alt="Imagen oficina IngeSoftNet" title="Oficina IngeSoftNet" class="absolute w-full h-full object-cover inset-0 -z-100 pointer-events-auto blur-xs" />
+					<Image src={imagenSoporte} alt="Imagen oficina IngeSoftNet" title="Oficina IngeSoftNet" class="absolute w-full h-full object-cover inset-0 -z-100 pointer-events-auto blur-xs" width={495} height={330} loading='lazy' />
 				</div>
 			</a>
 		</div>
@@ -63,7 +64,7 @@ import Link from '@components/Link.astro';
 
 	<section class="py-8 lg:py-20">
 		<GeneralContainer>
-			<div class="flex gap-6 justify-between items-center flex-wrap">
+			<div class="footer_container flex flex-col gap-6 justify-between md:flex-row md:items-center md:flex-wrap">
 				<a class="text-lg group" href="https://maps.app.goo.gl/XtgkYsfhPsopHUyLA" target="_blank" rel="noopener noreferrer" title="Ver ubicación en Google Maps">
 					<h2 class="m-0 text-sm text-white">Dirección</h2>
 					<div class="flex gap-2 items-center">
@@ -108,16 +109,16 @@ import Link from '@components/Link.astro';
 	</section>
 
 	<GeneralContainer>
-		<section class="pt-8 pb-6 border-t border-white/10 text-gray-400">
-			<div class="flex justify-between items-center gap-2 flex-wrap">
-				<p class="m-0">IngeSoftNet © 2025. Todos los derechos reservados.</p>
+		<section class="py-8 border-t border-white/10 text-gray-400">
+			<div class="footer_container center flex lg:justify-between items-center gap-4 xl:gap-6 flex-wrap text-center justify-center">
+				<p class="m-0 text-center order-1 lg:order-0">IngeSoftNet © 2025. Todos los derechos reservados.</p>
 
-				<a href="https://mooenz.me" title="Enlace a www.mooenz.me" class="group py-1 px-4 transition ease-in-out" target="_blank" rel="noopener noreferrer">
+				<a href="https://mooenz.me" title="Enlace a www.mooenz.me" class="group transition ease-in-out order-2 lg:order-1 w-full md:w-auto" target="_blank" rel="noopener noreferrer">
 					Desarrollado por
 					<strong class="transition-colors duration-300 group-hover:text-accent"> Mooenz </strong>
 				</a>
 
-				<div class="flex gap-6 flex-wrap items-center">
+				<div class="flex gap-4 xl:gap-6 flex-wrap items-center justify-center order-0 lg:order-2">
 					<Link href="/politica-de-privacidad" title="Enlace a la política de privacidad" class="animation-link">
 						<p class="m-0">Política de privacidad</p>
 					</Link>
@@ -132,8 +133,6 @@ import Link from '@components/Link.astro';
 </footer>
 
 <script>
-	import('plyr/dist/plyr.css');
-
 	document.addEventListener('DOMContentLoaded', async () => {
 		try {
 			const { default: Plyr } = await import('plyr');
@@ -273,5 +272,16 @@ import Link from '@components/Link.astro';
 
 	.plyr.plyr--audio .plyr__controls .plyr__controls__item.plyr__time[aria-label='Current time'] {
 		width: 38px;
+	}
+
+	@media (max-width: 1110px) {
+		.footer_container {
+			max-width: 768px;
+			margin: 0 auto;
+		}
+
+		.center {
+			justify-content: center;
+		}
 	}
 </style>

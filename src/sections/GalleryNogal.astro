@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import GeneralSection from '@components/GeneralSection.astro';
 import GeneralContainer from '@components/GeneralContainer.astro';
 import Button from '@components/Button.astro';
-import imgEjemplo from '@assets/ejemplo.png';
 import TitleMain from '@components/TitleMain.astro';
 
 // Importamos imágenes de la galería
@@ -145,14 +144,17 @@ import img15 from '@assets/bosque-nagal/img15.jpg';
 	import PhotoSwipeLightbox from 'photoswipe/lightbox';
 	import 'photoswipe/style.css';
 
-	if (typeof window !== 'undefined') {
-		const lightbox = new PhotoSwipeLightbox({
-			gallery: '#galleryImages',
-			children: 'a',
-			pswpModule: () => import('photoswipe'),
-		});
-		lightbox.init();
-	}
+	document.addEventListener('DOMContentLoaded', () => {
+		// Inicializar PhotoSwipe Lightbox
+		if (typeof window !== 'undefined') {
+			const lightbox = new PhotoSwipeLightbox({
+				gallery: '#galleryImages',
+				children: 'a',
+				pswpModule: () => import('photoswipe'),
+			});
+			lightbox.init();
+		}
+	});
 </script>
 
 <style>

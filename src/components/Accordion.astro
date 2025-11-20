@@ -12,7 +12,7 @@ const { idElement = 'accordion' } = Astro.props;
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
-		function initAccordion(accordionId: string) {
+		function initAccordion(accordionId) {
 			const IDELEMENT = document.getElementById(accordionId);
 
 			if (!IDELEMENT) {
@@ -42,7 +42,7 @@ const { idElement = 'accordion' } = Astro.props;
 			}
 
 			headers.forEach((header) => {
-				const handleClick = function (this: HTMLElement) {
+				const handleClick = function () {
 					const item = this.parentElement;
 					if (!item) return;
 					const content = item.querySelector('.accordion-content');

@@ -5,14 +5,14 @@ import Button from '@components/Button.astro';
 import videoSrc from '/video/cta-background.mp4';
 ---
 
-<GeneralSection style='padding-bottom: 0;'>
+<GeneralSection style="padding-bottom: 0;">
 	<GeneralContainer>
-		<div class="relative z-1 rounded-[40px] text-text bg-primary-light p-6 py-12 lg:p-12 lg:py-16 text-center mx-4 lg:mx-0 after:absolute after:content[''] after:inset-0 after:bg-gradient-to-r after:from-primary-dark after:via-primary after:to-primary-dark after:opacity-40 after:-z-10 after:rounded-[40px] overflow-hidden">
+		<div class="relative z-1 rounded-3xl lg:rounded-4xl text-text bg-primary-light p-6 py-8 lg:p-12 lg:py-16 text-center lg:mx-0 after:absolute after:content[''] after:inset-0 after:bg-gradient-to-r after:from-primary-dark after:via-primary after:to-primary-dark after:opacity-40 after:-z-10 after:rounded-3xl lg:after:rounded-4xl overflow-hidden">
 			<div class="max-w-5xl mx-auto">
 				<p class="text-[clamp(24px,4vw,48px)] font-bold leading-[1.2em] tracking-[0.01em]">Descubre IngeSoftNet hoy mismo</p>
-				<p class="text-[clamp(16px,4vw,18px)] leading-[1.6em] mt-4">Contáctenos y descubre cómo IngeSoftNet puede transformar sus procesos contables con soluciones personalizadas y soporte especializado.</p>
+				<p class="text-base lg:text-lg mt-4">Contáctenos y descubre cómo IngeSoftNet puede transformar sus procesos contables con soluciones personalizadas y soporte especializado.</p>
 				<div class="mt-10">
-					<Button anchor link="/IngeSoftNet/contacto" size="md" variants="primary" title="Enlace a Contáctenos" className={'mx-auto'}>
+					<Button anchor link="/contacto" size="md" variants="primary" title="Enlace a Contáctenos" className={'mx-auto'}>
 						<span>Conversemos</span>
 						<i class="fi fi-rr-arrow-small-right" aria-hidden="true"></i>
 					</Button>
@@ -29,7 +29,7 @@ import videoSrc from '/video/cta-background.mp4';
 		</div>
 	</GeneralContainer>
 </GeneralSection>
-<style is:inline>
+<style>
 	/* Asegura que el video de fondo no interfiera con el contenido */
 	video {
 		mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 0) 80%);

@@ -1,7 +1,8 @@
 ---
 import CarruselClients from '@components/CarruselClients.astro';
-import ImgHero from '@assets/oficinas-de-ingesoftnet.jpg';
-import ImgHeroSm from '@assets/oficinas-de-ingesoftnet-sm.jpg';
+import ImgHero from '@assets/oficinas-de-ingesoftnet.webp';
+import ImgHeroSm from '@assets/oficinas-de-ingesoftnet-sm.webp';
+import ImgHeroMd from '@assets/oficinas-de-ingesoftnet-md.webp';
 import { Image } from 'astro:assets';
 ---
 
@@ -13,15 +14,16 @@ import { Image } from 'astro:assets';
 	<CarruselClients />
 
 	<!-- background -->
-	<div class="absolute inset-0 -z-10 before:content-[''] before:absolute before:inset-0 before:bg-[url('/src/assets/noise.png')] bg-cover bg-center after:content-[''] after:opacity-55 after:absolute after:inset-0 after:bg-black after:z-0">
+	<div class="absolute inset-0 -z-10 before:content-[''] before:absolute before:inset-0 before:bg-[url('/src/assets/noise.webp')] bg-cover bg-center after:content-[''] after:opacity-55 after:absolute after:inset-0 after:bg-black after:z-0">
 		<picture>
-			<source media="(min-width: 515px)" srcset={ImgHeroSm.src} width="960" height="641" />
-			<Image src={ImgHero} class="w-full h-full object-cover grayscale-40" title="Imagen de fondo ingesoftnet" width="1280" height="854" alt="Banner principal" loading="eager" fetchpriority="high" decoding="async" />
+			<source media="(min-width: 1024px)" srcset={ImgHero.src} width="1920" height="1281" />
+			<source media="(min-width: 768px)" srcset={ImgHeroMd.src} width="960" height="641" />
+			<Image src={ImgHeroSm} class="w-full h-full object-cover grayscale-40" title="Imagen de fondo ingesoftnet" width="674" height="450" alt="Banner principal" loading="eager" fetchpriority="high" decoding="async" />
 		</picture>
 	</div>
 </section>
 
-<script>
+<!-- <script>
 	// Importamos gsap
 	import { gsap } from 'gsap';
 	import { SplitText } from 'gsap/SplitText';
@@ -75,4 +77,4 @@ import { Image } from 'astro:assets';
 			ease: 'power4.out',
 		});
 	});
-</script>
+</script> -->

@@ -3,26 +3,27 @@ import GeneralContainer from '@components/GeneralContainer.astro';
 import GeneralSection from '@components/GeneralSection.astro';
 import servicesGet from '@constants/services.js';
 import Button from '@components/Button.astro';
+import { Image } from 'astro:assets';
 const services = [...servicesGet, ...servicesGet];
 ---
 
 <GeneralSection idElement="servicios">
 	<GeneralContainer large>
 		<h2 class="sr-only" aria-label="Servicios">Servicios</h2>
-		<div class="lg:grid lg:grid-cols-2 gap-6 items-center hover-image noZoom">
-			<div class="ms-6 lg:ms-8">
+		<div class="md:grid md:grid-cols-2 gap-6 items-center hover-image noZoom">
+			<div class="md:px-0 lg:ms-6 xl:ms-8 mb-6 md:mb-0">
 				<div class="swiper" id="serviciosTextoSwiper">
 					<div class="swiper-wrapper">
 						{
 							services.map(({ title, description, category }) => (
-								<div class="swiper-slide group pl-2">
-									<div class="max-w-3xl">
+								<div class="swiper-slide group px-4 md:px-0 md:pl-2">
+									<div class="max-w-3xl text-center md:text-start">
 										<span class="block text-primary uppercase font-bold mb-2 mx-auto rounded-full">{category}</span>
 										<h3 class="title-main text-[clamp(24px,4vw,55px)] font-bold leading-[1.1em] tracking-[0.01em] relative pt-2 lg:pt-6">{title}</h3>
 										<p class="text-[clamp(18px,4vw,20px)] leading-[1.6em] mt-4 lg:mt-6 text-[#4C5E6E]">{description}</p>
 									</div>
 									<div class="mt-6 lg:mt-10 pb-2">
-										<Button anchor link="/IngeSoftNet/contacto" size="md" variants="primary" title="Enlace a Contáctenos">
+										<Button className="mx-auto md:mx-0" anchor link="/contacto" size="md" variants="primary" title="Enlace a Contáctenos">
 											Iniciar ahora
 										</Button>
 									</div>
@@ -37,10 +38,12 @@ const services = [...servicesGet, ...servicesGet];
 				<div class="swiper imageSwiper" id="serviciosImageSwiper">
 					<div class="swiper-wrapper">
 						{
-							services.map(({ title, image, width, height }) => (
-								<div class="swiper-slide">
-									<picture class="flex justify-end items-center object-cover rounded-xl lg:rounded-[0] lg:rounded-s-3xl 2xl:rounded-3xl lg:w-full lg:h-full overflow-hidden max-w-[720px] sm:w-30 sm:h-30 w-24 h-24 mx-auto lg:mx-0 lg:ml-auto image">
-										<img src={typeof image === 'string' ? image : image.src} alt={`Imagen de ${title}`} loading="lazy" width={width} height={height} class="w-full h-full aspect-square" title={title} />
+							services.map(({ title, image, imageSm, width, widthSm, height, heightSm }) => (
+								<div class="swiper-slide px-4 lg:px-0">
+									<picture class="flex justify-end items-center object-cover rounded-3xl lg:rounded-[0] lg:rounded-s-3xl 2xl:rounded-3xl lg:w-full lg:h-full overflow-hidden lg:max-w-[720px] max-w-[340px] mx-auto lg:mx-0 lg:ml-auto image">
+										<source media="(min-width: 768px)" srcset={image.src} width={width} height={height} />
+
+										<Image src={imageSm} alt={`Imagen de ${title}`} loading="lazy" width={widthSm} height={heightSm} class="w-full h-full aspect-square" title={title} />
 									</picture>
 								</div>
 							))
@@ -61,9 +64,6 @@ const services = [...servicesGet, ...servicesGet];
 	import 'swiper/css/autoplay';
 
 	document.addEventListener('DOMContentLoaded', () => {
-		const width = window.innerWidth;
-		let effectType = width >= 992 ? 'fade' : 'slide';
-
 		// Contar slides reales
 		const totalSlides = document.querySelectorAll('#serviciosImageSwiper .swiper-slide').length;
 		const enableLoop = totalSlides > 3; // Loop solo si hay más de 3 slides
@@ -75,7 +75,7 @@ const services = [...servicesGet, ...servicesGet];
 			loopAdditionalSlides: 1, // Ayuda con el loop
 			spaceBetween: 0,
 			slidesPerView: 1,
-			effect: effectType,
+			effect: 'fade',
 			speed: 2000,
 			allowTouchMove: false,
 			simulateTouch: false,
@@ -91,7 +91,6 @@ const services = [...servicesGet, ...servicesGet];
 			spaceBetween: 0,
 			slidesPerView: 1,
 			effect: 'creative',
-			autoHeight: true,
 			simulateTouch: true,
 			allowTouchMove: true,
 			grabCursor: true,

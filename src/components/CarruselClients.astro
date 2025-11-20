@@ -1,15 +1,17 @@
 ---
 import clientes from '@constants/clients.js';
 import { Image } from 'astro:assets';
+
+const clientesArray = [...clientes, ...clientes];
 ---
 
 <section class="py-6 lg:py-10 select-none" aria-label="Carrusel de logos de clientes" id="hero-carrusel">
 	<div class="swiper" id="clientesSwiper">
 		<div class="swiper-wrapper">
 			{
-				clientes.map(({ name, logo, height, width }) => (
+				clientesArray.map(({ name, logo, height, width }) => (
 					<div class="swiper-slide">
-						<Image class="max-w-[150px] max-h-[60px] object-contain image" src={logo} alt={`Imagen logo de ${name}`} height={height} width={width} title={`Logo de ${name}`} loading="lazy" />
+						<Image class="w-auto max-w-[150px] max-h-[60px] object-contain image" src={logo} alt={`Imagen logo de ${name}`} height={height} width={width} title={`Logo de ${name}`} loading="eager" fetchpriority="high" />
 					</div>
 				))
 			}
@@ -32,7 +34,7 @@ import { Image } from 'astro:assets';
 		const clientesSwiper = new Swiper(swiperElement, {
 			modules: [Autoplay, FreeMode],
 			slidesPerView: 'auto',
-			spaceBetween: 60,
+			spaceBetween: 100,
 			centeredSlides: true,
 			centerInsufficientSlides: true,
 			loop: true,
@@ -41,6 +43,7 @@ import { Image } from 'astro:assets';
 				sticky: false,
 			},
 			autoplay: {
+				delay: 0,
 				pauseOnMouseEnter: false,
 				disableOnInteraction: false,
 			},

@@ -3,13 +3,14 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'node:path';
 import critters from 'astro-critters';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
 	site: 'https://Mooenz.github.io',
 	base: '/IngeSoftNet/',
 	// site: 'https://ingesoftnet.com',
 	// base: '/',
-	integrations: [critters()],
+	integrations: [critters(), sitemap()],
 	vite: {
 		assetsInclude: ['**/*.zip', '**/*.rar', '**/*.7z', '**/*.tar.gz'],
 		optimizeDeps: {

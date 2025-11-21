@@ -8,10 +8,10 @@ import imageBackground from '@assets/bg-responsabilidad.png';
 
 <GeneralSection classList="bg-text relative overflow-hidden parallax-section">
 	<GeneralContainer>
-		<div class="flex flex-column md:flex-row max-w-4xl mx-auto gap-6 items-center">
+		<div class="flex flex-col md:flex-row max-w-4xl mx-auto gap-6 md:items-center">
 			<div>
 				<figure class="lg:min-w-[150px]">
-					<Image class="w-full aspect-square object-contain" src={Sello_Bosque_Nagal} width="300" height="289" title="Imagen sello Bosque Nagal" loading="lazy" alt="Sello Bosque Nagal" />
+					<Image class="w-full h-auto max-w-20 md:max-w-38 md:w-[150px] aspect-square object-contain" src={Sello_Bosque_Nagal} width="300" height="289" title="Imagen sello Bosque Nagal" loading="lazy" alt="Sello Bosque Nagal" />
 				</figure>
 			</div>
 			<div>
@@ -19,7 +19,7 @@ import imageBackground from '@assets/bg-responsabilidad.png';
 				<p class="text-white">Ser Eco Empresa significa apoyar a las familias campesinas en la siembra de árboles, conservar más de 87.500 árboles adultos y dos nacimientos hídricos en nuestro bosque. Además obtienes grandes beneficios.</p>
 			</div>
 		</div>
-		<Image src={imageBackground} alt="Background parallax sección Eco-Empresa" class="parallax-img absolute bottom-0 left-0  w-full h-[160%] z-10 object-cover opacity-[0.05]" title="Imagen background parallax sección Eco-Empresa" loading="lazy" width={1920} height={340} />
+		<Image src={imageBackground} alt="Background parallax sección Eco-Empresa" class="parallax-img absolute bottom-0 left-0 w-full h-[160%] z-10 object-cover opacity-[0.05] pointer-events-none" title="Imagen background parallax sección Eco-Empresa" loading="lazy" width={1920} height={340} />
 	</GeneralContainer>
 </GeneralSection>
 

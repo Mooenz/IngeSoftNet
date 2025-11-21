@@ -2,6 +2,8 @@
 import WhatsApp from '@assets/icons/logo-whatsApp.astro';
 import imgISL from '@assets/logo-isl.webp';
 import { Image } from 'astro:assets';
+import Modal from '@components/Modal.astro';
+
 const base = import.meta.env.BASE_URL;
 const classIcon = 'relative rounded-full flex items-center justify-center w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 shadow-md group';
 const tooltipClass =
@@ -14,7 +16,7 @@ const tooltipClass =
 		<span class={tooltipClass}> Descargar instalador ISL</span>
 	</a>
 
-	<a class={`${classIcon} bg-gray-500 text-white cursor-pointer`} title="Inicia un chat" id="islpronto_link" href="mailto:soporte@ingesoftnet.com">
+	<a class={`${classIcon} bg-gray-500 text-white cursor-pointer`} title="Inicia un chat" id="islpronto_link" href="#">
 		<i class="fi fi-rr-user-headset text-xl lg:text-3xl justify-center"></i>
 		<span class={tooltipClass}>Inicia un chat</span>
 	</a>
@@ -25,4 +27,39 @@ const tooltipClass =
 	</a>
 </div>
 
+<!-- Modal si no se tiene asesores disponibles -->
+<Modal id="modalAsesores" size="max-w-md">
+	<div slot="modal-header">
+		<hgroup class="py-4 text-center">
+			<i class="fi fi-rr-message-arrow-up-right h-15 w-15 bg-primary-light text-primary text-xl flex items-center justify-center rounded-full mx-auto mb-6"></i>
+			<p class="font-bold mb-2 text-2xl">¡Gracias por tu paciencia!</p>
+			<p class="text-lg">Nuestros asesores están atendiendo a otros usuarios, pero no tardaremos.</p>
+		</hgroup>
+	</div>
+	<div slot="modal-body">
+		<button class="flex items-center justify-center px-8 py-3 gap-3 cursor-pointer text-white bg-primary hover:bg-primary-dark rounded-full transition-all duration-300 ease-in-out mx-auto mt-6 lg:mt-10" data-modal-close>
+			<span>Cerrar</span>
+			<i class="fi fi-rr-cross-small"></i>
+		</button>
+	</div>
+</Modal>
+
 <script type="text/javascript" src="https://islpronto.islonline.net/live/islpronto/public/chat.js?d=%3aingesoftnet" defer async></script>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const islprontoLink = document.getElementById('islpronto_link');
+
+		islprontoLink.addEventListener('click', function (event) {
+			const href = islprontoLink.getAttribute('href');
+
+			if (href === '#') {
+				event.preventDefault();
+
+				// Mostrar el modal
+				const modal = document.getElementById('modalAsesores');
+				(window as any)?.modalAsesoresManager.open();
+			}
+		});
+	});
+</script>

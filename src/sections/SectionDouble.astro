@@ -4,14 +4,15 @@ import GeneralContainer from '@components/GeneralContainer.astro';
 
 export interface Props {
 	classList?: string;
+	large?: boolean;
 }
 
-const { classList } = Astro.props;
+const { classList, large } = Astro.props;
 ---
 
 <GeneralSection classList={classList}>
-	<GeneralContainer>
-		<section class="md:grid md:grid-cols-2 gap-4 md:gap-8 lg:gap-16 items-center">
+	<GeneralContainer large={large}>
+		<section class="md:grid lg:grid-cols-2 gap-4 md:gap-8 lg:gap-16 items-center">
 			<slot name="left" />
 			<slot name="right" />
 		</section>

@@ -1,7 +1,6 @@
 ---
 import WhatsApp from '@assets/icons/logo-whatsApp.astro';
 import imgISL from '@assets/logo-isl.webp';
-import Chat from '@components/Chat.astro';
 import { Image } from 'astro:assets';
 const base = import.meta.env.BASE_URL;
 const classIcon = 'relative rounded-full flex items-center justify-center w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 shadow-md group';
@@ -15,10 +14,15 @@ const tooltipClass =
 		<span class={tooltipClass}> Descargar instalador ISL</span>
 	</a>
 
-	<Chat classIcon={classIcon} tooltipClass={tooltipClass} />
+	<a class={`${classIcon} bg-gray-500 text-white cursor-pointer`} title="Inicia un chat" id="islpronto_link" href="mailto:soporte@ingesoftnet.com">
+		<i class="fi fi-rr-user-headset text-xl lg:text-3xl justify-center"></i>
+		<span class={tooltipClass}>Inicia un chat</span>
+	</a>
 
 	<a class={`${classIcon} bg-[#25D366] text-white `} href="https://api.whatsapp.com/send/?phone=573222282928&text=Hola%21+%0D%0ADeseo+mas+informaci%C3%B3n+sobre+Servicios+de+IngeSoftNet" target="_blank" rel="noopener noreferrer" title="Abrir chat de WhatsApp">
 		<WhatsApp />
 		<span class={tooltipClass}>Estamos en línea</span>
 	</a>
 </div>
+
+<script type="text/javascript" src="https://islpronto.islonline.net/live/islpronto/public/chat.js?d=%3aingesoftnet" defer async></script>

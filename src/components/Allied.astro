@@ -1,41 +1,82 @@
 ---
-import GeneralSection from '@components/GeneralSection.astro';
-import GeneralContainer from '@components/GeneralContainer.astro';
 import { Image } from 'astro:assets';
 import Logo from '@assets/logo-Yeison-Andrés-Correa-Marín.png';
-import Link from './Link.astro';
+import LogoDeskland from '@assets/logo-deskland.webp';
+import SectionDouble from '@sections/SectionDouble.astro';
 ---
 
-<GeneralSection classList="bg-[#eaf1ff]">
-	<GeneralContainer>
-		<section class="flex gap-10 items-center justify-center max-w-3xl mx-auto">
-			<picture class="lg:w-full lg:h-full max-w-[200px] sm:w-30 sm:h-30 w-24 h-24">
-				<Image src={Logo} alt="Imagen de Yeison-Andrés-Correa-Marín" loading="lazy" class="w-full h-full object-contain" title="Yeison-Andrés-Correa-Marín" />
+<SectionDouble classList="bg-[#eaf1ff]">
+	<section slot="left">
+		<hgroup class="mb-6 lg:mb-10 xl:mb-18">
+			<i class="fi fi-tr-rocket-lunch mb-4 lg:mb-6 text-4xl text-primary-dark"></i>
+			<h2 class="text-2xl lg:text-5xl font-semibold mb-4">Aliados estratégicos</h2>
+			<p class="text-lg">Sumando esfuerzos para un mayor impacto con sentido y propósito.</p>
+		</hgroup>
+	</section>
+	<section class="flex flex-col gap-8 xl:gap-20" slot="right">
+		<div class="flex flex-col gap-4 sm:flex-row sm:gap-10 sm:items-center">
+			<picture class="block w-full h-auto lg:max-w-[120px] sm:w-34 sm:h-34 max-w-20">
+				<Image src={Logo} alt="Imagen de Yeison-Andrés-Correa-Marín" loading="lazy" class="w-full h-full object-contain" title="Yeison-Andrés-Correa-Marín" loading="lazy" />
 			</picture>
 
 			<div>
-				<hgroup class="mb-10">
-					<h2 class="text-xs text-primary-dark font-bold uppercase mb-2">Nuestro aliado</h2>
-					<h3 class="text-6xl font-bold">Yeison Andrés Correa Marín</h3>
-					<p class="m-0 text-xl">Asesorías Contables y Tributarias</p>
+				<hgroup class="mb-4 lg:mb-8">
+					<h3 class="text-xl lg:text-4xl font-bold mb-1">Yeison Andrés Correa Marín</h3>
+					<p class="m-0 text-lg">Asesorías Contables y Tributarias</p>
 				</hgroup>
 
-				<ul class="flex flex-wrap gap-10">
+				<ul class="flex flex-wrap gap-x-4 gap-y-1">
 					<li>
-						<a class="flex gap-2 mb-2 group" href="tel:+3206833225">
+						<a class="flex gap-2 mb-2 group" href="tel:+3206833225" title="Llamar al número 320 683 3225">
 							<i class="fi fi-rr-phone-call text-primary group-hover:text-accent transition-colors ease-in-out duration-300"></i>
 							<p class="m-0 group-hover:text-accent transition-colors ease-in-out duration-300">320 683 3225</p>
 						</a>
 					</li>
 
 					<li>
-						<a class="flex gap-2 group" href="mailto:yeancoma@hotmail.com">
+						<a class="flex gap-2 group" href="mailto:yeancoma@hotmail.com" title="Enviar correo a yeancoma@hotmail.com">
 							<i class="fi fi-rr-envelope text-primary group-hover:text-accent transition-colors ease-in-out duration-300"></i>
 							<p class="m-0 group-hover:text-accent transition-colors ease-in-out duration-300">yeancoma@hotmail.com</p>
 						</a>
 					</li>
 				</ul>
 			</div>
-		</section>
-	</GeneralContainer>
-</GeneralSection>
+		</div>
+
+		<div class="flex flex-col gap-4 sm:flex-row sm:gap-10 sm:items-center">
+			<picture class="block w-full h-auto lg:max-w-[120px] sm:w-34 sm:h-34 max-w-20">
+				<Image src={LogoDeskland} alt="Imagen de DESKLAN S.A.S." loading="lazy" class="w-full h-full object-contain" title="DESKLAN S.A.S." loading="lazy" />
+			</picture>
+
+			<div>
+				<hgroup class="mb-4 lg:mb-8">
+					<!-- <h2 class="text-xs text-primary-dark font-bold uppercase mb-2">Nuestro aliado</h2> -->
+					<h3 class="text-xl lg:text-4xl font-bold mb-1">Desklan S.A.S.</h3>
+					<p class="m-0 text-lg">Servicios Profesionales Tecnológicos</p>
+				</hgroup>
+
+				<ul class="flex flex-wrap gap-x-4 gap-y-1">
+					<li>
+						<a class="flex gap-2 mb-2 group" href="tel:+3217318064" title="Llamar al 321 731 8064">
+							<i class="fi fi-rr-phone-call text-primary group-hover:text-accent transition-colors ease-in-out duration-300"></i>
+							<p class="m-0 group-hover:text-accent transition-colors ease-in-out duration-300">321 731 8064</p>
+						</a>
+					</li>
+
+					<li>
+						<a class="flex gap-2 group" href="mailto:info@desklan.co" title="Enviar correo a info@desklan.co">
+							<i class="fi fi-rr-envelope text-primary group-hover:text-accent transition-colors ease-in-out duration-300"></i>
+							<p class="m-0 group-hover:text-accent transition-colors ease-in-out duration-300">info@desklan.co</p>
+						</a>
+					</li>
+					<li>
+						<a class="flex gap-2 group" href="https://desklan.co/" target="_blank" rel="noopener noreferrer" title="Enlace a desklan.co">
+							<i class="fi fi-rr-globe text-primary group-hover:text-accent transition-colors ease-in-out duration-300"></i>
+							<p class="m-0 group-hover:text-accent transition-colors ease-in-out duration-300">Desklan.co</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</SectionDouble>

@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import 'photoswipe/style.css';
 ---
 
-<GeneralSection autoHeight>
+<GeneralSection>
 	<div>
 		<TitleMain category="Galería" title="Anuncios importantes" subtitle="Cada imagen refleja nuestro compromiso en resolver incidencias, mantenerlos actualizados y mejorar la experiencia del servicio." noSEO />
 
@@ -19,7 +19,7 @@ import 'photoswipe/style.css';
 				{
 					imagesArray.map(({ src, width, height, alt, title }) => (
 						<div class="swiper-slide hover-image">
-							<figure class="h-30 w-30 lg:h-60 lg:w-60 xl:w-73 xl:h-73 rounded-lg lg:rounded-4xl image shadow-sm">
+							<figure class="h-45 w-45 lg:h-60 lg:w-60 xl:w-73 xl:h-73 rounded-lg lg:rounded-4xl image shadow-sm">
 								<a href={src.src} data-pswp-width={width} data-pswp-height={height} title={title} data-cropped="true" data-med-src={src} data-med-width={width} data-med-height={height} target="_blank" rel="noopener noreferrer">
 									<Image src={src} alt={alt} class="w-full h-auto" width={width} height={height} loading="lazy" title={title} />
 								</a>
@@ -53,6 +53,9 @@ import 'photoswipe/style.css';
 			slidesPerView: 'auto',
 			spaceBetween: 16,
 			loop: true,
+			centeredSlides: true,
+			centeredSlidesBounds: true,
+			centerInsufficientSlides: true,
 			autoplay: {
 				delay: 10000,
 				disableOnInteraction: false,

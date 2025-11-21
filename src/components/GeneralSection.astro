@@ -2,13 +2,12 @@
 export interface Props {
 	classList?: string;
 	idElement?: string;
-	autoHeight?: boolean;
 	style?: string;
 }
 
-const { classList, idElement, autoHeight, style } = Astro.props;
+const { classList, idElement, style } = Astro.props;
 ---
 
-<section class={`py-10 md:py-16 lg:py-20  ${classList ? `${classList}` : ''} ${autoHeight ? '' : 'lg:in-h-[100dvh]'}`} id={idElement ? idElement : null} style={style}>
+<section class={`py-10 md:py-16 lg:py-20  ${classList ? `${classList}` : ''}`} id={idElement ? idElement : null} style={style}>
 	<slot />
 </section>

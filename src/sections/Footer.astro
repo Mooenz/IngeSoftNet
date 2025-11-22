@@ -11,10 +11,16 @@ import LogoYouTube from '@assets/icons/logo-youtube.astro';
 import Audio from '/audio/ingesoftnet.mp3';
 import Link from '@components/Link.astro';
 import('plyr/dist/plyr.css');
+
+export interface Props {
+	classFooter?: string;
+}
+
+const { classFooter } = Astro.props;
 ---
 
 <!-- -->
-<footer class="pt-6 lg:pt-10 bg-text relative before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-[150px] before:bg-white before:-z-0">
+<footer class={`pt-6 lg:pt-10 bg-text relative before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-[150px] before:bg-white before:-z-0 ${classFooter}`}>
 	<GeneralContainer>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
 			<div class="relative overflow-hidden rounded-3xl lg:rounded-4xl shadow-sm md:h-[200px] w-full flex flex-col justify-between bg-no-repeat bg-cover bg-right p-4 md:p-5 lg:pl-10 lg:pt-10 group z-10">
@@ -36,9 +42,9 @@ import('plyr/dist/plyr.css');
 					</div>
 				</div>
 
-				<Image src={imagenTipo1} alt="Imagen de una mujer que invita a dar click" title="Confía en nosotros" class="absolute w-40 md:w-50 h-auto object-contain bottom-0 right-0 lg:right-10 z-10" width={400} height={400} loading='lazy' />
+				<Image src={imagenTipo1} alt="Imagen de una mujer que invita a dar click" title="Confía en nosotros" class="absolute w-40 md:w-50 h-auto object-contain bottom-0 right-0 lg:right-10 z-10" width={400} height={400} loading="lazy" />
 
-				<Image src={imagenSoporte1} alt="Imagen fondo de oficina IngeSoftNet" title="Imagen ejemplo de oficina IngeSoftNet" class="absolute w-full h-full object-cover inset-0 -z-100 pointer-events-auto blur-xs" width={495} height={330} loading='lazy' />
+				<Image src={imagenSoporte1} alt="Imagen fondo de oficina IngeSoftNet" title="Imagen ejemplo de oficina IngeSoftNet" class="absolute w-full h-full object-cover inset-0 -z-100 pointer-events-auto blur-xs" width={495} height={330} loading="lazy" />
 			</div>
 
 			<!-- Tarjeta SysCafe -->
@@ -54,9 +60,9 @@ import('plyr/dist/plyr.css');
 						<i class="fi fi-tr-arrow-small-right text-4xl text-gray-400 group-hover:text-text transition-all duration-300 ease-in-out"></i>
 					</div>
 
-					<Image src={imagenTipo} alt="Imagen de un hombre que invita a dar click" title="Crea tu oferta laboral con Syscafé" class="absolute w-40 md:w-50 h-auto object-contain bottom-0 right-0 lg:right-10 z-10" width={400} height={400} loading='lazy' />
+					<Image src={imagenTipo} alt="Imagen de un hombre que invita a dar click" title="Crea tu oferta laboral con Syscafé" class="absolute w-40 md:w-50 h-auto object-contain bottom-0 right-0 lg:right-10 z-10" width={400} height={400} loading="lazy" />
 
-					<Image src={imagenSoporte} alt="Imagen oficina IngeSoftNet" title="Oficina IngeSoftNet" class="absolute w-full h-full object-cover inset-0 -z-100 pointer-events-auto blur-xs" width={495} height={330} loading='lazy' />
+					<Image src={imagenSoporte} alt="Imagen oficina IngeSoftNet" title="Oficina IngeSoftNet" class="absolute w-full h-full object-cover inset-0 -z-100 pointer-events-auto blur-xs" width={495} height={330} loading="lazy" />
 				</div>
 			</a>
 		</div>
@@ -68,7 +74,7 @@ import('plyr/dist/plyr.css');
 				<a class="text-lg group" href="https://maps.app.goo.gl/XtgkYsfhPsopHUyLA" target="_blank" rel="noopener noreferrer" title="Ver ubicación en Google Maps">
 					<h2 class="m-0 text-sm text-white">Dirección</h2>
 					<div class="flex gap-2 items-center">
-						<i class="fi fi-rr-house-building text-sm text-gray-300 transform transition-all duration-700 ease-in-out group-hover:[transform:rotateY(360deg)] group-hover:text-accent"></i>
+						<i class="fi icon fi-tr-house-building text-sm text-gray-300 transform transition-all duration-700 ease-in-out group-hover:[transform:rotateY(360deg)] group-hover:text-accent"></i>
 						<h3><strong class="font-semibold text-white group-hover:text-accent transition-colors duration-300 ease-in-out">Carrera 3 # 24A -54, Piso 2 Quibdó - Chocó</strong></h3>
 					</div>
 				</a>
@@ -76,7 +82,7 @@ import('plyr/dist/plyr.css');
 				<a href="tel:3162656886" title="Número de contacto de IngeSoftNet" class="text-lg group">
 					<h2 class="m-0 text-sm text-white">Linea directa</h2>
 					<div class="flex gap-2 items-center">
-						<i class="fi fi-rr-chat-bubble-call text-sm text-gray-300 transform transition-all duration-700 ease-in-out group-hover:[transform:rotateY(360deg)] group-hover:text-accent"></i>
+						<i class="fi icon fi-tr-phone-call text-sm text-gray-300 transform transition-all duration-700 ease-in-out group-hover:[transform:rotateY(360deg)] group-hover:text-accent"></i>
 
 						<h3><strong class="font-semibold text-white group-hover:text-accent transition-colors duration-300 ease-in-out">316 2656 886</strong></h3>
 					</div>
@@ -86,7 +92,7 @@ import('plyr/dist/plyr.css');
 					<h2 class="m-0 text-sm text-white">Correo de contacto</h2>
 
 					<div class="flex gap-3 items-center">
-						<i class="fi fi-rr-envelope text-sm text-gray-300 transform transition-all duration-700 ease-in-out group-hover:[transform:rotateY(360deg)] group-hover:text-accent"></i>
+						<i class="fi icon fi-tr-at text-sm text-gray-300 transform transition-all duration-700 ease-in-out group-hover:[transform:rotateY(360deg)] group-hover:text-accent"></i>
 						<h3><strong class="font-semibold text-white group-hover:text-accent transition-colors duration-300 ease-in-out">mauricio@ingesoftnet.com</strong></h3>
 					</div>
 				</a>

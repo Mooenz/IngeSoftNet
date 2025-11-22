@@ -1,0 +1,22 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Button from '@components/Button.astro';
+import Image from 'astro/components/Image.astro';
+import Image500 from '@assets/500.webp';
+---
+
+<Layout title="Error de conexión - IngeSoftNet" description="Lo sentimos, la página que buscas no existe. Regresa a la página principal de IngeSoftNet para explorar nuestros servicios y soluciones tecnológicas." bg="bg-text" classFooter="before:hidden">
+	<div class="flex flex-col justify-center items-center px-4 pt-32 pb-10 2xl:pb-28 lg:pt-50 2xl:pt-64 text-white">
+		<figure class="relative">
+			<Image src={Image500} alt="Error de conexión" title="Imagen error de conexión" width="250" height="250" loading="eager" class="mb-6 max-w-50" />
+			<span class="absolute top-8 left-10 text-primary text-4xl">500</span>
+		</figure>
+
+		<h1 class="text-2xl font-bold mb-6 text-primary-light">Error de conexión</h1>
+		<p class="text-center mb-8 max-w-4xl">Lo sentimos, ha ocurrido un error en el servidor. Por favor, intenta nuevamente más tarde o regresa a la página principal de IngeSoftNet para explorar nuestros servicios y soluciones tecnológicas.</p>
+		<Button anchor link="/" variants="primary" size="md">
+			<span>Volver al inicio</span>
+			<i class="fi fi-tr-home-heart"></i>
+		</Button>
+	</div>
+</Layout>

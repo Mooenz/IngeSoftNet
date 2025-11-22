@@ -3,7 +3,6 @@ import Menu from '@sections/Menu.astro';
 import Footer from '@sections/Footer.astro';
 import ButtonLateral from '@components/ButtonLateral.astro';
 
-import '@styles/rounded-regular.css';
 import '@styles/rounded-thin.css';
 import '@styles/fonts.css';
 import '@styles/global.css';
@@ -12,9 +11,11 @@ export interface Props {
 	title: string;
 	description?: string;
 	keywords?: string;
+	bg?: string;
+	classFooter?: string;
 }
 
-const { title, description, keywords } = Astro.props;
+const { title, description, keywords, bg, classFooter } = Astro.props;
 const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 ---
 
@@ -85,6 +86,22 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 		<!-- Autor en Twitter -->
 		<meta name="twitter:creator" content="@IngeSoftNet" />
 
+		<!-- Google search console -->
+		<meta name="google-site-verification" content="-4GL3mMbSt47GxWSPNjCWHnk0BaXiz0mRmhjHQ7I8d4" />
+		<!-- Google analytics -->
+		<script async defer src="https://www.googletagmanager.com/gtag/js?id=G-YRK17N2J3R"></script>
+		<script async defer>
+			// @ts-ignore: window.dataLayer is not declared in global Window type
+			window.dataLayer = window.dataLayer || [];
+			function gtag(...args) {
+				// @ts-ignore: window.dataLayer is not declared in global Window type
+				window.dataLayer.push(args);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'G-EXAMPLEID');
+		</script>
+
 		<!-- Datos estructurados básicos (JSON-LD) -->
 		<script type="application/ld+json">
 				{JSON.stringify({
@@ -122,15 +139,15 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 	
 	<body>
 		<Menu />
-		<main>
+		<main class={bg}>
 			<slot />
 		</main>
-		<Footer />
+		<Footer classFooter={classFooter} />
 		<ButtonLateral />
 
 		<!-- Botón volver arriba -->
 		<button class="btn-volver-arriba" id="volver-arriba" aria-label="Volver al inicio de la documentación">
-			<i class="fi fi-rr-arrow-small-up"></i>
+			<i class="fi icon fi-tr-arrow-small-up"></i>
 		</button>
 	</body>
 </html>

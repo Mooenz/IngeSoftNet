@@ -1,0 +1,151 @@
+# -------------------------------
+# 🚀 ASTRO EN CPANEL (RUTAS ESTÁTICAS)
+# -------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # Bloquear acceso a archivos sensibles
+  RewriteRule ^\.env - [F,L]
+  RewriteRule ^\.git - [F,L]
+  RewriteRule ^\.htaccess - [F,L]
+  
+  # Si el archivo o carpeta existe, se sirve tal cual
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+</IfModule>
+
+# -------------------------------
+# 🗜️ COMPRESIÓN GZIP
+# -------------------------------
+<IfModule mod_deflate.c>
+  # Comprimir HTML, CSS, JavaScript, Text, XML y fuentes
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/atom+xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE font/otf
+  AddOutputFilterByType DEFLATE font/woff
+  AddOutputFilterByType DEFLATE font/woff2
+  
+  # Excluir tipos de archivo ya comprimidos
+  SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|webp|mp3|mp4|webm|ogg)$ no-gzip
+  
+  # Prevenir doble compresión
+  SetEnvIfNoCase Request_URI \.(?:gz|zip|bz2|sit|rar)$ no-gzip
+</IfModule>
+
+# Alternativa si mod_deflate no está disponible
+<IfModule !mod_deflate.c>
+  <IfModule mod_gzip.c>
+    mod_gzip_on Yes
+    mod_gzip_dechunk Yes
+    mod_gzip_item_include file \.(html?|txt|css|js|json|xml|svg)$
+    mod_gzip_item_include mime ^text/.*
+    mod_gzip_item_include mime ^application/javascript.*
+    mod_gzip_item_include mime ^application/json.*
+    mod_gzip_item_exclude mime ^image/.*
+    mod_gzip_item_exclude mime ^audio/.*
+    mod_gzip_item_exclude mime ^video/.*
+  </IfModule>
+</IfModule>
+
+# -------------------------------
+# 🔒 SEGURIDAD ADICIONAL
+# -------------------------------
+# Bloquear listado de directorios
+Options -Indexes
+
+# Proteger archivos sensibles
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Proteger archivos de configuración y código
+<FilesMatch "\.(env|log|ini|sh|sql|conf|bak|config)$">
+  Require all denied
+</FilesMatch>
+
+# -------------------------------
+# 📦 CACHÉ DE ASSETS (1 AÑO)
+# -------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Imágenes
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  # Audio
+  ExpiresByType audio/mpeg "access plus 1 year"
+  # Fuentes
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType font/otf "access plus 1 year"
+  # CSS & JS con hash
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  # HTML (caché corta)
+  ExpiresByType text/html "access plus 10 minutes"
+  # Videos
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType video/webm "access plus 1 year"
+  ExpiresByType video/ogg "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Cache headers para assets estáticos
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|css|js|woff|woff2|ttf|otf|mp3|mp4|webm|ogg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  
+  # HTML con cache más controlado
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=600, must-revalidate"
+  </FilesMatch>
+  
+  # Headers de seguridad
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Remover información del servidor (opcional)
+  Header unset Server
+  Header unset X-Powered-By
+</IfModule>
+
+# -------------------------------
+# ⚠️ PÁGINAS DE ERROR PERSONALIZADAS
+# -------------------------------
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+# -------------------------------
+# 🛡️ PROTECCIÓN CONTRA HOTLINKING (OPCIONAL)
+# -------------------------------
+# Descomenta si quieres evitar que otros sitios usen tus imágenes
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{HTTP_REFERER} !^$
+#   RewriteCond %{HTTP_REFERER} !^https?://(www\.)?tudominio\.com [NC]
+#   RewriteRule \.(jpg|jpeg|png|gif|webp|svg)$ - [F,L]
+# </IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php81” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php81 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

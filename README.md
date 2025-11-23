@@ -18,6 +18,9 @@ El proyecto está organizado en varias carpetas y archivos, cada uno con un prop
   - **constants/**: Constantes y configuraciones utilizadas en toda la aplicación.
   - **pages/**: Páginas de la aplicación.
   - **styles/**: Archivos de estilo CSS.
+  - **sections/**: Secciones específicas de las páginas.
+- **public/**: Archivos estáticos como imágenes y fuentes.
+- **documents/**: Documentos PDF y otros archivos relacionados.
 
 ## **Tecnologías Utilizadas**
 
@@ -26,6 +29,11 @@ El sitio Web de IngeSoftNet utiliza las siguientes tecnologías:
 - **Astro**: Un generador de sitios estáticos que permite crear páginas rápidas y optimizadas.
 - **Tailwind CSS**: Un framework de CSS que facilita la creación de diseños responsivos y personalizables.
 - **JavaScript**: Lenguaje de programación utilizado para la interactividad en el sitio Web.
+- **Gsap**: Biblioteca de animación para crear efectos visuales atractivos.
+- **Zod**: Biblioteca para la validación y el análisis de esquemas de datos.
+- **Plyr.js**: Biblioteca para la reproducción de medios en la web.
+- **Swiper.js**: Biblioteca para crear sliders y carruseles táctiles.
+- **ISLPronto**: Herramienta para gestionar chats en línea y soporte al cliente.
 
 ## **Vista previa**
 

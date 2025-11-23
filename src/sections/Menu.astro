@@ -58,7 +58,7 @@ const isActive = (href: string) => {
 						<!-- Encabezado del menú móvil -->
 						<header class="p-4 border-b border-zinc-200 flex justify-between items-center">
 							<div class="flex gap-2 items-center">
-								<i class="fi fi-rr-apps-add text-primary" aria-hidden="true"></i>
+								<i class="fi icon fi-tr-apps-add text-primary" aria-hidden="true"></i>
 								<p class="font-semibold text-lg m-0">Menú principal</p>
 							</div>
 							<!-- Botón de cierre - CAMBIADO A BUTTON -->
@@ -77,7 +77,7 @@ const isActive = (href: string) => {
 													<i class={`fi ${icono} text-gray-300`} aria-hidden="true" />
 												</Button>
 											) : (
-												<Link href={href} class={`flex gap-2 items-center ${isActive(href) ? 'text-primary font-semibold' : ''}`} title={`Enlace a ${nombre}`} aria-current={isActive(href) ? 'page' : undefined}>
+												<Link href={href} class={`flex gap-2 items-center ${isActive(href) ? 'text-primary' : ''}`} title={`Enlace a ${nombre}`} aria-current={isActive(href) ? 'page' : undefined}>
 													<i class={`fi ${icono} ${isActive(href) ? 'text-primary' : 'text-gray-300'}`} aria-hidden="true" />
 													<span class="m-0">{nombre}</span>
 												</Link>

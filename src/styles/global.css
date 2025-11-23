@@ -20,7 +20,8 @@ body {
 	color: var(--color-text);
 	text-wrap: pretty;
 	scroll-behavior: smooth;
-	font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	font-family: 'Poppins', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+	font-size-adjust: 0.56;
 }
 
 .fi {
@@ -30,6 +31,10 @@ body {
 
 :is(h1, h2, h3, h4, h5, h6) {
 	text-wrap: balance;
+}
+
+.section {
+	overflow: hidden;
 }
 
 .sr-only {

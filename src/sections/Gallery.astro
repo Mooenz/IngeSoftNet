@@ -10,35 +10,33 @@ import 'photoswipe/style.css';
 ---
 
 <GeneralSection>
-	<div>
-		<TitleMain category="Galería" title="Anuncios importantes" subtitle="Cada imagen refleja nuestro compromiso en resolver incidencias, mantenerlos actualizados y mejorar la experiencia del servicio." noSEO />
+	<TitleMain category="Galería" title="Anuncios importantes" subtitle="Cada imagen refleja nuestro compromiso en resolver incidencias, mantenerlos actualizados y mejorar la experiencia del servicio." noSEO />
 
-		<!-- Galería -->
-		<div class="swiper" id="gallerySwiper" aria-label="Carrusel de imágenes de soporte técnico">
-			<div class="swiper-wrapper" id="galleryImages">
-				{
-					imagesArray.map(({ src, width, height, alt, title }) => (
-						<div class="swiper-slide hover-image">
-							<figure class="h-45 w-45 lg:h-60 lg:w-60 xl:w-73 xl:h-73 rounded-lg lg:rounded-4xl image shadow-sm">
-								<a href={src.src} data-pswp-width={width} data-pswp-height={height} title={title} data-cropped="true" data-med-src={src} data-med-width={width} data-med-height={height} target="_blank" rel="noopener noreferrer">
-									<Image src={src} alt={alt} class="w-full h-auto" width={width} height={height} loading="lazy" title={title} />
-								</a>
-							</figure>
-						</div>
-					))
-				}
-			</div>
-
-			<!-- Si deseas agregar navegación -->
-			<button class="swiper-button-prev">
-				<i class="fi fi-rr-angle-small-left"></i>
-			</button>
-			<button class="swiper-button-next">
-				<i class="fi fi-rr-angle-small-right"></i>
-			</button>
-
-			<div class="swiper-pagination"></div>
+	<!-- Galería -->
+	<div class="swiper section" id="gallerySwiper" aria-label="Carrusel de imágenes de soporte técnico">
+		<div class="swiper-wrapper" id="galleryImages">
+			{
+				imagesArray.map(({ src, width, height, alt, title }) => (
+					<div class="element-fade-in swiper-slide hover-image">
+						<figure class="h-45 w-45 lg:h-60 lg:w-60 xl:w-73 xl:h-73 rounded-lg lg:rounded-4xl image shadow-sm">
+							<a href={src.src} data-pswp-width={width} data-pswp-height={height} title={title} data-cropped="true" data-med-src={src} data-med-width={width} data-med-height={height} target="_blank" rel="noopener noreferrer">
+								<Image src={src} alt={alt} class="w-full h-auto" width={width} height={height} loading="lazy" title={title} />
+							</a>
+						</figure>
+					</div>
+				))
+			}
 		</div>
+
+		<!-- Si deseas agregar navegación -->
+		<button class="swiper-button-prev">
+			<i class="fi icon fi-tr-angle-small-left"></i>
+		</button>
+		<button class="swiper-button-next">
+			<i class="fi icon fi-tr-angle-small-right"></i>
+		</button>
+
+		<div class="swiper-pagination"></div>
 	</div>
 </GeneralSection>
 

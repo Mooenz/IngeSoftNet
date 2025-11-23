@@ -2,16 +2,23 @@
 import clientes from '@constants/clients.js';
 import { Image } from 'astro:assets';
 
+export interface Props {
+	className: string;
+}
+
+const { className } = Astro.props;
+
 const clientesArray = [...clientes, ...clientes];
+import 'swiper/css';
 ---
 
-<section class="py-6 lg:py-10 select-none" aria-label="Carrusel de logos de clientes" id="hero-carrusel">
+<section class={`${className} py-6 lg:py-10 select-none`} aria-label="Carrusel de logos de clientes" id="hero-carrusel">
 	<div class="swiper" id="clientesSwiper">
 		<div class="swiper-wrapper">
 			{
 				clientesArray.map(({ name, logo, height, width }) => (
-					<div class="swiper-slide">
-						<Image class="w-auto max-w-[150px] max-h-[60px] object-contain image" src={logo} alt={`Imagen logo de ${name}`} height={height} width={width} title={`Logo de ${name}`} loading="eager" fetchpriority="high" />
+					<div class="swiper-slide" style="margin-right: 100px;">
+						<Image class="w-full h-auto max-w-[150px] max-h-[60px] object-contain image" src={logo} alt={`Imagen logo de ${name}`} height={height} width={width} title={`Logo de ${name}`} loading="eager" fetchpriority="high" />
 					</div>
 				))
 			}
@@ -22,7 +29,6 @@ const clientesArray = [...clientes, ...clientes];
 <script>
 	import Swiper from 'swiper';
 	import { Autoplay, FreeMode } from 'swiper/modules';
-	import 'swiper/css';
 
 	document.addEventListener('DOMContentLoaded', () => {
 		// const swiperContainer = document.querySelector('#hero-carrusel');

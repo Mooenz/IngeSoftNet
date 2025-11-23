@@ -4,16 +4,16 @@ import GeneralContainer from '@components/GeneralContainer.astro';
 import Document from '/documents/Certificado-ambiental-INGESOFTNET-SAS-20230912_17312837.pdf';
 ---
 
-<GeneralSection style="padding-bottom: 0;">
+<GeneralSection classList='section' style="padding-bottom: 0;">
 	<GeneralContainer>
-		<div class="card relative bg-text min-h-[100px] p-6 lg:p-8 xl:p-15 rounded-4xl">
+		<div class="element-fade-in card relative bg-text min-h-[100px] p-6 lg:p-8 xl:p-15 rounded-4xl">
 			<div>
 				<p class="text-2xl lg:text-3xl mb-8 lg:mb-10 text-white">Certificado ambiental <strong class="font-semibold">IngeSoftNet S.A.S.</strong></p>
 
 				<div class="flex flex-wrap gap-8 items-center">
 					<a class="flex items-center gap-2 text-sm lg:text-lg text-white bg-primary py-2 px-6 rounded-full hover:bg-accent transition-all duration-300 ease-in-out active:scale-95 cursor-pointer" href={Document} title="Enlace que descarga el certificado de IngeSoftNet S.A.S." target="_blank" rel="noopener noreferrer" download>
 						<p>Descargar certificado</p>
-						<i class="fi fi-rr-file-download"></i>
+						<i class="fi icon fi-tr-file-download"></i>
 					</a>
 
 					<a class="flex items-center gap-2 text-sm lg:text-lg border text-white border-white hover:bg-white hover:border-white hover:text-text py-2 px-6 rounded-full transition-all duration-300 ease-in-out active:scale-95 cursor-pointer" href={Document} target="_blank" rel="noopener noreferrer" title="Enlace para ver el certificado">

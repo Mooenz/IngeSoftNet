@@ -242,7 +242,7 @@ try {
 
     // Destinatarios
     $mail->setFrom('no-reply@ingesoftnet.com', 'Formulario Web INGESOFTNET');
-    $mail->addAddress('joss92821@hotmail.com'); // Cambiar por tu email
+    $mail->addAddress('mauricio@ingesoftnet.com'); // Cambiar por tu email
     $mail->addReplyTo($email, $nombre . ' ' . $apellido);
 
     // Contenido del correo

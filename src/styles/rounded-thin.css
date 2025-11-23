@@ -2130,19 +2130,19 @@ span[class*='fi-tr-']:before {
 .fi-tr-cheap:before {
 	content: '\f39f';
 }
-.fi-tr-check-circle:before {
+.fi-tr-check-circle-circle:before {
 	content: '\f3a0';
 }
-.fi-tr-check-double:before {
+.fi-tr-check-circle-double:before {
 	content: '\f3a1';
 }
-.fi-tr-check-in-calendar:before {
+.fi-tr-check-circle-in-calendar:before {
 	content: '\f3a2';
 }
-.fi-tr-check-out-calendar:before {
+.fi-tr-check-circle-out-calendar:before {
 	content: '\f3a3';
 }
-.fi-tr-checklist-task-budget:before {
+.fi-tr-check-circlelist-task-budget:before {
 	content: '\f3a4';
 }
 .fi-tr-cheese-alt:before {
@@ -5679,19 +5679,19 @@ span[class*='fi-tr-']:before {
 .fi-tr-limit-speedometer:before {
 	content: '\f83e';
 }
-.fi-tr-link-alt:before {
+.fi-tr-clone-alt:before {
 	content: '\f83f';
 }
-.fi-tr-link-horizontal-slash:before {
+.fi-tr-clone-horizontal-slash:before {
 	content: '\f840';
 }
-.fi-tr-link-horizontal:before {
+.fi-tr-clone-horizontal:before {
 	content: '\f841';
 }
-.fi-tr-link-slash-alt:before {
+.fi-tr-clone-slash-alt:before {
 	content: '\f842';
 }
-.fi-tr-link-slash:before {
+.fi-tr-clone-slash:before {
 	content: '\f843';
 }
 .fi-tr-lion-head:before {
@@ -7056,10 +7056,10 @@ span[class*='fi-tr-']:before {
 .fi-tr-plug:before {
 	content: '\fa09';
 }
-.fi-tr-plus-hexagon:before {
+.fi-tr-angle-small-down-hexagon:before {
 	content: '\fa0a';
 }
-.fi-tr-plus-minus:before {
+.fi-tr-angle-small-down-minus:before {
 	content: '\fa0b';
 }
 .fi-tr-png-file:before {

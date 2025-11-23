@@ -9,9 +9,9 @@ export interface Props {
 const { title, subtitle, noSEO, category } = Astro.props;
 ---
 
-<section class="title-header mb-6 lg:mb-15 max-w-4xl mx-auto">
+<section class="content-title-main title-header mb-6 lg:mb-15 max-w-4xl mx-auto">
 	<hgroup>
-		{category ? <span class="block text-primary text-center uppercase text-lg font-bold mb-2 mx-auto rounded-full">{category}</span> : ''}
+		{category ? <span class="category block text-primary text-center uppercase text-sm md:text-lg font-bold mb-2 mx-auto rounded-full">{category}</span> : ''}
 		{
 			noSEO ? (
 				<>
@@ -26,61 +26,7 @@ const { title, subtitle, noSEO, category } = Astro.props;
 			)
 		}
 	</hgroup>
-	<div class="mt-8 lg:mt-12">
+	<div class="subtitle-main mt-8 lg:mt-12">
 		<slot />
 	</div>
 </section>
-
-<!-- <script>
-	// Importamos gsap
-	import { gsap } from 'gsap';
-	import { SplitText } from 'gsap/SplitText';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-	document.addEventListener('DOMContentLoaded', () => {
-		// Registramos el plugin
-		gsap.registerPlugin(SplitText, ScrollTrigger);
-
-		const titles = document.querySelectorAll('.title-main');
-		const subtitles = document.querySelectorAll('.subtitle-main');
-
-		// titles.forEach((title) => {
-		// 	const mySplitTextTitle = SplitText.create(title, { type: 'words,chars' });
-		// 	const charsTitle = mySplitTextTitle.chars;
-
-		// 	gsap.from(charsTitle, {
-		// 		scrollTrigger: {
-		// 			trigger: title,
-		// 			start: 'top 90%',
-		// 			toggleActions: 'play none none reset',
-		// 		},
-		// 		duration: 1,
-		// 		opacity: 0,
-		// 		y: 100,
-		// 		rotationY: 90,
-		// 		filter: 'blur(10px)',
-		// 		transformOrigin: '0% 50%',
-		// 		ease: 'power4.out',
-		// 		stagger: 0.02,
-		// 	});
-		// });
-
-		// subtitles.forEach((subtitle) => {
-		// 	const mySplitTextSubtitle = SplitText.create(subtitle, { type: 'words,chars' });
-		// 	const charsSubtitle = mySplitTextSubtitle.chars;
-
-		// 	gsap.from(charsSubtitle, {
-		// 		scrollTrigger: {
-		// 			trigger: subtitle,
-		// 			start: 'top 90%',
-		// 			toggleActions: 'play none none reset',
-		// 		},
-		// 		duration: 0.5,
-		// 		opacity: 0,
-		// 		y: 20,
-		// 		ease: 'power4.out',
-		// 		stagger: 0.01,
-		// 	});
-		// });
-	});
-</script> -->

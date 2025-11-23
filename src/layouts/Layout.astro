@@ -153,58 +153,149 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 </html>
 
 <script>
+	import { gsap } from 'gsap';
+	import { SplitText } from 'gsap/SplitText';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		gsap.registerPlugin(SplitText, ScrollTrigger);
+
+		// Títulos principales
+		const titulosMain = document.querySelectorAll(".content-title-main");
+
+		titulosMain.forEach(title => {
+			if (!title) return;
+
+			const category = title.querySelector(".category");
+			const titleElement = title.querySelector(".title-main");
+			const content = title.querySelectorAll(".subtitle-main");
+
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: title,
+					start: 'top 80%',
+				}
+			});
+
+			// Solo animar si existe el título
+			if (titleElement) {
+				const titleSplit = SplitText.create(titleElement, { 
+					type: 'words,chars', 
+					charsClass: 'letra'
+				});
+				
+				tl.from(titleSplit.chars, {
+					duration: 0.5,
+					opacity: 0,
+					y: 100,
+					transformOrigin: '0% 50%',
+					ease: 'power2.out',
+					stagger: 0.02,
+				});
+			}
+
+			// Solo animar si existe content
+			if (content.length) {
+				tl.from(content, {
+					duration: 0.5,
+					opacity: 0,
+					y: 30,
+					stagger: 0.2,
+					ease: 'power2.out',
+				}, "-=0.3");
+			}
+
+			// Solo animar si existe category
+			if (category) {
+				tl.from(category, {
+					duration: 0.5,
+					opacity: 0,
+					y: 30,
+					ease: 'power2.out',
+				}, "-=0.2");
+			}
+		});
+
+
+		// Fade in general
+		const secciones = document.querySelectorAll('.section');
+		
+		secciones.forEach((section) => {
+			if (!section) return;
+			
+			const elements = gsap.utils.toArray(section.querySelectorAll('.element-fade-in'));
+			
+			if (!elements.length) return;
+
+			gsap.from(elements, {
+				opacity: 0,
+				y: 50,
+				duration: 1,
+				ease: 'power2.out',
+				stagger: 0.3,
+				scrollTrigger: {
+					trigger: section, // Usar section, no elements
+					start: 'top 80%',
+				},
+			});
+		});
+	});
+</script>
+
+<script>
 	// Script para fijar el menú cuando se scrollea más del 80% del header
 	const header = document.getElementById('hero-principal'); // Ajusta el selector según tu HTML
 	const menu = document.getElementById('menu-principal');
-	function handleScroll() {
-		// Si no existe header o menu, salir
-		if (!header || !menu) return;
-
-		// Obtener la altura del header
-		const headerHeight = header.offsetHeight;
-		
-		// Calcular el 80% de la altura del header
-		const threshold = headerHeight * 0.8;
-		
-		// Obtener la posición actual del scroll
-		const scrollPosition = window.scrollY;
-		
-		// Si el scroll supera el 80% del header
-		if (scrollPosition > threshold) {
-			// Agregar clase para fijar el menú
-			menu.classList.add('fixed-menu');
-		} else {
-			// Remover clase cuando vuelve arriba
-			menu.classList.remove('fixed-menu');
-		}
-	}
-
-	// Escuchar el evento scroll
-	window.addEventListener('scroll', handleScroll);
-
-	// Ejecutar una vez al cargar para verificar posición inicial
-	handleScroll();
-
-	// Animación de enlaces con data-hover
-	const links = document.querySelectorAll<HTMLElement>('.animation-link');
-
-	links.forEach(link => {
-		const text = link.textContent;
-
-		// Crear el span y mover el contenido dentro
-		const span = document.createElement('span');
-		span.textContent = text;
-
-		// Limpiar contenido y agregar el span
-		link.textContent = '';
-		link.appendChild(span);
-
-		// Asignar el atributo data-hover
-		link.setAttribute('data-hover', text);
-	});
-	
-	// Smooth Scroll para enlaces de ancla
 	document.addEventListener('DOMContentLoaded', () => {
+
+		function handleScroll() {
+			// Si no existe header o menu, salir
+			if (!header || !menu) return;
+
+			// Obtener la altura del header
+			const headerHeight = header.offsetHeight;
+			
+			// Calcular el 80% de la altura del header
+			const threshold = headerHeight * 0.8;
+			
+			// Obtener la posición actual del scroll
+			const scrollPosition = window.scrollY;
+			
+			// Si el scroll supera el 80% del header
+			if (scrollPosition > threshold) {
+				// Agregar clase para fijar el menú
+				menu.classList.add('fixed-menu');
+			} else {
+				// Remover clase cuando vuelve arriba
+				menu.classList.remove('fixed-menu');
+			}
+		}
+
+		// Escuchar el evento scroll
+		window.addEventListener('scroll', handleScroll);
+
+		// Ejecutar una vez al cargar para verificar posición inicial
+		handleScroll();
+
+		// Animación de enlaces con data-hover
+		const links = document.querySelectorAll<HTMLElement>('.animation-link');
+
+		links.forEach(link => {
+			const text = link.textContent;
+
+			// Crear el span y mover el contenido dentro
+			const span = document.createElement('span');
+			span.textContent = text;
+
+			// Limpiar contenido y agregar el span
+			link.textContent = '';
+			link.appendChild(span);
+
+			// Asignar el atributo data-hover
+			link.setAttribute('data-hover', text);
+		});
+		
+		// Smooth Scroll para enlaces de ancla
 		// Cuando se de click a un enlace de ancla, hacer scroll suave se ubica 80px abajo del elemento
 		document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 			anchor.addEventListener('click', function (e) {
@@ -222,44 +313,44 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 				}
 			});
 		});
-	});
 
 		// Botón de volver al inicio de la documentación
-	const backToTopButton = document.querySelector('#volver-arriba');
-	const documentacion = document.querySelector('#menu-principal');
-
-	if (backToTopButton && documentacion) {
-		backToTopButton.addEventListener('click', () => {
-			documentacion.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start',
-			});
-		});
-	}
-
-		// Si el usuario esta en el inicio de la documentación, ocultamos el botón de volver al inicio
-	const inicio = document.querySelector('#menu-principal');
-	if (inicio && backToTopButton) {
-		const observer2 = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						backToTopButton.classList.remove('activo');
-					} else {
-						backToTopButton.classList.add('activo');
-					}
+		const backToTopButton = document.querySelector('#volver-arriba');
+		const documentacion = document.querySelector('#menu-principal');
+		
+		if (backToTopButton && documentacion) {
+			backToTopButton.addEventListener('click', () => {
+				documentacion.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
 				});
-			},
-			{
-				threshold: 0.2,
-			}
-		);
+			});
+		}
+		// Si el usuario esta en el inicio de la documentación, ocultamos el botón de volver al inicio
+		const inicio = document.querySelector('#menu-principal');
+		if (inicio && backToTopButton) {
+			const observer2 = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							backToTopButton.classList.remove('activo');
+						} else {
+							backToTopButton.classList.add('activo');
+						}
+					});
+				},
+				{
+					threshold: 0.2,
+				}
+			);
 
-		observer2.observe(inicio);
-	}
+			observer2.observe(inicio);
+		}
+	});
 
-	// Títulos principales
-	const title = document.querySelectorAll(".title-main");
+
+	
+	
 </script>
 
 <style>

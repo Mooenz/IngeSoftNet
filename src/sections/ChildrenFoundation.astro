@@ -9,14 +9,15 @@ import imgEquipoVolley from '@assets/equipoVolley.webp';
 import ImagenEquipoFutbol from '@assets/equipoFutbol.webp';
 import ImagenEquipoFutbol2 from '@assets/equipoFutbol2.webp';
 import ImagenGrupoShaula from '@assets/grupoShaula.webp';
+import 'swiper/css';
 ---
 
 <GeneralSection>
 	<GeneralContainer>
 		<TitleMain title="Impulsando sonrisas y talento" category="Transformando Vidas" />
-		<section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 md:gap-8 lg:gap-16 pb-10">
+		<section class="section grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 md:gap-8 lg:gap-16 pb-10">
 			<div class="flex flex-col-reverse xl:flex-row xl:col-span-2 gap-4 md:gap-8 max-w-[1024px] mx-auto">
-				<div class="ml-12 lg:ml-20">
+				<div class="ml-12 lg:ml-20 element-fade-in">
 					<div class="relative flex justify-center w-full">
 						<div class="relative border-10 border-primary-light rounded-4xl bg-white min-w-[140px] lg:min-w-[225px] max-w-md">
 							<video class="max-h-[250px] lg:max-h-[400px] rounded-[22px]" src={video} controls controlslist="nodownload"></video>
@@ -24,7 +25,7 @@ import ImagenGrupoShaula from '@assets/grupoShaula.webp';
 						</div>
 					</div>
 				</div>
-				<div>
+				<div class="element-fade-in">
 					<h2 class="text-lg lg:text-2xl font-semibold mb-4">Fundación Los niños del mañana</h2>
 					<p class="mb-3">En la Fundación Los Niños del Mañana, creemos en un futuro brillante, sostenible y lleno de oportunidades para todos los niños. Nuestra misión es construir puentes hacia un mañana mejor, proporcionando apoyo integral a niños y familias en situaciones vulnerables.</p>
 					<p class="font-medium mb-3">Únete a Nosotros en esta Jornada Transformadora.</p>
@@ -34,22 +35,22 @@ import ImagenGrupoShaula from '@assets/grupoShaula.webp';
 			</div>
 
 			<div class="flex flex-col gap-4 md:gap-8 lg:gap-10 col-span-1 w-full max-w-[390px] mx-auto">
-				<a href="https://facebook.com/ShaulaBioAstronomia" class="card relative overflow-hidden z-10 rounded-4xl p-4 pr-0 md:pr-0 md:p-6 lg:pl-10 min-h-[150px] flex items-center mb-4 md:mb-0" title="Enlace a Grupo de Bio-Astronomía Shaula" target="_blank" rel="noopener noreferrer">
+				<a href="https://facebook.com/ShaulaBioAstronomia" class="element-fade-in card relative overflow-hidden z-10 rounded-4xl p-4 pr-0 md:pr-0 md:p-6 lg:pl-10 min-h-[150px] flex items-center mb-4 md:mb-0" title="Enlace a Grupo de Bio-Astronomía Shaula" target="_blank" rel="noopener noreferrer">
 					<h2 class="flex flex-col text-2xl lg:text-2xl font-semibold text-white">Grupo de Bio-Astronomía <span class="text-primary">Shaula</span></h2>
 
 					<Image class="absolute top-0 left-0 w-full h-full -z-10 object-cover" src={ImagenGrupoShaula} width="385" height="150" title="Grupo de Bio-Astronomía Shaula" alt="Imagen del Grupo de Bio-Astronomía Shaula" loading="lazy" />
 				</a>
 
-				<div>
+				<div class="element-fade-in">
 					<div class="flex flex-col lg:flex-row gap-6 items-center lg:justify-between mb-6 lg:items-end">
 						<h2 class="text-xl font-semibold text-center lg:text-start">Con <span class="text-primary">IngeSoftNet</span> fomentamos el deporte</h2>
 
 						<div class="flex gap-4 swiper-img">
 							<button class="swiper-button-prev">
-								<i class="fi fi-rr-angle-small-left"></i>
+								<i class="fi icon fi-tr-angle-small-left"></i>
 							</button>
 							<button class="swiper-button-next">
-								<i class="fi fi-rr-angle-small-right"></i>
+								<i class="fi icon fi-tr-angle-small-right"></i>
 							</button>
 						</div>
 					</div>
@@ -84,7 +85,6 @@ import ImagenGrupoShaula from '@assets/grupoShaula.webp';
 <script>
 	import Swiper from 'swiper';
 	import { Navigation } from 'swiper/modules';
-	import 'swiper/css';
 
 	document.addEventListener('DOMContentLoaded', () => {
 		new Swiper('#swiper-img', {

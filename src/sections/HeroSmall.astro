@@ -12,9 +12,9 @@ const { title, subtitle, classList } = Astro.props;
 ---
 
 <section class={`relative bg-text overflow-hidden px-4 pt-32 pb-10 lg:pb-24 2xl:pb-28 lg:pt-50 2xl:pt-54 z-10 ${classList}`} id="hero-principal">
-	<div class="max-w-3xl mx-auto text-center">
-		<h1 class="text-4xl lg:text-6xl font-bold mb-4 text-white">{title}</h1>
-		{subtitle && <p class="text-lg text-gray-300">{subtitle}</p>}
+	<div class="max-w-3xl mx-auto text-center section">
+		<h1 class="element-fade-in text-4xl lg:text-6xl font-bold mb-4 text-white">{title}</h1>
+		{subtitle && <p class="element-fade-in text-lg text-gray-300">{subtitle}</p>}
 	</div>
 	<!-- Background Image -->
 	<Image src={imageBackground} alt="Fondo del header" class="absolute inset-0 w-full h-full -z-10 object-cover opacity-10" title="Imagen de fondo del header" width={1894} height={828} fetchpriority="high" loading="eager" />

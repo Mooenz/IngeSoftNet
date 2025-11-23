@@ -12,10 +12,10 @@ interface Props {
 const { tabs } = Astro.props;
 ---
 
-<ul class="documentacion__tabs sticky top-3 z-10 flex flex-nowrap gap-1 list-none p-3 rounded-2xl mb-11 mx-auto overflow-x-auto overflow-y-hidden shadow-[0_4px_8px_rgba(0,0,0,0.05)] max-w-fit bg-[#eaf1ff]">
+<ul class="section documentacion__tabs sticky top-3 z-10 flex flex-nowrap gap-1 list-none p-3 rounded-2xl mb-11 mx-auto overflow-x-auto overflow-y-hidden shadow-[0_4px_8px_rgba(0,0,0,0.05)] max-w-fit bg-[#eaf1ff]">
 	{
 		tabs.map((tab) => (
-			<li>
+			<li class="element-fade-in">
 				<a href="#documentacion__contenidos" title={tab.label} class={`documentacion__item flex items-center gap-2 px-4 py-3 leading-none rounded-[10px] transition-all ease-in-out duration-300 ${tab.active ? 'activo bg-white' : ''}`} data-content={`#${tab.id}`}>
 					<i class={`${tab.icon} text-sm transition-all ease-in-out duration-300`} />
 					<p class="pointer-events-none">{tab.label}</p>

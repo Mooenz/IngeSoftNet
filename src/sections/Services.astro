@@ -18,8 +18,8 @@ const services = [...servicesGet, ...servicesGet];
 							services.map(({ title, description, category }) => (
 								<div class="swiper-slide group px-4 md:px-0 md:pl-2">
 									<div class="max-w-3xl text-center md:text-start">
-										<span class="block text-primary uppercase font-bold mb-2 mx-auto rounded-full">{category}</span>
-										<h3 class="title-main text-[clamp(24px,4vw,55px)] font-bold leading-[1.1em] tracking-[0.01em] relative pt-2 lg:pt-6">{title}</h3>
+										<span class="block text-primary uppercase font-bold mb-2 mx-auto rounded-full text-sm md:text-lg">{category}</span>
+										<h3 class="text-[clamp(24px,4vw,55px)] font-bold leading-[1.1em] tracking-[0.01em] relative pt-2 lg:pt-6">{title}</h3>
 										<p class="text-[clamp(18px,4vw,20px)] leading-[1.6em] mt-4 lg:mt-6 text-[#4C5E6E]">{description}</p>
 									</div>
 									<div class="mt-6 lg:mt-10 pb-2">
@@ -43,7 +43,7 @@ const services = [...servicesGet, ...servicesGet];
 									<picture class="flex justify-end items-center object-cover rounded-3xl lg:rounded-[0] lg:rounded-s-3xl 2xl:rounded-3xl lg:w-full lg:h-full overflow-hidden lg:max-w-[720px] max-w-[340px] mx-auto lg:mx-0 lg:ml-auto image">
 										<source media="(min-width: 768px)" srcset={image.src} width={width} height={height} />
 
-										<Image src={imageSm} alt={`Imagen de ${title}`} loading="lazy" width={widthSm} height={heightSm} class="w-full h-full aspect-square" title={title} />
+										<Image src={imageSm} alt={`Imagen de ${title}`} loading="eager" width={widthSm} height={heightSm} class="w-full h-full aspect-square" title={title} />
 									</picture>
 								</div>
 							))

@@ -9,7 +9,7 @@ import Modal from '@components/Modal.astro';
 			<label for="nombreContacto" class="block mb-2">Nombres <span class="text-primary">*</span></label>
 			<div class="relative border-1 border-gray-400 rounded-full">
 				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="text" name="nombreContacto" id="nombreContacto" placeholder="" maxlength="100" autocomplete="given-name" />
-				<i class="fi fi-rr-user absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
+				<i class="fi icon fi-tr-user absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
 				<span id="error-nombreContacto" class="absolute top-full right-0 text-white bg-red-500 text-sm hidden px-2 rounded-md"></span>
 			</div>
 		</div>
@@ -19,7 +19,7 @@ import Modal from '@components/Modal.astro';
 			<label for="apellidoContacto" class="block mb-2">Apellidos <span class="text-primary">*</span></label>
 			<div class="relative border-1 border-gray-400 rounded-full">
 				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="text" name="apellidoContacto" id="apellidoContacto" placeholder="" maxlength="100" autocomplete="family-name" />
-				<i class="fi fi-rr-user absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
+				<i class="fi icon fi-tr-user absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
 				<span id="error-apellidoContacto" class="absolute top-full right-0 text-white bg-red-500 text-sm hidden px-2 rounded-md"></span>
 			</div>
 		</div>
@@ -31,7 +31,7 @@ import Modal from '@components/Modal.astro';
 			<label for="telefonoContacto" class="block mb-2">Teléfono <span class="text-primary">*</span></label>
 			<div class="relative border-1 border-gray-400 rounded-full">
 				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="number" name="telefonoContacto" id="telefonoContacto" placeholder="" maxlength="10" autocomplete="tel" />
-				<i class="fi fi-rr-phone-call absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
+				<i class="fi icon fi-tr-phone-call absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
 				<span id="error-telefonoContacto" class="absolute top-full right-0 text-white bg-red-500 text-sm hidden px-2 rounded-md"></span>
 			</div>
 		</div>
@@ -46,7 +46,7 @@ import Modal from '@components/Modal.astro';
 					<option value="soporte-tecnico">Soporte técnico</option>
 					<option value="otros">Otros</option>
 				</select>
-				<i class="fi fi-rr-bookmark absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
+				<i class="fi icon fi-tr-bookmark absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
 				<span id="error-asuntoContacto" class="absolute top-full right-0 text-white bg-red-500 text-sm hidden px-2 rounded-md"></span>
 			</div>
 		</div>
@@ -57,7 +57,7 @@ import Modal from '@components/Modal.astro';
 		<label for="emailContacto" class="block mb-2">Correo electrónico <span class="text-primary">*</span></label>
 		<div class="relative border-1 border-gray-400 rounded-full">
 			<input class="ps-10 pr-4 py-4 w-full rounded-full" type="email" name="emailContacto" id="emailContacto" placeholder="" maxlength="100" autocomplete="email" />
-			<i class="fi fi-rr-envelope absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
+			<i class="fi icon fi-tr-at absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
 			<span id="error-emailContacto" class="absolute top-full right-0 text-white bg-red-500 text-sm hidden px-2 rounded-md"></span>
 		</div>
 	</div>
@@ -67,7 +67,7 @@ import Modal from '@components/Modal.astro';
 		<label for="mensajeContacto" class="block mb-2">Mensaje</label>
 		<div class="relative border-1 border-gray-400 rounded-2xl">
 			<textarea class="ps-10 pr-4 py-4 w-full resize-none overflow-hidden" name="mensajeContacto" id="mensajeContacto" placeholder="" rows="1" maxlength="1000"></textarea>
-			<i class="fi fi-rr-comment absolute top-5 left-4 transform text-gray-400"></i>
+			<i class="fi icon fi-tr-comment absolute top-5 left-4 transform text-gray-400"></i>
 		</div>
 	</div>
 
@@ -99,7 +99,7 @@ import Modal from '@components/Modal.astro';
 		<!-- Botón enviar -->
 		<div>
 			<button type="submit" id="submitBtn" class="mt-4 lg:mt-0 flex items-center gap-4 bg-primary hover:bg-accent text-white font-semibold py-4 px-6 rounded-full cursor-pointer disabled:opacity-50 active:scale-95 disabled:cursor-not-allowed disabled:bg-primary disabled:active:scale-100 transition-all duration-300 ease-in-out group" disabled>
-				<i class="fi fi-rr-paper-plane group-hover:rotate-45 transition-all duration-300 ease-in-out hover:delay-200 group-disabled:rotate-0"></i>
+				<i class="fi icon fi-tr-paper-plane group-hover:rotate-45 transition-all duration-300 ease-in-out hover:delay-200 group-disabled:rotate-0"></i>
 				<p class="m-0">Enviar mensaje</p>
 			</button>
 		</div>
@@ -110,7 +110,7 @@ import Modal from '@components/Modal.astro';
 <Modal id="modal" size="max-w-md">
 	<div slot="modal-header">
 		<hgroup class="py-4 text-center">
-			<i class="fi fi-rr-comment-alt-check h-15 w-15 bg-primary-light text-primary text-xl flex items-center justify-center rounded-full mx-auto mb-6"></i>
+			<i class="fi icon fi-tr-comment-alt-check h-15 w-15 bg-primary-light text-primary text-xl flex items-center justify-center rounded-full mx-auto mb-6"></i>
 			<p class="font-bold mb-2 text-2xl">¡Hemos recibido tu mensaje!</p>
 			<p class="text-lg">Nos pondremos en contacto contigo pronto.</p>
 		</hgroup>
@@ -118,7 +118,7 @@ import Modal from '@components/Modal.astro';
 	<div slot="modal-body">
 		<button class="flex items-center justify-center px-8 py-3 gap-3 cursor-pointer text-white bg-primary hover:bg-primary-dark rounded-full transition-all duration-300 ease-in-out mx-auto mt-6 lg:mt-10" data-modal-close>
 			<span>Cerrar</span>
-			<i class="fi fi-rr-cross-small"></i>
+			<i class="fi icon fi-tr-cross-small"></i>
 		</button>
 	</div>
 </Modal>
@@ -127,7 +127,7 @@ import Modal from '@components/Modal.astro';
 <Modal id="modalError" size="max-w-sm">
 	<div slot="modal-header">
 		<hgroup class="py-4 text-center">
-			<i class="fi fi-rr-comment-exclamation h-15 w-15 bg-red-100 text-red-600 text-xl flex items-center justify-center rounded-full mx-auto mb-6"></i>
+			<i class="fi icon fi-tr-comment-exclamation h-15 w-15 bg-red-100 text-red-600 text-xl flex items-center justify-center rounded-full mx-auto mb-6"></i>
 			<p class="font-bold mb-2 text-2xl">¡Error al enviar el mensaje!</p>
 			<p class="text-lg">Por favor, intenta nuevamente más tarde.</p>
 		</hgroup>
@@ -135,7 +135,7 @@ import Modal from '@components/Modal.astro';
 	<div slot="modal-body">
 		<button class="flex items-center justify-center px-8 py-3 gap-3 cursor-pointer text-white bg-red-600 hover:bg-red-800 rounded-full transition-all duration-300 ease-in-out mx-auto mt-6 lg:mt-10" data-modal-close>
 			<span>Cerrar</span>
-			<i class="fi fi-rr-cross-small"></i>
+			<i class="fi icon fi-tr-cross-small"></i>
 		</button>
 	</div>
 </Modal>

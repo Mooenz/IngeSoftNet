@@ -4,6 +4,7 @@ import GeneralSection from '@components/GeneralSection.astro';
 import GeneralContainer from '@components/GeneralContainer.astro';
 import Button from '@components/Button.astro';
 import TitleMain from '@components/TitleMain.astro';
+import 'photoswipe/style.css';
 
 // Importamos imágenes de la galería
 import img0 from '@assets/bosque-nagal/img0.jpg';
@@ -30,7 +31,7 @@ import img15 from '@assets/bosque-nagal/img15.jpg';
 			<div class="flex flex-wrap items-center justify-center gap-6">
 				<Button anchor link="https://bosquenagal.com/" size="md" variants="primary" title="Enlace a conoce más sobre nuestros servicios" attr={{ target: '_blank', rel: 'noopener noreferrer' }}>
 					<span>Bosque Nagal</span>
-					<i class="fi fi-rr-tree-deciduous" aria-hidden="true"></i>
+					<i class="fi icon fi-tr-tree-deciduous" aria-hidden="true"></i>
 				</Button>
 
 				<Button anchor link="https://app.bosquenagal.com/#/inicio-sesion?expired=session" size="md" variants="transparent" title="Enlace a conoce más sobre nuestros servicios" attr={{ target: '_blank', rel: 'noopener noreferrer' }}>
@@ -39,98 +40,98 @@ import img15 from '@assets/bosque-nagal/img15.jpg';
 			</div>
 		</TitleMain>
 		<section id="galleryImages">
-			<div class="columns-1 gap-4 lg:columns-3 xl:columns-4 masonry-container">
-				<div class="mb-4 break-inside-avoid masonry-md">
+			<div class="section columns-1 gap-4 lg:columns-3 xl:columns-4 masonry-container">
+				<div class="element-fade-in mb-4 break-inside-avoid masonry-md">
 					<a class="img" title="Abrir imagen de la galería número 1" href={img0.src} data-pswp-width={1280} data-pswp-height={576} data-cropped="true" data-med-src={img0.src} data-med-width={1280} data-med-height={576} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img0} alt="Galería imagen número 1" title="Imagen de la galería número 1" width="1280" height="576" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid">
+				<div class="element-fade-in mb-4 break-inside-avoid">
 					<a class="img" title="Abrir imagen de la galería número 2" href={img1.src} data-pswp-width={1280} data-pswp-height={576} data-cropped="true" data-med-src={img1.src} data-med-width={1280} data-med-height={576} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img1} alt="Galería imagen número 2" title="Imagen de la galería número 2" width="1280" height="576" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid">
+				<div class="element-fade-in mb-4 break-inside-avoid">
 					<a class="img" title="Abrir imagen de la galería número 3" href={img2.src} data-pswp-width={1920} data-pswp-height={1088} data-cropped="true" data-med-src={img2.src} data-med-width={1920} data-med-height={1088} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img2} alt="Galería imagen número 3" title="Imagen de la galería número 3" width="1920" height="1088" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid masonry-lg">
+				<div class="element-fade-in mb-4 break-inside-avoid masonry-lg">
 					<a class="img" title="Abrir imagen de la galería número 4" href={img3.src} data-pswp-width={1280} data-pswp-height={1280} data-cropped="true" data-med-src={img3.src} data-med-width={1280} data-med-height={1280} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img3} alt="Galería imagen número 4" title="Imagen de la galería número 4" width="1280" height="1280" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid masonry-lg">
+				<div class="element-fade-in mb-4 break-inside-avoid masonry-lg">
 					<a class="img" title="Abrir imagen de la galería número 5" href={img4.src} data-pswp-width={1280} data-pswp-height={1280} data-cropped="true" data-med-src={img4.src} data-med-width={1280} data-med-height={1280} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img4} alt="Galería imagen número 5" title="Imagen de la galería número 5" width="1280" height="1280" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid">
+				<div class="element-fade-in mb-4 break-inside-avoid">
 					<a class="img" title="Abrir imagen de la galería número 6" href={img5.src} data-pswp-width={4000} data-pswp-height={3000} data-cropped="true" data-med-src={img5.src} data-med-width={4000} data-med-height={3000} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img5} alt="Galería imagen número 6" title="Imagen de la galería número 6" width="4000" height="3000" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid masonry-md">
+				<div class="element-fade-in mb-4 break-inside-avoid masonry-md">
 					<a class="img" title="Abrir imagen de la galería número 7" href={img6.src} data-pswp-width={1080} data-pswp-height={1080} data-cropped="true" data-med-src={img6.src} data-med-width={1080} data-med-height={1080} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img6} alt="Galería imagen número 7" title="Imagen de la galería número 7" width="1080" height="1080" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid">
+				<div class="element-fade-in mb-4 break-inside-avoid">
 					<a class="img" title="Abrir imagen de la galería número 8" href={img7.src} data-pswp-width={1640} data-pswp-height={924} data-cropped="true" data-med-src={img7.src} data-med-width={1640} data-med-height={924} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img7} alt="Galería imagen número 8" title="Imagen de la galería número 8" width="1640" height="924" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid masonry-md">
+				<div class="element-fade-in mb-4 break-inside-avoid masonry-md">
 					<a class="img" title="Abrir imagen de la galería número 9" href={img8.src} data-pswp-width={1080} data-pswp-height={1080} data-cropped="true" data-med-src={img8.src} data-med-width={1080} data-med-height={1080} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img8} alt="Galería imagen número 9" title="Imagen de la galería número 9" width="1080" height="1080" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid">
+				<div class="element-fade-in mb-4 break-inside-avoid">
 					<a class="img" title="Abrir imagen de la galería número 10" href={img9.src} data-pswp-width={960} data-pswp-height={1280} data-cropped="true" data-med-src={img9.src} data-med-width={960} data-med-height={1280} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img9} alt="Galería imagen número 10" title="Imagen de la galería número 10" width="960" height="1280" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid masonry-lg">
+				<div class="element-fade-in mb-4 break-inside-avoid masonry-lg">
 					<a class="img" title="Abrir imagen de la galería número 11" href={img10.src} data-pswp-width={1200} data-pswp-height={1600} data-cropped="true" data-med-src={img10.src} data-med-width={1200} data-med-height={1600} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img10} alt="Galería imagen número 11" title="Imagen de la galería número 11" width="1200" height="1600" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid">
+				<div class="element-fade-in mb-4 break-inside-avoid">
 					<a class="img" title="Abrir imagen de la galería número 12" href={img11.src} data-pswp-width={1920} data-pswp-height={1080} data-cropped="true" data-med-src={img11.src} data-med-width={1920} data-med-height={1080} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img11} alt="Galería imagen número 12" title="Imagen de la galería número 12" width="1920" height="1080" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid">
+				<div class="element-fade-in mb-4 break-inside-avoid">
 					<a class="img" title="Abrir imagen de la galería número 13" href={img12.src} data-pswp-width={1920} data-pswp-height={1080} data-cropped="true" data-med-src={img12.src} data-med-width={1920} data-med-height={1080} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img12} alt="Galería imagen número 13" title="Imagen de la galería número 13" width="1920" height="1080" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid masonry-lg">
+				<div class="element-fade-in mb-4 break-inside-avoid masonry-lg">
 					<a class="img" title="Abrir imagen de la galería número 14" href={img13.src} data-pswp-width={1920} data-pswp-height={1080} data-cropped="true" data-med-src={img13.src} data-med-width={1920} data-med-height={1080} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img13} alt="Galería imagen número 14" title="Imagen de la galería número 14" width="1920" height="1080" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid">
+				<div class="element-fade-in mb-4 break-inside-avoid">
 					<a class="img" title="Abrir imagen de la galería número 15" href={img14.src} data-pswp-width={1920} data-pswp-height={1080} data-cropped="true" data-med-src={img14.src} data-med-width={1920} data-med-height={1080} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img14} alt="Galería imagen número 15" title="Imagen de la galería número 15" width="1920" height="1080" />
 					</a>
 				</div>
 
-				<div class="mb-4 break-inside-avoid masonry-md">
+				<div class="element-fade-in mb-4 break-inside-avoid masonry-md">
 					<a class="img" title="Abrir imagen de la galería número 16" href={img15.src} data-pswp-width={1280} data-pswp-height={1280} data-cropped="true" data-med-src={img15.src} data-med-width={1280} data-med-height={1280} target="_blank" rel="noopener noreferrer">
 						<Image class="w-full h-full object-cover rounded-4xl" src={img15} alt="Galería imagen número 16" title="Imagen de la galería número 16" width="1280" height="1280" />
 					</a>
@@ -142,7 +143,6 @@ import img15 from '@assets/bosque-nagal/img15.jpg';
 
 <script>
 	import PhotoSwipeLightbox from 'photoswipe/lightbox';
-	import 'photoswipe/style.css';
 
 	document.addEventListener('DOMContentLoaded', () => {
 		// Inicializar PhotoSwipe Lightbox
@@ -188,7 +188,7 @@ import img15 from '@assets/bosque-nagal/img15.jpg';
 		.img {
 			max-width: none;
 		}
-		
+
 		.masonry-md {
 			height: 350px;
 		}

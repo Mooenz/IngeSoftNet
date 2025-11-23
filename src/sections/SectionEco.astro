@@ -8,13 +8,14 @@ import imageBackground from '@assets/bg-responsabilidad.png';
 
 <GeneralSection classList="bg-text relative overflow-hidden parallax-section">
 	<GeneralContainer>
-		<div class="flex flex-col md:flex-row max-w-4xl mx-auto gap-6 md:items-center">
-			<div>
+		<div class="section flex flex-col md:flex-row max-w-4xl mx-auto gap-6 md:items-center">
+			<div class="element-fade-in">
 				<figure class="lg:min-w-[150px]">
 					<Image class="w-full h-auto max-w-20 md:max-w-38 md:w-[150px] aspect-square object-contain" src={Sello_Bosque_Nagal} width="300" height="289" title="Imagen sello Bosque Nagal" loading="lazy" alt="Sello Bosque Nagal" />
 				</figure>
 			</div>
-			<div>
+
+			<div class="element-fade-in">
 				<h2 class="text-2xl lg:text-3xl font-semibold mb-4 text-white">¿Qué significa ser una Eco-Empresa?</h2>
 				<p class="text-white">Ser Eco Empresa significa apoyar a las familias campesinas en la siembra de árboles, conservar más de 87.500 árboles adultos y dos nacimientos hídricos en nuestro bosque. Además obtienes grandes beneficios.</p>
 			</div>
@@ -24,12 +25,18 @@ import imageBackground from '@assets/bg-responsabilidad.png';
 </GeneralSection>
 
 <script>
-	import gsap from 'gsap';
+	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+	gsap.registerPlugin(ScrollTrigger);
 	document.addEventListener('DOMContentLoaded', () => {
-		gsap.registerPlugin(ScrollTrigger);
-
+		// const lineParallax = gsap.timeline({
+		// 	scrollTrigger: {
+		// 		trigger: '.parallax-img',
+		// 		start: 'top bottom',
+		// 		end: 'bottom top',
+		// 		scrub: 1,
+		// 	},
+		// });
 		// Parallax de la imagen
 		gsap.to('.parallax-img', {
 			yPercent: 50,

@@ -1,7 +1,7 @@
 {
 	"name": "extinct-ellipse",
 	"type": "module",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
@@ -10,14 +10,14 @@
 	},
 	"dependencies": {
 		"@astrojs/sitemap": "^3.6.0",
-		"@tailwindcss/vite": "^4.1.12",
-		"astro": "^5.13.0",
+		"@tailwindcss/vite": "^4.1.17",
+		"astro": "^5.16.0",
 		"astro-critters": "^2.2.1",
 		"gsap": "^3.13.0",
 		"photoswipe": "^5.4.4",
 		"plyr": "^3.8.3",
 		"swiper": "^12.0.3",
-		"tailwindcss": "^4.1.12",
-		"zod": "^4.1.12"
+		"tailwindcss": "^4.1.17",
+		"zod": "^4.1.13"
 	}
 }

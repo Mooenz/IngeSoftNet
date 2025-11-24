@@ -233,7 +233,7 @@ $mail->Encoding = 'base64';
 try {
     // Configuración SMTP
     $mail->isSMTP();
-    $mail->Host = $config['smtp_host'] ?? 'wserver.mdhosting.info';
+    $mail->Host =  'mail.ingesoftnet.com';
     $mail->SMTPAuth = true;
     $mail->Username = $config['smtp_user'] ?? '';
     $mail->Password = $config['smtp_password'] ?? '';
@@ -242,7 +242,7 @@ try {
 
     // Destinatarios
     $mail->setFrom('no-reply@ingesoftnet.com', 'Formulario Web INGESOFTNET');
-    $mail->addAddress('mauricio@ingesoftnet.com'); // Cambiar por tu email
+    $mail->addAddress('soporte@ingesoftnet.com'); // Cambiar por tu email
     $mail->addReplyTo($email, $nombre . ' ' . $apellido);
 
     // Contenido del correo

@@ -27,14 +27,12 @@ body {
 .fi {
 	display: inline-flex;
 	align-items: center;
+	text-size-adjust: 100%;
+	font-size-adjust: initial;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
 	text-wrap: balance;
-}
-
-.section {
-	overflow: hidden;
 }
 
 .sr-only {

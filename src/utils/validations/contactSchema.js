@@ -3,6 +3,7 @@ import { z } from 'zod';
 export const contactSchema = z.object({
 	nombreContacto: z
 		.string({ required_error: 'Completa este campo' })
+		.min(1, 'Completa este campo')
 		.trim()
 		.min(2, 'Mínimo 2 caracteres')
 		.max(50, 'Máximo 50 caracteres')
@@ -10,6 +11,7 @@ export const contactSchema = z.object({
 
 	apellidoContacto: z
 		.string({ required_error: 'Completa este campo' })
+		.min(1, 'Completa este campo')
 		.trim()
 		.min(2, 'Mínimo 2 caracteres')
 		.max(50, 'Máximo 50 caracteres')
@@ -17,17 +19,13 @@ export const contactSchema = z.object({
 
 	telefonoContacto: z
 		.string({ required_error: 'Completa este campo' })
+		.min(1, 'Completa este campo')
 		.trim()
 		.min(7, 'Mínimo 7 dígitos')
 		.max(10, 'Máximo 10 dígitos')
 		.regex(/^[0-9]+$/, 'Ingresa solo números'),
 
-	asuntoContacto: z.preprocess(
-		(val) => (val === '' ? undefined : val),
-		z.enum(['informacion-productos', 'soporte-tecnico', 'otros'], {
-			errorMap: () => ({ message: 'Selecciona una opción' }),
-		})
-	),
+	asuntoContacto: z.string({ required_error: 'Selecciona una opción' }).refine((val) => ['informacion-productos', 'soporte-tecnico', 'otros'].includes(val), { message: 'Selecciona una opción' }),
 
 	emailContacto: z
 		.string({ required_error: 'Ingrese un correo' })

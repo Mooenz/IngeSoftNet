@@ -9,7 +9,7 @@ const { id = 'modal', size } = Astro.props;
 
 <dialog id={id} class={`modal ${size} m-auto`} role="dialog" aria-modal="true" aria-labelledby={`${id}-title`} aria-describedby={`${id}-body`}>
 	<button class="absolute top-4 right-4 cursor-pointer flex items-center justify-center h-10 w-10 bg-transparent hover:bg-gray-400 text-gray-400 hover:text-white rounded-full transition-all duration-300 ease-in-out" aria-label="Cerrar modal" id="close-modal-widget" data-modal-close>
-		<i class="fi icon fi-tr-cross-small"></i>
+		<i class="fi icon fi-tr-x"></i>
 	</button>
 	<div class="modal-content">
 		<div id={`${id}-title`} class="modal-header">

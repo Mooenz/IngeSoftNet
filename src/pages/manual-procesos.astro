@@ -13,10 +13,10 @@ import TabUtilidades from '@components/documentacion/tabs/TabUtilidades.astro';
 import TabAdvertencias from '@components/documentacion/tabs/TabAdvertencias.astro';
 
 const tabs = [
-	{ id: 'sistema', label: 'Sistema', icon: 'fi icon fi-tr-settings', active: true },
+	{ id: 'sistema', label: 'Sistema', icon: 'fi icon fi-tr-api', active: true },
 	{ id: 'archivos', label: 'Archivos', icon: 'fi icon fi-tr-folder-open', active: false },
 	{ id: 'movimientos', label: 'Movimientos', icon: 'fi icon fi-tr-arrows-repeat', active: false },
-	{ id: 'procesos', label: 'Procesos', icon: 'fi icon fi-tr-apps-add', active: false },
+	{ id: 'procesos', label: 'Procesos', icon: 'fi icon fi-tr-process', active: false },
 	{ id: 'informes', label: 'Informes', icon: 'fi icon fi-tr-file-medical-alt', active: false },
 	{ id: 'utilidades', label: 'Utilidades', icon: 'fi icon fi-tr-badge-check', active: false },
 	{ id: 'advertencias', label: 'Advertencias', icon: 'fi icon fi-tr-triangle-warning', active: false },
@@ -26,7 +26,7 @@ const tabs = [
 <Layout title="Manual de Procesos | Guías y Procedimientos Operativos" description="Consulta el Manual de Procesos de IngeSoftNet: lineamientos, procedimientos operativos y guías para el uso de SysCafé y la gestión administrativa. Información pública y actualizada." keywords="Manual de procesos SysCafé, procedimientos operativos, guías SysCafé, procesos administrativos, documentación SysCafé, IngeSoftNet manual.">
 	<HeroSmall title="Manual de Procesos" subtitle="Encontrarás respuestas detalladas a preguntas frecuentes." />
 
-	<Documentacion >
+	<Documentacion>
 		<DocumentacionTabs tabs={tabs} />
 		<DocumentacionContent>
 			<TabSistema />

@@ -3,7 +3,6 @@ import DocumentacionTabContent from '../DocumentacionTabContent.astro';
 import DocumentacionSection from '../DocumentacionSection.astro';
 import DocumentacionImage from '../DocumentacionImage.astro';
 import DocumentacionNote from '../DocumentacionNote.astro';
-import DocumentacionLink from '../DocumentacionLink.astro';
 
 const sections = [
 	{ id: 'generales', title: 'Generales' },
@@ -51,8 +50,8 @@ import img33 from '@assets/images/procesos-periodos.png';
 ---
 
 <DocumentacionTabContent id="procesos" title="Procesos" active={false} sections={sections} link="procesos">
-	<DocumentacionSection id="generales" title="Generales" route="Procesos - Generales">
-		<p><strong>Ruta:</strong> Procesos - Generales - Importar Información - Importar Catálogos</p>
+	<DocumentacionSection id="generales" title="Generales" route="Procesos - Generales - Importar Información - Importar Catálogos">
+		<!-- <p><strong>Ruta:</strong> Procesos - Generales - Importar Información - Importar Catálogos</p> -->
 		<p>Este proceso permite ingresar información al sistema mediante plantillas en Excel, facilitando la carga masiva de datos en los diferentes catálogos disponibles.</p>
 		<p><strong>Pasos a seguir:</strong></p>
 		<ol>

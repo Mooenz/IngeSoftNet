@@ -4,6 +4,7 @@ import DocumentacionSection from '../DocumentacionSection.astro';
 import DocumentacionImage from '../DocumentacionImage.astro';
 import DocumentacionNote from '../DocumentacionNote.astro';
 import DocumentacionLink from '../DocumentacionLink.astro';
+import 'photoswipe/style.css';
 
 const sections = [
 	{ id: 'copiasdeseguridad', title: 'Copias de seguridad' },
@@ -94,7 +95,7 @@ import img38 from '@assets/images/facturacion-pos-electronico4.png';
 		<DocumentacionImage src={img4.src} alt="Imagen de como gestionar el bloqueo de archivos de Excel" width={1600} height={848} title="Imagen de como gestionar el bloqueo de archivos de Excel" pswpWidth={1600} pswpHeight={848} />
 		<p>
 			Haga clic en el campo <strong>Configuración de bloqueo de archivos</strong> y verifique que ninguno de los tipos de archivo tenga marcado el <strong>chulito</strong>
-			<span class="icono inline-flex justify-center items-center w-6 h-6 text-xs text-white bg-green-500 mx-1 rounded-md"><i class="fi icon fi-tr-check-circle"></i></span> . Si encuentra algún tipo de archivo seleccionado, por favor, desmarque todas las opciones.
+			<span class="icono inline-flex justify-center items-center w-6 h-6 text-xs text-white bg-green-500 mx-1 rounded-md"><i class="fi icon fi-tr-badge-check"></i></span> . Si encuentra algún tipo de archivo seleccionado, por favor, desmarque todas las opciones.
 		</p>
 		<DocumentacionImage src={img5.src} alt="Imagen de como gestionar el bloqueo de archivos de Excel" width={1600} height={848} title="Imagen de como gestionar el bloqueo de archivos de Excel" pswpWidth={1600} pswpHeight={848} />
 		<p>La configuración de bloqueo de archivos debe coincidir exactamente con la que se muestra en la imagen. Asegúrese de que todos los ajustes sean los mismos para garantizar un funcionamiento correcto.</p>
@@ -113,7 +114,7 @@ import img38 from '@assets/images/facturacion-pos-electronico4.png';
 			<li>Da click en el botón Adicionar</li>
 			<li>Escribe la información solicitada</li>
 			<li>
-				Marca el chulito <span class="icono inline-flex justify-center items-center w-6 h-6 text-xs text-white bg-green-500 mx-1 rounded-md"><i class="fi icon fi-tr-check-circle"></i></span> del la columna FEL
+				Marca el chulito <span class="icono inline-flex justify-center items-center w-6 h-6 text-xs text-white bg-green-500 mx-1 rounded-md"><i class="fi icon fi-tr-badge-check"></i></span> del la columna FEL
 			</li>
 			<li>Los campos <strong>Teléfono y Dirección</strong> pueden dejarse en blanco, o si lo prefiere, puede completarlos con la información correspondiente para obtener más detalles. <strong>No es obligatorio</strong> llenar estos campos.</li>
 			<li>Salir y Grabar</li>
@@ -207,7 +208,7 @@ import img38 from '@assets/images/facturacion-pos-electronico4.png';
 	<DocumentacionSection id="comunicadosdian" title="Comunicados DIAN" route="Advertencias - Comunicados DIAN">
 		<p>El manual que hemos puesto a tu disposición en nuestra página web está diseñado como una herramienta práctica para mantenerte informado y actualizado con las disposiciones, normativas y lineamientos más recientes emitidos por la DIAN.</p>
 		<p>Este recurso te permitirá garantizar el cumplimiento de las obligaciones fiscales de manera eficiente y oportuna, además de facilitar la comprensión de los cambios regulatorios que impactan los procesos contables y tributarios.</p>
-		<DocumentacionLink href="https://www.dian.gov.co/Prensa/Paginas/HistoricoComunicadosPrensa.aspx" title="Enlace comunicados DIAN" />
+		<DocumentacionLink href="https://www.dian.gov.co/Prensa/Paginas/HistoricoComunicadosPrensa.aspx" title="Enlace comunicados DIAN"> Enlace comunicados DIAN </DocumentacionLink>
 	</DocumentacionSection>
 
 	<DocumentacionSection id="impresorapredeterminada" title="Impresoras predeterminada" route="Advertencias - Impresoras predeterminada">
@@ -354,7 +355,6 @@ import img38 from '@assets/images/facturacion-pos-electronico4.png';
 </DocumentacionTabContent>
 
 <script>
-	import 'photoswipe/style.css';
 	import PhotoSwipeLightbox from 'photoswipe/lightbox';
 
 	document.addEventListener('DOMContentLoaded', () => {

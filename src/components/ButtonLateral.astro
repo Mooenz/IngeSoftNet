@@ -16,7 +16,7 @@ const tooltipClass =
 		<span class={tooltipClass}> Descargar instalador ISL</span>
 	</a>
 
-	<a class={`${classIcon} bg-gray-500 text-white cursor-pointer`} title="Inicia un chat" id="islpronto_link" href="#">
+	<a class={`${classIcon} text-white cursor-pointer link`} title="Inicia un chat" id="islpronto_link" href="#">
 		<i class="fi icon fi-tr-user-headset text-xl lg:text-2xl justify-center"></i>
 		<span class={tooltipClass}>Inicia un chat</span>
 	</a>
@@ -33,7 +33,7 @@ const tooltipClass =
 		<hgroup class="py-4 text-center">
 			<i class="fi icon fi-tr-message-arrow-up-right h-15 w-15 bg-primary-light text-primary text-xl flex items-center justify-center rounded-full mx-auto mb-6"></i>
 			<p class="font-bold mb-2 text-2xl">¡Gracias por tu paciencia!</p>
-			<p class="text-lg">Nuestros asesores están atendiendo a otros usuarios, pero no tardaremos.</p>
+			<p class="text-lg">En este momento nuestros asesores no están disponibles.</p>
 		</hgroup>
 	</div>
 	<div slot="modal-body">
@@ -63,3 +63,13 @@ const tooltipClass =
 		});
 	});
 </script>
+
+<style>
+	.link {
+		background-color: var(--color-primary-dark);
+
+		&[href='#'] {
+			background-color: var(--color-gray-500);
+		}
+	}
+</style>

@@ -21,7 +21,6 @@ export default defineConfig({
 
 			rollupOptions: {
 				css: {
-					// Transformaciones CSS con Lightning CSS (más rápido)
 					transformer: 'lightningcss',
 				},
 			},

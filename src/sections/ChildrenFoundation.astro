@@ -8,6 +8,7 @@ import TitleMain from '@components/TitleMain.astro';
 import imgEquipoVolley from '@assets/equipoVolley.webp';
 import ImagenEquipoFutbol from '@assets/equipoFutbol.webp';
 import ImagenEquipoFutbol2 from '@assets/equipoFutbol2.webp';
+import ImagenEquipoFutbol3 from '@assets/equipoFutbol3.webp';
 import ImagenGrupoShaula from '@assets/grupoShaula.webp';
 import 'swiper/css';
 ---
@@ -59,19 +60,25 @@ import 'swiper/css';
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
 								<figure class="img">
-									<Image class="w-full h-auto" src={imgEquipoVolley} width="500" height="375" title="Equipo de Vóley" alt="Imagen del equipo de vóley" loading="lazy" />
+									<Image class="w-full h-auto" src={imgEquipoVolley} width="400" height="200" title="Equipo de Vóley" alt="Imagen del equipo de vóley" loading="lazy" />
 								</figure>
 							</div>
 
 							<div class="swiper-slide">
 								<figure class="img">
-									<Image class="w-full h-auto" src={ImagenEquipoFutbol} width="500" height="375" title="Equipo de Fútbol" alt="Imagen del equipo de fútbol" loading="lazy" />
+									<Image class="w-full h-auto" src={ImagenEquipoFutbol} width="400" height="200" title="Equipo de Fútbol" alt="Imagen del equipo de fútbol" loading="lazy" />
 								</figure>
 							</div>
 
 							<div class="swiper-slide">
 								<figure class="img">
-									<Image class="w-full h-auto" src={ImagenEquipoFutbol2} width="500" height="375" title="Equipo de Fútbol 2" alt="Imagen del equipo de fútbol 2" loading="lazy" />
+									<Image class="w-full h-auto" src={ImagenEquipoFutbol2} width="400" height="200" title="Equipo de Fútbol 2" alt="Imagen del equipo de micro fútbol" loading="lazy" />
+								</figure>
+							</div>
+
+							<div class="swiper-slide">
+								<figure class="img">
+									<Image class="w-full h-auto" src={ImagenEquipoFutbol3} width="400" height="200" title="Equipo de Fútbol 3" alt="Imagen del equipo de micro fútbol infantil" loading="lazy" />
 								</figure>
 							</div>
 						</div>
@@ -119,7 +126,6 @@ import 'swiper/css';
 		z-index: 11;
 		width: 100%;
 		height: 100%;
-		border-radius: 32px;
 		pointer-events: none;
 		background-color: rgb(0, 0, 0, 0.1);
 	}

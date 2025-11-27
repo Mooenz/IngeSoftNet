@@ -2,44 +2,25 @@
 
 User-agent: \*
 Allow: /
-
-# Desactivar rastreo de directorios administrativos
-
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/internal/
 Disallow: /cgi-bin/
-
-# Desactivar rastreo de archivos temporales y de sistema
-
 Disallow: /tmp/
 Disallow: /temp/
 Disallow: /.git/
 Disallow: /node_modules/
-
-# Desactivar rastreo de archivos de configuración
-
 Disallow: /_.json$
 Disallow: /_.env$
 Disallow: /*.config$
-
-# Permitir acceso a recursos públicos
-
 Allow: /css/
 Allow: /js/
 Allow: /images/
 Allow: /public/
 Allow: /assets/
-
-# Sitemap
-
 Sitemap: https://ingesoftnet.com/sitemap.xml
 Sitemap: https://www.ingesoftnet.com/sitemap.xml
-
-# Crawl-delay para bots específicos (opcional)
-
 User-agent: Googlebot
 Crawl-delay: 0
-
 User-agent: Bingbot
 Crawl-delay: 1

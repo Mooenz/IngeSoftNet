@@ -10,7 +10,9 @@ import ImagenEquipoFutbol from '@assets/equipoFutbol.webp';
 import ImagenEquipoFutbol2 from '@assets/equipoFutbol2.webp';
 import ImagenEquipoFutbol3 from '@assets/equipoFutbol3.webp';
 import ImagenGrupoShaula from '@assets/grupoShaula.webp';
+import ImagenGrupoInfantil from '@assets/grupoInfantil.webp';
 import 'swiper/css';
+import 'photoswipe/style.css';
 ---
 
 <GeneralSection>
@@ -60,25 +62,41 @@ import 'swiper/css';
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
 								<figure class="img">
-									<Image class="w-full h-auto" src={imgEquipoVolley} width="400" height="200" title="Equipo de Vóley" alt="Imagen del equipo de vóley" loading="lazy" />
+									<a href={imgEquipoVolley.src} data-med-src={imgEquipoVolley.src} data-med-width={imgEquipoVolley.width} data-med-height={imgEquipoVolley.height} data-pswp-width={imgEquipoVolley.width} data-pswp-height={imgEquipoVolley.height} data-cropped="true" title="Equipo de Vóley" target="_blank" rel="noopener noreferrer">
+										<Image class="w-full h-auto object-cover" src={imgEquipoVolley} title="Equipo de Vóley" alt="Imagen del equipo de vóley" loading="lazy" />
+									</a>
 								</figure>
 							</div>
 
 							<div class="swiper-slide">
 								<figure class="img">
-									<Image class="w-full h-auto" src={ImagenEquipoFutbol} width="400" height="200" title="Equipo de Fútbol" alt="Imagen del equipo de fútbol" loading="lazy" />
+									<a href={ImagenEquipoFutbol.src} data-med-src={ImagenEquipoFutbol.src} data-med-width={ImagenEquipoFutbol.width} data-med-height={ImagenEquipoFutbol.height} data-pswp-width={ImagenEquipoFutbol.width} data-pswp-height={ImagenEquipoFutbol.height} data-cropped="true" title="Equipo de Fútbol" target="_blank" rel="noopener noreferrer">
+										<Image class="w-full h-auto" src={ImagenEquipoFutbol} title="Equipo de Fútbol" alt="Imagen del equipo de fútbol" loading="lazy" />
+									</a>
 								</figure>
 							</div>
 
 							<div class="swiper-slide">
 								<figure class="img">
-									<Image class="w-full h-auto" src={ImagenEquipoFutbol2} width="400" height="200" title="Equipo de Fútbol 2" alt="Imagen del equipo de micro fútbol" loading="lazy" />
+									<a href={ImagenEquipoFutbol2.src} data-med-src={ImagenEquipoFutbol2.src} data-med-width={ImagenEquipoFutbol2.width} data-med-height={ImagenEquipoFutbol2.height} data-pswp-width={ImagenEquipoFutbol2.width} data-pswp-height={ImagenEquipoFutbol2.height} data-cropped="true" title="Equipo de Fútbol 2" target="_blank" rel="noopener noreferrer">
+										<Image class="w-full h-auto" src={ImagenEquipoFutbol2} title="Equipo de Fútbol 2" alt="Imagen del equipo de micro fútbol" loading="lazy" />
+									</a>
 								</figure>
 							</div>
 
 							<div class="swiper-slide">
 								<figure class="img">
-									<Image class="w-full h-auto" src={ImagenEquipoFutbol3} width="400" height="200" title="Equipo de Fútbol 3" alt="Imagen del equipo de micro fútbol infantil" loading="lazy" />
+									<a href={ImagenEquipoFutbol3.src} data-med-src={ImagenEquipoFutbol3.src} data-med-width={ImagenEquipoFutbol3.width} data-med-height={ImagenEquipoFutbol3.height} data-pswp-width={ImagenEquipoFutbol3.width} data-pswp-height={ImagenEquipoFutbol3.height} data-cropped="true" title="Equipo de Fútbol 3" target="_blank" rel="noopener noreferrer">
+										<Image class="w-full h-auto" src={ImagenEquipoFutbol3} title="Equipo de Fútbol 3" alt="Imagen del equipo de micro fútbol infantil" loading="lazy" />
+									</a>
+								</figure>
+							</div>
+
+							<div class="swiper-slide">
+								<figure class="img">
+									<a href={ImagenGrupoInfantil.src} data-med-src={ImagenGrupoInfantil.src} data-med-width={ImagenGrupoInfantil.width} data-med-height={ImagenGrupoInfantil.height} data-pswp-width={ImagenGrupoInfantil.width} data-pswp-height={ImagenGrupoInfantil.height} data-cropped="true" title="Equipo de Fútbol 3" target="_blank" rel="noopener noreferrer">
+										<Image class="w-full h-auto" src={ImagenGrupoInfantil} title="Equipo de Fútbol 3" alt="Imagen del equipo de micro fútbol infantil" loading="lazy" />
+									</a>
 								</figure>
 							</div>
 						</div>
@@ -92,6 +110,7 @@ import 'swiper/css';
 <script>
 	import Swiper from 'swiper';
 	import { Navigation } from 'swiper/modules';
+	import PhotoSwipeLightbox from 'photoswipe/lightbox';
 
 	document.addEventListener('DOMContentLoaded', () => {
 		new Swiper('#swiper-img', {
@@ -110,6 +129,13 @@ import 'swiper/css';
 			},
 			speed: 3000,
 		});
+
+		const lightbox = new PhotoSwipeLightbox({
+			gallery: '#swiper-img',
+			children: 'a',
+			pswpModule: () => import('photoswipe'),
+		});
+		lightbox.init();
 	});
 </script>
 

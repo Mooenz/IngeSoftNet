@@ -16,15 +16,43 @@ export interface Props {
 }
 
 const { title, description, keywords, bg, classFooter } = Astro.props;
-const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
+
+const organizationSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Organization',
+	name: 'IngeSoftNet',
+	url: 'https://ingesoftnet.com',
+	logo: 'https://ingesoftnet.com/images/favicon.png',
+	description: 'Más que un servicio, somos una solución',
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'Quibdó',
+		addressRegion: 'Chocó',
+		addressCountry: 'CO',
+		streetAddress: 'Carrera 3 # 24A -54, Piso 2 Quibdó - Chocó',
+		postalCode: '270001',
+	},
+};
+
+const websiteSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	name: 'IngeSoftNet',
+	url: 'https://ingesoftnet.com/',
+	potentialAction: {
+		'@type': 'SearchAction',
+		target: 'https://ingesoftnet.com/buscar?q={search_term_string}',
+		'query-input': 'required name=search_term_string',
+	},
+};
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 	<head>
 		<!-- Meta básicos optimizados -->
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
 		<meta name="theme-color" content="#018be8" />
 		<meta name="color-scheme" content="light" />
 		<meta name="application-name" content="IngeSoftNet" />
@@ -34,14 +62,6 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 		<meta name="msapplication-name" content="IngeSoftNet" />
 		<meta name="msapplication-tooltip" content="IngeSoftNet - Más que un servicio, somos una solución" />
 		<meta name="msapplication-config" content="/icons/browserconfig.xml" />
-
-		<!-- Fuente -->
-		<!-- <link rel="preload" href={Fonts} as="style" /> -->
-		<!-- <link rel="stylesheet" href={Fonts} /> -->
-
-		<!-- Iconos -->
-		<!-- <link rel="stylesheet" href={IconsRegular} /> -->
-		<!-- <link rel="stylesheet" href={IconsThin} /> -->
 
 		<!-- SEO Meta Tags -->
 		<title>{title}</title>
@@ -56,31 +76,31 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 		<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
 
 		<link rel="manifest" href="/site.webmanifest" />
-		<link rel="canonical" href={canonicalUrl} />
+		<link rel="canonical" href="https://ingesoftnet.com" />
 		<link rel="alternate" href="https://ingesoftnet.com" hreflang="es-CO" />
 		<link rel="alternate" href="https://ingesoftnet.com" hreflang="x-default" />
 
 		<!-- Open Graph (Redes Sociales) -->
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
-		{description && <meta property="og:description" content={description } />}
+		{description && <meta property="og:description" content={description} />}
 		<meta property="og:url" content="https://ingesoftnet.com" />
 
 		<!-- Locale alternativo para Open Graph -->
 		<meta property="og:locale:alternate" content="en_ES" />
 		<meta property="og:site_name" content="IngeSoftNet" />
-		<meta property="og:image" content='/images/og-image.jpg' />
+		<meta property="og:image" content="/images/og-image.jpg" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content={`${title} - IngeSoftNet`} />
+		<meta property="og:image:alt" content={`${title}`} />
 		<meta property="og:locale" content="es_CO" />
 
 		<!-- Twitter Cards -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		{description && <meta name="twitter:description" content={description} />}
-		<meta name="twitter:image" content='/images/og-image.jpg' />
-		<meta name="twitter:image:alt" content={`${title} - IngeSoftNet`} />
+		<meta name="twitter:image" content="/images/og-image.jpg" />
+		<meta name="twitter:image:alt" content={`${title}`} />
 		<!-- Cuenta principal en Twitter -->
 		<meta name="twitter:site" content="@IngeSoftNet" />
 		<!-- Autor en Twitter -->
@@ -88,13 +108,12 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 
 		<!-- Google search console -->
 		<meta name="google-site-verification" content="-4GL3mMbSt47GxWSPNjCWHnk0BaXiz0mRmhjHQ7I8d4" />
+
 		<!-- Google analytics -->
 		<script async defer src="https://www.googletagmanager.com/gtag/js?id=G-YRK17N2J3R"></script>
 		<script async defer>
-			// @ts-ignore: window.dataLayer is not declared in global Window type
 			window.dataLayer = window.dataLayer || [];
 			function gtag(...args) {
-				// @ts-ignore: window.dataLayer is not declared in global Window type
 				window.dataLayer.push(args);
 			}
 			gtag('js', new Date());
@@ -102,41 +121,10 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 			gtag('config', 'G-EXAMPLEID');
 		</script>
 
-		<!-- Datos estructurados básicos (JSON-LD) -->
-		<script type="application/ld+json">
-				{JSON.stringify({
-						"@context": "https://schema.org",
-						"@type": "Organization",
-						"name": "IngeSoftNet",
-						"url": "https://ingesoftnet.com",
-						"logo": `${siteOrigin}/images/logo.png`,
-						"description": description || "Más que un servicio, somos una solución",
-						"address": {
-								"@type": "PostalAddress",
-								"addressLocality": "Ibagué",
-								"addressRegion": "Tolima",
-								"addressCountry": "CO"
-						}
-				})}
-		</script>
-		<!-- Datos estructurados del sitio con buscador -->
-		<script type="application/ld+json">
-			{
-				JSON.stringify({
-					"@context": "https://schema.org",
-					"@type": "WebSite",
-					"name": "IngeSoftNet",
-					"url": canonicalUrl,
-					"potentialAction": {
-							"@type": "SearchAction",
-							"target": "https://ingesoftnet.com/buscar?q={search_term_string}",
-							"query-input": "required name=search_term_string"
-					}
-				})
-			}
-		</script>	
+		<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 	</head>
-	
+
 	<body>
 		<Menu />
 		<main class={bg}>
@@ -161,29 +149,29 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 		gsap.registerPlugin(SplitText, ScrollTrigger);
 
 		// Títulos principales
-		const titulosMain = document.querySelectorAll(".content-title-main");
+		const titulosMain = document.querySelectorAll('.content-title-main');
 
-		titulosMain.forEach(title => {
+		titulosMain.forEach((title) => {
 			if (!title) return;
 
-			const category = title.querySelector(".category");
-			const titleElement = title.querySelector(".title-main");
-			const content = title.querySelectorAll(".subtitle-main");
+			const category = title.querySelector('.category');
+			const titleElement = title.querySelector('.title-main');
+			const content = title.querySelectorAll('.subtitle-main');
 
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: title,
 					start: 'top 80%',
-				}
+				},
 			});
 
 			// Solo animar si existe el título
 			if (titleElement) {
-				const titleSplit = SplitText.create(titleElement, { 
-					type: 'words,chars', 
-					charsClass: 'letra'
+				const titleSplit = SplitText.create(titleElement, {
+					type: 'words,chars',
+					charsClass: 'letra',
 				});
-				
+
 				tl.from(titleSplit.chars, {
 					duration: 0.5,
 					opacity: 0,
@@ -196,35 +184,42 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 
 			// Solo animar si existe content
 			if (content.length) {
-				tl.from(content, {
-					duration: 0.5,
-					opacity: 0,
-					y: 30,
-					stagger: 0.2,
-					ease: 'power2.out',
-				}, "-=0.3");
+				tl.from(
+					content,
+					{
+						duration: 0.5,
+						opacity: 0,
+						y: 30,
+						stagger: 0.2,
+						ease: 'power2.out',
+					},
+					'-=0.3'
+				);
 			}
 
 			// Solo animar si existe category
 			if (category) {
-				tl.from(category, {
-					duration: 0.5,
-					opacity: 0,
-					y: 30,
-					ease: 'power2.out',
-				}, "-=0.2");
+				tl.from(
+					category,
+					{
+						duration: 0.5,
+						opacity: 0,
+						y: 30,
+						ease: 'power2.out',
+					},
+					'-=0.2'
+				);
 			}
 		});
 
-
 		// Fade in general
 		const secciones = document.querySelectorAll('.section');
-		
+
 		secciones.forEach((section) => {
 			if (!section) return;
-			
+
 			const elements = gsap.utils.toArray(section.querySelectorAll('.element-fade-in'));
-			
+
 			if (!elements.length) return;
 
 			gsap.from(elements, {
@@ -247,20 +242,19 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 	const header = document.getElementById('hero-principal'); // Ajusta el selector según tu HTML
 	const menu = document.getElementById('menu-principal');
 	document.addEventListener('DOMContentLoaded', () => {
-
 		function handleScroll() {
 			// Si no existe header o menu, salir
 			if (!header || !menu) return;
 
 			// Obtener la altura del header
 			const headerHeight = header.offsetHeight;
-			
+
 			// Calcular el 80% de la altura del header
 			const threshold = headerHeight * 0.8;
-			
+
 			// Obtener la posición actual del scroll
 			const scrollPosition = window.scrollY;
-			
+
 			// Si el scroll supera el 80% del header
 			if (scrollPosition > threshold) {
 				// Agregar clase para fijar el menú
@@ -280,7 +274,7 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 		// Animación de enlaces con data-hover
 		const links = document.querySelectorAll<HTMLElement>('.animation-link');
 
-		links.forEach(link => {
+		links.forEach((link) => {
 			const text = link.textContent;
 
 			// Crear el span y mover el contenido dentro
@@ -294,7 +288,7 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 			// Asignar el atributo data-hover
 			link.setAttribute('data-hover', text);
 		});
-		
+
 		// Smooth Scroll para enlaces de ancla
 		// Cuando se de click a un enlace de ancla, hacer scroll suave se ubica 80px abajo del elemento
 		document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -317,7 +311,7 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 		// Botón de volver al inicio de la documentación
 		const backToTopButton = document.querySelector('#volver-arriba');
 		const documentacion = document.querySelector('#menu-principal');
-		
+
 		if (backToTopButton && documentacion) {
 			backToTopButton.addEventListener('click', () => {
 				documentacion.scrollIntoView({
@@ -347,35 +341,31 @@ const canonicalUrl = Astro.url?.href ?? 'https://ingesoftnet.com';
 			observer2.observe(inicio);
 		}
 	});
-
-
-	
-	
 </script>
 
 <style>
-.btn-volver-arriba {
-	position: fixed;
-	bottom: 20px;
-	left: 20px;
-	z-index: 9999;
-	width: 50px;
-	height: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 50%;
-	background-color: var(--color-primary-dark);
-	color: #fff;
-	border: none;
-	cursor: pointer;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-	font-size: 1.5rem;
-	transform: scale(0);
-	transition: transform ease-in-out 0.3s;
-}
+	.btn-volver-arriba {
+		position: fixed;
+		bottom: 20px;
+		left: 20px;
+		z-index: 9999;
+		width: 50px;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		background-color: var(--color-primary-dark);
+		color: #fff;
+		border: none;
+		cursor: pointer;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+		font-size: 1.5rem;
+		transform: scale(0);
+		transition: transform ease-in-out 0.3s;
+	}
 
-.btn-volver-arriba.activo {
-	transform: scale(1);
-}
+	.btn-volver-arriba.activo {
+		transform: scale(1);
+	}
 </style>

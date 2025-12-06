@@ -22,7 +22,7 @@ const organizationSchema = {
 	'@type': 'Organization',
 	name: 'IngeSoftNet',
 	url: 'https://ingesoftnet.com',
-	logo: 'https://ingesoftnet.com/images/favicon.png',
+	logo: 'https://ingesoftnet.com/images/web-app-manifest-512x512.png',
 	description: 'Más que un servicio, somos una solución',
 	address: {
 		'@type': 'PostalAddress',
@@ -32,6 +32,13 @@ const organizationSchema = {
 		streetAddress: 'Carrera 3 # 24A -54, Piso 2 Quibdó - Chocó',
 		postalCode: '270001',
 	},
+	contactPoint: {
+		'@type': 'ContactPoint',
+		telephone: '+57-316-265-68-86',
+		contactType: 'customer service',
+		availableLanguage: 'Spanish',
+	},
+	sameAs: ['https://www.facebook.com/ingesoftnetsas', 'https://www.instagram.com/ingesoftnet', 'https://www.youtube.com/@ingesoftnet'],
 };
 
 const websiteSchema = {

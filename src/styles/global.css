@@ -35,6 +35,12 @@ body {
 	text-wrap: balance;
 }
 
+/* Estado inicial para elementos con animación fade-in (evita salto al cargar) */
+.element-fade-in {
+	opacity: 0;
+	transform: translateY(50px);
+}
+
 .sr-only {
 	position: absolute;
 	width: 1px;

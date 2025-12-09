@@ -7,8 +7,8 @@ const menu = {
 		esBoton: false,
 	},
 	manual: {
-		nombre: 'Manual de procesos',
-		href: '/manual-procesos',
+		nombre: 'Manual de Soporte',
+		href: '/manual-soporte',
 		icono: 'icon fi-tr-book-bookmark',
 		submenu: [],
 		esBoton: false,

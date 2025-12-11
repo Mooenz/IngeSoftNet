@@ -12,7 +12,6 @@ export default defineConfig({
 	integrations: [
 		critters(),
 		sitemap({
-			filter: (page) => page !== 'https://ingesoftnet.com/secret-page/',
 			customPages: ['https://ingesoftnet.com/external-page'],
 			serialize(item) {
 				// Configuración por URL

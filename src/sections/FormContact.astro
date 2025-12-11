@@ -8,7 +8,7 @@ import Modal from '@components/Modal.astro';
 		<div class="w-full">
 			<label for="nombreContacto" class="block mb-2">Nombres <span class="text-primary">*</span></label>
 			<div class="relative border-1 border-gray-400 rounded-full">
-				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="text" name="nombreContacto" id="nombreContacto" placeholder="" maxlength="100" autocomplete="given-name" />
+				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="text" name="nombreContacto" id="nombreContacto" placeholder="" maxlength="50" autocomplete="given-name" />
 				<i class="fi icon fi-tr-user-check absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
 				<span id="error-nombreContacto" class="absolute top-full right-0 text-white bg-red-500 text-sm hidden px-2 rounded-md"></span>
 			</div>
@@ -18,7 +18,7 @@ import Modal from '@components/Modal.astro';
 		<div class="w-full">
 			<label for="apellidoContacto" class="block mb-2">Apellidos <span class="text-primary">*</span></label>
 			<div class="relative border-1 border-gray-400 rounded-full">
-				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="text" name="apellidoContacto" id="apellidoContacto" placeholder="" maxlength="100" autocomplete="family-name" />
+				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="text" name="apellidoContacto" id="apellidoContacto" placeholder="" maxlength="50" autocomplete="family-name" />
 				<i class="fi icon fi-tr-user-check absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
 				<span id="error-apellidoContacto" class="absolute top-full right-0 text-white bg-red-500 text-sm hidden px-2 rounded-md"></span>
 			</div>
@@ -30,7 +30,7 @@ import Modal from '@components/Modal.astro';
 		<div class="w-full">
 			<label for="telefonoContacto" class="block mb-2">Teléfono <span class="text-primary">*</span></label>
 			<div class="relative border-1 border-gray-400 rounded-full">
-				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="number" name="telefonoContacto" id="telefonoContacto" placeholder="" maxlength="10" autocomplete="tel" />
+				<input class="ps-10 pr-4 py-4 w-full rounded-full" type="tel" name="telefonoContacto" id="telefonoContacto" placeholder="" maxlength="10" inputmode="numeric" pattern="[0-9]*" autocomplete="tel" />
 				<i class="fi icon fi-tr-phone-call absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400"></i>
 				<span id="error-telefonoContacto" class="absolute top-full right-0 text-white bg-red-500 text-sm hidden px-2 rounded-md"></span>
 			</div>
@@ -147,6 +147,19 @@ import Modal from '@components/Modal.astro';
 		const form = document.getElementById('contactForm') as HTMLFormElement;
 		const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
 		const textarea = document.getElementById('mensajeContacto') as HTMLTextAreaElement;
+		const telefonoInput = document.getElementById('telefonoContacto') as HTMLInputElement;
+
+		// Restringir campo teléfono a solo números
+		telefonoInput.addEventListener('input', (e) => {
+			const target = e.target as HTMLInputElement;
+			target.value = target.value.replace(/[^0-9]/g, '');
+		});
+
+		telefonoInput.addEventListener('keypress', (e) => {
+			if (!/[0-9]/.test(e.key)) {
+				e.preventDefault();
+			}
+		});
 
 		// Prevenir envíos duplicados
 		let isSubmitting = false;

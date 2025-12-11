@@ -97,7 +97,7 @@ if (empty($apellido) || strlen($apellido) > 100) {
     $errors[] = 'Apellido inválido';
 }
 
-if (empty($telefono) || strlen($telefono) > 20) {
+if (empty($telefono) || strlen($telefono) > 10 || !preg_match('/^[0-9]+$/', $telefono)) {
     $errors[] = 'Teléfono inválido';
 }
 

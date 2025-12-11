@@ -237,8 +237,9 @@ const websiteSchema = {
 				ease: 'power2.out',
 				stagger: 0.3,
 				scrollTrigger: {
-					trigger: section, // Usar section, no elements
-					start: 'top 80%',
+					markers: true,
+					trigger: section,
+					start: 'top 100%',
 				},
 			});
 		});
